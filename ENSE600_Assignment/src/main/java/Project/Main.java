@@ -108,28 +108,23 @@ public class Main {
                 }   
                 switch(menuSelected) // switch case to handle tab changing
                 {
-                case  1:  // View
-                    screenState = 1;
-                    //viewTab.printView(screenWidth);
-                    System.out.print("_____ VIEW ______ ");
-                    break;
-                            
-                case  2:  // Add items
-                    screenState = 2;
-                    break;
-                case  3:  // Budget
-                    screenState = 3;
-                    break;
-                case  4:  // Settings
-                    screenState = 4;
-                    break;    
-            }
-            }    
-            
-            
-            
+                    case  1:  // View
+                        screenState = 1;
+                        //viewTab.printView(screenWidth);
+                        System.out.print("_____ VIEW ______ ");
+                        break;        
+                    case  2:  // Add items
+                        screenState = 2;
+                        break;
+                    case  3:  // Budget
+                        screenState = 3;
+                        break;
+                    case  4:  // Settings
+                        screenState = 4;
+                        break;    
+                }
+            }       
         }
-        
     }
     
     public static void printWelcome(int screenWidth)
