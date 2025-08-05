@@ -28,14 +28,14 @@ public class Main {
         // add capabilty to check for duplcut names
   
         
-        Item milk = new Item("Milk 2L"); 
+        // Item milk = new Item("Milk 2L"); 
         // me messing around a bit
-        manager.addItem(milk);
+        //manager.addItem(milk);
 //        manager.logPurchase(milk.getUuid(), LocalDate.of(2025, 7, 1));
 //        manager.logPurchase(milk.getUuid(), LocalDate.of(2025, 7, 8));
 //        manager.logPurchase(milk.getUuid(), LocalDate.of(2025, 7, 25));
         
-         manager.logPurchase(milk.getUuid(), LocalDate.now());
+         // manager.logPurchase(milk.getUuid(), LocalDate.now());
 
         
         List<Item> toBuy = manager.getItemsToReplenish(LocalDate.of(2025, 8, 4));
@@ -45,7 +45,7 @@ public class Main {
 
         manager.saveItems("items.txt");
         manager.savePurchases("purchases.txt");
-        
+        /*
         for (Item item : manager.getAllItems()) 
         {
             System.out.println("Item: " + item.getName());
@@ -55,24 +55,26 @@ public class Main {
             System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
             System.out.println();
         }
+        */
         
         
         
         // megan 
-        // main menu
+        // ----- main menu ----- // 
         Scanner input = new Scanner(System.in); // scanner to take user input
-        System.out.println("Welcome");
+        
  
         int screenState = 0; // track screen state
-        int screenWidth = 60;
+        int screenWidth = 160; // maximum size
+        
         
         while (true) // infinite loop until 'x' is entered
         {
-             
             if (screenState == 0)
             {
+                printWelcome(screenWidth); // Print homescreen
                 // Prompt for input
-                System.out.print("\nWhat would you like to do?\n1: View inventory\n2: Add new items\n3: Budget\n4: Settings\n");
+                
                 String menuSelect = input.next().trim(); // Take input
                 
                 if (menuSelect.equals("x")) // quit condition -> prompt to save?
@@ -102,6 +104,44 @@ public class Main {
         }
         input.close(); // close scanner     
     }
+    
+    public static void printWelcome(int screenWidth) 
+    {
+        String welcomeMsg = "Welcome to the ___ manager";           // Welcome msg
+        String menuInstructionMsg = "What would you like to do?";   // Instruction msg
+        String firstInstruction = "1: View inventory";
+        String secondInstruction = "2: Add new items";
+        String thirdInstruction = "3: Budget";
+        String fourthInstruction = "4: Settings";
+        
+        
+        int workableWidth = screenWidth - 2;                        // Gap between the border lines
+        int smallGap = 1;                                           // Padding gap
+        int msgGap = (workableWidth - welcomeMsg.length()) / 2;     // Gap calculator to center the welcome message
+        
+        
+        // --- Print screen --- //
+        
+        // Print welcome
+        viewTab.printBar(screenWidth); // Top border (full length)
+        Formatting.printBorder(3,screenWidth);    // Side borders
+        System.out.printf("\n|%" + msgGap + "s%s%" + msgGap + "s|", "", welcomeMsg, ""); // Print welcome
+        Formatting.printBorder(3,screenWidth);    // Side border
+        
+        // Print instructions
+        System.out.printf("\n|%" + smallGap + "s%s%" + (workableWidth - smallGap - menuInstructionMsg.length()) + "s|", "", menuInstructionMsg, ""); // Print instruction prompt  
+        System.out.printf("\n|%" + smallGap + "s%s%" + (workableWidth - smallGap - firstInstruction.length()) + "s|", "", firstInstruction, "");
+        System.out.printf("\n|%" + smallGap + "s%s%" + (workableWidth - smallGap - secondInstruction.length()) + "s|", "", secondInstruction, "");
+        System.out.printf("\n|%" + smallGap + "s%s%" + (workableWidth - smallGap - thirdInstruction.length()) + "s|", "", thirdInstruction, "");
+        System.out.printf("\n|%" + smallGap + "s%s%" + (workableWidth - smallGap - fourthInstruction.length()) + "s|", "", fourthInstruction, "");
+        
+        
+        
+        
+    }
+    
+    
+ 
 }
 
 

@@ -45,7 +45,9 @@ public class viewTab
     
     public static void printBar(int screenWidth)
     {
-        for(int i = 0; i < screenWidth; i++)
+        int workableWidth = screenWidth - 2;
+        System.out.print(" ");
+        for(int i = 0; i < workableWidth; i++)
         {
             System.out.print("_");
         }
