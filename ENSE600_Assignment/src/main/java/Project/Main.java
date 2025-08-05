@@ -87,6 +87,7 @@ public class Main {
                     if (menuSelected >= 1 && menuSelected <= mainMenuInstructions.length - 1) // Skip 1st line prompt
                     {
                        screenState = menuSelected; // If conversion successful change the screen state
+                       input.close(); // close scanner 
                     }
                     else // Invalid number was entered
                     {
@@ -105,24 +106,28 @@ public class Main {
                     menuSelected = 0;
                     
                 }   
-            }input.close(); // close scanner     
+                switch(menuSelected) // switch case to handle tab changing
+                {
+                case  1:  // View
+                    screenState = 1;
+                    //viewTab.printView(screenWidth);
+                    System.out.print("_____ VIEW ______ ");
+                    break;
+                            
+                case  2:  // Add items
+                    screenState = 2;
+                    break;
+                case  3:  // Budget
+                    screenState = 3;
+                    break;
+                case  4:  // Settings
+                    screenState = 4;
+                    break;    
+            }
+            }    
             
-            switch(menuSelected) // switch case to handle tab changing
-                        {
-                            case  1:  // View
-                                screenState = 1;
-                                // viewTab.printView(screenWidth);
-                                break;
-                            case  2:  // Add items
-                                screenState = 2;
-                                break;
-                            case  3:  // Budget
-                                screenState = 3;
-                                break;
-                            case  4:  // Settings
-                                screenState = 4;
-                                break;    
-                        } 
+            
+            
         }
         
     }
