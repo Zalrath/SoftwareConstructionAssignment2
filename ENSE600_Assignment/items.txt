@@ -1,0 +1,5 @@
+uuid,name,lastPurchased,estimatedIntervalDays
+8de13892-1dbf-406d-a86d-bc27fbb297db,Milk 2L,2025-08-05,0
+bd2b61d8-1f50-4f23-866c-f3320c60ad3b,Milk 2L,2025-08-05,0
+0c926060-eb61-486f-bb53-025bd8487b5a,Milk 2L,2025-08-05,0
+bea9d2b7-b0ba-4ea0-820a-3b3dc76c75c3,Milk 2L,2025-08-05,0
