@@ -23,8 +23,8 @@ public class viewTab
     
     public static void printView(int screenWidth) 
     {
-        printBar(screenWidth); 
-        printRow(screenWidth);       
+        System.out.print("_____ VIEW ______ ");
+  
     }
     
     public static void printRow(int screenWidth) 
@@ -43,15 +43,7 @@ public class viewTab
         " Item ", " Name ", " Quantity ", " Cost ");
     }
     
-    public static void printBar(int screenWidth)
-    {
-        int workableWidth = screenWidth - 2;
-        System.out.print(" ");
-        for(int i = 0; i < workableWidth; i++)
-        {
-            System.out.print("_");
-        }
-    }
+    
     
 }
 

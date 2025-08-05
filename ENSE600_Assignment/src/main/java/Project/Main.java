@@ -60,89 +60,106 @@ public class Main {
         
         
         // megan 
-        // ----- main menu ----- // 
-        Scanner input = new Scanner(System.in); // scanner to take user input
-        
+        // ----- Main Menu ----- // 
+        Scanner input = new Scanner(System.in); // Scanner to take user input
+        int screenWidth = 160; // Maximum size for printing
  
-        int screenState = 0; // track screen state
-        int screenWidth = 160; // maximum size
+        int screenState = 0; // Track screen state
+        int menuSelected = 0;
         
         
-        while (true) // infinite loop until 'x' is entered
+        printWelcome(screenWidth);                  // Print homescreen
+        while (true) // Infinite loop until 'x' is entered
         {
-            if (screenState == 0)
+            if (screenState == 0) // No menu selection
             {
-                printWelcome(screenWidth); // Print homescreen
-                // Prompt for input
+                String menuInput = input.next().trim();     // Take user input and store it as menuInput
                 
-                String menuSelect = input.next().trim(); // Take input
-                
-                if (menuSelect.equals("x")) // quit condition -> prompt to save?
+                if (menuInput.equalsIgnoreCase("x")) // Quit condition -> prompt to save?
                 {
                     System.out.println("Program terminated.");
-                    break; // exit loop
+                    System.exit(0);
                 }
-                
-                switch(menuSelect)
+                // Try catch to validate input is an integer
+                try
                 {
-                    case  "1":  // View
-                        screenState = 1;
-                        viewTab.printView(screenWidth);
-                        break;
-                    case  "2":  // Add items
-                        screenState = 2;
-                        break;
-                    case  "3":  // Budget
-                        screenState = 3;
-                        break;
-                    case  "4":  // Settings
-                        screenState = 4;
-                        break;
-                    default:
-                }  
-             }
+                    menuSelected = Integer.parseInt(menuInput); // Convert string to integer check for input
+                    if (menuSelected >= 1 && menuSelected <= mainMenuInstructions.length - 1) // Skip 1st line prompt
+                    {
+                       screenState = menuSelected; // If conversion successful change the screen state
+                    }
+                    else // Another, invalid number was input
+                    {
+                        System.out.printf("| Invalid option. Please select a number between 1 and %d:%n", (mainMenuInstructions.length - 1));
+                        //System.out.println("| Invalid option please select a number between 1 and " + (mainMenuInstructions.length - 1) + ":");
+                        Formatting.printInputLine(padding);
+                        menuSelected = 0;
+                    }
+                }
+                catch(NumberFormatException e) // Catch if anything but an integer was inputted
+                {
+                    System.out.printf("| %s%n", "Invalid input. Please enter a number or 'x' to exit.");
+                    //System.out.println("| Invalid input. Please enter a number or 'x' to exit.");
+                    
+                    Formatting.printInputLine(padding);
+                    menuSelected = 0;
+                    
+                }   
+            }
+            switch(menuSelected) // switch case to handle tab changing
+                        {
+                            case  1:  // View
+                                screenState = 1;
+                                // viewTab.printView(screenWidth);
+                                break;
+                            case  2:  // Add items
+                                screenState = 2;
+                                break;
+                            case  3:  // Budget
+                                screenState = 3;
+                                break;
+                            case  4:  // Settings
+                                screenState = 4;
+                                break;    
+                        } 
         }
         input.close(); // close scanner     
     }
     
-    public static void printWelcome(int screenWidth) 
+    public static void printWelcome(int screenWidth)
     {
         String welcomeMsg = "Welcome to the ___ manager";           // Welcome msg
-        String menuInstructionMsg = "What would you like to do?";   // Instruction msg
-        String firstInstruction = "1: View inventory";
-        String secondInstruction = "2: Add new items";
-        String thirdInstruction = "3: Budget";
-        String fourthInstruction = "4: Settings";
-        
         
         int workableWidth = screenWidth - 2;                        // Gap between the border lines
-        int smallGap = 1;                                           // Padding gap
         int msgGap = (workableWidth - welcomeMsg.length()) / 2;     // Gap calculator to center the welcome message
         
         
         // --- Print screen --- //
         
         // Print welcome
-        viewTab.printBar(screenWidth); // Top border (full length)
-        Formatting.printBorder(3,screenWidth);    // Side borders
+        Formatting.printBar(screenWidth); // Top border (full length)
+        Formatting.printBorder(3, screenWidth);    // Side borders
         System.out.printf("\n|%" + msgGap + "s%s%" + msgGap + "s|", "", welcomeMsg, ""); // Print welcome
-        Formatting.printBorder(3,screenWidth);    // Side border
+        Formatting.printBorder(3, screenWidth);    // Side border
         
-        // Print instructions
-        System.out.printf("\n|%" + smallGap + "s%s%" + (workableWidth - smallGap - menuInstructionMsg.length()) + "s|", "", menuInstructionMsg, ""); // Print instruction prompt  
-        System.out.printf("\n|%" + smallGap + "s%s%" + (workableWidth - smallGap - firstInstruction.length()) + "s|", "", firstInstruction, "");
-        System.out.printf("\n|%" + smallGap + "s%s%" + (workableWidth - smallGap - secondInstruction.length()) + "s|", "", secondInstruction, "");
-        System.out.printf("\n|%" + smallGap + "s%s%" + (workableWidth - smallGap - thirdInstruction.length()) + "s|", "", thirdInstruction, "");
-        System.out.printf("\n|%" + smallGap + "s%s%" + (workableWidth - smallGap - fourthInstruction.length()) + "s|", "", fourthInstruction, "");
-        
-        
-        
-        
+        // Print instructions  
+        for (String msg : mainMenuInstructions) 
+        {
+            int trailing = workableWidth - padding - msg.length();
+            System.out.printf("\n|%" + padding + "s%s%" + trailing + "s|", "", msg, "");
+        }
+        // New line to take input
+        System.out.printf("\nm|%" + padding + "s", "");
     }
     
+    static String[] mainMenuInstructions = 
+    {
+    "What would you like to do?",
+    "1: View inventory",
+    "2: Add new items",
+    "3: Budget",
+    "4: Settings"
+    };
     
- 
+    static int padding = 1; // Padding gap
 }
-
-
-// checking Git
