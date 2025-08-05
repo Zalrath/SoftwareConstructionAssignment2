@@ -88,7 +88,7 @@ public class Main {
                     {
                        screenState = menuSelected; // If conversion successful change the screen state
                     }
-                    else // Another, invalid number was input
+                    else // Invalid number was entered
                     {
                         System.out.printf("| Invalid option. Please select a number between 1 and %d:%n", (mainMenuInstructions.length - 1));
                         //System.out.println("| Invalid option please select a number between 1 and " + (mainMenuInstructions.length - 1) + ":");
@@ -105,7 +105,8 @@ public class Main {
                     menuSelected = 0;
                     
                 }   
-            }
+            }input.close(); // close scanner     
+            
             switch(menuSelected) // switch case to handle tab changing
                         {
                             case  1:  // View
@@ -123,7 +124,7 @@ public class Main {
                                 break;    
                         } 
         }
-        input.close(); // close scanner     
+        
     }
     
     public static void printWelcome(int screenWidth)
@@ -149,7 +150,7 @@ public class Main {
             System.out.printf("\n|%" + padding + "s%s%" + trailing + "s|", "", msg, "");
         }
         // New line to take input
-        System.out.printf("\nm|%" + padding + "s", "");
+        System.out.printf("\n|%" + padding + "s", "");
     }
     
     static String[] mainMenuInstructions = 
