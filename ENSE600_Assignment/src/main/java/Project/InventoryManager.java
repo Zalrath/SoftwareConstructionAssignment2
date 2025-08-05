@@ -7,6 +7,13 @@ package Project;
 /**
  *
  * @author corin
+ * 
+ * Need to add 
+ * Amount/ Quantity 
+ * Tags 
+ * cost
+ * 
+ * 
  */
 import java.io.*;
 import java.nio.file.*;
@@ -18,7 +25,11 @@ public class InventoryManager {
     private Map<UUID, Item> items = new HashMap<>();
     private Map<UUID, List<PurchaseLog>> purchaseHistory = new HashMap<>();
 
-    // Load from text files
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+    // Load from text files 
     public void loadItems(String path) throws IOException {
         List<String> lines = Files.readAllLines(Paths.get(path));
         lines.remove(0); // skip header
@@ -27,6 +38,7 @@ public class InventoryManager {
             String[] parts = line.split(",");
             UUID uuid = UUID.fromString(parts[0]);
             String name = parts[1];
+            //ArraysList<String> tags = parts[2]; 
             LocalDate lastPurchased = LocalDate.parse(parts[2]);
             int interval = Integer.parseInt(parts[3]);
 
@@ -48,21 +60,25 @@ public class InventoryManager {
         for (String line : lines) {
             String[] parts = line.split(",");
             UUID uuid = UUID.fromString(parts[0]);
-            LocalDate date = LocalDate.parse(parts[1]);
+            double price = Double.parseDouble(parts[1]);
+            double quantity = Double.parseDouble(parts[2]);
+            LocalDate date = LocalDate.parse(parts[3]);
 
             purchaseHistory.computeIfAbsent(uuid, k -> new ArrayList<>())
-                .add(new PurchaseLog(uuid, date));
+                .add(new PurchaseLog(uuid,price ,quantity , date));
         }
     }
-
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // added tags 
     // Save to text files
     public void saveItems(String path) throws IOException {
         BufferedWriter writer = Files.newBufferedWriter(Paths.get(path));
         writer.write("uuid,name,lastPurchased,estimatedIntervalDays\n");
         for (Item item : items.values()) {
-            writer.write(String.format("%s,%s,%s,%d\n",
+            writer.write(String.format("%s,%s,%s,%d\n", // add another for the tags
                 item.getUuid(),
                 item.getName(),
+                //item.getTags(),
                 item.getLastPurchased(),
                 item.getEstimatedIntervalDays()));
         }
@@ -74,21 +90,31 @@ public class InventoryManager {
         writer.write("itemId,purchaseDate\n");
         for (List<PurchaseLog> logs : purchaseHistory.values()) {
             for (PurchaseLog log : logs) {
-                writer.write(String.format("%s,%s\n",
+                writer.write(String.format("%s,%s,%s,%s\n",
                     log.getItemId(),
+                    log.getPrice(),
+                    log.getQuantity(),
                     log.getPurchaseDate()));
             }
         }
         writer.close();
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+    
+    
+    
+    
+    
     public void addItem(Item item) {
         items.put(item.getUuid(), item);
     }
-
-    public void logPurchase(UUID itemId, LocalDate date) {
+ //
+    public void logPurchase(UUID itemId, double price , double quantity , LocalDate date) {
         purchaseHistory.computeIfAbsent(itemId, k -> new ArrayList<>())
-            .add(new PurchaseLog(itemId, date));
+            .add(new PurchaseLog(itemId, price, quantity, date));
 
         Item item = items.get(itemId);
         if (item != null) {

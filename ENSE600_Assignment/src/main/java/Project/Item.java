@@ -5,7 +5,8 @@
 package Project;
 
 import java.time.LocalDate;
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.*;
 
 public class Item {
     private UUID uuid;
@@ -13,12 +14,19 @@ public class Item {
     private LocalDate lastPurchased;
     private int estimatedIntervalDays;
     private LocalDate nextExpectedPurchase;
+   
+    //private ArrayList<String> tags;
+    
+    
 
-    public Item() {}
+    public Item() {//this.tags = new ArrayList<String>();
+}
 
     public Item(String name) {
+        //this.tags = new ArrayList<String>();
         this.uuid = UUID.randomUUID();
         this.name = name;
+       
     }
 
     public void updateNextExpectedPurchase() {
@@ -46,4 +54,9 @@ public class Item {
 
     public LocalDate getNextExpectedPurchase() { return nextExpectedPurchase; }
     public void setNextExpectedPurchase(LocalDate nextExpectedPurchase) { this.nextExpectedPurchase = nextExpectedPurchase; }
+    
+    //public ArrayList<String> getTags(){return tags;}
+    //public void SetTag(String Tag) { this.tags.add(Tag); }
+    
+    
 }
