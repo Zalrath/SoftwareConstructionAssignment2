@@ -65,54 +65,57 @@ public class Main {
         
         
         
-        // megan 
+        // @author megan 
         // ----- Main Menu ----- // 
         Scanner input = new Scanner(System.in); // Scanner to take user input
-        int screenWidth = 160; // Maximum size for printing
+       
  
+        // Variables
         int screenState = 0; // Track screen state
         int menuSelected = 0;
         
+        // Print homescreen
+        Formatting.printWelcome();
+        viewTab.printView(Formatting.screenWidth);
         
-        printWelcome(screenWidth);                  // Print homescreen
+        // Menu selection logic
         while (true) // Infinite loop until 'x' is entered
         {
-            if (screenState == 0) // No menu selection
+            if (screenState == 0) // No menu selection has been made
             {
                 String menuInput = input.next().trim();     // Take user input and store it as menuInput
                 
-                if (menuInput.equalsIgnoreCase("x")) // Quit condition -> prompt to save?
+                if (menuInput.equalsIgnoreCase("x"))        // Quit condition -> prompt to save?
                 {
                     System.out.println("Program terminated.");
                     System.exit(0);
                 }
-                // Try catch to validate input is an integer
+                
+                // Try catch to validate user input
                 try
                 {
                     menuSelected = Integer.parseInt(menuInput); // Convert string to integer check for input
-                    if (menuSelected >= 1 && menuSelected <= mainMenuInstructions.length - 1) // Skip 1st line prompt
+                    if (menuSelected >= 1 && menuSelected <= mainMenuInstructions.length - 1) // Skip 1st line prompt (message not instruction)
                     {
-                       screenState = menuSelected; // If conversion successful change the screen state
+                       screenState = menuSelected; // If conversion successful change the screen state (valid selection made)
                        input.close(); // close scanner 
                     }
                     else // Invalid number was entered
                     {
                         System.out.printf("| Invalid option. Please select a number between 1 and %d:%n", (mainMenuInstructions.length - 1));
-                        //System.out.println("| Invalid option please select a number between 1 and " + (mainMenuInstructions.length - 1) + ":");
-                        Formatting.printInputLine(padding);
+                        Formatting.printInputLine();
                         menuSelected = 0;
                     }
                 }
-                catch(NumberFormatException e) // Catch if anything but an integer was inputted
+                catch(NumberFormatException e) // Catch if anything but an integer or "x" was entered
                 {
                     System.out.printf("| %s%n", "Invalid input. Please enter a number or 'x' to exit.");
-                    //System.out.println("| Invalid input. Please enter a number or 'x' to exit.");
                     
-                    Formatting.printInputLine(padding);
+                    Formatting.printInputLine();
                     menuSelected = 0;
-                    
-                }   
-                switch(menuSelected) // switch case to handle tab changing
+                }
+                
+                switch(menuSelected) // Switch case to handle tab changing using screenState
                 {
                     case  1:  // View
                         screenState = 1;
@@ -131,42 +134,15 @@ public class Main {
                 }
             }       
         }
-    }
-    
-    public static void printWelcome(int screenWidth)
-    {
-        String welcomeMsg = "Welcome to the ___ manager";           // Welcome msg
-        
-        int workableWidth = screenWidth - 2;                        // Gap between the border lines
-        int msgGap = (workableWidth - welcomeMsg.length()) / 2;     // Gap calculator to center the welcome message
-        
-        
-        // --- Print screen --- //
-        
-        // Print welcome
-        Formatting.printBar(screenWidth); // Top border (full length)
-        Formatting.printBorder(3, screenWidth);    // Side borders
-        System.out.printf("\n|%" + msgGap + "s%s%" + msgGap + "s|", "", welcomeMsg, ""); // Print welcome
-        Formatting.printBorder(3, screenWidth);    // Side border
-        
-        // Print instructions  
-        for (String msg : mainMenuInstructions) 
-        {
-            int trailing = workableWidth - padding - msg.length();
-            System.out.printf("\n|%" + padding + "s%s%" + trailing + "s|", "", msg, "");
-        }
-        // New line to take input
-        System.out.printf("\n|%" + padding + "s", "");
-    }
+        // ------ ------ //   
+    } 
     
     static String[] mainMenuInstructions = 
     {
-    "What would you like to do?",
-    "1: View inventory",
-    "2: Add new items",
-    "3: Budget",
-    "4: Settings"
+        "What would you like to do?",
+        "1: View inventory",
+        "2: Add new items",
+        "3: Budget",
+        "4: Settings"
     };
-    
-    static int padding = 1; // Padding gap
 }

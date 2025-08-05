@@ -40,7 +40,7 @@ public class InventoryManager {
             String name = parts[1];
             LocalDate lastPurchased = LocalDate.parse(parts[2]);
             int interval = Integer.parseInt(parts[3]);
-            String[] tagParts = parts[4].split("\\|");
+            String[] tagParts = parts[3].split("\\|"); // throws an error? changed the 4 to 3 and it didnt do that anymore
             
 
             Item item = new Item();
