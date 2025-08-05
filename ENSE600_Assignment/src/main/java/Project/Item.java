@@ -15,15 +15,15 @@ public class Item {
     private int estimatedIntervalDays;
     private LocalDate nextExpectedPurchase;
    
-    //private ArrayList<String> tags;
+    private ArrayList<String> tags = new ArrayList<>();
     
     
 
-    public Item() {//this.tags = new ArrayList<String>();
+    public Item() {
 }
 
     public Item(String name) {
-        //this.tags = new ArrayList<String>();
+        
         this.uuid = UUID.randomUUID();
         this.name = name;
        
@@ -54,9 +54,16 @@ public class Item {
 
     public LocalDate getNextExpectedPurchase() { return nextExpectedPurchase; }
     public void setNextExpectedPurchase(LocalDate nextExpectedPurchase) { this.nextExpectedPurchase = nextExpectedPurchase; }
-    
-    //public ArrayList<String> getTags(){return tags;}
-    //public void SetTag(String Tag) { this.tags.add(Tag); }
-    
+     
+    public ArrayList<String> getTags() {return tags; }
+
+    public void setTags(ArrayList<String> tags) {this.tags = tags; }
+
+    public void addTag(String tag) {
+        if (!tags.contains(tag)) {
+            tags.add(tag);
+        }
+    }
+    public void removeTag(String tag) {tags.remove(tag); }
     
 }

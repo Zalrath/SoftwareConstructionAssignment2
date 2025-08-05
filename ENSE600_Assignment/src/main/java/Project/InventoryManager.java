@@ -38,9 +38,10 @@ public class InventoryManager {
             String[] parts = line.split(",");
             UUID uuid = UUID.fromString(parts[0]);
             String name = parts[1];
-            //ArraysList<String> tags = parts[2]; 
             LocalDate lastPurchased = LocalDate.parse(parts[2]);
             int interval = Integer.parseInt(parts[3]);
+            String[] tagParts = parts[4].split("\\|");
+            
 
             Item item = new Item();
             item.setUuid(uuid);
@@ -48,6 +49,8 @@ public class InventoryManager {
             item.setLastPurchased(lastPurchased);
             item.setEstimatedIntervalDays(interval);
             item.updateNextExpectedPurchase();
+            ArrayList<String> tags = new ArrayList<>(Arrays.asList(tagParts));
+            item.setTags(tags);
 
             items.put(uuid, item);
         }
@@ -63,7 +66,8 @@ public class InventoryManager {
             double price = Double.parseDouble(parts[1]);
             double quantity = Double.parseDouble(parts[2]);
             LocalDate date = LocalDate.parse(parts[3]);
-
+            
+            
             purchaseHistory.computeIfAbsent(uuid, k -> new ArrayList<>())
                 .add(new PurchaseLog(uuid,price ,quantity , date));
         }
@@ -73,14 +77,16 @@ public class InventoryManager {
     // Save to text files
     public void saveItems(String path) throws IOException {
         BufferedWriter writer = Files.newBufferedWriter(Paths.get(path));
-        writer.write("uuid,name,lastPurchased,estimatedIntervalDays\n");
+        writer.write("uuid,name,lastPurchased,estimatedIntervalDays,tags\n");
         for (Item item : items.values()) {
+            String tagString = String.join("|", item.getTags());
             writer.write(String.format("%s,%s,%s,%d\n", // add another for the tags
                 item.getUuid(),
                 item.getName(),
                 //item.getTags(),
                 item.getLastPurchased(),
-                item.getEstimatedIntervalDays()));
+                item.getEstimatedIntervalDays(),
+                tagString));
         }
         writer.close();
     }

@@ -24,18 +24,24 @@ public class Main {
         if (itemFile.exists()) manager.loadItems("items.txt");
         if (logFile.exists()) manager.loadPurchases("purchases.txt");
 
-        // add capabilty for use to inpit names if logged items         
-        // add capabilty to check for duplcut names
+        
   
         
-        // Item milk = new Item("Milk 2L"); 
-        // me messing around a bit
-        //manager.addItem(milk);
-//        manager.logPurchase(milk.getUuid(), LocalDate.of(2025, 7, 1));
-//        manager.logPurchase(milk.getUuid(), LocalDate.of(2025, 7, 8));
-//        manager.logPurchase(milk.getUuid(), LocalDate.of(2025, 7, 25));
         
-         // manager.logPurchase(milk.getUuid(), LocalDate.now());
+        // added 
+        // Item bread = new Item("Bread")   
+        // Item milk = new Item("Milk 2L"); 
+        // milk.addTag("breakfast");
+        // bread.addTag("breakfast");
+        // me messing around a bit
+        
+        //manager.addItem(milk);
+        //manager.addItem(bread);
+        
+        //manager.logPurchase(milk.getUuid(),4.0,1, LocalDate.of(2025, 7, 25));
+        
+        
+         //manager.logPurchase(bread.getUuid(),5.0,2, LocalDate.now());
 
         
         List<Item> toBuy = manager.getItemsToReplenish(LocalDate.of(2025, 8, 4));
