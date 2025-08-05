@@ -1,3 +1,3 @@
-itemId,purchaseDate
+Item ID,  Price,  Quantity,  Purchase Date
 e4f8b741-0ca4-4a08-b49b-6561a3a674ba,4.0,4.0,2025-07-25
 d9792df3-9621-4314-8afd-1cfc4384c523,4.0,4.0,2025-07-25

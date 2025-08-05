@@ -77,7 +77,7 @@ public class InventoryManager {
     // Save to text files
     public void saveItems(String path) throws IOException {
         BufferedWriter writer = Files.newBufferedWriter(Paths.get(path));
-        writer.write("uuid,name,lastPurchased,estimatedIntervalDays,tags\n");
+        writer.write("UUID,  Name,  Last Purchased,  Estimated IntervalDays,  Tags\n");
         for (Item item : items.values()) {
             String tagString = String.join("|", item.getTags());
             writer.write(String.format("%s,%s,%s,%d\n", // add another for the tags
@@ -93,7 +93,7 @@ public class InventoryManager {
 
     public void savePurchases(String path) throws IOException {
         BufferedWriter writer = Files.newBufferedWriter(Paths.get(path));
-        writer.write("itemId,purchaseDate\n");
+        writer.write("Item ID,  Price,  Quantity,  Purchase Date\n");
         for (List<PurchaseLog> logs : purchaseHistory.values()) {
             for (PurchaseLog log : logs) {
                 writer.write(String.format("%s,%s,%s,%s\n",
