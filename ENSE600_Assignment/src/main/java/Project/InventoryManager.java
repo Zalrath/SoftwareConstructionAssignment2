@@ -77,7 +77,7 @@ public class InventoryManager {
     // Save to text files
     public void saveItems(String path) throws IOException {
         BufferedWriter writer = Files.newBufferedWriter(Paths.get(path));
-        writer.write("UUID,  Name,  Last Purchased,  Estimated IntervalDays,  Tags\n");
+        writer.write("UUID,  Name,  Last Purchased,  Estimated Interval Days,  Tags\n");
         for (Item item : items.values()) {
             String tagString = String.join("|", item.getTags());
             writer.write(String.format("%s,%s,%s,%d\n", // add another for the tags
