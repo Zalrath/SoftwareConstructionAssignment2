@@ -1,3 +1,3 @@
-UUID,  Name,  Last Purchased,  Estimated IntervalDays,  Tags
+UUID,  Name,  Last Purchased,  Estimated Interval Days,  Tags
 e4f8b741-0ca4-4a08-b49b-6561a3a674ba,Milk 2L,2025-07-25,0
 d9792df3-9621-4314-8afd-1cfc4384c523,Milk 2L,2025-07-25,0
