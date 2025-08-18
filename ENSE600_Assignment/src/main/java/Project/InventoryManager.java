@@ -33,43 +33,8 @@ public class InventoryManager {
     public void loadItems(String path) throws IOException {
         
         items.clear();
-        
-    /*
-    try (BufferedReader reader = new BufferedReader(new FileReader("items.txt"))) {
-        String header = reader.readLine();
-        String line;
-        
-        
-        while ((line = reader.readLine()) != null) {
-            
-            String[] parts = line.split(",", 5); // split into max 5 parts so tags can contain commas
-            if (parts.length >= 4) {
-                UUID uuid = UUID.fromString(parts[0]);
-                String name = parts[1];
-                LocalDate lastPurchased = parts[2].isEmpty() ? null : LocalDate.parse(parts[2]);
-                int interval = Integer.parseInt(parts[3]);
-
-                Item item = new Item(name);
-                item.setUuid(uuid); // you'll need to make setUuid package-private or use constructor
-                item.setLastPurchased(lastPurchased);
-                item.setEstimatedIntervalDays(interval);
-                item.updateNextExpectedPurchase();
-
-                // Load tags if present
-                if (parts.length == 5 && !parts[4].isEmpty()) {
-                    String[] tagArray = parts[4].split("\\|");
-                    item.setTags(new ArrayList<>(Arrays.asList(tagArray)));
-                }
-
-                items.put(uuid, item);
-            }
-        }
-    }
-    */
-    
-    
-    
-        
+       
+ 
         List<String> lines = Files.readAllLines(Paths.get(path));
         lines.remove(0); // skip header
 
@@ -128,27 +93,6 @@ public class InventoryManager {
         writer.write("UUID,  Name,  Last Purchased,  Estimated Interval Days,  Tags\n");
         
         
-        /*
-        for (Item item : items.values()) {
-            
-            String uuid = item.getUuid().toString();
-            
-            String name = item.getName();
-            
-            String lastPurchased = (item.getLastPurchased() != null) ? item.getLastPurchased().toString() : "";
-            
-            int interval = item.getEstimatedIntervalDays();
-            
-            String tags = String.join("|", item.getTags());
-
-            writer.write(String.format("%s,%s,%s,%d,%s%n",
-                    uuid, name, lastPurchased, interval, tags));
-        }
-        
-        */
-        
-        
-        
         for (Item item : items.values()) {
             String tagString = String.join("|", item.getTags());
             writer.write(String.format("%s,%s,%s,%d,%s%n", // add another for the tags
@@ -184,15 +128,22 @@ public class InventoryManager {
     /*
         Im just planning in here 
     
-        do i want a comfirm after each input
+        do we want a comfirm after each input?
         
         while(!confirmed){
             
             System.out.println("input the name of the item")
-            scannerobj.next();
-            
-            
+            name = scannerobj.nextLine();
+            System.out.println("is this the correct input" + holder + "Y/N")
+            yn = scannerobj.next();
+            if(yn.isEqual("Y"))
+            {
+                confirmed = true;
+                Item newItem = new Item(name);
     
+    
+            }
+            else{}
         }
     
     
@@ -213,10 +164,11 @@ public class InventoryManager {
     
     
     
-    
     public void userInput() {
     
     }
+    
+    
     
     */
     
