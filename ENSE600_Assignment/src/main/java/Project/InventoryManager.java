@@ -125,52 +125,6 @@ public class InventoryManager {
     /////////////////////////////////////////////////////////////////////////////////////////////////////
     
     
-    /*
-        Im just planning in here 
-    
-        do we want a comfirm after each input?
-        
-        while(!confirmed){
-            
-            System.out.println("input the name of the item")
-            name = scannerobj.nextLine();
-            System.out.println("is this the correct input" + holder + "Y/N")
-            yn = scannerobj.next();
-            if(yn.isEqual("Y"))
-            {
-                confirmed = true;
-                Item newItem = new Item(name);
-    
-    
-            }
-            else{}
-        }
-    
-    
-            
-        // Item bread = new Item("Bread")   
-        // Item milk = new Item("Milk 2L"); 
-        // milk.addTag("breakfast");
-        // bread.addTag("breakfast");
-        // me messing around a bit
-        
-        //manager.addItem(milk);
-        //manager.addItem(bread);
-        
-        //manager.logPurchase(milk.getUuid(),4.0,1, LocalDate.of(2025, 7, 25));
-        
-        
-         //manager.logPurchase(bread.getUuid(),5.0,2, LocalDate.now());
-    
-    
-    
-    public void userInput() {
-    
-    }
-    
-    
-    
-    */
     
     
     public void addItem(Item item) {
@@ -218,3 +172,129 @@ public class InventoryManager {
     return items.values();
     } 
 }
+
+
+
+    /*
+        Im just planning in here 
+    
+        do we want a comfirm after each input? anwser is yes
+        
+        while(!confirmed_name){
+            
+            System.out.println("input the name of the item")
+            String name = scannerobj.nextLine();
+            System.out.println("is this the correct input" + name + "Y/N")
+            yn = scannerobj.next();
+            if(yn.isEqual("Y"))
+            {
+                confirmed = true;
+                Item newItem = new Item(name);
+    
+    
+            }
+            else{}
+        }
+
+
+
+
+
+        while(!confirmed_){
+            
+
+            String dateInput;
+
+            System.out.print("Enter last purchased date (yyyy-mm-dd) or leave empty: ");
+            dateInput = scannerobj.nextLine();
+
+            if (!dateInput.isEmpty()) {
+               dateInput =  LocalDate.parse(dateInput);      // newItem.setLastPurchased(LocalDate.parse(dateInput));
+            }
+            else{
+               dateInput =  LocalDate.now()
+            }
+
+            System.out.println("is this the correct input" + dateInput + "Y/N")
+
+            yn = scannerobj.next();
+            if(yn.isEqual("Y"))
+            {
+                confirmed = true;
+                newItem.setLastPurchased(dateInput);
+    
+            }
+            else{}
+        }    
+    
+
+
+        ArrayList<String> tags = new ArrayList<>();
+        System.out.print("Enter tags (comma separated) or leave empty: ");
+        String tagInput = scanner.nextLine();
+        if (!tagInput.isEmpty()) {
+            for (String tag : tagInput.split(",")) {
+                tags.add(tag.trim());
+            }
+        }
+        newItem.setTags(tags);
+
+        // Add item to inventory
+        manager.addItem(newItem);
+        System.out.println("✅ Item added: " + name);
+    
+    
+
+                
+        // Item bread = new Item("Bread")   
+        // Item milk = new Item("Milk 2L"); 
+        // milk.addTag("breakfast");
+        // bread.addTag("breakfast");
+        // me messing around a bit
+        
+        //manager.addItem(milk);
+        //manager.addItem(bread);
+        
+        //manager.logPurchase(milk.getUuid(),4.0,1, LocalDate.of(2025, 7, 25));
+        
+        
+         //manager.logPurchase(bread.getUuid(),5.0,2, LocalDate.now());
+    
+    
+    
+    public void userInput() {
+    
+    }
+    
+    
+    
+
+ 
+            String dateInput = scanner.nextLine();
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    */
