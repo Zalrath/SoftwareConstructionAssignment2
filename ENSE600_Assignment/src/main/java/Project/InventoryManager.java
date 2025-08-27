@@ -174,132 +174,182 @@ public class InventoryManager {
 
 
 
-    public void addItemFunc() {
-    
-        
-        boolean confirmed_name = false;
-        boolean confirmed_date = false;
-        boolean confirmed_tag = false;
-        String name = null;
-        String dateInput = null;
-        LocalDate date = null;
-        
-        
-        
-        
-        Scanner itemInput = new Scanner(System.in);
-        
-        while(!confirmed_name){
-            
-            System.out.println("input the name of the item");
-            
-            while(itemInput.hasNextLine())
-            name = itemInput.nextLine();
-    
 
-            //name = itemInput.next();
-            System.out.println("is this the correct input" + name + "Y/N");
-            String yn = itemInput.next();
-            if(yn.equals("Y"))
-            {
-                confirmed_name = true;
-                
-    
-    
-            }
-            else{}
-        }
 
         
+    private final Scanner itemInput = new Scanner(System.in);
         
-        Item newItem = new Item(name);
+    public void addPurchaseFunc() {
+        
+        List<UUID> UUIDlist = new ArrayList<>();
+        int index = 0;
+        for (Item item : getAllItems()) 
+        {
+            System.out.println("Index: " + index);
+            System.out.println("Item: " + item.getName());
+            //System.out.println("  UUID: " + item.getUuid());
+            UUIDlist.add(item.getUuid());
+            // System.out.println("  Last Purchased: " + item.getLastPurchased());
+            //System.out.println("  Estimated Interval: " + item.getEstimatedIntervalDays() + " days");
+            // System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
+            System.out.println();
+            index++;
+         }
+        
+        System.out.println("Which item do you want to log a Purchase(use the index number):");
+        String Indexchoice = itemInput.nextLine();
+        
+        LocalDate date = getConfirmedDate();
+        Double Price = getConfirmedPrice();
+        Double Quantity = getConfirmedQuantity();
 
-
-
-        while(!confirmed_date){
-            
-
-            
-
-            System.out.print("Enter last purchased date (yyyy-mm-dd) or leave empty: ");
-            dateInput = itemInput.nextLine();
-
-            if (!dateInput.isEmpty()) {
-               try{
-                   
-                   date  =  LocalDate.parse(dateInput); 
-                   dateInput = date.toString();
-                   
-                   //dateInput =  LocalDate.parse(dateInput);      // newItem.setLastPurchased(LocalDate.parse(dateInput));
-                }
-                catch(Exception e) {
-                    System.out.println("invaild input");
-                } 
-            }
-            else{
-               
-               date  =  LocalDate.now(); 
-               dateInput = date.toString();
-               
-            }
-
-            System.out.println("is this the correct input" + dateInput + "Y/N");
-
-            String yn = itemInput.next();
-            if(yn.equals("Y"))
-            {
-                confirmed_date = true;
-                newItem.setLastPurchased(date);
-    
-            }
-            else{}
-        }    
-    
-
-        while(!confirmed_tag){
-
-
-            ArrayList<String> tags = new ArrayList<>();
-            System.out.print("Enter tags (comma separated) or leave empty: ");
-            String tagInput = itemInput.nextLine();
-            if (!tagInput.isEmpty()) {
-                for (String tag : tagInput.split(",")) {
-                    tags.add(tag.trim());
-                }
-            }
-            
-            
-            
-            System.out.println(tags);
-
-            
-            System.out.println("is this the correct input Y/N");
-            String yn = itemInput.next();
-            if(yn.equals("Y"))
-                {
-                    confirmed_tag = true;
-                    // Add item to inventory
-                    newItem.setTags(tags);
-                   // manager.addItem(newItem);
-                    addItem(newItem);
-                    System.out.println("✅ Item added: " + name);
-                }
-                else{}
-        }    
-
-
+        logPurchase(UUIDlist.get(Integer.parseInt(Indexchoice)),Price,Quantity, date);
 
     }
+    
+    public Item addItemFunc() {
+        
+        String name = getConfirmedName();
+        LocalDate date = getConfirmedDate();
+        ArrayList<String> tags = getConfirmedTags();
+        Double Price = getConfirmedPrice();
+        Double Quantity = getConfirmedQuantity();
+        Item newItem = new Item(name);
+        newItem.setLastPurchased(date);
+        newItem.setTags(tags);
+        
+        
+        System.out.println("Item added: " + name);
+        
+        addItem(newItem);
+        
+        logPurchase(newItem.getUuid(),Price,Quantity, date);
+        
+        return newItem;
+        
+    }
+    
+    private Double getConfirmedPrice() {
+        
+        System.out.print("Input the Price of the item: ");
+        String Price = itemInput.nextLine().trim();
+        
+      
+        
+        System.out.println("Is this correct? " + Price + " (Y/N)");
+        String yn = itemInput.nextLine().trim().toUpperCase();
 
+        
+        if (yn.equals("Y")) {
+            return Double.valueOf(Price);
+        } else {
+            return getConfirmedPrice(); 
+        }
+    
+    }
+    
+    private Double getConfirmedQuantity() {
+        
+        System.out.print("Input the Quantity of the item: ");
+        String Quantity = itemInput.nextLine().trim();
 
+        
+        System.out.println("Is this correct? " + Quantity + " (Y/N)");
+        String yn = itemInput.nextLine().trim().toUpperCase();
 
+        
+        if (yn.equals("Y")) {
+            return Double.valueOf(Quantity);
+        } else {
+            return getConfirmedQuantity();  
+        }
+    
+    }
+    
+    
+    
+    
+    private String getConfirmedName() {
+        
+        System.out.print("Input the name of the item: ");
+        String name = itemInput.nextLine().trim();
+
+        
+        System.out.println("Is this correct? " + name + " (Y/N)");
+        String yn = itemInput.nextLine().trim().toUpperCase();
+
+        
+        if (yn.equals("Y")) {
+            return name;
+        } else {
+            return getConfirmedName(); 
+        }
+    
+    }
+
+    
+    private LocalDate getConfirmedDate() {
+    
+        System.out.print("Enter last purchased date (yyyy-mm-dd) or leave empty: ");
+        
+        String dateInput = itemInput.nextLine().trim();
+
+        LocalDate date;
+        if (!dateInput.isEmpty()) {
+            try {
+                date = LocalDate.parse(dateInput);
+            } catch (Exception e) {
+                System.out.println("Invalid date format, try again.");
+                return getConfirmedDate(); 
+            }
+        } else {
+            date = LocalDate.now();
+        }
+
+        System.out.println("Is this correct? " + date + " (Y/N)");
+        String yn = itemInput.nextLine().trim().toUpperCase();
+
+        if (yn.equals("Y")) {
+            return date;
+        } else {
+            return getConfirmedDate();
+        }
+    }
+
+    
+    private ArrayList<String> getConfirmedTags() {
+        System.out.print("Enter tags (comma separated) or leave empty: ");
+        String tagInput = itemInput.nextLine().trim();
+
+        ArrayList<String> tags = new ArrayList<>();
+        if (!tagInput.isEmpty()) {
+            for (String tag : tagInput.split(",")) {
+                tags.add(tag.trim());
+            }
+        }
+
+        System.out.println("Tags entered: " + tags);
+        System.out.println("Is this correct? (Y/N)");
+        String yn = itemInput.nextLine().trim().toUpperCase();
+
+        if (yn.equals("Y")) {
+            return tags;
+        } else {
+            return getConfirmedTags();
+        }
+    }
+    
+  
+    
 }
+    
+
 
 
 
     /*
         
-        old main code
+        old main code - corins graveyard of code
 
          // Item bread = new Item("Bread")   
         // Item milk = new Item("Milk 2L"); 
@@ -315,121 +365,20 @@ public class InventoryManager {
         
          //manager.logPurchase(bread.getUuid(),5.0,2, LocalDate.now());
 
-
+        
+        for (Item item : manager.getAllItems()) 
+        {
+            System.out.println("Item: " + item.getName());
+            System.out.println("  UUID: " + item.getUuid());
+            System.out.println("  Last Purchased: " + item.getLastPurchased());
+            System.out.println("  Estimated Interval: " + item.getEstimatedIntervalDays() + " days");
+            System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
+            System.out.println();
+        }
+        
         
 
         ----Im just planning in here----
     
-        
-        
-
-
-
-                
-       
-    
-    
-    
-    public void addItemFunc() {
-    
-        
-        boolean confirmed_name = false;
-        boolean confirmed_date = false;
-        boolean confirmed_tag = false;
-
-        while(!confirmed_name){
-            
-            System.out.println("input the name of the item")
-            String name = scannerobj.nextLine();
-            System.out.println("is this the correct input" + name + "Y/N")
-            yn = scannerobj.next();
-            if(yn.isEqual("Y"))
-            {
-                confirmed_name = true;
-                Item newItem = new Item(name);
-    
-    
-            }
-            else{}
-        }
-
-
-
-
-
-        while(!confirmed_date){
-            
-
-            String dateInput;
-
-            System.out.print("Enter last purchased date (yyyy-mm-dd) or leave empty: ");
-            dateInput = scannerobj.nextLine();
-
-            if (!dateInput.isEmpty()) {
-               try{
-                dateInput =  LocalDate.parse(dateInput);      // newItem.setLastPurchased(LocalDate.parse(dateInput));
-                }
-                catch(Exception e) {
-                    System.out.println("invaild input")
-                } 
-            }
-            else{
-               dateInput =  LocalDate.now()
-            }
-
-            System.out.println("is this the correct input" + dateInput + "Y/N")
-
-            yn = scannerobj.next();
-            if(yn.isEqual("Y"))
-            {
-                confirmed_date = true;
-                newItem.setLastPurchased(dateInput);
-    
-            }
-            else{}
-        }    
-    
-
-        while(!confirmed_tag){
-
-
-            ArrayList<String> tags = new ArrayList<>();
-            System.out.print("Enter tags (comma separated) or leave empty: ");
-            String tagInput = scanner.nextLine();
-            if (!tagInput.isEmpty()) {
-                for (String tag : tagInput.split(",")) {
-                    tags.add(tag.trim());
-                }
-            }
-            System.out.prinln(tags)
-
-            
-            
-    
-    
-            System.out.println("is this the correct input" + dateInput + "Y/N")
-
-            if(yn.isEqual("Y"))
-                {
-                    confirmed_tag = true;
-                    // Add item to inventory
-                    newItem.setTags(tags);
-                    manager.addItem(newItem);
-                `   System.out.println("✅ Item added: " + name);
-                }
-                else{}
-        }    
-
-
-    }
-    
-    
-    
-
- 
-           
-           
-
-
-
+  
     */

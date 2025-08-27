@@ -83,7 +83,7 @@ public class Main {
         {
             if (screenState == 0) // No menu selection has been made
             {
-                String menuInput = input.next().trim();     // Take user input and store it as menuInput
+                String menuInput = input.nextLine().trim();     // Take user input and store it as menuInput
                 
                 if (menuInput.equalsIgnoreCase("x"))        // Quit condition -> prompt to save?
                 {
@@ -98,7 +98,11 @@ public class Main {
                     if (menuSelected >= 1 && menuSelected <= mainMenuInstructions.length - 1) // Skip 1st line prompt (message not instruction)
                     {
                        screenState = menuSelected; // If conversion successful change the screen state (valid selection made)
-                       input.close(); // close scanner 
+                       
+
+                        //input.close();  // close scanner  ---- undid closing scanner as it interfered with the additem function
+                       
+                       
                     }
                     else // Invalid number was entered
                     {
@@ -125,9 +129,31 @@ public class Main {
                     case  2:  // Add items
                         screenState = 2;
                         
+                        // if problems comment all of this ---------------------
+                        System.out.println("What would you like to do?");
+                        System.out.println("1: Add new item");
+                        System.out.println("2: Add purchase to existing Item");
+                        
+                        String choice = input.nextLine();              
+                        switch (Integer.parseInt(choice)) {
+                            case 1 :                     
+                                manager.addItemFunc();                             
+                                break;
+                            case 2:
+                                manager.addPurchaseFunc();
+                                break;
+                        }
+                        
+                        manager.saveItems("items.txt");
+                        manager.savePurchases("purchases.txt");
+                        // -----------------------------------------------------
                         break;
+                        
                     case  3:  // Budget
                         screenState = 3;
+                        
+                        
+                        
                         break;
                     case  4:  // Settings
                         screenState = 4;
