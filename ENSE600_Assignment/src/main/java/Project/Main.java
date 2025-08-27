@@ -128,24 +128,54 @@ public class Main {
                         break;        
                     case  2:  // Add items
                         screenState = 2;
-                        
                         // if problems comment all of this ---------------------
-                        System.out.println("What would you like to do?");
-                        System.out.println("1: Add new item");
-                        System.out.println("2: Add purchase to existing Item");
+                        boolean addingItems = true; // continue the loop for adding items
+                        boolean Added = false; // checking if anything was added
+                        while(addingItems){
                         
-                        String choice = input.nextLine();              
-                        switch (Integer.parseInt(choice)) {
-                            case 1 :                     
-                                manager.addItemFunc();                             
-                                break;
-                            case 2:
-                                manager.addPurchaseFunc();
-                                break;
+                            System.out.println("What would you like to do?");
+                            System.out.println("1: Add new item");
+                            System.out.println("2: Add purchase to existing Item");
+                            System.out.println("3: Home page");
+                            
+                            
+                            String choice = input.nextLine();              
+                            switch (Integer.parseInt(choice)) {
+                                case 1 :                     
+                                    manager.addItemFunc();                             
+                                    Added = true;
+                                    break;
+                                case 2:
+                                    manager.addPurchaseFunc();
+                                    Added = true;
+                                    break;
+                                case 3:
+                                    addingItems = false;
+                                    screenState = 0;
+                                    break;
+                                default :
+                                    addingItems = false;
+                                    screenState = 0;
+                                    break;
+                            }
+
+                            if(Added){
+                                manager.saveItems("items.txt");
+                                manager.savePurchases("purchases.txt");
+
+
+                                System.out.println("Do you want to add more items/purchase? (Y/N)");
+
+                                String yn = input.nextLine().trim().toUpperCase();
+
+                                if (yn.equals("Y")) {
+
+                                } else {
+                                    
+                                }
+                            }
                         }
                         
-                        manager.saveItems("items.txt");
-                        manager.savePurchases("purchases.txt");
                         // -----------------------------------------------------
                         break;
                         
