@@ -124,6 +124,7 @@ public class Main {
                         break;        
                     case  2:  // Add items
                         screenState = 2;
+                        
                         break;
                     case  3:  // Budget
                         screenState = 3;
