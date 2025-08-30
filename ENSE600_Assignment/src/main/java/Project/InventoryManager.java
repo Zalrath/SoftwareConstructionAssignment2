@@ -339,6 +339,43 @@ public class InventoryManager {
         }
     }
     
+    
+    
+    // ------- I AM SORRY I ADDED THIS IDK IF YOU HAVE SOMETHING BETTER --------- // 
+    public Set<String> extractAllTags() 
+    {
+        Set<String> uniqueTags = new HashSet<>();
+        for (Item item : getAllItems()) 
+        {
+            uniqueTags.addAll(item.getTags());
+        }
+    
+        return uniqueTags;
+    }
+    
+    public double getLatestPrice(UUID uuid) {
+        List<PurchaseLog> logs = purchaseHistory.get(uuid);
+        if (logs == null || logs.isEmpty()) {
+            return 0;
+        }
+        return logs.get(logs.size() - 1).getPrice();
+    }
+
+    public double getLatestQuantity(UUID uuid) {
+        List<PurchaseLog> logs = purchaseHistory.get(uuid);
+        if (logs == null || logs.isEmpty()) {
+            return 0;
+        }
+        return logs.get(logs.size() - 1).getQuantity();
+    }
+
+    public double getTotalSpent(UUID uuid) {
+        List<PurchaseLog> logs = purchaseHistory.get(uuid);
+        if (logs == null) {
+            return 0;
+        }
+        return logs.stream().mapToDouble(l -> l.getPrice() * l.getQuantity()).sum();
+    }
   
     
 }

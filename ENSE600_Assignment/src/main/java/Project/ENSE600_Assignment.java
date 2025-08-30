@@ -8,9 +8,17 @@ package Project;
  *
  * @author megan
  */
-public class ENSE600_Assignment {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+// using as a test enviroment for the formatting functions
+public class ENSE600_Assignment 
+{
+
+    public static void main(String[] args) 
+    {
+        
+        
+        Formatting.printWelcome();
+        // viewTab.printView(manager);
     }
 }

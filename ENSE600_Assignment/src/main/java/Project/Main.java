@@ -76,7 +76,7 @@ public class Main {
         
         // Print homescreen
         Formatting.printWelcome();
-        viewTab.printView(Formatting.screenWidth);
+        
         
         // Menu selection logic
         while (true) // Infinite loop until 'x' is entered
@@ -124,7 +124,7 @@ public class Main {
                     case  1:  // View
                         screenState = 1;
                         //viewTab.printView(screenWidth);
-                        System.out.print("_____ VIEW ______ ");
+                        viewTab.printView(manager);
                         break;        
                     case  2:  // Add items
                         screenState = 2;
