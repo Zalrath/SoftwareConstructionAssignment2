@@ -36,6 +36,7 @@ public class AddItemMenu {
         
     public void addPurchaseFunc() {
         
+        
         List<UUID> UUIDlist = new ArrayList<>();
         List<String> Namelist = new ArrayList<>();
         int index = 0;
@@ -56,33 +57,36 @@ public class AddItemMenu {
         System.out.println("Which item do you want to log a Purchase(use the index number):");
         String Indexchoice = itemInput.nextLine();
         
+        boolean carryOn = true;     // used for checking if the user wants to exit the add purchase process
+
         
-        System.out.println("Is this the correct item? " + Namelist.get(index) + " (Y/N),(X) to cancel adding item.");
+        
+        System.out.println("Is this the correct item? " + Namelist.get(Integer.parseInt(Indexchoice)) + " (Y/N),(X) to cancel adding item.");
         String yn = itemInput.nextLine().trim().toUpperCase();
         
+        
         boolean YNX = true; // to loop to an input
+        
         while(YNX){
             if (yn.equals("Y")) {
-                
+                YNX = false;
             } 
             if (yn.equals("N")) {
-                
+                System.out.println("Which item do you want to log a Purchase(use the index number):");
+                Indexchoice = itemInput.nextLine();
             }
             if (yn.equals("X")) {
-                //return null;
+                YNX = false;
+                carryOn = false;
             } 
 
             else {
-                System.out.println("Invalid selection, Y to confirm, N to reinput and x to cancel.");           
+                System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");           
             }
         }
         
         
-        
-        
-        
-        boolean carryOn = true; // used for checking if the user wants to exit the add purchase process
-        
+
         LocalDate date = null;
         Double Quantity = null;
         Double Price = null;
@@ -91,7 +95,7 @@ public class AddItemMenu {
             date = getConfirmedDate();
             if (date == null) {
                 System.out.println("Cancelled adding purchase.");
-                //return null;
+                carryOn = false;
             }
         }
         
@@ -99,7 +103,7 @@ public class AddItemMenu {
             Price = getConfirmedPrice();
             if (Price == null) {
                 System.out.println("Cancelled adding purchase.");
-                //return null;
+                carryOn = false;
             }
         }
         
@@ -107,7 +111,7 @@ public class AddItemMenu {
             Quantity = getConfirmedQuantity();
             if (Quantity == null) {
                 System.out.println("Cancelled adding purchase.");
-                //return null;
+                carryOn = false;
             }
         }
         
@@ -191,8 +195,8 @@ public class AddItemMenu {
         System.out.println("Is this correct? " + Price + " (Y/N),(X) to cancel adding item.");
         String yn = itemInput.nextLine().trim().toUpperCase();
 
-        boolean YNX = false; // to loop to an input
-        while(!YNX){
+        
+        while(true){
             
             if (yn.equals("Y")) {
                 return Double.valueOf(Price);
@@ -206,11 +210,11 @@ public class AddItemMenu {
                 return null;
             } 
             else {
-                System.out.println("Invalid selection, Y to confirm, N to reinput and x to cancel.");
+                System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");
             }
         }
         
-        return null;
+        
     }
     
     private Double getConfirmedQuantity() {
@@ -222,8 +226,8 @@ public class AddItemMenu {
         System.out.println("Is this correct? " + Quantity + " (Y/N),(X) to cancel adding item.");
         String yn = itemInput.nextLine().trim().toUpperCase();
 
-        boolean YNX = true; // to loop to an input
-        while(YNX){
+       
+        while(true){
             if (yn.equals("Y")) {
                 return Double.valueOf(Quantity);
             } 
@@ -235,10 +239,10 @@ public class AddItemMenu {
             } 
 
             else {
-                System.out.println("Invalid selection, Y to confirm, N to reinput and x to cancel.");           
+                System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");           
             }
         }
-        return null;
+        
     }
     
     
@@ -253,8 +257,8 @@ public class AddItemMenu {
         System.out.println("Is this correct? " + name + " (Y/N), (X) to cancel adding item");
         String yn = itemInput.nextLine().trim().toUpperCase();
 
-        boolean YNX = true; // to loop to an input
-        while(YNX){
+        
+        while(true){
             if (yn.equals("Y")) {
                 return name;
 
@@ -267,10 +271,10 @@ public class AddItemMenu {
 
             }
             else {
-                System.out.println("Invalid selection, Y to confirm, N to reinput and x to cancel.");           
+                System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");           
             }
         }
-        return null;
+        
         
     }
 
@@ -296,8 +300,8 @@ public class AddItemMenu {
         System.out.println("Is this correct? " + date + " (Y/N),(X) to cancel adding item.");
         String yn = itemInput.nextLine().trim().toUpperCase();
         
-        boolean YNX = true; // to loop to an input
-        while(YNX){
+        
+        while(true){
             if (yn.equals("Y")) {
                 return date;
             } 
@@ -307,10 +311,10 @@ public class AddItemMenu {
             if (yn.equals("X")) {
                 return null;
             } else {
-                System.out.println("Invalid selection, Y to confirm, N to reinput and x to cancel.");
+                System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");
             }
         }
-        return null;
+        
     }
 
     
@@ -329,8 +333,8 @@ public class AddItemMenu {
         System.out.println("Is this correct? (Y/N),(X) to cancel adding item.");
         String yn = itemInput.nextLine().trim().toUpperCase();
         
-        boolean YNX = true; // to loop to an input
-        while(YNX){
+        
+        while(true){
             if (yn.equals("Y")) {
                 return tags;
             }
@@ -341,10 +345,10 @@ public class AddItemMenu {
                 return null;
             } 
             else {
-                System.out.println("Invalid selection, Y to confirm, N to reinput and x to cancel.");
+                System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");
             }
         }
-        return null;
+        
     }
     
     
