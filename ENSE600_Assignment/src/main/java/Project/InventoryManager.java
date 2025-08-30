@@ -26,9 +26,10 @@ public class InventoryManager {
     private Map<UUID, List<PurchaseLog>> purchaseHistory = new HashMap<>();
 
     
+    
+    
+    
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    
     // Load from text files 
     public void loadItems(String path) throws IOException {
         
@@ -84,9 +85,8 @@ public class InventoryManager {
         }
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // added tags 
     
-    
+   
     // Save to text files
     public void saveItems(String path) throws IOException {
         BufferedWriter writer = Files.newBufferedWriter(Paths.get(path));
@@ -169,14 +169,19 @@ public class InventoryManager {
     }
     
     public Collection<Item> getAllItems() {
-    return items.values();
+        return items.values();
     } 
 
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-        
+        /* missing invalid input check and 
+           case sensitive yn and also 
+           if x is pressured during the confirmation it should end the input and go back to whatever default view
+        */
+    
+    /*
     private final Scanner itemInput = new Scanner(System.in);
         
     public void addPurchaseFunc() {
@@ -339,7 +344,7 @@ public class InventoryManager {
         }
     }
     
-    
+    */
     
     // ------- I AM SORRY I ADDED THIS IDK IF YOU HAVE SOMETHING BETTER --------- // 
     public Set<String> extractAllTags() 
