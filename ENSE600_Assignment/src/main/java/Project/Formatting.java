@@ -59,7 +59,7 @@ public class Formatting
     // | input
     public static void printInputLine()
     {
-        System.out.printf("\n|%" + "s", "");
+        System.out.printf("\n| %" + "s", "");
     }
 
     // Prints a message centred accross the screen
@@ -70,6 +70,14 @@ public class Formatting
         int trailing = workableWidth - msg.length() - msgGap; // In case of odd spacing
 
         System.out.printf("%n|%" + msgGap + "s%s%" + trailing + "s|", "", msg, "");
+    }
+    
+    // Print left aligned message
+    // | msg          |
+    public static void printLeftAlignedMessage(String msg) 
+    {
+        int trailing = workableWidth - msg.length(); // Fill the rest with spaces
+        System.out.printf("%n| %s%" + (trailing - 1) + "s|", msg, "");
     }
     
     // Prints a message alligned to the outside of the borders
@@ -105,7 +113,8 @@ public class Formatting
             System.out.printf("\n|%" + Formatting.padding + "s%s%" + trailing + "s|", "", msg, "");
         }
         // New line to take input
-        System.out.printf("\n|%" + Formatting.padding + "s", "");
+        // System.out.printf("\n|%" + Formatting.padding + "s", "");
+       Formatting.printInputLine();
     }
     
     

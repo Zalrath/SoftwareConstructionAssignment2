@@ -54,14 +54,18 @@ public class AddItemMenu {
             index++;
          }
         
-        System.out.println("Which item do you want to log a Purchase(use the index number):");
+        // System.out.println("Which item do you want to log a Purchase(use the index number):");
+        Formatting.printLeftAlignedMessage("Which item do you want to log a Purchase(use the index number):");
+        Formatting.printInputLine();
         String Indexchoice = itemInput.nextLine();
         
         boolean carryOn = true;     // used for checking if the user wants to exit the add purchase process
 
         
         
-        System.out.println("Is this the correct item? " + Namelist.get(Integer.parseInt(Indexchoice)) + " (Y/N),(X) to cancel adding item.");
+        // System.out.println("Is this the correct item? " + Namelist.get(Integer.parseInt(Indexchoice)) + " (Y/N),(X) to cancel adding item."); // unsure
+        Formatting.printLeftAlignedMessage("Is this the correct item? " + Namelist.get(Integer.parseInt(Indexchoice)) + " (Y/N),(X) to cancel adding item.");
+        Formatting.printInputLine();
         String yn = itemInput.nextLine().trim().toUpperCase();
         
         
@@ -72,7 +76,9 @@ public class AddItemMenu {
                 YNX = false;
             } 
             if (yn.equals("N")) {
-                System.out.println("Which item do you want to log a Purchase(use the index number):");
+                // System.out.println("Which item do you want to log a Purchase(use the index number):");
+                Formatting.printLeftAlignedMessage("Which item do you want to log a Purchase(use the index number):");
+                Formatting.printInputLine();
                 Indexchoice = itemInput.nextLine();
             }
             if (yn.equals("X")) {
@@ -81,7 +87,8 @@ public class AddItemMenu {
             } 
 
             else {
-                System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");           
+                // System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");          
+                Formatting.printLeftAlignedMessage("Invalid selection, Y to confirm, N to reinput and X to cancel.");
             }
         }
         
@@ -94,7 +101,8 @@ public class AddItemMenu {
         if(carryOn){
             date = getConfirmedDate();
             if (date == null) {
-                System.out.println("Cancelled adding purchase.");
+                Formatting.printLeftAlignedMessage("Cancelled adding purchase.");
+                //System.out.println("Cancelled adding purchase.");
                 carryOn = false;
             }
         }
@@ -102,7 +110,8 @@ public class AddItemMenu {
         if(carryOn){
             Price = getConfirmedPrice();
             if (Price == null) {
-                System.out.println("Cancelled adding purchase.");
+                Formatting.printLeftAlignedMessage("Cancelled adding purchase.");
+                //System.out.println("Cancelled adding purchase.");
                 carryOn = false;
             }
         }
@@ -110,7 +119,8 @@ public class AddItemMenu {
         if(carryOn){
             Quantity = getConfirmedQuantity();
             if (Quantity == null) {
-                System.out.println("Cancelled adding purchase.");
+                Formatting.printLeftAlignedMessage("Cancelled adding purchase.");
+                //System.out.println("Cancelled adding purchase.");
                 carryOn = false;
             }
         }
@@ -141,31 +151,36 @@ public class AddItemMenu {
         */
         String name = getConfirmedName();
         if (name == null) { 
-            System.out.println("Cancelled adding item.");
+            Formatting.printLeftAlignedMessage("Cancelled adding item.");
+            //System.out.println("Cancelled adding item.");
             return null;
         }
 
         LocalDate date = getConfirmedDate();
         if (date == null) {
-            System.out.println("Cancelled adding item.");
+            Formatting.printLeftAlignedMessage("Cancelled adding item.");
+            //System.out.println("Cancelled adding item.");
             return null;
         }
 
         ArrayList<String> tags = getConfirmedTags();
         if (tags == null) {
-            System.out.println("Cancelled adding item.");
+            Formatting.printLeftAlignedMessage("Cancelled adding item.");
+            //System.out.println("Cancelled adding item.");
             return null;
         }
 
         Double Price = getConfirmedPrice();
         if (Price == null) {
-            System.out.println("Cancelled adding item.");
+            Formatting.printLeftAlignedMessage("Cancelled adding item.");
+            //System.out.println("Cancelled adding item.");
             return null;
         }
 
         Double Quantity = getConfirmedQuantity();
         if (Quantity == null) {
-            System.out.println("Cancelled adding item.");
+            Formatting.printLeftAlignedMessage("Cancelled adding item.");
+            //System.out.println("Cancelled adding item.");
             return null;
         }
         
@@ -175,8 +190,8 @@ public class AddItemMenu {
         newItem.setTags(tags);
         
         
-        System.out.println("Item added: " + name);
-        
+        System.out.println("Item added: " + name);                                 // unsure
+            
         manager.addItem(newItem);
         
         manager.logPurchase(newItem.getUuid(),Price,Quantity, date);
@@ -187,12 +202,15 @@ public class AddItemMenu {
     
     private Double getConfirmedPrice() {
         
-        System.out.print("Input the Price of the item: ");
+        //System.out.print("Input the Price of the item: ");
+        Formatting.printLeftAlignedMessage("Input the Price of the item: ");
+        Formatting.printInputLine();
         String Price = itemInput.nextLine().trim();
         
       
         
-        System.out.println("Is this correct? " + Price + " (Y/N),(X) to cancel adding item.");
+        System.out.println("Is this correct? " + Price + " (Y/N),(X) to cancel adding item.");  // unsure
+        Formatting.printInputLine();
         String yn = itemInput.nextLine().trim().toUpperCase();
 
         
@@ -210,7 +228,8 @@ public class AddItemMenu {
                 return null;
             } 
             else {
-                System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");
+                //System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");
+                Formatting.printLeftAlignedMessage("Invalid selection, Y to confirm, N to reinput and X to cancel.");
             }
         }
         
@@ -219,11 +238,14 @@ public class AddItemMenu {
     
     private Double getConfirmedQuantity() {
         
-        System.out.print("Input the Quantity of the item: ");
+        //System.out.print("Input the Quantity of the item: ");
+        Formatting.printLeftAlignedMessage("Input the Quantity of the item: ");
+        Formatting.printInputLine();
         String Quantity = itemInput.nextLine().trim();
 
         
-        System.out.println("Is this correct? " + Quantity + " (Y/N),(X) to cancel adding item.");
+        System.out.println("Is this correct? " + Quantity + " (Y/N),(X) to cancel adding item.");           // unsure
+        Formatting.printInputLine();
         String yn = itemInput.nextLine().trim().toUpperCase();
 
        
@@ -239,7 +261,8 @@ public class AddItemMenu {
             } 
 
             else {
-                System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");           
+                //System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");           
+                  Formatting.printLeftAlignedMessage("Invalid selection, Y to confirm, N to reinput and X to cancel.");
             }
         }
         
@@ -250,11 +273,15 @@ public class AddItemMenu {
     
     private String getConfirmedName() {
         
-        System.out.print("Input the name of the item: ");
+        // System.out.print("Input the name of the item: ");
+        Formatting.printLeftAlignedMessage("Input the name of the item: ");
+        Formatting.printInputLine();
         String name = itemInput.nextLine().trim();
 
         
-        System.out.println("Is this correct? " + name + " (Y/N), (X) to cancel adding item");
+        // System.out.println("Is this correct? " + name + " (Y/N), (X) to cancel adding item");           // <- unsure 
+        Formatting.printLeftAlignedMessage("Is this correct? " + name + " (Y/N), (X) to cancel adding item");
+        Formatting.printInputLine();
         String yn = itemInput.nextLine().trim().toUpperCase();
 
         
@@ -271,7 +298,8 @@ public class AddItemMenu {
 
             }
             else {
-                System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");           
+                // System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");   
+                Formatting.printLeftAlignedMessage("Invalid selection, Y to confirm, N to reinput and X to cancel.");
             }
         }
         
@@ -281,7 +309,9 @@ public class AddItemMenu {
     
     private LocalDate getConfirmedDate() {
     
-        System.out.print("Enter last purchased date (yyyy-mm-dd) or leave empty: ");
+        // System.out.print("Enter last purchased date (yyyy-mm-dd) or leave empty: ");  
+        Formatting.printLeftAlignedMessage("Enter last purchased date (yyyy-mm-dd) or leave empty: ");
+        Formatting.printInputLine();
         
         String dateInput = itemInput.nextLine().trim();
 
@@ -290,14 +320,16 @@ public class AddItemMenu {
             try {
                 date = LocalDate.parse(dateInput);
             } catch (Exception e) {
-                System.out.println("Invalid date format, try again.");
+                //System.out.println("Invalid date format, try again.");
+                Formatting.printLeftAlignedMessage("Invalid date format, try again.");
                 return getConfirmedDate(); 
             }
         } else {
             date = LocalDate.now();
         }
 
-        System.out.println("Is this correct? " + date + " (Y/N),(X) to cancel adding item.");
+        System.out.println("Is this correct? " + date + " (Y/N),(X) to cancel adding item.");           // <--- unsure
+        Formatting.printInputLine();
         String yn = itemInput.nextLine().trim().toUpperCase();
         
         
@@ -311,7 +343,8 @@ public class AddItemMenu {
             if (yn.equals("X")) {
                 return null;
             } else {
-                System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");
+                //System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");
+                Formatting.printLeftAlignedMessage("Invalid selection, Y to confirm, N to reinput and X to cancel.");
             }
         }
         
@@ -319,7 +352,9 @@ public class AddItemMenu {
 
     
     private ArrayList<String> getConfirmedTags() {
-        System.out.print("Enter tags (separated by commas for multiple) or leave empty: ");
+        // System.out.print("Enter tags (separated by commas for multiple) or leave empty: ");
+        Formatting.printLeftAlignedMessage("Enter tags (separated by commas for multiple) or leave empty: ");
+        Formatting.printInputLine();
         String tagInput = itemInput.nextLine().trim();
 
         ArrayList<String> tags = new ArrayList<>();
@@ -329,8 +364,10 @@ public class AddItemMenu {
             }
         }
 
-        System.out.println("Tags entered: " + tags);
-        System.out.println("Is this correct? (Y/N),(X) to cancel adding item.");
+        System.out.println("Tags entered: " + tags);                                                  // <-- unsure figuring it out later
+        //System.out.println("Is this correct? (Y/N),(X) to cancel adding item.");
+        Formatting.printLeftAlignedMessage("Is this correct? (Y/N),(X) to cancel adding item.");
+        Formatting.printInputLine();
         String yn = itemInput.nextLine().trim().toUpperCase();
         
         
@@ -345,7 +382,8 @@ public class AddItemMenu {
                 return null;
             } 
             else {
-                System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");
+                Formatting.printLeftAlignedMessage("Invalid selection, Y to confirm, N to reinput and X to cancel.");
+                //System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");
             }
         }
         
@@ -361,11 +399,18 @@ public class AddItemMenu {
         boolean addingItems = true; // continue the loop for adding items
         boolean Added = false; // checking if anything was added
         while(addingItems){
-                        
-            System.out.println("What would you like to do?");
-            System.out.println("1: Add new item");
-            System.out.println("2: Add purchase to existing Item");
-            System.out.println("3: Home page");
+            
+            Formatting.printBar();                                       // Top border (full length)
+            Formatting.printBorder(3);                                   // Side borders
+            Formatting.printCenteredMessage("Adding Items");             // Print tab name message
+            Formatting.printBorder(2);                                   // Side borders
+            
+            Formatting.printLeftAlignedMessage("What would you like to do?");
+            Formatting.printLeftAlignedMessage("1: Add new item");
+            Formatting.printLeftAlignedMessage("2: Add purchase to existing Item");
+            Formatting.printLeftAlignedMessage("3: Return to Home page");
+            Formatting.printInputLine();
+     
 
 
             String choice = itemInput.nextLine();              
@@ -394,8 +439,8 @@ public class AddItemMenu {
                     manager.saveItems("items.txt");
                     manager.savePurchases("purchases.txt");
                     
-                    
-                    System.out.println("Do you want to add more items/purchase? (Y/N)");
+                    Formatting.printLeftAlignedMessage("Do you want to add more items/purchase? (Y/N)");
+                    Formatting.printInputLine();
                     String yn = itemInput.nextLine().trim().toUpperCase();
                     if (yn.equals("Y")) {
                         
