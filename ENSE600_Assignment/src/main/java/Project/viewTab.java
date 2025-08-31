@@ -12,6 +12,7 @@ package Project;
 import java.util.Collection;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.UUID;
 
 
 public class viewTab // to display the inventory and sort through the data
@@ -46,8 +47,22 @@ public class viewTab // to display the inventory and sort through the data
         // Header
         printTableHeader();
         
+        // Rows
         List<Item> allItems = new ArrayList<>(manager.getAllItems());
         printTableRows(allItems, manager);
+        printDashedRow();
+        
+        // Totals
+        printColumnTotals(allItems, manager);
+        
+        
+        // Prompt
+        
+        // Change view
+        // Add item
+        // Return to menu
+        // Filter
+        
 
         
     }
@@ -148,62 +163,174 @@ public class viewTab // to display the inventory and sort through the data
         System.out.printf("%s|", line);
     }
     
-    private static void printCell(String text, int width) {
-        String padded = String.format("%" + Formatting.padding + "s%-" + width + "s", "", text);
 
-        System.out.printf("%s|", padded);
-    }
-    
-    
-    private static int getItemIndex(Item item, InventoryManager manager) {
-        int i = 1;
-        for (Item it : manager.getAllItems()) {
-            if (it.getUuid().equals(item.getUuid())) {
-                return i;
-            }
-            i++;
-        }
-        return -1;
-    }
    
-    public static void printTableRows(Collection<Item> items, InventoryManager manager) {
-        for (Item item : items) {
+    public static void printTableRows(Collection<Item> items, InventoryManager manager) 
+    {
+        for (Item item : items) 
+        {
             System.out.print("|");
 
-            if (showItem) {
+            if (showItem) 
+            {
                 printCell(String.valueOf(getItemIndex(item, manager)), itemWidth);
             }
 
-            if (showName) {
+            if (showName) 
+            {
                 printCell(item.getName(), nameWidth);
             }
 
-            if (showCategory) {
+            if (showCategory) 
+            {
                 printCell(String.join("|", item.getTags()), categoryWidth);
             }
 
-            if (showQuantity) {
+            if (showQuantity) 
+            {
                 double quantity = manager.getLatestQuantity(item.getUuid());
                 printCell(String.format("%.0f", quantity), quantityWidth);
             }
 
-            if (showCost) {
+            if (showCost) 
+            {
                 double cost = manager.getLatestPrice(item.getUuid());
                 printCell(String.format("$%.2f", cost), costWidth);
             }
 
-            if (showDate) {
+            if (showDate) 
+            {
                 String formattedDate = item.getLastPurchased().format(java.time.format.DateTimeFormatter.ofPattern("dd/MM/yy"));
                 printCell(formattedDate, dateWidth);
             }
 
-            if (showTotalCost) {
+            if (showTotalCost) 
+            {
                 double total = manager.getTotalSpent(item.getUuid());
                 printCell(String.format("$%.2f", total), totalCostWidth);
             }
 
             System.out.println();
         }
+    }
+    
+    private static void printEmptyRow() {
+        System.out.print("|");
+
+        if (showItem) {
+            printCell("", itemWidth);
+        }
+        if (showName) {
+            printCell("", nameWidth);
+        }
+        if (showCategory) {
+            printCell("", categoryWidth);
+        }
+        if (showQuantity) {
+            printCell("", quantityWidth);
+        }
+        if (showCost) {
+            printCell("", costWidth);
+        }
+        if (showDate) {
+            printCell("", dateWidth);
+        }
+        if (showTotalCost) {
+            printCell("", totalCostWidth);
+        }
+
+       
+    }
+    
+    private static void printDashedRow() {
+        System.out.print("|");
+
+        if (showItem) {
+            printUnderline(itemWidth);
+        }
+        if (showName) {
+            printUnderline(nameWidth);
+        }
+        if (showCategory) {
+            printUnderline(categoryWidth);
+        }
+        if (showQuantity) {
+            printUnderline(quantityWidth);
+        }
+        if (showCost) {
+            printUnderline(costWidth);
+        }
+        if (showDate) {
+            printUnderline(dateWidth);
+        }
+        if (showTotalCost) {
+            printUnderline(totalCostWidth);
+        }
+
+        
+    }
+    
+    private static void printCell(String text, int width) 
+    {
+        String padded = String.format("%" + Formatting.padding + "s%-" + width + "s", "", text);
+
+        System.out.printf("%s|", padded);
+    }
+    
+    
+    public static void printColumnTotals(Collection<Item> items, InventoryManager manager) 
+    {
+        double totalQuantity = 0;
+        double totalCost = 0;
+        double totalSumCost = 0;
+
+        for (Item item : items) 
+        {
+            UUID id = item.getUuid(); // 
+            totalQuantity += manager.getLatestQuantity(id);
+            totalCost += manager.getLatestPrice(id);
+            totalSumCost += manager.getTotalSpent(id);
+        }
+
+        // Start total row
+        System.out.print("\n|");
+
+        if (showItem) 
+        {
+            printCell("", itemWidth);
+        }
+        
+        if (showName) 
+        {
+            printCell("TOTAL", nameWidth); // Label column
+        }
+        
+        if (showCategory) 
+        {
+            printCell("", categoryWidth);
+        }
+        
+        if (showQuantity) 
+        {
+            printCell(String.format("%.0f", totalQuantity), quantityWidth);
+        }
+        
+        if (showCost) 
+        {
+            printCell(String.format("$%.2f", totalCost), costWidth);
+        }
+        
+        if (showDate) 
+        {
+            printCell("", dateWidth);
+        }
+        
+        if (showTotalCost) 
+        {
+            printCell(String.format("$%.2f", totalSumCost), totalCostWidth);
+        }
+
+        System.out.println(); // Newline
     }
     
     
@@ -247,10 +374,21 @@ public class viewTab // to display the inventory and sort through the data
     static int dateWidth;
     static int totalCostWidth;
     
-    
-    
-    
-    
+    // ----- Row numbers for each unique item ----- // 
+    // Condenses the uuid into 1,2,3 etc
+    private static int getItemIndex(Item item, InventoryManager manager) 
+    {
+        int i = 1;
+        for (Item it : manager.getAllItems()) 
+        {
+            if (it.getUuid().equals(item.getUuid())) 
+            {
+                return i;
+            }
+            i++;
+        }
+        return -1;
+    }
     
     public static void calculateColumnWidths() 
     {
@@ -303,6 +441,5 @@ public class viewTab // to display the inventory and sort through the data
         if (showCost)       costWidth = currencyPresentationLength; 
         if (showDate)       dateWidth = datePresentationLength; 
         if (showTotalCost)  totalCostWidth = currencyPresentationLength;
-    }
-     
+    } 
 }

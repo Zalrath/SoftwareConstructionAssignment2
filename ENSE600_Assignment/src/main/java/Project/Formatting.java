@@ -16,7 +16,7 @@ public class Formatting
     
     
     
-    static int screenWidth = 200;               // Set width for printing -> MINIMUM = 80!!!
+    static int screenWidth = 160;               // Set width for printing -> MINIMUM = 80!!!
     static int workableWidth = screenWidth - 2; // Useable space between the border bars |->workable width<-|
     
 
@@ -45,7 +45,7 @@ public class Formatting
     // |------------------------|
     public static void printBorderBar() 
     {
-        System.out.print("\n|"); 
+        System.out.print("|"); 
         for(int i = 0; i < workableWidth; i++)
         {
             System.out.print("-");
@@ -59,7 +59,7 @@ public class Formatting
     // | input
     public static void printInputLine()
     {
-        System.out.printf("|%" + "s", "");
+        System.out.printf("\n|%" + "s", "");
     }
 
     // Prints a message centred accross the screen
