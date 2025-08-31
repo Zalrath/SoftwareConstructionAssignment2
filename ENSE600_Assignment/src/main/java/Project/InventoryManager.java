@@ -9,9 +9,7 @@ package Project;
  * @author corin
  * 
  * Need to add 
- * Amount/ Quantity 
- * Tags 
- * cost
+
  * 
  * 
  */
@@ -45,7 +43,7 @@ public class InventoryManager {
             String name = parts[1];
             LocalDate lastPurchased = LocalDate.parse(parts[2]);
             int interval = Integer.parseInt(parts[3]);
-            String[] tagParts = parts[4].split("\\|"); // throws an error? changed the 4 to 3 and it didnt do that anymore
+            String[] tagParts = parts[4].split("\\|"); 
             ArrayList<String> tags = new ArrayList<>(Arrays.asList(tagParts));
 
 
@@ -176,10 +174,7 @@ public class InventoryManager {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-        /* missing invalid input check and 
-           case sensitive yn and also 
-           if x is pressured during the confirmation it should end the input and go back to whatever default view
-        */
+        
     
     /*
     private final Scanner itemInput = new Scanner(System.in);
@@ -420,7 +415,7 @@ public class InventoryManager {
         
         
 
-        ----Im just planning in here----
+        
     
   
     */
