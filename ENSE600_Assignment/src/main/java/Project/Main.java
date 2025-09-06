@@ -8,6 +8,48 @@ package Project;
  *
  * @author corin
  */
+
+/*
+ok there are 4 main areas for marking
+    
+    15% Labs (just here to make up the full 100)
+
+    15% User Interface (CUI) - is pretty much is the CUI usable and easy to use 
+
+    20% File I/O and Collections - is there more than 3 (so 4 or more) Read and Write functions it also has the Collections - 
+        We have 2 of each (Read and Write) rn we need 4 of each for full marks
+        Two kinds of collections (List, Map, Set) are properly applied to the programs. - I have used Hashmaps 
+    
+    20% Software functionality and usability - is about runtime errors and bad user inputs, so being able to process any bad inputs  
+    
+    30% Software design & implementation - More classes and comments as well probs
+        The project can be compiled without any errors. There are more than 9 reasonable classes (10+) with reasonable methods. 
+        The relationships among the classes are well presented.
+        
+        All the OOP concepts are applied, including abstraction, encapsulation, inheritance, and polymorphism
+
+        Comments of methods are given, and the codes are easy to read
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import java.io.File;
 import java.time.LocalDate;
 //import java.time.LocalDateTime; could be useful if we want to track time of purchase as well as day 
