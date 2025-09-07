@@ -18,7 +18,7 @@ ok there are 4 main areas for marking
 
     20% File I/O and Collections - is there more than 3 (so 4 or more) Read and Write functions it also has the Collections - 
         We have 2 of each (Read and Write) rn we need 4 of each for full marks
-        Two kinds of collections (List, Map, Set) are properly applied to the programs. - I have used Hashmaps 
+        Two kinds of collections (List, Map, Set) are properly applied to the programs. - I have used Hashmaps and an arraylist so we good for collections
     
     20% Software functionality and usability - is about runtime errors and bad user inputs, so being able to process any bad inputs  
     
