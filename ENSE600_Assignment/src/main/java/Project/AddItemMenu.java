@@ -72,36 +72,44 @@ public class AddItemMenu {
         
             
 
-        String yn = null;
+        
         if(carryOn){
-        // System.out.println("Is this the correct item? " + Namelist.get(Integer.parseInt(Indexchoice)) + " (Y/N),(X) to cancel adding item."); // unsure
+       
             Formatting.printLeftAlignedMessage("Is this the correct item? " + Namelist.get(Integer.parseInt(Indexchoice)) + " (Y/N),(X) to cancel adding purchase.");
             Formatting.printInputLine();
-            yn = itemInput.nextLine().trim().toUpperCase();
-        
+            
+           
+            
+            
+            while(YNX){
+                String yn = itemInput.nextLine().trim().toUpperCase();
+                if (yn.equals("Y")) {
+                    YNX = false;
+                    Formatting.printLeftAlignedMessage("Confirmed:" + Namelist.get(Integer.parseInt(Indexchoice)));
+                } 
+                else if (yn.equals("N")) {
+                    // System.out.println("Which item do you want to log a Purchase(use the index number):");
+                    Formatting.printLeftAlignedMessage("Which item do you want to log a Purchase(use the index number):");
+                    Formatting.printInputLine();
+                    Indexchoice = itemInput.nextLine();
+                    Formatting.printLeftAlignedMessage("Is this the correct item? " + Namelist.get(Integer.parseInt(Indexchoice)) + " (Y/N),(X) to cancel adding purchase.");
+                    Formatting.printInputLine();
+                }
+                else if (yn.equals("X")) {
+                    YNX = false;
+                    carryOn = false;
+                } 
+
+                else{
+                    Formatting.printLeftAlignedMessage("Invalid selection, Y to confirm, N to reinput and X to cancel."); // this is bugging out a bit
+                }
+                
+                
+            }
         }
        
         
-        while(YNX){
-            if (yn.equals("Y")) {
-                YNX = false;
-            } 
-            if (yn.equals("N")) {
-                // System.out.println("Which item do you want to log a Purchase(use the index number):");
-                Formatting.printLeftAlignedMessage("Which item do you want to log a Purchase(use the index number):");
-                Formatting.printInputLine();
-                Indexchoice = itemInput.nextLine();
-            }
-            if (yn.equals("X")) {
-                YNX = false;
-                carryOn = false;
-            } 
-
-            else {
-                // System.out.println("Invalid selection, Y to confirm, N to reinput and X to cancel.");          
-                Formatting.printLeftAlignedMessage("Invalid selection, Y to confirm, N to reinput and X to cancel.");
-            }
-        }
+        
         
         
 
