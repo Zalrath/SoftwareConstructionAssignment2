@@ -96,7 +96,7 @@ public class Formatting
     // Prints the welcome message
     public static void printWelcome()
     {
-        String welcomeMsg = "Welcome to the ___ manager";           // Welcome msg so we can easily change it once we have a name
+        String welcomeMsg = "Welcome to the ___ Manager";           // Welcome msg so we can easily change it once we have a name
         
         // --- Print screen --- //
         
