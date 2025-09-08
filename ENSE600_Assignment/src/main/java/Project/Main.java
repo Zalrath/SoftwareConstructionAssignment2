@@ -14,8 +14,7 @@ ok there are 4 main areas for marking
     
     15% Labs (just here to make up the full 100)
 
-    15% User Interface (CUI) - is pretty much is the CUI usable and easy to use 
-
+    15% User Interface (CUI) - is pr 
     20% File I/O and Collections - is there more than 3 (so 4 or more) Read and Write functions it also has the Collections - 
         We have 2 of each (Read and Write) rn we need 4 of each for full marks
         Two kinds of collections (List, Map, Set) are properly applied to the programs. - I have used Hashmaps and an arraylist so we good for collections
@@ -165,26 +164,27 @@ public class Main {
                 switch(menuSelected) // Switch case to handle tab changing using screenState
                 {
                     case  1:  // View
-                        screenState = 1;
-                        //viewTab.printView(screenWidth);
+                        // screenState = 1;
                         viewTab.printView(manager);
+                         // screenState = 0;
                         break;        
                     case  2:  // Add items
                         screenState = 2;
                         // if problems comment all of this ---------------------
                             addmenu.additemMenu();
-                        
+                        screenState = 0;
                         // -----------------------------------------------------
                         break;
                         
                     case  3:  // Budget
-                        screenState = 3;
-                        
+                        // screenState = 3;
+                        screenState = 0;
                         
                         
                         break;
                     case  4:  // Settings
-                        screenState = 4;
+                        //screenState = 4;
+                        screenState = 0;
                         break;    
                 }
             }       
