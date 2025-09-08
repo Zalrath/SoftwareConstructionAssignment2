@@ -19,7 +19,7 @@ public class Formatting
     static int screenWidth = 160;               // Set width for printing -> MINIMUM = 80!!!
     static int workableWidth = screenWidth - 2; // Useable space between the border bars |->workable width<-|
     
-
+    
     // Prints a horizontal bar the full length of the screensize
     // -----------------------
     public static void printBar()
@@ -30,7 +30,7 @@ public class Formatting
             System.out.print("_");
         }
     }
-
+    
     // Prints the edge borders with empty space
     // |                       |
     public static void printBorder(int row)
@@ -61,14 +61,14 @@ public class Formatting
     {
         System.out.printf("\n| %" + "s", "");
     }
-
+    
     // Prints a message centred accross the screen
     // |      msg      |
     public static void printCenteredMessage(String msg) 
     {
         int msgGap = (workableWidth - msg.length()) / 2;
         int trailing = workableWidth - msg.length() - msgGap; // In case of odd spacing
-
+        
         System.out.printf("%n|%" + msgGap + "s%s%" + trailing + "s|", "", msg, "");
     }
     
@@ -85,19 +85,19 @@ public class Formatting
     public static void printSplitMessage(String left, String right) 
     {
         int spacing = workableWidth - padding * 2 - left.length() - right.length();
-
+        
         // Ensure spacing is not negative
         spacing = Math.max(spacing, 0);
-
+        
         System.out.printf("\n|%" + padding + "s%s%" + spacing + "s%s%" + padding + "s|%n", "", left, "", right, "");
     }
-   
+    
     
     // Prints the welcome message
     public static void printWelcome()
     {
         String welcomeMsg = "Welcome to the ___ manager";           // Welcome msg so we can easily change it once we have a name
-
+        
         // --- Print screen --- //
         
         // Print welcome
@@ -118,9 +118,15 @@ public class Formatting
     }
     
     // added by THE ONE THE ONLY corin (im jsut a little guy) remove if you hate me
+    // noooo i love you thank you <3
     
     public static void printMainInstruc()
     {
+        Formatting.printBar();            // Top border (full length)
+        Formatting.printBorder(3);        // Side borders
+        Formatting.printCenteredMessage("Main Menu");
+        Formatting.printBorder(2);        // Side borders
+        
        
         // Print instructions  
         for (String msg : mainMenuInstructions) 
@@ -129,7 +135,6 @@ public class Formatting
             System.out.printf("\n|%" + Formatting.padding + "s%s%" + trailing + "s|", "", msg, "");
         }
         // New line to take input
-        // System.out.printf("\n|%" + Formatting.padding + "s", "");
        Formatting.printInputLine();
     }
     

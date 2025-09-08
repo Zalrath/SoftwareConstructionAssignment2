@@ -59,10 +59,6 @@ public class Main {
         if (logFile.exists()) manager.loadPurchases("purchases.txt");
         if (settingsFile.exists()) settingsmanager.loadSettings("settings.txt");
 
-        
-        
-        
-
         List<Item> toBuy = manager.getItemsToReplenish(LocalDate.of(2025, 8, 4));
         for (Item i : toBuy) {
             System.out.println("Needs restocking: " + i.getName());
@@ -170,7 +166,6 @@ public class Main {
         "What would you like to do?",
         "1: View inventory",
         "2: Add new items",
-        "3: Budget",
-        "4: Settings"
+        "3: Settings"
     };
 }

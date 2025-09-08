@@ -520,7 +520,7 @@ public class viewTab // to display the inventory and sort through the data
         comparators.put("TOTAL",
                 Comparator.comparingDouble(it -> manager.getTotalSpent(it.getUuid()))
         );
-
+        
         // ----- Lookup ----- // 
         Comparator<Item> cmp = comparators.get(column);
         if (cmp == null) 
@@ -537,20 +537,6 @@ public class viewTab // to display the inventory and sort through the data
         Formatting.printLeftAlignedMessage("Sorted by " + column + (ascending ? " (ASC)" : " (DESC)"));
         return working;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     public static void printTableHeader()
     {
