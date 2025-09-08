@@ -16,10 +16,33 @@ public class Formatting
     
     
     
-    static int screenWidth = 160;               // Set width for printing -> MINIMUM = 80!!!
-    static int workableWidth = screenWidth - 2; // Useable space between the border bars |->workable width<-|
+    static SettingsManager settingsManager;
+
+    public static void init(SettingsManager manager) {
+        settingsManager = manager;
+        updateFromSettings();
+    }
+
+    static int screenWidth;
+    static int workableWidth;
+
+    private static void updateFromSettings() {
+        String widthStr = settingsManager.getSetting("screenWidth");
+        try {
+            screenWidth = Integer.parseInt(widthStr);
+        } catch (NumberFormatException e) {
+            screenWidth = 160; // fallback
+        }
+        workableWidth = screenWidth - 2;
+    }
+
+
+    // add but and remove all above apart from padding
+    //static int screenWidth = 160;               // Set width for printing -> MINIMUM = 80!!!
+    //static int workableWidth = screenWidth - 2; // Useable space between the border bars |->workable width<-|
     
-    
+     
+            
     // Prints a horizontal bar the full length of the screensize
     // -----------------------
     public static void printBar()
@@ -66,6 +89,7 @@ public class Formatting
     // |      msg      |
     public static void printCenteredMessage(String msg) 
     {
+        
         int msgGap = (workableWidth - msg.length()) / 2;
         int trailing = workableWidth - msg.length() - msgGap; // In case of odd spacing
         

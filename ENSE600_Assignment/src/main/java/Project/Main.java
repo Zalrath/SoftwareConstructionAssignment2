@@ -47,7 +47,7 @@ public class Main {
         AddItemMenu addmenu = new AddItemMenu(manager);
         SettingsManager settingsmanager = new SettingsManager();
         SettingsMenu setmenu = new SettingsMenu(settingsmanager);
-        
+        Formatting.init(settingsmanager);
         // create the user files 
         
         File itemFile = new File("items.txt");
@@ -131,11 +131,13 @@ public class Main {
                     case  1:  // View
                         // screenState = 1;
                         viewTab.printView(manager);
-                        screenState = 0; // i uncommented this
+                        screenState = 0;
                         Formatting.printMainInstruc();
                         break;        
                     case  2:  // Add items
                         screenState = 2;
+                        
+                       
                         // if problems comment all of this ---------------------
                             addmenu.additemMenu();
                         screenState = 0;
@@ -143,13 +145,8 @@ public class Main {
                         // -----------------------------------------------------
                         break;
                         
-                    case  3:  // Budget
-                        // screenState = 3;
-                        screenState = 0;
-                        
-                        
-                        break;
-                    case  4:  // Settings
+                    
+                    case  3:  // Settings
                         //screenState = 4;
                         setmenu.showMenu();
                         screenState = 0;

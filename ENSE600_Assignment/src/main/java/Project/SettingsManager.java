@@ -83,11 +83,12 @@ public class SettingsManager {
         return Collections.unmodifiableMap(settings);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @return /
     // Specific helpers for assignment context
     
     public int getScreenWidth() {
-        return getSettingAsInt("screenWidth", 80);
+        return getSettingAsInt("screenWidth", 80) - 2;
     }
 
     public int getScreenHeight() {
@@ -100,7 +101,7 @@ public class SettingsManager {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   
+    
     public int getSettingAsInt(String key, int defaultValue) {
         try {
             return Integer.parseInt(settings.getOrDefault(key, String.valueOf(defaultValue)));
@@ -118,7 +119,7 @@ public class SettingsManager {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Load defaults if file not found
     public void loadDefaultSettings() {
-        settings.putIfAbsent("screenWidth", "120");
+        settings.putIfAbsent("screenWidth", "180");
         settings.putIfAbsent("screenHeight", "40");
         settings.putIfAbsent("dateFormat", "yyyy-MM-dd");
        

@@ -80,7 +80,7 @@ public class SettingsMenu {
     
     
     private void changeScreenWidth() {
-        Formatting.printLeftAlignedMessage("Enter new screen width:");
+        Formatting.printLeftAlignedMessage("Enter new screen width(Minium 80):");
         Formatting.printInputLine();
         String width = input.nextLine().trim();
         
@@ -92,6 +92,9 @@ public class SettingsMenu {
 
         while(YNX){
             if (yn.equals("Y")) {
+                if(Integer.parseInt(width) < 80){
+                    width = "80";    
+                }
                 settings.setSetting("screenWidth", width);
                 Formatting.printLeftAlignedMessage("Screen width set to " + width);
                 YNX = false;
@@ -207,6 +210,7 @@ public class SettingsMenu {
         try {
             settings.saveSettings("settings.txt");
             Formatting.printLeftAlignedMessage("Settings saved successfully.");
+            Formatting.init(settings);
         } catch (IOException e) {
             Formatting.printLeftAlignedMessage("Error saving settings: " + e.getMessage());
         }
