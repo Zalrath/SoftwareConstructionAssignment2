@@ -130,8 +130,8 @@ public class Main {
                 {
                     case  1:  // View
                         // screenState = 1;
-                        viewTab.printView(manager);
-                        screenState = 0;
+                        ViewTab.printView(manager);
+                        screenState = 0; // i uncommented this
                         Formatting.printMainInstruc();
                         break;        
                     case  2:  // Add items
