@@ -36,20 +36,6 @@ ok there are 4 main areas for marking
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import java.io.File;
 import java.time.LocalDate;
 //import java.time.LocalDateTime; could be useful if we want to track time of purchase as well as day 
@@ -60,51 +46,33 @@ public class Main {
     public static void main(String[] args) throws Exception {
         InventoryManager manager = new InventoryManager();
         AddItemMenu addmenu = new AddItemMenu(manager);
-
+        SettingsManager settingsmanager = new SettingsManager();
+        SettingsMenu setmenu = new SettingsMenu(settingsmanager);
+        
+        // create the user files 
+        
         File itemFile = new File("items.txt");
         File logFile = new File("purchases.txt");
-
+        File settingsFile = new File("settings.txt"); 
+        
+        // if the files exist load their contents
         if (itemFile.exists()) manager.loadItems("items.txt");
         if (logFile.exists()) manager.loadPurchases("purchases.txt");
+        if (settingsFile.exists()) settingsmanager.loadSettings("settings.txt");
 
         
-  
         
         
-        // added 
-        // Item bread = new Item("Bread")   
-        // Item milk = new Item("Milk 2L"); 
-        // milk.addTag("breakfast");
-        // bread.addTag("breakfast");
-        // me messing around a bit
-        
-        //manager.addItem(milk);
-        //manager.addItem(bread);
-        
-        //manager.logPurchase(milk.getUuid(),4.0,1, LocalDate.of(2025, 7, 25));
-        
-        
-         //manager.logPurchase(bread.getUuid(),5.0,2, LocalDate.now());
 
-        
         List<Item> toBuy = manager.getItemsToReplenish(LocalDate.of(2025, 8, 4));
         for (Item i : toBuy) {
             System.out.println("Needs restocking: " + i.getName());
         }
-
+        
+        settingsmanager.saveSettings("settings.txt");
         manager.saveItems("items.txt");
         manager.savePurchases("purchases.txt");
-        /*
-        for (Item item : manager.getAllItems()) 
-        {
-            System.out.println("Item: " + item.getName());
-            System.out.println("  UUID: " + item.getUuid());
-            System.out.println("  Last Purchased: " + item.getLastPurchased());
-            System.out.println("  Estimated Interval: " + item.getEstimatedIntervalDays() + " days");
-            System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
-            System.out.println();
-        }
-        */
+        
         
         
         
@@ -185,6 +153,8 @@ public class Main {
                         break;
                     case  4:  // Settings
                         screenState = 4;
+                            setmenu.showMenu();
+                        
                         break;    
                 }
             }       
