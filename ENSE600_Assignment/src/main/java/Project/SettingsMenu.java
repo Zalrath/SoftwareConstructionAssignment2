@@ -120,6 +120,7 @@ public class SettingsMenu {
         String height = input.nextLine().trim();
         
         
+        
         Formatting.printLeftAlignedMessage("Is this correct? " + height + " (Y/N), (X) to cancel");
         Formatting.printInputLine();
         boolean YNX = true;

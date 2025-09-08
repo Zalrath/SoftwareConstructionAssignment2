@@ -121,6 +121,6 @@ public class SettingsManager {
         settings.putIfAbsent("screenWidth", "120");
         settings.putIfAbsent("screenHeight", "40");
         settings.putIfAbsent("dateFormat", "yyyy-MM-dd");
-        settings.putIfAbsent("theme", "light");
+       
     }
 }

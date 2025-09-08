@@ -24,6 +24,18 @@ public class InventoryManager {
     private Map<UUID, List<PurchaseLog>> purchaseHistory = new HashMap<>();
 
     
+    /*
+    public InventoryManager(Settings settings) {
+        this.settings = settings;
+    }
+    
+    int width = settings.getScreenWidth();
+    int height = settings.getScreenHeight();
+    
+    
+    
+    */
+    
     
     
     

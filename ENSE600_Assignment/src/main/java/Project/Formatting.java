@@ -117,6 +117,20 @@ public class Formatting
        Formatting.printInputLine();
     }
     
+    // added by THE ONE THE ONLY corin (im jsut a little guy) remove if you hate me
     
+    public static void printMainInstruc()
+    {
+       
+        // Print instructions  
+        for (String msg : mainMenuInstructions) 
+        {
+            int trailing = workableWidth - Formatting.padding - msg.length();
+            System.out.printf("\n|%" + Formatting.padding + "s%s%" + trailing + "s|", "", msg, "");
+        }
+        // New line to take input
+        // System.out.printf("\n|%" + Formatting.padding + "s", "");
+       Formatting.printInputLine();
+    }
     
 }

@@ -93,6 +93,7 @@ public class Main {
         {
             if (screenState == 0) // No menu selection has been made
             {
+                
                 String menuInput = input.nextLine().trim();     // Take user input and store it as menuInput
                 
                 if (menuInput.equalsIgnoreCase("x"))        // Quit condition -> prompt to save?
@@ -134,13 +135,15 @@ public class Main {
                     case  1:  // View
                         // screenState = 1;
                         viewTab.printView(manager);
-                         // screenState = 0;
+                        screenState = 0; // i uncommented this
+                        Formatting.printMainInstruc();
                         break;        
                     case  2:  // Add items
                         screenState = 2;
                         // if problems comment all of this ---------------------
                             addmenu.additemMenu();
                         screenState = 0;
+                        Formatting.printMainInstruc();
                         // -----------------------------------------------------
                         break;
                         
@@ -154,6 +157,7 @@ public class Main {
                         //screenState = 4;
                         setmenu.showMenu();
                         screenState = 0;
+                        Formatting.printMainInstruc();
                         break;    
                 }
             }       
