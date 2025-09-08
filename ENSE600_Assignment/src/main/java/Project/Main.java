@@ -152,6 +152,7 @@ public class Main {
                         break;
                     case  4:  // Settings
                         //screenState = 4;
+                        setmenu.showMenu();
                         screenState = 0;
                         break;    
                 }
