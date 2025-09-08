@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 
 
 
-public class viewTab // to display the inventory and sort through the data
+public class ViewTab // to display the inventory and sort through the data
 {
     // ----- Defining column bit position flags ----- //
     static final int ITEM_BIT       = 1 << 0;
