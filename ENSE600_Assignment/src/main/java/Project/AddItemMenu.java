@@ -19,7 +19,8 @@ public class AddItemMenu {
     
     private final InventoryManager manager;
 
-    public AddItemMenu(InventoryManager manager) {
+    public AddItemMenu(InventoryManager manager) 
+    {
         
         this.manager = manager;
     }

@@ -19,7 +19,7 @@ package Project;
     -> Inheritance
     -> Polymorphism
 -> Apply SOLID design principles
--> Use multiple classes with relationships
+-> Use multiple classes with relationships 
 
 */
 // ---- Main Objectives ---- // 
@@ -37,6 +37,8 @@ package Project;
 */
 // ----- To Submit ----- // 
 /*
+
+-> Atleast 5 test cases
 
 -> 1 Page report 
     -> w/ github url
@@ -56,13 +58,13 @@ package Project;
 // ----- Grade Distribution ----- // 
 /*
 
--> GUI 20%
+-> GUI 20% ------------------------------------------------------------------------> Megan
     -> Easy to use
     -> give user-friendly messages when a false input is given
     -> Well organised structure
     -> Users can quit at anytime without an error message
     -> Users can return to the main menu easily
--> Database 20%
+-> Database 20% ------------------------------------------------------------------------> Corin
     -> Derby Embedded mode is utilised
     -> The program can connect to the database without starting the database service
     -> 3 reading interactions using JDBC/Hibernate
@@ -73,7 +75,6 @@ package Project;
     -> No manual configuration (no jar imports/DB setup needed)
     -> Complex enough features
     -> Perfect handling of invalid inputs
-
 -> Design + Implementation 30%
     -> 12+ classes (for full marks), meaningful relationships
     -> Clear separation of UI & model (MVC recommended)
