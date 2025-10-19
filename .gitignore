@@ -1,2 +1,4 @@
 *.DS_Store
 /ENSE600_Assignment/target/
+/ENSE600_Assignment_P2/build/
+/ENSE600_Assignment_P2/dist/

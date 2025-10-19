@@ -1,0 +1,20 @@
+Thu Oct 16 22:37:03 NZDT 2025 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Thu Oct 16 22:37:03 NZDT 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0199-ec61-4b3e-0000305b9a45 
+on database directory C:\Users\corin\OneDrive\Documents\GitHub\SoftwareConstructionAssignment1\InventoryDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@11a4022a 
+Loaded from file:/C:/Users/corin/Downloads/db-derby-10.14.2.0-bin_unzipped/db-derby-10.14.2.0-bin/lib/derby.jar
+java.vendor=Azul Systems, Inc.
+java.runtime.version=24.0.1+9
+user.dir=C:\Users\corin\Downloads\db-derby-10.14.2.0-bin_unzipped\db-derby-10.14.2.0-bin
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\corin\OneDrive\Documents\GitHub\SoftwareConstructionAssignment1
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Oct 16 22:44:56 NZDT 2025: Shutting down Derby engine
+----------------------------------------------------------------
+Thu Oct 16 22:44:56 NZDT 2025:
+Shutting down instance a816c00e-0199-ec61-4b3e-0000305b9a45 on database directory C:\Users\corin\OneDrive\Documents\GitHub\SoftwareConstructionAssignment1\InventoryDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@11a4022a 
+----------------------------------------------------------------
