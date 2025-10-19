@@ -48,11 +48,18 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         
+        
+        ////////////////////////////////////////////////
+        /// 
+        /// Connecting to the database
         Connection conn = InventoryManager.connectToDatabase();
         if (conn == null) {
-            System.out.println("❌ Failed to connect to DB");
+            System.out.println("Failed to connect to DB");
             return;
         }
+        
+        
+         ////////////////////////////////////////////////
         
         
         
@@ -82,12 +89,23 @@ public class Main {
         manager.savePurchases("purchases.txt");
         
         
+        
+        
+        
+        /////////////////////////////////
+        // this is mostly just to test it to see if its working 
+        
+        // ALSO BIG THING, YOU CANT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE IT DOESN'T LIKE IT
+        
+        
         try {
              manager.createTables(conn);
              System.out.println("Table set");
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        
         DatabaseMetaData meta = conn.getMetaData();
         ResultSet columns = meta.getColumns(null, null, "ITEMS", null);
         while (columns.next()) {
@@ -95,25 +113,32 @@ public class Main {
         }
         
         
-        System.out.println("check");
+        
+        
+        
+        
         try (Statement stmt = conn.createStatement()) {
             stmt.executeUpdate("DELETE FROM Items");
-            System.out.println("✅ Items table cleared.");
+            System.out.println(" Items table cleared.");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        manager.saveItemsToDB(conn);
-        //manager.savePurchasesToDB(conn);
         
+        manager.saveItemsToDB(conn);
+        
+        
+        
+        
+        // closing the connection
         manager.printItemsFromDB(conn);
         try {
             conn.close();
-            System.out.println("✅ Connection closed");
+            System.out.println("Connection closed");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
+        ////////////////////////////////////
 
         
         
