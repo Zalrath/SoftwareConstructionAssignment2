@@ -52,7 +52,7 @@ public class Main {
         ////////////////////////////////////////////////
         /// 
         /// Connecting to the database
-        Connection conn = InventoryManager.connectToDatabase();
+        Connection conn = DatabaseUtil.connectToDatabase();
         if (conn == null) {
             System.out.println("Failed to connect to DB");
             return;
@@ -62,12 +62,15 @@ public class Main {
          ////////////////////////////////////////////////
         
         
-        
+        DatabaseUtil dataUtil = new DatabaseUtil();
         InventoryManager manager = new InventoryManager();
         AddItemMenu addmenu = new AddItemMenu(manager);
         SettingsManager settingsmanager = new SettingsManager();
         SettingsMenu setmenu = new SettingsMenu(settingsmanager);
         Formatting.init(settingsmanager);
+        
+        
+        
         // create the user files 
         
         File itemFile = new File("items.txt");
@@ -98,12 +101,10 @@ public class Main {
         // ALSO BIG THING, YOU CANT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE IT DOESN'T LIKE IT
         
         
-        try {
-             manager.createTables(conn);
-             System.out.println("Table set");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        
+        dataUtil.createTables(conn);
+        System.out.println("Table set");
+        
         
         
         DatabaseMetaData meta = conn.getMetaData();
@@ -120,9 +121,7 @@ public class Main {
         try (Statement stmt = conn.createStatement()) {
             stmt.executeUpdate("DELETE FROM Items");
             System.out.println(" Items table cleared.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        } catch (SQLException e) {}
         
         manager.saveItemsToDB(conn);
         
@@ -130,13 +129,11 @@ public class Main {
         
         
         // closing the connection
-        manager.printItemsFromDB(conn);
+        dataUtil.printItemsFromDB(conn);
         try {
             conn.close();
             System.out.println("Connection closed");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        } catch (SQLException e) {}
 
         ////////////////////////////////////
 

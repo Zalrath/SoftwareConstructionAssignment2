@@ -223,59 +223,11 @@ public class InventoryManager {
     }
   
     
-    
-    // _______________________________
     // Data base stuff
+    // ---------------------------------
+    
    
     
-    
-    //private Connection conn;
-public static Connection connectToDatabase() {
-        try {
-            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-            String url = "jdbc:derby:InventoryDB;create=true";
-            Connection conn = DriverManager.getConnection(url);
-            System.out.println("✅ Connected to Derby Embedded DB");
-            return conn;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    // 🧩 Create Tables
-    public void createTables(Connection conn) {
-        try (Statement stmt = conn.createStatement()) {
-            stmt.executeUpdate("""
-                CREATE TABLE Items (
-                    uuid VARCHAR(36) PRIMARY KEY,
-                    name VARCHAR(100),
-                    lastPurchased DATE,
-                    estimatedIntervalDays INT,
-                    tags VARCHAR(255)
-                )
-            """);
-
-            stmt.executeUpdate("""
-                CREATE TABLE Purchases (
-                    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-                    itemUUID VARCHAR(36),
-                    price DOUBLE,
-                    quantity DOUBLE,
-                    purchaseDate DATE
-                )
-            """);
-
-            System.out.println("✅ Tables created");
-        } catch (SQLException e) {
-            // Ignore "table already exists" error
-            if (!"X0Y32".equals(e.getSQLState())) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    // 🧩 Save Items
     public void saveItemsToDB(Connection conn) {
         String sql = "INSERT INTO Items (uuid, name, last_Purchased, Interval_Days, tags) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -292,10 +244,8 @@ public static Connection connectToDatabase() {
                 ps.addBatch();
             }
             ps.executeBatch();
-            System.out.println("✅ Items saved to DB");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            System.out.println("Items saved to DB");
+        } catch (SQLException e) {}
     }
 
     // 🧩 Save Purchases
@@ -312,10 +262,8 @@ public static Connection connectToDatabase() {
                 }
             }
             ps.executeBatch();
-            System.out.println("✅ Purchases saved to DB");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            System.out.println("Purchases saved to DB");
+        } catch (SQLException e) {}
     }
 
     // 🧩 Load Items
@@ -348,10 +296,8 @@ public static Connection connectToDatabase() {
                 items.put(uuid, item);
             }
 
-            System.out.println("✅ Items loaded from DB");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            System.out.println("Items loaded from DB");
+        } catch (SQLException e) {}
     }
 
     // 🧩 Load Purchases
@@ -372,43 +318,11 @@ public static Connection connectToDatabase() {
                         .add(new PurchaseLog(uuid, price, quantity, date));
             }
 
-            System.out.println("✅ Purchases loaded from DB");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            System.out.println("Purchases loaded from DB");
+        } catch (SQLException e) {}
     }
-    
-    public void printItemsFromDB(Connection conn) {
-        String sql = "SELECT * FROM Items";
-
-        try (Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-
-            System.out.println("=== Items in Database ===");
-            while (rs.next()) {
-                String uuid = rs.getString("uuid");
-                String name = rs.getString("name");
-                LocalDate lastPurchased = rs.getDate("last_Purchased").toLocalDate();
-                int interval = rs.getInt("Interval_Days");
-                String tags = rs.getString("tags");
-
-                System.out.printf("UUID: %s | Name: %s | Last Purchased: %s | Interval: %d | Tags: %s%n",
-                        uuid, name, lastPurchased, interval, tags);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    
-    
+        
 }
-    
-
-
-
-
     /*
         
         old main code - corins graveyard of code
