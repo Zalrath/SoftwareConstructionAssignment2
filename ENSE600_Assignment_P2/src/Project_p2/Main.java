@@ -37,7 +37,6 @@ ok there are 4 main areas for marking
 
 import java.io.File;
 import java.time.LocalDate;
-//import java.time.LocalDateTime; could be useful if we want to track time of purchase as well as day 
 import java.util.List;
 import java.util.Scanner;
 import java.sql.*;
@@ -50,22 +49,21 @@ public class Main {
         
         
         ////////////////////////////////////////////////
-        /// 
-        /// Connecting to the database
-        Connection conn = DatabaseUtil.connectToDatabase();
-        if (conn == null) {
-            System.out.println("Failed to connect to DB");
-            return;
-        }
+        // Connecting to the database
+            Connection conn = DatabaseUtil.connectToDatabase();
+            if (conn == null) {
+                System.out.println("Failed to connect to DB");
+                return;
+            }
+        ////////////////////////////////////////////////
         
-        
-         ////////////////////////////////////////////////
-        
-        
+         
         DatabaseUtil dataUtil = new DatabaseUtil();
         InventoryManager manager = new InventoryManager();
-        AddItemMenu addmenu = new AddItemMenu(manager);
         SettingsManager settingsmanager = new SettingsManager();
+        
+        
+        AddItemMenu addmenu = new AddItemMenu(manager);
         SettingsMenu setmenu = new SettingsMenu(settingsmanager);
         Formatting.init(settingsmanager);
         
@@ -77,9 +75,9 @@ public class Main {
         File logFile = new File("purchases.txt");
         File settingsFile = new File("settings.txt"); 
         
-        // if the files exist load their contents
-        if (itemFile.exists()) manager.loadItems("items.txt");
-        if (logFile.exists()) manager.loadPurchases("purchases.txt");
+        /////// if the files exist load their contents
+        //if (itemFile.exists()) manager.loadItems("items.txt");
+        //if (logFile.exists()) manager.loadPurchases("purchases.txt");
         if (settingsFile.exists()) settingsmanager.loadSettings("settings.txt");
 
         List<Item> toBuy = manager.getItemsToReplenish(LocalDate.of(2025, 8, 4));
@@ -88,35 +86,24 @@ public class Main {
         }
         
         settingsmanager.saveSettings("settings.txt");
-        manager.saveItems("items.txt");
-        manager.savePurchases("purchases.txt");
+        //manager.saveItems("items.txt");
+        //manager.savePurchases("purchases.txt");
         
         
         
         
         
         /////////////////////////////////
-        // this is mostly just to test it to see if its working 
-        
-        // ALSO BIG THING, YOU CANT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE IT DOESN'T LIKE IT
         
         
-        
+        // YOU CAN NOT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE, IT MESSES WITH THE DB CONNECTION 
+
         dataUtil.createTables(conn);
-        System.out.println("Table set");
         
         
+        // Really fraigle ------
         
-        DatabaseMetaData meta = conn.getMetaData();
-        ResultSet columns = meta.getColumns(null, null, "ITEMS", null);
-        while (columns.next()) {
-            System.out.println(columns.getString("COLUMN_NAME"));
-        }
-        
-        
-        
-        
-        
+        manager.loadItemsFromDB(conn);
         
         try (Statement stmt = conn.createStatement()) {
             stmt.executeUpdate("DELETE FROM Items");
@@ -125,11 +112,28 @@ public class Main {
         
         manager.saveItemsToDB(conn);
         
+        //-------------------------------
+        
+        
+        manager.loadPurchasesFromDB(conn);
+        
+        try (Statement stmt = conn.createStatement()) {
+            stmt.executeUpdate("DELETE FROM Purchases");
+            System.out.println(" Purchases table cleared.");
+        } catch (SQLException e) {}
+        
+        manager.savePurchasesToDB(conn);
+        
+        
+        dataUtil.printItemsFromDB(conn);
+        dataUtil.printPurchasesFromDB(conn);
+        
         
         
         
         // closing the connection
-        dataUtil.printItemsFromDB(conn);
+        
+        
         try {
             conn.close();
             System.out.println("Connection closed");

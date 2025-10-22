@@ -70,15 +70,10 @@ public class InventoryManager {
 
             items.put(uuid, item);
         }
-        
-        
-        
+          
     }
 
-    
-    
-    
-    
+
     public void loadPurchases(String path) throws IOException {
         List<String> lines = Files.readAllLines(Paths.get(path));
         lines.remove(0);
@@ -223,13 +218,16 @@ public class InventoryManager {
     }
   
     
-    // Data base stuff
-    // ---------------------------------
+    // Data base functions 
+    //////////////////////////////////////////////////////////////////////////////////////
     
-   
     
+    
+    
+    
+    // Save Items to DB
     public void saveItemsToDB(Connection conn) {
-        String sql = "INSERT INTO Items (uuid, name, last_Purchased, Interval_Days, tags) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Items (uuid, name, last_Purchased, interval_Days, tags) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             for (Item item : items.values()) {
                 ps.setString(1, item.getUuid().toString());
@@ -248,7 +246,11 @@ public class InventoryManager {
         } catch (SQLException e) {}
     }
 
-    // 🧩 Save Purchases
+    
+    
+    
+    
+    // Save Purchases to DB
     public void savePurchasesToDB(Connection conn) {
         String sql = "INSERT INTO Purchases (itemUUID, price, quantity, purchaseDate) VALUES (?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -266,7 +268,11 @@ public class InventoryManager {
         } catch (SQLException e) {}
     }
 
-    // 🧩 Load Items
+    
+    
+    
+    
+    //Load Items from DB
     public void loadItemsFromDB(Connection conn) {
         items.clear();
         String sql = "SELECT * FROM Items";
@@ -276,10 +282,10 @@ public class InventoryManager {
             while (rs.next()) {
                 UUID uuid = UUID.fromString(rs.getString("uuid"));
                 String name = rs.getString("name");
-                LocalDate lastPurchased = rs.getDate("lastPurchased") != null
-                        ? rs.getDate("lastPurchased").toLocalDate()
+                LocalDate lastPurchased = rs.getDate("last_Purchased") != null
+                        ? rs.getDate("last_Purchased").toLocalDate()
                         : null;
-                int interval = rs.getInt("estimatedIntervalDays");
+                int interval = rs.getInt("interval_Days");
                 String tagsStr = rs.getString("tags");
                 ArrayList<String> tags = new ArrayList<>();
                 if (tagsStr != null && !tagsStr.isEmpty()) {
@@ -300,7 +306,11 @@ public class InventoryManager {
         } catch (SQLException e) {}
     }
 
-    // 🧩 Load Purchases
+    
+    
+    
+    
+    // Load Purchases from DB
     public void loadPurchasesFromDB(Connection conn) {
         purchaseHistory.clear();
         String sql = "SELECT * FROM Purchases";
@@ -325,6 +335,12 @@ public class InventoryManager {
 }
     /*
         
+
+
+        
+
+
+
         old main code - corins graveyard of code
 
          // Item bread = new Item("Bread")   

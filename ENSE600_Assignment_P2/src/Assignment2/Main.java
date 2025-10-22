@@ -40,7 +40,7 @@ public class Main
         // ----- Apply Theme ----- // 
         Color selected = accentColors[0]; // coral-red
         
-        Theme.setMode(Theme.Mode.LIGHT);  // or DARK
+        Theme.setMode(Theme.Mode.DARK);  // or DARK
         Theme.setAccent(selected);        // updates all components
 
         // ----- Launch GUI ----- // 
