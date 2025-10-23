@@ -59,7 +59,7 @@ public abstract class BaseScreenPanel extends JPanel
     private void configurePanel() 
     {
         setLayout(new BorderLayout(12, 12));
-        setBackground(Theme.palette().surface);
+        // setBackground(Theme.palette().surface);
         setBorder(createPanelBorder());
     }
     
@@ -76,7 +76,7 @@ public abstract class BaseScreenPanel extends JPanel
         // title
         titleLabel = new JLabel(titleText);
         titleLabel.setFont(Theme.TITLE_FONT);
-        titleLabel.setForeground(Theme.palette().textPrimary);
+        // titleLabel.setForeground(Theme.palette().textPrimary);
         north.add(titleLabel, BorderLayout.NORTH);
         
         // extra
@@ -130,6 +130,13 @@ public abstract class BaseScreenPanel extends JPanel
     }
     
     // ----- Extras ----- //
+    public void refreshTheme() 
+    {
+        setBackground(Theme.palette().surface);
+        setForeground(Theme.palette().textPrimary);
+        revalidate();
+        repaint();
+    }
     
     // extra row under title
     protected JComponent createNorthExtra() { return null; }

@@ -18,13 +18,21 @@ public final class Theme
 {
     // ----- Mode / Accent Colour ----- //
     public enum Mode { LIGHT, DARK }
-    private static Mode currentMode = Mode.DARK;                    // default theme mode = dark
-    private static Color accentColour = Color.decode("#3B3158");    // default theme accent colour
+    public static Mode currentMode = Mode.DARK;                    // default theme mode = dark
+    public static Color accentColour = Color.decode("#48375D");    // default theme accent colour
+    
+    // ----- Theme Colours ----- // 
+    public static Color darkWhite = Color.decode("#D0D0D0"); 
+    public static Color lightGrey = Color.decode("#646469"); 
+    public static Color mediumGrey = Color.decode("#2E2E2F");
+    public static Color darkGrey = Color.decode("#222222"); 
+    
     
     // ----- Font / Spacing ----- //
-    public static final Font TITLE_FONT  = new Font("SansSerif", Font.BOLD, 24);
     public static final Font BODY_FONT   = new Font("SansSerif", Font.PLAIN, 16);
-    public static final Font HEADER_FONT = new Font("SansSerif", Font.BOLD, 30);
+    public static final Font TITLE_FONT = loadFont("Jersey25-Regular.ttf", 40f, Font.PLAIN);
+    public static final Font HEADER_FONT = loadFont("Jersey25-Regular.ttf", 80f, Font.PLAIN);
+    public static final Font CHONK_FONT = loadFont("Jersey25-Regular.ttf", 240f, Font.PLAIN);
     
     public static final Border PAGE_PADDING = BorderFactory.createEmptyBorder(18, 18, 18, 18);
     
@@ -58,23 +66,22 @@ public final class Theme
     }
     
     // Build the palette object 
-    private static void rebuildTheme() 
+    public static void rebuildTheme() 
     {
         if (currentMode == Mode.DARK) 
         {
             colorPalette = createDarkThemePalette();
         }
-        else 
+        if (currentMode == Mode.LIGHT)
         {
             colorPalette = createLightThemePalette();
         }
-        refreshUI();
     }
     
     // ----- Dark Mode ----- //
     private static Palette createDarkThemePalette() 
     {
-        Color s = new Color(28, 29, 33);
+        Color s = Color.decode("#1C1D21");
         
         return new Palette(
             s,                              // surface
@@ -91,9 +98,11 @@ public final class Theme
     // ----- Light Mode ----- //
     private static Palette createLightThemePalette() 
     {
+        Color s = Color.decode("#D3D8DD");
+        
         return new Palette(
-            Color.WHITE,                    // surface
-            new Color(244, 244, 244),       // background
+            s,                              // surface
+            s,                              // background
             new Color(20, 20, 20),          // textPrimary
             new Color(100, 100, 100),       // textSecondary
             accentColour,                   // buttonPrimaryBg
@@ -114,6 +123,7 @@ public final class Theme
         {
             currentMode = mode;
             rebuildTheme();
+            refreshUI();
         }
     }
     
@@ -162,20 +172,59 @@ public final class Theme
     }
     
     // ----- Utilities ----- //
-    public static Image loadThemedImage(String filename) 
+    private static Font loadFont(String path, float size, int style) 
     {
-    String modeFolder = (Theme.getMode() == Theme.Mode.DARK) ? "dark" : "light";
-    String path = String.format("/Assignment2/images/%s/%s", modeFolder, filename);
-    return new ImageIcon(Theme.class.getResource(path)).getImage();
+        try 
+        {
+            java.net.URL fontUrl = Theme.class.getResource("/Assignment2/resources/" + path);
+            if (fontUrl == null) 
+            {
+                System.err.println("Font not found: " + path);
+                return new Font("SansSerif", style, (int) size);
+            }
+            Font base = Font.createFont(Font.TRUETYPE_FONT, fontUrl.openStream());
+            return base.deriveFont(style, size);
+        }
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return new Font("SansSerif", style, (int) size);
+        }
     }
     
-    // ----- Force Refresh ----- //
-    private static void refreshUI()                 // update colours / fonts
+    public static Image loadThemedImage(String filename) 
     {
+        String modeFolder = (Theme.getMode() == Theme.Mode.DARK) ? "dark" : "light";
+        String path = String.format("/Assignment2/images/%s/%s", modeFolder, filename);
+        return new ImageIcon(Theme.class.getResource(path)).getImage();
+    }
+    
+    public static void refreshUI() 
+    {
+        rebuildTheme();
+        
         for (Window w : Window.getWindows()) 
         {
             SwingUtilities.updateComponentTreeUI(w);
+            w.invalidate();
+            w.validate();
             w.repaint();
+            
+            refreshAllChildren(w);
+        }
+    }
+
+    private static void refreshAllChildren(Component c) 
+    {
+        if (c instanceof Container cont) 
+        {
+            cont.setBackground(Theme.palette().surface);
+            cont.setForeground(Theme.palette().textPrimary);
+            
+            for (Component child : cont.getComponents()) 
+            {
+                refreshAllChildren(child);
+            }
         }
     }
     

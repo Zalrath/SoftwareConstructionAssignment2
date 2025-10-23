@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Assignment2.UI;
+
+package Assignment2.UI.Screens;
 
 /**
  *
@@ -10,16 +11,17 @@ package Assignment2.UI;
  */
 
 import Assignment2.UI.Template.BaseScreenPanel;
+import Assignment2.UI.Theme;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class InventoryPanel extends BaseScreenPanel 
+public class ShoppingListPanel extends BaseScreenPanel 
 {
     // ----- Constructor ----- // 
-    public InventoryPanel() 
+    public ShoppingListPanel() 
     {
-        super("Inventory", /*showBack*/ true, /*showAdd*/ true, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
+        super("ShoppingList", /*showBack*/ true, /*showAdd*/ true, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
     }
     
     // ----- Initialise Content ----- // 
@@ -27,7 +29,7 @@ public class InventoryPanel extends BaseScreenPanel
     protected JComponent createCentre() 
     {
         // placeholder for content
-        JTextArea area = new JTextArea("Inventory\n\n(Replace with your real UI)");
+        JTextArea area = new JTextArea("ShoppingList\n\n(Replace with your real UI)");
         
         // theme
         Theme.Palette palette = Theme.palette();

@@ -25,23 +25,24 @@ public class Main
         // Theme accent colours -> we should probably pick some different ones 
         Color[] accentColors = 
         {
-            Color.decode("#3B3158"), // Deep purple (default)
-            Color.decode("#E63946"), // Coral red
-            Color.decode("#457B9D"), // Ocean blue
-            Color.decode("#2A9D8F"), // Teal green
-            Color.decode("#F4A261"), // Sand orange
-            Color.decode("#E9C46A"), // Warm yellow
-            Color.decode("#1D3557"), // Navy blue
-            Color.decode("#6A4C93"), // Violet
-            Color.decode("#8ECAE6"), // Soft sky blue
-            Color.decode("#219EBC")  // Aqua blue
+            Color.decode("#104A63"), // Deep Teal Blue
+            Color.decode("#253D27"), // Dark Forest Green
+            Color.decode("#3C4072"), // Indigo Blue / Slate Purple
+            Color.decode("#3D8479"), // Muted Aqua Green
+            Color.decode("#477D51"), // Medium Leaf Green
+            Color.decode("#48375D"), // Dark Violet Gray
+            Color.decode("#716994"), // Dusty Lavender
+            Color.decode("#8E3E3E"), // Brick Red
+            Color.decode("#8E4D6C"), // Mauve Rose
+            Color.decode("#AE5E41") // Burnt Copper / Terracotta
         };
-
+        
+        
         // ----- Apply Theme ----- // 
         Color selected = accentColors[0]; // coral-red
         
-        Theme.setMode(Theme.Mode.DARK);  // or DARK
-        Theme.setAccent(selected);        // updates all components
+         // Theme.setMode(Theme.Mode.LIGHT);  // or DARK
+        // Theme.setAccent(selected);        // updates all components
 
         // ----- Launch GUI ----- // 
         SwingUtilities.invokeLater(() -> new HomeScreen().setVisible(true));

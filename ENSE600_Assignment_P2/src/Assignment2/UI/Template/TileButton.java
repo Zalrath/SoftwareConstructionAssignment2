@@ -63,18 +63,7 @@ public class TileButton extends JButton
         g2.setClip(bounds); // clip edges
         
         // background
-        if (backgroundImage != null) 
-        {
-            drawBackgroundImage(g2, w, h);
-        }
-        else
-        {
-            tempGradient(g2, w, h);
-        }
-        
-        // overlay
-        g2.setColor(new Color(0, 0, 0, 60));
-        g2.fill(bounds);
+        drawBackgroundImage(g2, w, h);
         
         // bottom section
         int stripHeight = Math.max(40, h / 8);
@@ -83,12 +72,6 @@ public class TileButton extends JButton
         
         // bottom text
         drawCenteredText(g2, w, h, stripHeight);
-        
-        // hover ring
-        if (getModel().isRollover()) 
-        {
-            drawHoverRing(g2, w, h);
-        }
         
         g2.dispose();
     }
@@ -110,16 +93,6 @@ public class TileButton extends JButton
             g2.drawImage(backgroundImage, x, y, drawW, drawH, this);
         }
     }
-
-    private void tempGradient(Graphics2D g2, int w, int h) 
-    {    
-        Color accent = Theme.getAccent();
-        Color accentDark = calculateDarkerColor(accent, 0.25f);
-        
-        GradientPaint gp = new GradientPaint(0, 0, accent, 0, h, accentDark);
-        g2.setPaint(gp);
-        g2.fillRect(0, 0, w, h);
-    }
     
     private void drawCenteredText(Graphics2D g2, int w, int h, int stripHeight) 
     {
@@ -134,18 +107,6 @@ public class TileButton extends JButton
         
         g2.setColor(Color.WHITE);
         g2.drawString(text, xText, yText);
-    }
-    
-    private void drawHoverRing(Graphics2D g2, int w, int h) 
-    {
-        // hover ring
-        g2.setStroke(new BasicStroke(3f));
-        g2.setColor(new Color(255, 255, 255, 120));
-        
-        // inset rectangle
-        int inset = 2;
-        int cornerRadius = 20;
-        g2.drawRoundRect(inset, inset, w - 2 * inset, h - 2 * inset, cornerRadius, cornerRadius);
     }
     
     // ----- Utils ----- //

@@ -25,7 +25,7 @@ public abstract class BaseThemedDialog extends JDialog
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         
         // change the surface colour
-        getContentPane().setBackground(Theme.palette().surface);
+        getContentPane().setBackground(Theme.accentColour);
     }
     
     // ----- Util ----- //

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package Assignment2.UI;
+package Assignment2.UI.Screens;
 
 /**
  *
@@ -11,6 +11,7 @@ package Assignment2.UI;
  */
 
 import Assignment2.UI.Template.BaseScreenPanel;
+import Assignment2.UI.Theme;
 
 import javax.swing.*;
 import java.awt.*;

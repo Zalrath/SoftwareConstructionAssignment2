@@ -10,6 +10,10 @@ package Assignment2.UI;
  * @author megan
  */
 
+import Assignment2.UI.Screens.InventoryPanel;
+import Assignment2.UI.Screens.SettingsPanel;
+import Assignment2.UI.Screens.ShoppingListPanel;
+import Assignment2.UI.Screens.BudgetPanel;
 import Assignment2.Account.*;
 
 import javax.swing.*;
