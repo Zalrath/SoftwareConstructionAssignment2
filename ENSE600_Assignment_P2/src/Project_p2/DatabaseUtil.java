@@ -49,8 +49,11 @@ public class DatabaseUtil {
                     uuid VARCHAR(36) PRIMARY KEY,
                     name VARCHAR(255),
                     last_Purchased DATE,
+                    current_Amount DOUBLE,           
                     Interval_Days INT,
-                    tags VARCHAR(1000)
+                    tags VARCHAR(1000),
+                    favorite BOOLEAN,  
+                    future BOOLEAN
                 )
             """);
 
@@ -83,11 +86,12 @@ public class DatabaseUtil {
                 String uuid = rs.getString("uuid");
                 String name = rs.getString("name");
                 LocalDate lastPurchased = rs.getDate("last_Purchased").toLocalDate();
+                double currentAmount = rs.getDouble("current_Amount");
                 int interval = rs.getInt("Interval_Days");
                 String tags = rs.getString("tags");
 
-                System.out.printf("UUID: %s | Name: %s | Last Purchased: %s | Interval: %d | Tags: %s%n",
-                        uuid, name, lastPurchased, interval, tags);
+                System.out.printf("UUID: %s | Name: %s | Last Purchased: %s |Current Amount %s| Interval: %d | Tags: %s%n",
+                        uuid, name, lastPurchased,currentAmount, interval, tags);
             }
 
         } catch (SQLException e) { }

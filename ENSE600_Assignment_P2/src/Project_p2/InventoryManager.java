@@ -39,100 +39,6 @@ public class InventoryManager {
     
     
     
-    
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Load from text files 
-    public void loadItems(String path) throws IOException {
-        
-        items.clear();
-       
- 
-        List<String> lines = Files.readAllLines(Paths.get(path));
-        lines.remove(0); // skip header
-
-        for (String line : lines) {
-            String[] parts = line.split(",");
-            UUID uuid = UUID.fromString(parts[0]);
-            String name = parts[1];
-            LocalDate lastPurchased = LocalDate.parse(parts[2]);
-            int interval = Integer.parseInt(parts[3]);
-            String[] tagParts = parts[4].split("\\|"); 
-            ArrayList<String> tags = new ArrayList<>(Arrays.asList(tagParts));
-
-
-            Item item = new Item();
-            item.setUuid(uuid);
-            item.setName(name);
-            item.setLastPurchased(lastPurchased);
-            item.setEstimatedIntervalDays(interval);
-            item.updateNextExpectedPurchase();
-            item.setTags(tags);
-
-            items.put(uuid, item);
-        }
-          
-    }
-
-
-    public void loadPurchases(String path) throws IOException {
-        List<String> lines = Files.readAllLines(Paths.get(path));
-        lines.remove(0);
-
-        for (String line : lines) {
-            String[] parts = line.split(",");
-            UUID uuid = UUID.fromString(parts[0]);
-            double price = Double.parseDouble(parts[1]);
-            double quantity = Double.parseDouble(parts[2]);
-            LocalDate date = LocalDate.parse(parts[3]);
-            
-            
-            purchaseHistory.computeIfAbsent(uuid, k -> new ArrayList<>())
-                .add(new PurchaseLog(uuid,price ,quantity , date));
-        }
-    }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-   
-    // Save to text files
-    public void saveItems(String path) throws IOException {
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get(path));
-        writer.write("UUID,  Name,  Last Purchased,  Estimated Interval Days,  Tags\n");
-        
-        
-        for (Item item : items.values()) {
-            String tagString = String.join("|", item.getTags());
-            writer.write(String.format("%s,%s,%s,%d,%s%n", // add another for the tags
-                item.getUuid(),
-                item.getName(),
-                item.getLastPurchased(),
-                item.getEstimatedIntervalDays(),
-                tagString));
-        }
-        
-        
-        writer.close();
-    }
-
-    public void savePurchases(String path) throws IOException {
-        BufferedWriter writer = Files.newBufferedWriter(Paths.get(path));
-        writer.write("Item ID,  Price,  Quantity,  Purchase Date\n");
-        for (List<PurchaseLog> logs : purchaseHistory.values()) {
-            for (PurchaseLog log : logs) {
-                writer.write(String.format("%s,%s,%s,%s\n",
-                    log.getItemId(),
-                    log.getPrice(),
-                    log.getQuantity(),
-                    log.getPurchaseDate()));
-            }
-        }
-        writer.close();
-    }
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    
-    
-    
     public void addItem(Item item) {
         items.put(item.getUuid(), item);
     }
@@ -227,7 +133,7 @@ public class InventoryManager {
     
     // Save Items to DB
     public void saveItemsToDB(Connection conn) {
-        String sql = "INSERT INTO Items (uuid, name, last_Purchased, interval_Days, tags) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Items (uuid, name, last_Purchased, current_Amount , interval_Days, tags, favorite, future) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             for (Item item : items.values()) {
                 ps.setString(1, item.getUuid().toString());
@@ -236,9 +142,11 @@ public class InventoryManager {
                 LocalDate lp = item.getLastPurchased();
                 if (lp != null) ps.setDate(3, java.sql.Date.valueOf(lp));
                 else ps.setNull(3, Types.DATE);
-
-                ps.setInt(4, item.getEstimatedIntervalDays());
-                ps.setString(5, String.join("|", item.getTags()));
+                ps.setDouble(4, item.getCurrentAmount());
+                ps.setInt(5, item.getEstimatedIntervalDays());
+                ps.setString(6, String.join("|", item.getTags()));
+                ps.setBoolean(7, item.getFavorite());
+                ps.setBoolean(8, item.getFuture());
                 ps.addBatch();
             }
             ps.executeBatch();
@@ -285,6 +193,7 @@ public class InventoryManager {
                 LocalDate lastPurchased = rs.getDate("last_Purchased") != null
                         ? rs.getDate("last_Purchased").toLocalDate()
                         : null;
+                double current = rs.getDouble("current_Amount");
                 int interval = rs.getInt("interval_Days");
                 String tagsStr = rs.getString("tags");
                 ArrayList<String> tags = new ArrayList<>();
@@ -295,6 +204,7 @@ public class InventoryManager {
                 Item item = new Item(name);
                 item.setUuid(uuid);
                 item.setLastPurchased(lastPurchased);
+                item.setCurrentAmount(current);
                 item.setEstimatedIntervalDays(interval);
                 item.setTags(tags);
                 item.updateNextExpectedPurchase();

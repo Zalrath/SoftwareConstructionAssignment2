@@ -12,9 +12,12 @@ public class Item {
     private UUID uuid;
     private String name;
     private LocalDate lastPurchased;
+    private double currentAmount;
     private int estimatedIntervalDays;
     private LocalDate nextExpectedPurchase;
-   
+    private boolean fav;
+    private boolean future;
+    
     private ArrayList<String> tags = new ArrayList<>();
     
     
@@ -49,6 +52,10 @@ public class Item {
     public LocalDate getLastPurchased() { return lastPurchased; }
     public void setLastPurchased(LocalDate lastPurchased) { this.lastPurchased = lastPurchased; }
 
+    public double getCurrentAmount() { return currentAmount; }
+    public void setCurrentAmount(Double currentAmount) { this.currentAmount = currentAmount; }
+    
+    
     public int getEstimatedIntervalDays() { return estimatedIntervalDays; }
     public void setEstimatedIntervalDays(int estimatedIntervalDays) { this.estimatedIntervalDays = estimatedIntervalDays; }
 
@@ -65,5 +72,12 @@ public class Item {
         }
     }
     public void removeTag(String tag) {tags.remove(tag); }
+    
+    public boolean getFavorite() { return fav; }
+    public void setFavorite(boolean fav) { this.fav = fav; }
+    
+    public boolean getFuture() { return fav; }
+    public void setFuture(boolean fav) { this.fav = fav; }
+    
     
 }
