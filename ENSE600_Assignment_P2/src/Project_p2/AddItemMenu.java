@@ -56,7 +56,7 @@ public class AddItemMenu {
             // System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
             System.out.println();
             index++;
-         }
+        }
         
         // System.out.println("Which item do you want to log a Purchase(use the index number):");
         Formatting.printLeftAlignedMessage("Which item do you want to log a Purchase(use the index number),(X) to cancel adding purchase.:");

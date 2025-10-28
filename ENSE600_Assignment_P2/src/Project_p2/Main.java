@@ -76,8 +76,13 @@ public class Main {
         File settingsFile = new File("settings.txt"); 
         
         /////// if the files exist load their contents
+
+        // TURNED OFF THE TXT LOAD AND SAVE 
+        
         //if (itemFile.exists()) manager.loadItems("items.txt");
         //if (logFile.exists()) manager.loadPurchases("purchases.txt");
+
+
         if (settingsFile.exists()) settingsmanager.loadSettings("settings.txt");
 
         List<Item> toBuy = manager.getItemsToReplenish(LocalDate.of(2025, 8, 4));
@@ -86,6 +91,8 @@ public class Main {
         }
         
         settingsmanager.saveSettings("settings.txt");
+        
+
         //manager.saveItems("items.txt");
         //manager.savePurchases("purchases.txt");
         
