@@ -10,6 +10,7 @@ package Assignment2.UI;
  * @author megan
  */
 
+import Assignment2.UI.Template.AccentHeaderBar;
 import Assignment2.UI.Template.TileButton;
 import Assignment2.UI.Theme.*;
 
@@ -25,19 +26,24 @@ public class DashboardPanel extends JPanel
     private final String appName;
     
     // ----- Constructor ----- // 
+    
+    
     public DashboardPanel(JFrame hostFrame, String username, String appName) 
     {
+        
+        
+        
         this.username = username;
         this.appName = appName;
         
         setLayout(new BorderLayout(18, 18));
         setBorder(BorderFactory.createEmptyBorder(18, 18, 18, 18));
-        setBackground(Theme.palette().surface);
+        setBackground(Theme.palette().background);
         
         // title
         JLabel lblWelcome = new JLabel("Welcome to " + appName + ", " + username + "!");
         lblWelcome.setFont(Theme.TITLE_FONT);
-        lblWelcome.setForeground(Theme.palette().textPrimary);
+        lblWelcome.setForeground(Theme.palette().textLight);
         lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
         add(lblWelcome, BorderLayout.NORTH);
         

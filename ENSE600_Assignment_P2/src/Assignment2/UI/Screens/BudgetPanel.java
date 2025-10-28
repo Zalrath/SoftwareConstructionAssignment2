@@ -35,8 +35,8 @@ public class BudgetPanel extends BaseScreenPanel
         Theme.Palette palette = Theme.palette();
         
         area.setFont(Theme.BODY_FONT);
-        area.setForeground(palette.textPrimary);
-        area.setBackground(palette.surface);
+        area.setForeground(palette.textLight);
+        area.setBackground(palette.tileDark);
         area.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
         
         JScrollPane sp = new JScrollPane(area);

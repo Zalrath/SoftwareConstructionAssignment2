@@ -62,7 +62,7 @@ public class AddItemDialog extends BaseThemedDialog
     {
         // form
         JPanel form = new JPanel(new GridBagLayout());
-        form.setBackground(Theme.palette().surface);
+        form.setBackground(Theme.palette().tileDark);
         form.setBorder(BorderFactory.createEmptyBorder(16,16,8,16));
         GridBagConstraints gc = new GridBagConstraints();
         gc.insets = new Insets(8, 8, 8, 8);
@@ -93,7 +93,7 @@ public class AddItemDialog extends BaseThemedDialog
         getRootPane().setDefaultButton(btnAdd);
         
         JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        buttons.setBackground(Theme.palette().surface);
+        buttons.setBackground(Theme.palette().tileDark);
         buttons.setBorder(BorderFactory.createEmptyBorder(0,16,16,16));
         buttons.add(btnCancel);
         buttons.add(btnAdd);

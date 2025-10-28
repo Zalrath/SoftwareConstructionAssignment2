@@ -33,7 +33,7 @@ public abstract class BaseThemedDialog extends JDialog
     {
         JLabel l = new JLabel(txt);
         l.setFont(Theme.BODY_FONT);
-        l.setForeground(Theme.palette().textPrimary);
+        l.setForeground(Theme.palette().textLight);
         return l;
     }
 }

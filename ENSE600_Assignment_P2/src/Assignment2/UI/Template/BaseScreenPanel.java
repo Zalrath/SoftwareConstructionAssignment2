@@ -28,6 +28,7 @@ public abstract class BaseScreenPanel extends JPanel
     
     // ----- Components ----- //
     protected JLabel titleLabel;
+    protected AccentHeaderBar headerBar;
     
     // ----- Constructor ----- //
     protected BaseScreenPanel(String titleText, boolean showBack, boolean showAdd, String addLabel, String backTargetCard)
@@ -46,8 +47,9 @@ public abstract class BaseScreenPanel extends JPanel
         // layout, background and border
         configurePanel();
         
-        // title
-        add(createTopPanel(), BorderLayout.NORTH);
+        // title 
+        headerBar = new AccentHeaderBar(titleText);
+        add(headerBar, BorderLayout.NORTH);
         
         // middle
         add(createCenterContent(), BorderLayout.CENTER);
@@ -59,7 +61,7 @@ public abstract class BaseScreenPanel extends JPanel
     private void configurePanel() 
     {
         setLayout(new BorderLayout(12, 12));
-        // setBackground(Theme.palette().surface);
+        setBackground(Theme.palette().background);
         setBorder(createPanelBorder());
     }
     
@@ -130,13 +132,6 @@ public abstract class BaseScreenPanel extends JPanel
     }
     
     // ----- Extras ----- //
-    public void refreshTheme() 
-    {
-        setBackground(Theme.palette().surface);
-        setForeground(Theme.palette().textPrimary);
-        revalidate();
-        repaint();
-    }
     
     // extra row under title
     protected JComponent createNorthExtra() { return null; }
@@ -151,8 +146,8 @@ public abstract class BaseScreenPanel extends JPanel
         
         // theme
         area.setFont(Theme.BODY_FONT);
-        area.setForeground(Theme.palette().textPrimary);
-        area.setBackground(Theme.palette().surface);
+        area.setForeground(Theme.palette().textLight);
+        area.setBackground(Theme.palette().background);
         
         area.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
         

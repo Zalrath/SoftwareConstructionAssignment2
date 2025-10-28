@@ -46,7 +46,7 @@ public class HomeScreen extends JFrame
         setLocationRelativeTo(null);
         
         setContentPane(root);
-        root.setBackground(Theme.palette().surface);
+        root.setBackground(Theme.palette().tileDark);
         
         buildWelcomeCard();
         showScreen("welcome");
@@ -84,11 +84,11 @@ public class HomeScreen extends JFrame
     {
         JPanel welcome = new JPanel(new BorderLayout(10, 10));
         welcome.setBorder(BorderFactory.createEmptyBorder(24, 24, 24, 24));
-        welcome.setBackground(Theme.palette().surface);
+        welcome.setBackground(Theme.palette().tileDark);
         
         JLabel title = new JLabel("Welcome to " + appName, SwingConstants.CENTER);
         title.setFont(Theme.TITLE_FONT);
-        title.setForeground(Theme.palette().textPrimary);
+        title.setForeground(Theme.palette().textLight);
         welcome.add(title, BorderLayout.NORTH);
         
         JPanel centerPanel = new JPanel();

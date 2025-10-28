@@ -28,17 +28,21 @@ public class InventoryPanel extends BaseScreenPanel
     protected JComponent createCentre() 
     {
         // placeholder for content
-        JTextArea area = new JTextArea("Inventory\n\n(Replace with your real UI)");
+        // JTextArea area = new JTextArea("Inventory\n\n(Replace with your real UI)");
         
-        // theme
+        
+        
+        
+        
+        // ----- Theme ----- // 
         Theme.Palette palette = Theme.palette();
+//        
+//        area.setFont(Theme.BODY_FONT);
+//        area.setForeground(palette.textLight);
+//        area.setBackground(palette.tileDark);
+//        area.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
         
-        area.setFont(Theme.BODY_FONT);
-        area.setForeground(palette.textPrimary);
-        area.setBackground(palette.surface);
-        area.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
-        
-        JScrollPane sp = new JScrollPane(area);
+        JScrollPane sp = new JScrollPane();
         sp.setBorder(null);
         
         JPanel card = new JPanel(new BorderLayout());

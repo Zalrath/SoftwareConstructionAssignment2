@@ -67,7 +67,7 @@ public class NewAccountDialog extends BaseThemedDialog
         
         // ----- Form ----- //
         JPanel form = new JPanel(new GridBagLayout());
-        form.setBackground(Theme.palette().surface);
+        form.setBackground(Theme.palette().tileDark);
         
         form.setBorder(BorderFactory.createEmptyBorder(16, 16, 8, 16));
         
@@ -97,7 +97,7 @@ public class NewAccountDialog extends BaseThemedDialog
         
         // ----- Button Layout ----- // 
         JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        buttons.setBackground(Theme.palette().surface);
+        buttons.setBackground(Theme.palette().tileDark);
         buttons.add(btnCancel);
         buttons.add(btnCreate);
         

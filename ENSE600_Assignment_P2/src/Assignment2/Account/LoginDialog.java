@@ -69,7 +69,7 @@ public class LoginDialog extends BaseThemedDialog
         
         // ----- Form ----- //
         JPanel form = new JPanel(new GridBagLayout());
-        form.setBackground(Theme.palette().surface);
+        form.setBackground(Theme.palette().tileDark);
         
         GridBagConstraints gc = new GridBagConstraints();
         gc.insets = new Insets(6, 6, 6, 6);
@@ -92,7 +92,7 @@ public class LoginDialog extends BaseThemedDialog
         
         // ----- Button Layout ----- // 
         JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        buttons.setBackground(Theme.palette().surface);
+        buttons.setBackground(Theme.palette().tileDark);
         buttons.add(btnCancel);
         buttons.add(btnLogin);
         

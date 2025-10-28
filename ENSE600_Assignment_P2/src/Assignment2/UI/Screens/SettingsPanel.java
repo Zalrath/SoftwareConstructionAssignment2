@@ -26,7 +26,7 @@ public class SettingsPanel extends BaseScreenPanel
     // ----- Constructor ----- // 
     public SettingsPanel() 
     {
-        super("", /*showBack*/ true, /*showAdd*/ true, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
+        super("Settings", /*showBack*/ true, /*showAdd*/ true, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
     }
     
     // ----- Initialise Content ----- // 
@@ -35,10 +35,6 @@ public class SettingsPanel extends BaseScreenPanel
     {
         JPanel container = new JPanel(new BorderLayout(12, 12)); // ← adds 12px spacing between children
         container.setOpaque(false);
-        
-        // ----- Header bar ----- // 
-        JPanel header = createHeaderBar();
-        container.add(header, BorderLayout.NORTH);
         
         // ----- Left sidebar ----- //
         JPanel sidebar = createSidebar();
@@ -51,17 +47,10 @@ public class SettingsPanel extends BaseScreenPanel
         return container;
     }
     
-    
-    private JPanel createHeaderBar() 
-    {
-        return new AccentHeaderBar("Settings");
-    }
-    
-    
     private JPanel createSidebar() 
     {
         JPanel sidebar = new JPanel(new BorderLayout());
-        sidebar.setBackground(Theme.darkGrey);
+        sidebar.setBackground(Theme.palette().tileDark);
     
         // set sidebar size
         sidebar.setPreferredSize(new Dimension(240, 0));
@@ -94,7 +83,7 @@ public class SettingsPanel extends BaseScreenPanel
                 int h = getHeight();
                 
                 g2.setFont(font);
-                g2.setColor(Theme.mediumGrey);
+                g2.setColor(Theme.palette().tileMediumDark);
                 FontMetrics fm = g2.getFontMetrics();
                 int textW = fm.stringWidth(text);
                 int textH = fm.getAscent();
@@ -118,13 +107,13 @@ public class SettingsPanel extends BaseScreenPanel
     private JPanel createContentArea() 
     {
         JPanel content = new JPanel(new BorderLayout(0, 20)); // vertical gap between sections
-        content.setBackground(Theme.mediumGrey);
+        content.setBackground(Theme.palette().tileMedium);
         content.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         // ----- THEME SECTION ----- // 
         JLabel lblTheme = new JLabel("Theme");
         lblTheme.setFont(Theme.TITLE_FONT);
-        lblTheme.setForeground(Theme.palette().textPrimary);
+        lblTheme.setForeground(Theme.palette().textLight);
         lblTheme.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         // FIX: Change themePanel from BorderLayout to BoxLayout for vertical stacking
@@ -137,9 +126,6 @@ public class SettingsPanel extends BaseScreenPanel
         themePanel.add(Box.createVerticalStrut(8));
 
         // Add Buttons
-        JPanel themeModeButtons = createThemeModeButtons();
-        themeModeButtons.setAlignmentX(Component.LEFT_ALIGNMENT); // FIX: Ensure left alignment
-        themePanel.add(themeModeButtons);
 
         // Add large spacer (used to be in BorderLayout.CENTER)
         themePanel.add(Box.createVerticalStrut(60));
@@ -147,7 +133,7 @@ public class SettingsPanel extends BaseScreenPanel
         // ----- ACCENT COLOUR SECTION ----- // 
         JLabel lblAccent = new JLabel("Accent Colour");
         lblAccent.setFont(Theme.TITLE_FONT);
-        lblAccent.setForeground(Theme.palette().textPrimary);
+        lblAccent.setForeground(Theme.palette().textLight);
 
         JPanel accentPanel = new JPanel(new BorderLayout());
         accentPanel.setOpaque(false);
@@ -162,15 +148,15 @@ public class SettingsPanel extends BaseScreenPanel
         // Display
         JLabel lblDisplay = new JLabel("Display");
         lblDisplay.setFont(Theme.TITLE_FONT);
-        lblDisplay.setForeground(Theme.palette().textPrimary);
+        lblDisplay.setForeground(Theme.palette().textLight);
 
         JLabel lblCurrency = new JLabel("Currency Format");
         lblCurrency.setFont(Theme.TITLE_FONT.deriveFont(16f));
-        lblCurrency.setForeground(Theme.palette().textSecondary);
+        lblCurrency.setForeground(Theme.palette().textDark);
 
         JLabel lblDate = new JLabel("Date Format");
         lblDate.setFont(Theme.TITLE_FONT.deriveFont(16f));
-        lblDate.setForeground(Theme.palette().textSecondary);
+        lblDate.setForeground(Theme.palette().textDark);
 
         bottomPanel.add(lblDisplay);
         bottomPanel.add(Box.createVerticalStrut(10));
@@ -182,7 +168,7 @@ public class SettingsPanel extends BaseScreenPanel
         // Account
         JLabel lblAccount = new JLabel("Account");
         lblAccount.setFont(Theme.TITLE_FONT);
-        lblAccount.setForeground(Theme.palette().textPrimary);
+        lblAccount.setForeground(Theme.palette().textLight);
 
         bottomPanel.add(lblAccount);
         bottomPanel.add(Box.createVerticalStrut(60)); // room for buttons later
@@ -197,108 +183,7 @@ public class SettingsPanel extends BaseScreenPanel
     
     // ----- Helpers ------ //
     
-    private JPanel createThemeModeButtons() 
-    {
-        JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT, 16, 0)); // gap
-        panel.setOpaque(false);
-        
-        JButton btnDark = new JButton("Dark");
-        JButton btnLight = new JButton("Light");
-        
-        styleModeButton(btnDark);
-        styleModeButton(btnLight);
-        
-        // use theme
-        updateModeButtonSelection(btnDark, btnLight, Theme.getMode());
-        
-        // make button work
-        btnDark.addActionListener(e -> 
-        {
-            Theme.setMode(Theme.Mode.DARK);
-            Window window = SwingUtilities.getWindowAncestor(this);
-            
-            if (window != null) 
-            {
-                SwingUtilities.updateComponentTreeUI(window);
-                window.repaint();
-            }
-            updateModeButtonSelection(btnDark, btnLight, Theme.Mode.DARK);
-        });
-
-        btnLight.addActionListener(e -> 
-        {
-            Theme.setMode(Theme.Mode.LIGHT);
-            Window window = SwingUtilities.getWindowAncestor(this);
-            
-            if (window != null) 
-            {
-                SwingUtilities.updateComponentTreeUI(window);
-                window.repaint();
-            }
-            updateModeButtonSelection(btnDark, btnLight, Theme.Mode.LIGHT);
-        });
-        
-        panel.add(btnDark);
-        panel.add(btnLight);
-        return panel;
-    }
     
-    private void styleModeButton(JButton button) 
-    {
-        button.setFont(Theme.CHONK_FONT.deriveFont(24f)); // fix later
-        button.setFocusPainted(false);
-
-        // palette
-        button.setBackground(Theme.palette().buttonSecondaryBg);
-        button.setForeground(Theme.palette().textPrimary);
-        
-        button.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createEmptyBorder(18, 30, 18, 30), // Outer Padding (increased)
-                BorderFactory.createLineBorder(Theme.palette().surface, 0) // Placeholder
-        ));
-
-        button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        button.setOpaque(true);
-    }
-    
-    private void updateModeButtonSelection(JButton dark, JButton light, Theme.Mode activeMode) 
-    {
-        // padding
-        Border paddingBorder = BorderFactory.createEmptyBorder(18, 30, 18, 30);
-        
-        // raaaaaaaaah
-        Border selectedBorder = BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(Theme.lightGrey, 4, true), // thickness
-                paddingBorder // internal padding
-        );
-        
-        //border padding
-        Border unselectedBorder = BorderFactory.createEmptyBorder(18 + 4, 30 + 4, 18 + 4, 30 + 4);
-        
-        if (activeMode == Theme.Mode.DARK) 
-        {
-            // Dark selected
-            dark.setBorder(selectedBorder);
-            dark.setBackground(Theme.darkGrey); // Dark button selected look
-            
-            // Light unselected
-            light.setBorder(unselectedBorder);
-            light.setBackground(Theme.darkWhite); // Light button unselected look
-        }
-        else 
-        {
-            
-            // Light selected
-            light.setBorder(selectedBorder);
-            light.setBackground(Theme.darkWhite); // Light button selected look
-            
-            // Dark unselected
-            dark.setBorder(unselectedBorder);
-            dark.setBackground(Theme.darkGrey); // Dark button unselected look
-        }
-    }
-
-
     
     
     // ----- Actions ----- // 

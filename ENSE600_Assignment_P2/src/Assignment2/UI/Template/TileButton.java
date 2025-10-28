@@ -67,7 +67,7 @@ public class TileButton extends JButton
         
         // bottom section
         int stripHeight = Math.max(40, h / 8);
-        g2.setColor(new Color(0, 0, 0, 140));
+        g2.setColor(Theme.palette().tileMedium);
         g2.fillRect(0, h - stripHeight, w, stripHeight);
         
         // bottom text
@@ -115,15 +115,5 @@ public class TileButton extends JButton
     {
         // rectangle button shape
         return new Dimension(480, 280);
-    }
-    
-    // darker colour
-    private static Color calculateDarkerColor(Color c, float amount) 
-    {
-        amount = Math.max(0f, Math.min(amount, 1f));
-        int r = Math.round(c.getRed()  * (1f - amount));
-        int g = Math.round(c.getGreen() * (1f - amount));
-        int b = Math.round(c.getBlue()  * (1f - amount));
-        return new Color(r, g, b, c.getAlpha());
     }
 }
