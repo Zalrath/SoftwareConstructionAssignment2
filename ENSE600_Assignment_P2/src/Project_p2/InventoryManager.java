@@ -80,7 +80,8 @@ public class InventoryManager {
         return needed;
     }
     
-    public Collection<Item> getAllItems() {
+    public Collection<Item> getAllItems() 
+    {
         return items.values();
     } 
 

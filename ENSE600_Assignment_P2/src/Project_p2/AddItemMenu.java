@@ -469,25 +469,25 @@ public class AddItemMenu {
                 break;
             }
 
-            if(Added){
-                try {
-                    
-                    manager.saveItems("items.txt");
-                    manager.savePurchases("purchases.txt");
-                    
-                    Formatting.printLeftAlignedMessage("Do you want to add more items/purchase? (Y/N)");
-                    Formatting.printInputLine();
-                    String yn = itemInput.nextLine().trim().toUpperCase();
-                    if (yn.equals("Y")) {
-                        
-                    }
-                    else {
-                        
-                    }
-                } catch (IOException ex) {
-                    System.getLogger(AddItemMenu.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-                }
-            }
+//            if(Added){
+//                try {
+//                    
+//                    manager.saveItems("items.txt");
+//                    manager.savePurchases("purchases.txt");
+//                    
+//                    Formatting.printLeftAlignedMessage("Do you want to add more items/purchase? (Y/N)");
+//                    Formatting.printInputLine();
+//                    String yn = itemInput.nextLine().trim().toUpperCase();
+//                    if (yn.equals("Y")) {
+//                        
+//                    }
+//                    else {
+//                        
+//                    }
+//                } catch (IOException ex) {
+//                    System.getLogger(AddItemMenu.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+//                }
+//            }
         
     
         }
