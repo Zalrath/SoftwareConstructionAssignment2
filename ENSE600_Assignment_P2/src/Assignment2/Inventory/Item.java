@@ -53,7 +53,7 @@ public class Item {
     public void setLastPurchased(LocalDate lastPurchased) { this.lastPurchased = lastPurchased; }
 
     public double getCurrentAmount() { return currentAmount; }
-    public void setCurrentAmount(Double currentAmount) { this.currentAmount = currentAmount; }
+    public void setCurrentAmount(double currentAmount) { this.currentAmount = currentAmount; }
     
     
     public int getEstimatedIntervalDays() { return estimatedIntervalDays; }

@@ -51,6 +51,8 @@ public class HomeScreen extends JFrame
         setTitle("Welcome");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(520, 320);
+        setMinimumSize(new Dimension(1200, 800));
+        setPreferredSize(new Dimension(1600, 1200));
         setLocationRelativeTo(null);
         
         setContentPane(root);
@@ -167,7 +169,7 @@ public class HomeScreen extends JFrame
     
     private void postAuthSetup(String targetScreen) 
     {
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+       // setExtendedState(JFrame.MAXIMIZED_BOTH);
         setupMainScreens();
         // set default
         showScreen(targetScreen);
