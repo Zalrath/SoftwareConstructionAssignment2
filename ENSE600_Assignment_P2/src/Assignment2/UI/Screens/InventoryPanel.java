@@ -2,8 +2,8 @@ package Assignment2.UI.Screens;
 
 import Assignment2.UI.Template.BaseScreenPanel;
 import Assignment2.UI.Theme;
-import Project_p2.InventoryManager;
-import Project_p2.Item;
+import Assignment2.Inventory.InventoryManager;
+import Assignment2.Inventory.Item;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

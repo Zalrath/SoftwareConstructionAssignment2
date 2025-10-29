@@ -2,13 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Project_p2;
+package iGonnaDeleteThisOnSubmission;
 
 /**
  *
  * @author corin
  *
 **/
+import Assignment2.Inventory.SettingsManager;
 import java.io.IOException;
 import java.util.Scanner;
 

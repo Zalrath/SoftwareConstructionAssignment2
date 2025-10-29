@@ -22,6 +22,7 @@ public class BudgetPanel extends BaseScreenPanel
     public BudgetPanel() 
     {
         super("Budget", /*showBack*/ true, /*showAdd*/ true, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
+         buildBaseUI();
     }
     
     // ----- Initialise Content ----- // 

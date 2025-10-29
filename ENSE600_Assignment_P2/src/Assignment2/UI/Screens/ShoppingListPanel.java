@@ -22,6 +22,7 @@ public class ShoppingListPanel extends BaseScreenPanel
     public ShoppingListPanel() 
     {
         super("Shopping List", /*showBack*/ true, /*showAdd*/ true, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
+        buildBaseUI();
     }
     
     // ----- Initialise Content ----- // 

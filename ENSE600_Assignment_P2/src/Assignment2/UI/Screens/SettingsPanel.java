@@ -27,6 +27,7 @@ public class SettingsPanel extends BaseScreenPanel
     public SettingsPanel() 
     {
         super("Settings", /*showBack*/ true, /*showAdd*/ true, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
+         buildBaseUI();
     }
     
     // ----- Initialise Content ----- // 

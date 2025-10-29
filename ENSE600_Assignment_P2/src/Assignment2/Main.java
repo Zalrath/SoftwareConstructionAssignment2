@@ -10,19 +10,16 @@ package Assignment2;
  */
 
 import Assignment2.UI.HomeScreen;
-import Assignment2.UI.Theme;
 
-import Project_p2.DatabaseUtil;
+import Assignment2.Database.DatabaseUtil;
 
-import Project_p2.InventoryManager;
-import Project_p2.Item;
-import Project_p2.SettingsManager;
+import Assignment2.Inventory.InventoryManager;
+import Assignment2.Inventory.SettingsManager;
 
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.UUID;
 import javax.swing.SwingUtilities;
 
 

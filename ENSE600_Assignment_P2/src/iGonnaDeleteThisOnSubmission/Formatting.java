@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Project_p2;
+package iGonnaDeleteThisOnSubmission;
 
-import static Project_p2.Main.mainMenuInstructions;
+import Assignment2.Inventory.SettingsManager;
+import static iGonnaDeleteThisOnSubmission.Main.mainMenuInstructions;
 
 /**
  *

@@ -33,8 +33,8 @@ public class HomeScreen extends JFrame
     private final PlaceholderAuthenticator authenticator = new PlaceholderAuthenticator();
     private final AccountCreator accountCreator = new PlaceholderCreator();
     
-    private final Project_p2.InventoryManager manager;
-    private final java.util.List<Project_p2.Item> items;
+    private final Assignment2.Inventory.InventoryManager manager;
+    private final java.util.List<Assignment2.Inventory.Item> items;
 
     
     // layout + screen map
@@ -43,7 +43,7 @@ public class HomeScreen extends JFrame
     private final Map<String, JPanel> screenMap = new HashMap<>();
     
     // ----- Constructor ----- // 
-    public HomeScreen(Project_p2.InventoryManager manager)
+    public HomeScreen(Assignment2.Inventory.InventoryManager manager)
     {
         this.manager = manager;
         this.items = new java.util.ArrayList<>(manager.getAllItems());

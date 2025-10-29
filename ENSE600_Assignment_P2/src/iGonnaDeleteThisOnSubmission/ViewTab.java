@@ -2,13 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Project_p2;
+package iGonnaDeleteThisOnSubmission;
 
 /**
  *
  * @author megan
  */
 
+import Assignment2.Inventory.Item;
+import Assignment2.Inventory.InventoryManager;
 import java.util.Collection;
 import java.util.List;
 import java.util.ArrayList;

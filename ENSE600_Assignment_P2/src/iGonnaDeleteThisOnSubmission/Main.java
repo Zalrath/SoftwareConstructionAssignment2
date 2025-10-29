@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Project_p2;
+package iGonnaDeleteThisOnSubmission;
 
 /**
  *
@@ -35,6 +35,10 @@ ok there are 4 main areas for marking
 
 
 
+import Assignment2.Inventory.SettingsManager;
+import Assignment2.Inventory.Item;
+import Assignment2.Inventory.InventoryManager;
+import Assignment2.Database.DatabaseUtil;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.List;

@@ -1,6 +1,8 @@
 
-package Project_p2;
+package iGonnaDeleteThisOnSubmission;
 
+import Assignment2.Inventory.Item;
+import Assignment2.Inventory.InventoryManager;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;

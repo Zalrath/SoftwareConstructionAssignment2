@@ -1,4 +1,4 @@
-package Project_p2;
+package Assignment2.Database;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
