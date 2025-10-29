@@ -14,6 +14,7 @@ import Assignment2.UI.HomeScreen;
 import Assignment2.Database.DatabaseUtil;
 
 import Assignment2.Inventory.InventoryManager;
+import Assignment2.Inventory.Item;
 import Assignment2.Inventory.SettingsManager;
 
 import java.awt.Color;
@@ -45,14 +46,15 @@ public class Main
 
         
         // YOU CAN NOT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE, IT MESSES WITH THE DB CONNECTION 
-        dataUtil.dropTable(conn,"Items");
         
-        dataUtil.dropTable(conn, "Purchases");
+        
+        //dataUtil.dropTable(conn,"Purchases");
+        //dataUtil.dropTable(conn,"ITEMS");
         
         dataUtil.createTables(conn);
         
-        dataUtil.insertDefaultPurchases(conn);
-        dataUtil.insertDefaultItems(conn);
+        //dataUtil.insertDefaultPurchases(conn);
+        //dataUtil.insertDefaultItems(conn);
         // Really fraigle ------
         
         
@@ -132,10 +134,25 @@ public class Main
         {
             try 
             {
+                for (Item item : manager.getAllItems()) 
+                {
+                    System.out.println("Item: " + item.getName());
+                    System.out.println("  UUID: " + item.getUuid());
+                    System.out.println("  Last Purchased: " + item.getLastPurchased());
+                    System.out.println("  Estimated Interval: " + item.getEstimatedIntervalDays() + " days");
+                    System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
+                    System.out.println(item.getFuture());
+                    System.out.println(item.getFavorite());
+                    System.out.println(item.getCurrentAmount());
+                    System.out.println();
+                }
+                
+                
                 manager.saveItemsToDB(conn);
-                manager.savePurchasesToDB(conn);
+                //manager.savePurchasesToDB(conn);
                 conn.close();
                 System.out.println("db disconnected");
+                
             }
             catch (Exception e) 
             {

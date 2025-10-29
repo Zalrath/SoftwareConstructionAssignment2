@@ -15,6 +15,7 @@ import Assignment2.UI.Screens.SettingsPanel;
 import Assignment2.UI.Screens.ShoppingListPanel;
 import Assignment2.UI.Screens.BudgetPanel;
 import Assignment2.Account.*;
+import Assignment2.Database.DatabaseUtil;
 import Assignment2.Inventory.InventoryManager;
 import Assignment2.Inventory.Item;
 
@@ -189,6 +190,8 @@ public class HomeScreen extends JFrame
             return;
         }
         
+        
+        
         // create new item
         Item newItem = new Item(data.name);
         newItem.setCurrentAmount(data.quantity);
@@ -200,7 +203,10 @@ public class HomeScreen extends JFrame
         }
         newItem.setTags(tags);
         newItem.setLastPurchased(java.time.LocalDate.now());
+        newItem.setFuture(false);
+        newItem.setFavorite(false);
         
+         
         // add to manager
         manager.addItem(newItem);
         manager.logPurchase(
@@ -208,7 +214,8 @@ public class HomeScreen extends JFrame
                 data.unitCost,
                 data.quantity,
                 java.time.LocalDate.now()
-        );
+        );      
+        
         
         // refresh inventory panel
         JPanel p = screenMap.get("inventory");

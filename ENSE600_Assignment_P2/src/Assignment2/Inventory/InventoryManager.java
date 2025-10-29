@@ -13,6 +13,7 @@ package Assignment2.Inventory;
  * 
  * 
  */
+
 import java.sql.*;
 import java.io.*;
 import java.nio.file.*;
@@ -24,6 +25,11 @@ public class InventoryManager {
     private Map<UUID, Item> items = new HashMap<>();
     private Map<UUID, List<PurchaseLog>> purchaseHistory = new HashMap<>();
 
+   
+
+    
+    
+    
     
     /*
     public InventoryManager(Settings settings) {
@@ -126,7 +132,8 @@ public class InventoryManager {
   
     
     // Data base functions 
-    //////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////
+
     
     
     
@@ -134,6 +141,8 @@ public class InventoryManager {
     
     // Save Items to DB
     public void saveItemsToDB(Connection conn) {
+        System.out.println("???????????????????????");
+        
         String sql = "INSERT INTO Items (uuid, name, last_Purchased, current_Amount , interval_Days, tags, favorite, future) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             for (Item item : items.values()) {
@@ -276,6 +285,8 @@ public class InventoryManager {
             System.out.println("  Last Purchased: " + item.getLastPurchased());
             System.out.println("  Estimated Interval: " + item.getEstimatedIntervalDays() + " days");
             System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
+            System.out.println(item);
+            System.out.println();
             System.out.println();
         }
         

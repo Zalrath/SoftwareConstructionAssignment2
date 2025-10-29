@@ -14,10 +14,12 @@ import java.sql.*;
 import java.time.LocalDate;
 
 public class DatabaseUtil {
-    
+     private static Connection connectionInstance;
        
     public static Connection connectToDatabase() throws ClassNotFoundException {
         try {
+
+            
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
             String url = "jdbc:derby:InventoryDB;create=true";
             Connection conn = DriverManager.getConnection(url);
@@ -27,7 +29,23 @@ public class DatabaseUtil {
             return null;
         }
     }
- 
+    
+   
+
+    public static Connection getConnection() {
+        try {
+            if (connectionInstance == null || connectionInstance.isClosed()) {
+                connectionInstance = connectToDatabase();
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            System.err.println("Error getting database connection: " + e.getMessage());
+        }
+        return connectionInstance;
+    }
+    
+    
+    
+
     public static void disconnectFromDatabase(Connection conn) {
     try {
         if (conn != null && !conn.isClosed()) {
