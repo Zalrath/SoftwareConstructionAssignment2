@@ -81,29 +81,14 @@ public class InventoryPanel extends BaseScreenPanel
         leftPanel.add(tagFilter);
         leftPanel.add(Box.createVerticalGlue());
         
-        // ----- RIGHT PANEL ----- //
-        JPanel rightPanel = new JPanel();
-        rightPanel.setPreferredSize(new Dimension(240, 0));
-        rightPanel.setBackground(p.tileDark);
-        rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
-        
-        JLabel rightTitle = new JLabel("Details");
-        rightTitle.setFont(Theme.TITLE_FONT.deriveFont(22f));
-        rightTitle.setForeground(p.textLight);
-        rightPanel.add(Box.createVerticalStrut(16));
-        rightPanel.add(rightTitle);
-        rightPanel.add(Box.createVerticalStrut(8));
-        
-        // Example: add some placeholder info labels
-        rightPanel.add(new JLabel("Select an item to view details."));
-        rightPanel.add(Box.createVerticalGlue());
+  
         
         // ----- Assemble Main Layout ----- //
         JPanel card = new JPanel(new BorderLayout(12, 12));
         card.setOpaque(false);
         card.add(leftPanel, BorderLayout.WEST);
         card.add(scrollPane, BorderLayout.CENTER);
-        card.add(rightPanel, BorderLayout.EAST);
+        
         
         return card;
     }
