@@ -3,10 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <group/>
 =======
         <group>
             <file>file:/Users/megan/Documents/Software%20Construction%20Assignment/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/Main.java</file>
+        </group>
+>>>>>>> Stashed changes
+=======
+        <group>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Project_p2/DatabaseUtil.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Project_p2/InventoryManager.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Project_p2/Item.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Project_p2/AddItemMenu.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/AddItemDialog.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/Main.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Project_p2/Main.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/items.txt</file>
         </group>
 >>>>>>> Stashed changes
     </open-files>

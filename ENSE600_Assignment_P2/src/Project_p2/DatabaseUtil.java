@@ -89,9 +89,11 @@ public class DatabaseUtil {
                 double currentAmount = rs.getDouble("current_Amount");
                 int interval = rs.getInt("Interval_Days");
                 String tags = rs.getString("tags");
+                boolean favorite = rs.getBoolean("favorite");
+                boolean future = rs.getBoolean("future");
 
-                System.out.printf("UUID: %s | Name: %s | Last Purchased: %s |Current Amount %s| Interval: %d | Tags: %s%n",
-                        uuid, name, lastPurchased,currentAmount, interval, tags);
+                System.out.printf("UUID: %s | Name: %s | Last Purchased: %s |Current Amount %s| Interval: %d | Tags: %s | Favorite: %s| Future %s %n",
+                        uuid, name, lastPurchased,currentAmount, interval, tags, favorite, future);
             }
 
         } catch (SQLException e) { }
@@ -160,6 +162,40 @@ public class DatabaseUtil {
             }
         } catch (SQLException e) { }
     }
+    
+    
+        public void insertDefaultItems(Connection conn) {
+        String sql = "INSERT INTO Items (uuid, name, last_Purchased, current_Amount , interval_Days, tags, favorite, future) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            UNCaddItem(ps, "550e8400-e29b-41d4-a716-446655440000", "Milk", LocalDate.of(2025, 10, 20), 7.0,0, "dairy|fridge|weekly",false, false);
+            UNCaddItem(ps, "660e8400-e29b-41d4-a716-446655440001", "Bread", LocalDate.of(2025, 10, 18), 3.0,0, "bakery|breakfast|daily" ,false, false);
+            UNCaddItem(ps, "770e8400-e29b-41d4-a716-446655440002", "Eggs", LocalDate.of(2025, 10, 15), 10.0,0, "protein|breakfast|fridge",false, false);
+            UNCaddItem(ps, "880e8400-e29b-41d4-a716-446655440003", "Apples", LocalDate.of(2025, 10, 12), 14.0,0, "fruit|snack|fresh",false, false);
+            UNCaddItem(ps, "990e8400-e29b-41d4-a716-446655440004", "Toilet Paper", LocalDate.of(2025, 9, 30), 30.0,0, "household|bulk|monthly",false, false);
+
+            System.out.println("Default items inserted successfully!");
+
+        } catch (SQLException e) {
+            System.err.println("️ Error inserting default items: " + e.getMessage());
+        }
+    }
+
+    private static void UNCaddItem(PreparedStatement ps, String uuid, String name, LocalDate date, double currentAmount, int interval, String tags, boolean favorite, boolean future) throws SQLException {
+        ps.setString(1, uuid);
+        ps.setString(2, name);
+        ps.setDate(3, java.sql.Date.valueOf(date));
+        ps.setDouble(4, currentAmount);
+        ps.setInt(5, interval);
+        ps.setString(6, tags);
+        ps.setBoolean(7, favorite);
+        ps.setBoolean(8, future);
+        ps.executeUpdate();
+    }
+    
+    
+    
     
     
 }
