@@ -112,6 +112,8 @@ public class AddItemDialog extends BaseThemedDialog
             JOptionPane.showMessageDialog(this, "Please enter a name.", "Validation", JOptionPane.WARNING_MESSAGE);
             return;
         }
+        
+        
         saved = true;
         dispose();
     }

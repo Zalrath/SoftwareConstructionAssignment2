@@ -220,6 +220,18 @@ public class AddItemMenu {
         
     }
     
+    
+    /*
+    public Item addItemFuncDB(){
+    
+        Item newItem = new Item(name);
+        newItem.setLastPurchased(date);
+        newItem.setTags(tags);
+    
+    
+    
+    }
+    */
     private Double getConfirmedPrice() {
         
         //System.out.print("Input the Price of the item: ");
