@@ -15,22 +15,87 @@ import Assignment2.UI.Theme;
 import Project_p2.DatabaseUtil;
 
 import Project_p2.InventoryManager;
+import Project_p2.Item;
 import Project_p2.SettingsManager;
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.UUID;
 import javax.swing.SwingUtilities;
 
 
 public class Main 
 {
-    public static void main(String[] args) 
+    public static void main(String[] args) throws Exception 
     {
+        
+        
+        ////////////////////////////////////////////////
+        // Connecting to the database
+            Connection conn = DatabaseUtil.connectToDatabase();
+            if (conn == null) {
+                System.out.println("Failed to connect to DB");
+                return;
+            }
+        ////////////////////////////////////////////////
+        
+        
         DatabaseUtil dataUtil = new DatabaseUtil();
         InventoryManager manager = new InventoryManager();
         SettingsManager settingsmanager = new SettingsManager();
 
         
+        // YOU CAN NOT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE, IT MESSES WITH THE DB CONNECTION 
+        //dataUtil.dropTable(conn,"Items");
+        
+        dataUtil.createTables(conn);
+        
+       // dataUtil.insertDefaultItems(conn);
+        // Really fraigle ------
+        
+        manager.loadItemsFromDB(conn);
+        
+        try (Statement stmt = conn.createStatement()) {
+            stmt.executeUpdate("DELETE FROM Items");
+            System.out.println(" Items table cleared.");
+        } catch (SQLException e) {}
+        
+        manager.saveItemsToDB(conn);
+        
 
+        
+        //-------------------------------
+        
+        
+        manager.loadPurchasesFromDB(conn);
+        
+        try (Statement stmt = conn.createStatement()) {
+            stmt.executeUpdate("DELETE FROM Purchases");
+            System.out.println(" Purchases table cleared.");
+        } catch (SQLException e) {}
+        
+        manager.savePurchasesToDB(conn);
+        
+        
+        dataUtil.printItemsFromDB(conn);
+        dataUtil.printPurchasesFromDB(conn);
+        
+        
+        
+        
+        // closing the connection
+        
+        
+        try {
+            conn.close();
+            System.out.println("Connection closed");
+        } catch (SQLException e) {}
+
+        ////////////////////////////////////
+        
+        
         
         
         // this all needs to move out of here ngl and into the settings tab but i just havent done it yet
