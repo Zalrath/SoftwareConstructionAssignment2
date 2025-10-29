@@ -48,12 +48,16 @@ public class Main
 
         
         // YOU CAN NOT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE, IT MESSES WITH THE DB CONNECTION 
-        //dataUtil.dropTable(conn,"Items");
+        dataUtil.dropTable(conn,"Items");
+        
+        dataUtil.dropTable(conn, "Purchases");
         
         dataUtil.createTables(conn);
         
-       // dataUtil.insertDefaultItems(conn);
+        dataUtil.insertDefaultPurchases(conn);
+        dataUtil.insertDefaultItems(conn);
         // Really fraigle ------
+        
         
         manager.loadItemsFromDB(conn);
         

@@ -102,7 +102,7 @@ public class DatabaseUtil {
     // View whats in the Purchase Table
     public void printPurchasesFromDB(Connection conn) {
         String sql = "SELECT * FROM Purchases";
-        System.out.println("ahauhdsanjdfklj");
+       
         try (Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -191,6 +191,41 @@ public class DatabaseUtil {
         ps.setString(6, tags);
         ps.setBoolean(7, favorite);
         ps.setBoolean(8, future);
+        ps.executeUpdate();
+    }
+    
+    public void insertDefaultPurchases(Connection conn) {
+        String sql = "INSERT INTO Purchases (itemUUID, price, quantity, purchaseDate) VALUES (?, ?, ?, ?)";
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            
+            
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.0, 2.0, LocalDate.of(2025, 10, 20));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 4.5, 1.0, LocalDate.of(2025, 10, 18));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 10.99, 1.0, LocalDate.of(2025, 10, 15));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 3.0, 1.0, LocalDate.of(2025, 10, 12));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 19.0, 1.0, LocalDate.of(2025, 9, 30));
+            
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 5.0, 1.0, LocalDate.of(2025, 11, 20));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 7.0, 2.0, LocalDate.of(2025, 11, 18));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 9.0, 2.0, LocalDate.of(2025, 11, 15));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.0, 1.0, LocalDate.of(2025, 11, 12));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.0, 1.0, LocalDate.of(2025, 10, 30));
+            
+            
+            
+            System.out.println("Default Purchases inserted successfully!");
+
+        } catch (SQLException e) {
+            System.err.println("️ Error inserting default Purchases: " + e.getMessage());
+        }
+    }
+
+    private static void UNCaddPurchases(PreparedStatement ps, String uuid, double price , double quantity ,LocalDate date) throws SQLException {
+        ps.setString(1, uuid);
+        ps.setDouble(2, price);
+        ps.setDouble(3, quantity);
+        ps.setDate(4, java.sql.Date.valueOf(date));
         ps.executeUpdate();
     }
     

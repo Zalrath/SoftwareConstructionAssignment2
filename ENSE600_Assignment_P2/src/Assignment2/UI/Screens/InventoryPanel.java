@@ -106,13 +106,14 @@ public class InventoryPanel extends BaseScreenPanel
             UUID id = item.getUuid();
             String tags = String.join(", ", item.getTags());
             String date = item.getLastPurchased() != null ? item.getLastPurchased().format(df) : "—";
+            
             Object[] row = {
                 item.getName(),
                 tags,
                 date,
                 String.format("$%.2f", manager.getLatestPrice(id)),
                 item.getFavorite() ? "Y" : "",
-                manager.getLatestQuantity(id)
+                item.getCurrentAmount()
             };
             tableModel.addRow(row);
         }
