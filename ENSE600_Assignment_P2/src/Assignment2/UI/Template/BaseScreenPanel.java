@@ -38,22 +38,20 @@ public abstract class BaseScreenPanel extends JPanel
         this.showAdd = showAdd;
         this.addLabel = (addLabel != null ? addLabel : "Add");
         this.backTargetCard = backTargetCard;
-        initializePanel();
     }
     
-    // ----- Setup Methods ----- //
-    private void initializePanel() 
+    protected final void buildBaseUI() 
     {
         // layout, background and border
         configurePanel();
-        
-        // title 
+
+        // title
         headerBar = new AccentHeaderBar(titleText);
         add(headerBar, BorderLayout.NORTH);
-        
+
         // middle
         add(createCenterContent(), BorderLayout.CENTER);
-        
+
         // bottom
         add(createSouthPanel(), BorderLayout.SOUTH);
     }
@@ -132,7 +130,6 @@ public abstract class BaseScreenPanel extends JPanel
     }
     
     // ----- Extras ----- //
-    
     // extra row under title
     protected JComponent createNorthExtra() { return null; }
     

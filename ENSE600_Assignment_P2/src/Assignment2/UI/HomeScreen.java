@@ -19,6 +19,7 @@ import Assignment2.Account.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,12 +33,9 @@ public class HomeScreen extends JFrame
     private final PlaceholderAuthenticator authenticator = new PlaceholderAuthenticator();
     private final AccountCreator accountCreator = new PlaceholderCreator();
     
-    // ----- Data / Managers ----- //
-    private final Project_p2.InventoryManager manager = new Project_p2.InventoryManager();
-    private final java.util.List<Project_p2.Item> items = new java.util.ArrayList<>();
-    
-    
-    
+    private final Project_p2.InventoryManager manager;
+    private final java.util.List<Project_p2.Item> items;
+
     
     // layout + screen map
     private final CardLayout cards = new CardLayout();
@@ -45,8 +43,11 @@ public class HomeScreen extends JFrame
     private final Map<String, JPanel> screenMap = new HashMap<>();
     
     // ----- Constructor ----- // 
-    public HomeScreen() 
+    public HomeScreen(Project_p2.InventoryManager manager)
     {
+        this.manager = manager;
+        this.items = new java.util.ArrayList<>(manager.getAllItems());
+        
         setTitle("Welcome");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(520, 320);
@@ -62,12 +63,16 @@ public class HomeScreen extends JFrame
     // ----- Screen Registration ----- // 
     private void registerScreen(String name, JPanel panel) 
     {
-        if (!screenMap.containsKey(name)) 
+        panel.setName(name);
+        
+        if (screenMap.containsKey(name)) 
         {
-            panel.setName(name);
-            root.add(panel, name);
-            screenMap.put(name, panel);
+            System.out.println("Replacing existing screen: " + name);
+            root.remove(screenMap.get(name)); // delete the evil
         }
+
+        root.add(panel, name);
+        screenMap.put(name, panel);
     }
     
     public void showScreen(String name) 
@@ -129,10 +134,10 @@ public class HomeScreen extends JFrame
     {
         
         registerScreen("dashboard", new DashboardPanel(this, currentUser, appName));
-        registerScreen("inventory", new InventoryPanel(manager, items));
-        registerScreen("budget", new BudgetPanel());
-        registerScreen("shopping", new ShoppingListPanel());
-        registerScreen("settings", new SettingsPanel());
+        registerScreen("inventory", new InventoryPanel(manager, new ArrayList<>(manager.getAllItems())));
+        registerScreen("budget",    new BudgetPanel());
+        registerScreen("shopping",  new ShoppingListPanel());
+        registerScreen("settings",  new SettingsPanel());
     }
     
     // ----- Actions ----- // 
@@ -162,11 +167,12 @@ public class HomeScreen extends JFrame
     
     private void postAuthSetup(String targetScreen) 
     {
-        setupMainScreens();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setupMainScreens();
+        // set default
         showScreen(targetScreen);
     }
-    
+
     // ----- Getters ----- // 
     public String getCurrentUser() { return currentUser; }
     public String getAppName() { return appName; }

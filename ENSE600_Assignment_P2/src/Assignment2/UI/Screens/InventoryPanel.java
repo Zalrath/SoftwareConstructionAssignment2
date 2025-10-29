@@ -20,12 +20,12 @@ public class InventoryPanel extends BaseScreenPanel
     private DefaultTableModel tableModel;
     private JTable table;
     
-    // ----- Constructor ----- //
-    public InventoryPanel(InventoryManager manager, List<Item> currentItems)
+    public InventoryPanel(InventoryManager manager, List<Item> currentItems) 
     {
         super("Inventory", true, true, "Add Item", "dashboard");
         this.manager = manager;
         this.currentItems = currentItems;
+        buildBaseUI();
     }
     
     // ----- Content ----- //
@@ -37,7 +37,8 @@ public class InventoryPanel extends BaseScreenPanel
         tableModel = new DefaultTableModel(columns, 0) 
         {
             @Override
-            public boolean isCellEditable(int row, int column) {
+            public boolean isCellEditable(int row, int column) 
+            {
                 return false;
             }
         };
@@ -95,13 +96,6 @@ public class InventoryPanel extends BaseScreenPanel
 
     private void populateTable()
     {
-        // Handle null pointer issue
-        if (manager == null) 
-        {
-            System.err.println("InventoryPanel ERROR: manager is null — skipping table load");
-            return;
-        }
-        
         tableModel.setRowCount(0);
         
         // will make this configurable
@@ -117,7 +111,7 @@ public class InventoryPanel extends BaseScreenPanel
                 tags,
                 date,
                 String.format("$%.2f", manager.getLatestPrice(id)),
-                item.getFavorite() ? "★" : "",
+                item.getFavorite() ? "Y" : "",
                 manager.getLatestQuantity(id)
             };
             tableModel.addRow(row);

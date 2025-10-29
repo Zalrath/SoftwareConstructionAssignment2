@@ -85,14 +85,12 @@ public class Main
         
         
         
-        // closing the connection
-        
-        
-        try {
+         // closing the connection
+         try {
             conn.close();
             System.out.println("Connection closed");
         } catch (SQLException e) {}
-
+        
         ////////////////////////////////////
         
         
@@ -124,6 +122,10 @@ public class Main
         // Theme.setAccent(selected);        // updates all components
 
         // ----- Launch GUI ----- // 
-        SwingUtilities.invokeLater(() -> new HomeScreen().setVisible(true));
+        SwingUtilities.invokeLater(() -> new HomeScreen(manager).setVisible(true));
+        
+
+        
+        
     }
 }
