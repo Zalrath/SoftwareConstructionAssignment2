@@ -11,14 +11,28 @@ package Assignment2;
 
 import Assignment2.UI.HomeScreen;
 import Assignment2.UI.Theme;
+
+import Project_p2.DatabaseUtil;
+
+import Project_p2.InventoryManager;
+import Project_p2.SettingsManager;
+
 import java.awt.Color;
 import javax.swing.SwingUtilities;
-import java.util.Random;
+
 
 public class Main 
 {
     public static void main(String[] args) 
     {
+        DatabaseUtil dataUtil = new DatabaseUtil();
+        InventoryManager manager = new InventoryManager();
+        SettingsManager settingsmanager = new SettingsManager();
+
+        
+
+        
+        
         // this all needs to move out of here ngl and into the settings tab but i just havent done it yet
         
         

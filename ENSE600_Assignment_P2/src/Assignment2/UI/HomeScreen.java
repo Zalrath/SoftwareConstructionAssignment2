@@ -32,6 +32,13 @@ public class HomeScreen extends JFrame
     private final PlaceholderAuthenticator authenticator = new PlaceholderAuthenticator();
     private final AccountCreator accountCreator = new PlaceholderCreator();
     
+    // ----- Data / Managers ----- //
+    private final Project_p2.InventoryManager manager = new Project_p2.InventoryManager();
+    private final java.util.List<Project_p2.Item> items = new java.util.ArrayList<>();
+    
+    
+    
+    
     // layout + screen map
     private final CardLayout cards = new CardLayout();
     private final JPanel root = new JPanel(cards);
@@ -120,8 +127,9 @@ public class HomeScreen extends JFrame
     // ----- Main Tabs ----- // 
     private void setupMainScreens() 
     {
+        
         registerScreen("dashboard", new DashboardPanel(this, currentUser, appName));
-        registerScreen("inventory", new InventoryPanel());
+        registerScreen("inventory", new InventoryPanel(manager, items));
         registerScreen("budget", new BudgetPanel());
         registerScreen("shopping", new ShoppingListPanel());
         registerScreen("settings", new SettingsPanel());
