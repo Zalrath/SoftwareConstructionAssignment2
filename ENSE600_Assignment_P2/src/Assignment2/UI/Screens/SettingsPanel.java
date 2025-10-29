@@ -26,7 +26,7 @@ public class SettingsPanel extends BaseScreenPanel
     // ----- Constructor ----- // 
     public SettingsPanel() 
     {
-        super("Settings", /*showBack*/ true, /*showAdd*/ true, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
+        super("Settings", /*showBack*/ true, /*showAdd*/ false, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
          buildBaseUI();
     }
     

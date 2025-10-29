@@ -21,7 +21,7 @@ public class ShoppingListPanel extends BaseScreenPanel
     // ----- Constructor ----- // 
     public ShoppingListPanel() 
     {
-        super("Shopping List", /*showBack*/ true, /*showAdd*/ true, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
+        super("Shopping List", /*showBack*/ true, /*showAdd*/ false, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
         buildBaseUI();
     }
     
@@ -50,9 +50,5 @@ public class ShoppingListPanel extends BaseScreenPanel
     }
     
     // ----- Actions ----- // 
-    @Override
-    protected void onAdd() 
-    {
-        super.onAdd();
-    }
+    
 }

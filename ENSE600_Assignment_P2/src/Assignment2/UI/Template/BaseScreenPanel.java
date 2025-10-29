@@ -160,7 +160,24 @@ public abstract class BaseScreenPanel extends JPanel
     // open add item dialog
     protected void onAdd() 
     {
-        AddItemDialog.show(SwingUtilities.getWindowAncestor(this)).ifPresent(data -> JOptionPane.showMessageDialog(this, "Added: " + data, "Added", JOptionPane.INFORMATION_MESSAGE));
+        Window window = SwingUtilities.getWindowAncestor(this);
+        
+        AddItemDialog.show(window).ifPresent(data -> 
+        {
+            if (window instanceof HomeScreen hs) 
+            {
+                hs.addNewItem(data); // happens in homescreen
+            } else 
+            {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Unable to access HomeScreen context.",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+        });
+        
     }
     
     protected void navigateToCard(String card) 

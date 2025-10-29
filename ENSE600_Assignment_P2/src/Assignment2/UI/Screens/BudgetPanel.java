@@ -10,6 +10,8 @@ package Assignment2.UI.Screens;
  * @author megan
  */
 
+import Assignment2.UI.AddItemDialog;
+import Assignment2.UI.HomeScreen;
 import Assignment2.UI.Template.BaseScreenPanel;
 import Assignment2.UI.Theme;
 
@@ -53,6 +55,13 @@ public class BudgetPanel extends BaseScreenPanel
     @Override
     protected void onAdd() 
     {
-        super.onAdd();
+        Window parent = SwingUtilities.getWindowAncestor(this);
+        AddItemDialog.show(parent).ifPresent(data
+                -> {
+            if (parent instanceof HomeScreen hs) 
+            {
+                hs.addNewItem(data); // use homescreen
+            }
+        });
     }
 }

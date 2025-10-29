@@ -5,6 +5,7 @@ import Assignment2.UI.Theme;
 import Assignment2.Inventory.InventoryManager;
 import Assignment2.Inventory.Item;
 import Assignment2.UI.AddItemDialog;
+import Assignment2.UI.HomeScreen;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -13,32 +14,36 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
-public class InventoryPanel extends BaseScreenPanel 
+public class InventoryPanel extends BaseScreenPanel
 {
-    private final InventoryManager manager;
-    private final List<Item> currentItems;
     
     private DefaultTableModel tableModel;
     private JTable table;
+ 
+    private final InventoryManager manager;
     
-    public InventoryPanel(InventoryManager manager, List<Item> currentItems) 
+    public InventoryPanel(InventoryManager manager) 
     {
         super("Inventory", true, true, "Add Item", "dashboard");
         this.manager = manager;
-        this.currentItems = currentItems;
         buildBaseUI();
     }
+    
+    
+    
+    
     
     // ----- Content ----- //
     @Override
     protected JComponent createCentre() 
     {
         // ----- Table Setup ----- //
-        String[] columns = {"Item", "Tags", "Last Purchased", "Price", "u\2764", "Quantity"};
+        String[] columns = {"Item", "Tags", "Last Purchased", "Price", "\u2665", "Quantity"};
         tableModel = new DefaultTableModel(columns, 0) 
         {
             @Override
@@ -73,12 +78,37 @@ public class InventoryPanel extends BaseScreenPanel
         // Column
         TableColumnModel colModel = table.getColumnModel();
         int[] minWidths = {180, 180, 160, 100, 80, 100};
-        for (int i = 0; i < minWidths.length && i < colModel.getColumnCount(); i++) {
+        for (int i = 0; i < minWidths.length && i < colModel.getColumnCount(); i++) 
+        {
             TableColumn column = colModel.getColumn(i);
             column.setMinWidth(minWidths[i]);
             column.setPreferredWidth(minWidths[i]);
         }
+        
+        // heart
+        TableColumn heartCol = table.getColumnModel().getColumn(4);
+        heartCol.setHeaderRenderer(new DefaultTableCellRenderer() 
+        {
+            @Override
+            public Component getTableCellRendererComponent( JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) 
+            {
+                JLabel label = (JLabel) super.getTableCellRendererComponent( table, value, isSelected, hasFocus, row, col);
+                
+                Theme.Palette p = Theme.palette();
+                label.setOpaque(true);
+                label.setBackground(p.accent);
+                label.setForeground(p.textLight);
+                
+                // font that displays emoji
+                label.setFont(new Font("Segoe UI Symbol", Font.PLAIN, 24));
+                
+                label.setHorizontalAlignment(SwingConstants.CENTER);
+                label.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 1, p.tileDark));
+                return label;
+            }
+        });
 
+        
         
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
@@ -103,24 +133,23 @@ public class InventoryPanel extends BaseScreenPanel
         card.add(leftPanel, BorderLayout.WEST);
         card.add(scrollPane, BorderLayout.CENTER);
         
-        
         return card;
     }
 
-    private void populateTable()
+    private void populateTable() 
     {
         tableModel.setRowCount(0);
         
-        // will make this configurable
         DateTimeFormatter df = DateTimeFormatter.ofPattern("dd MMM yyyy");
-
-        for (Item item : manager.getAllItems()) 
+        
+        for (Item item : manager.getAllItems()) // <--- use field directly
         {
             UUID id = item.getUuid();
             String tags = String.join(", ", item.getTags());
             String date = item.getLastPurchased() != null ? item.getLastPurchased().format(df) : "—";
             
-            Object[] row = {
+            Object[] row = 
+            {
                 item.getName(),
                 tags,
                 date,
@@ -136,42 +165,17 @@ public class InventoryPanel extends BaseScreenPanel
     protected void onAdd() 
     {
         Window parent = SwingUtilities.getWindowAncestor(this);
-
         AddItemDialog.show(parent).ifPresent(data -> 
         {
-            // new item
-            Item newItem = new Item(data.name);
-            newItem.setCurrentAmount(data.quantity);
-
-            // tag
-            ArrayList<String> tags = new ArrayList<>();
-            if (data.category != null && !data.category.isEmpty()) 
+            if (parent instanceof HomeScreen hs) 
             {
-                tags.add(data.category.trim());
+                hs.addNewItem(data); // use homescreen
             }
-            newItem.setTags(tags);
-            
-            // use current day as purchase date
-            newItem.setLastPurchased(java.time.LocalDate.now());
-            
-            // save 
-            manager.addItem(newItem);
-            manager.logPurchase( newItem.getUuid(),
-                    data.unitCost, // price
-                    data.quantity, // amount
-                    java.time.LocalDate.now()
-            );
-            
-            // refresh the table
-            refreshTable();
-            
-            // test pop up 
-            JOptionPane.showMessageDialog(this, "Item added: " + newItem.getName(), "Success", JOptionPane.INFORMATION_MESSAGE);
         });
     }
     
     // for live
-    private void refreshTable() 
+    public void refreshTable() 
     {
         tableModel.setRowCount(0);
         
@@ -189,12 +193,5 @@ public class InventoryPanel extends BaseScreenPanel
             });
         }
     }
-    
-    // my thinking is to move the inventorymanager instance to the homescreen which is where all the other panels are initialised so they can share it,
-    // otherwise each panel will make multiple instances of the same db connection which will create more null table bs, please branch once u read this message
-    // also if i cant get it to work just be prepared for that lmao
-    
-
-    
-    
+   
 }

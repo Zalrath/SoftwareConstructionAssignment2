@@ -87,10 +87,10 @@ public class Main
         
         
          // closing the connection
-         try {
-            conn.close();
-            System.out.println("Connection closed");
-        } catch (SQLException e) {}
+//         try {
+//            conn.close();
+//            System.out.println("Connection closed");
+//        } catch (SQLException e) {}
         
         ////////////////////////////////////
         
@@ -124,9 +124,23 @@ public class Main
 
         // ----- Launch GUI ----- // 
         SwingUtilities.invokeLater(() -> new HomeScreen(manager).setVisible(true));
-        
 
+        /////////////////////////////////////////////////////////////////////////////////
+        // testing // 
         
-        
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> 
+        {
+            try 
+            {
+                manager.saveItemsToDB(conn);
+                manager.savePurchasesToDB(conn);
+                conn.close();
+                System.out.println("db disconnected");
+            }
+            catch (Exception e) 
+            {
+                e.printStackTrace();
+            }
+        }));
     }
 }

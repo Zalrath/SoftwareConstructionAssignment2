@@ -15,6 +15,8 @@ import Assignment2.UI.Screens.SettingsPanel;
 import Assignment2.UI.Screens.ShoppingListPanel;
 import Assignment2.UI.Screens.BudgetPanel;
 import Assignment2.Account.*;
+import Assignment2.Inventory.InventoryManager;
+import Assignment2.Inventory.Item;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,21 +35,19 @@ public class HomeScreen extends JFrame
     private final PlaceholderAuthenticator authenticator = new PlaceholderAuthenticator();
     private final AccountCreator accountCreator = new PlaceholderCreator();
     
-    private final Assignment2.Inventory.InventoryManager manager;
-    private final java.util.List<Assignment2.Inventory.Item> items;
+    private final InventoryManager manager;
 
     
     // layout + screen map
     private final CardLayout cards = new CardLayout();
     private final JPanel root = new JPanel(cards);
     private final Map<String, JPanel> screenMap = new HashMap<>();
+  
     
     // ----- Constructor ----- // 
-    public HomeScreen(Assignment2.Inventory.InventoryManager manager)
+    public HomeScreen(InventoryManager manager)
     {
         this.manager = manager;
-        this.items = new java.util.ArrayList<>(manager.getAllItems());
-        
         setTitle("Welcome");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(520, 320);
@@ -62,17 +62,17 @@ public class HomeScreen extends JFrame
         showScreen("welcome");
     }
     
+    public InventoryManager getInventoryManager() 
+    { return manager; }
+    
     // ----- Screen Registration ----- // 
     private void registerScreen(String name, JPanel panel) 
     {
         panel.setName(name);
-        
         if (screenMap.containsKey(name)) 
         {
-            System.out.println("Replacing existing screen: " + name);
-            root.remove(screenMap.get(name)); // delete the evil
+            root.remove(screenMap.get(name));
         }
-
         root.add(panel, name);
         screenMap.put(name, panel);
     }
@@ -82,15 +82,9 @@ public class HomeScreen extends JFrame
         if (screenMap.containsKey(name)) 
         {
             cards.show(root, name);
-            root.revalidate();
-            root.repaint();
-        } 
-        else if (name.equals("welcome")) 
-        {
-            cards.show(root, "welcome");
         }
-        
-        setTitle(appName + " - " + name.substring(0, 1).toUpperCase() + name.substring(1));
+        root.revalidate();
+        root.repaint();
     }
     
     // ----- Welcome Screen ----- // 
@@ -136,7 +130,7 @@ public class HomeScreen extends JFrame
     {
         
         registerScreen("dashboard", new DashboardPanel(this, currentUser, appName));
-        registerScreen("inventory", new InventoryPanel(manager, new ArrayList<>(manager.getAllItems())));
+        registerScreen("inventory", new InventoryPanel(manager));
         registerScreen("budget",    new BudgetPanel());
         registerScreen("shopping",  new ShoppingListPanel());
         registerScreen("settings",  new SettingsPanel());
@@ -178,4 +172,58 @@ public class HomeScreen extends JFrame
     // ----- Getters ----- // 
     public String getCurrentUser() { return currentUser; }
     public String getAppName() { return appName; }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // ----- add item ----- // 
+       public void addNewItem(AddItemDialog.Data data) 
+       {
+        if (data == null) 
+        {
+            return;
+        }
+        
+        // create new item
+        Item newItem = new Item(data.name);
+        newItem.setCurrentAmount(data.quantity);
+        
+        ArrayList<String> tags = new ArrayList<>();
+        if (data.category != null && !data.category.isEmpty()) 
+        {
+            tags.add(data.category.trim());
+        }
+        newItem.setTags(tags);
+        newItem.setLastPurchased(java.time.LocalDate.now());
+        
+        // add to manager
+        manager.addItem(newItem);
+        manager.logPurchase(
+                newItem.getUuid(),
+                data.unitCost,
+                data.quantity,
+                java.time.LocalDate.now()
+        );
+        
+        // refresh inventory panel
+        JPanel p = screenMap.get("inventory");
+        if (p instanceof InventoryPanel invPanel) 
+        {
+            invPanel.refreshTable();
+        }
+
+        // see if works
+        JOptionPane.showMessageDialog(
+                this,
+                "Item added: " + newItem.getName(),
+                "Success",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+
 }
