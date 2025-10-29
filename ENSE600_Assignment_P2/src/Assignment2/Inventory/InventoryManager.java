@@ -141,7 +141,7 @@ public class InventoryManager {
     
     // Save Items to DB
     public void saveItemsToDB(Connection conn) {
-        System.out.println("???????????????????????");
+        System.out.println("Trying to Save items");
         
         String sql = "INSERT INTO Items (uuid, name, last_Purchased, current_Amount , interval_Days, tags, favorite, future) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {

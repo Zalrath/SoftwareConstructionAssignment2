@@ -134,6 +134,8 @@ public class Main
         {
             try 
             {
+                
+                // to read the hash map before saving
                 for (Item item : manager.getAllItems()) 
                 {
                     System.out.println("Item: " + item.getName());
