@@ -135,12 +135,58 @@ public class SettingsPanel extends BaseScreenPanel
         JLabel lblAccent = new JLabel("Accent Colour");
         lblAccent.setFont(Theme.TITLE_FONT);
         lblAccent.setForeground(Theme.palette().textLight);
+        
+        
+            JPanel colorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 8));
+    colorPanel.setOpaque(false);
 
+
+    
+        Color[] accentColors = 
+        {
+            Color.decode("#104A63"), // Deep Teal Blue
+            Color.decode("#253D27"), // Dark Forest Green
+            Color.decode("#3C4072"), // Indigo Blue / Slate Purple
+            Color.decode("#3D8479"), // Muted Aqua Green
+            Color.decode("#477D51"), // Medium Leaf Green
+            Color.decode("#48375D"), // Dark Violet Gray
+            Color.decode("#716994"), // Dusty Lavender
+            Color.decode("#8E3E3E"), // Brick Red
+            Color.decode("#8E4D6C"), // Mauve Rose
+            Color.decode("#AE5E41") // Burnt Copper / Terracotta
+        };
+    
+    
+    for (Color c : accentColors) {
+        JButton colorButton = new JButton();
+        colorButton.setPreferredSize(new Dimension(30, 30));
+        colorButton.setBackground(c);
+        colorButton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
+        colorButton.addActionListener(e -> {
+            Theme.setAccent(c); 
+            System.out.println("Accent set to: " + c);
+        });
+        colorPanel.add(colorButton);
+    }
+
+    JPanel accentPanel = new JPanel();
+    accentPanel.setLayout(new BoxLayout(accentPanel, BoxLayout.Y_AXIS));
+    accentPanel.setOpaque(false);
+    accentPanel.add(lblAccent);
+    accentPanel.add(colorPanel);
+        
+        
+        /*
         JPanel accentPanel = new JPanel(new BorderLayout());
         accentPanel.setOpaque(false);
         accentPanel.add(lblAccent, BorderLayout.NORTH);
         accentPanel.add(Box.createVerticalStrut(80), BorderLayout.CENTER); // space for colour buttons later
-
+        */
+        
+        
+        
+        
+        
         // ----- DISPLAY + ACCOUNT SECTIONS (BOTTOM AREA) ----- // 
         JPanel bottomPanel = new JPanel();
         bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));

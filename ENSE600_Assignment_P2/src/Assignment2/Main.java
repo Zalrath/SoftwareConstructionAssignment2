@@ -16,12 +16,14 @@ import Assignment2.Database.DatabaseUtil;
 import Assignment2.Inventory.InventoryManager;
 import Assignment2.Inventory.Item;
 import Assignment2.Inventory.SettingsManager;
+import Assignment2.UI.Theme;
 
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.SwingUtilities;
+
 
 
 public class Main 
@@ -122,9 +124,10 @@ public class Main
         // ----- Apply Theme ----- // 
         Color selected = accentColors[0]; // coral-red
         
+        
          // Theme.setMode(Theme.Mode.LIGHT);  // or DARK
-        // Theme.setAccent(selected);        // updates all components
-
+        //Theme.setAccent(selected);        // updates all components
+        
         // ----- Launch GUI ----- // 
         SwingUtilities.invokeLater(() -> new HomeScreen(manager).setVisible(true));
 
@@ -136,21 +139,7 @@ public class Main
             try 
             {
                 
-                // to read the hash map before saving
-                /*
-                for (Item item : manager.getAllItems()) 
-                {
-                    System.out.println("Item: " + item.getName());
-                    System.out.println("  UUID: " + item.getUuid());
-                    System.out.println("  Last Purchased: " + item.getLastPurchased());
-                    System.out.println("  Estimated Interval: " + item.getEstimatedIntervalDays() + " days");
-                    System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
-                    System.out.println(item.getFuture());
-                    System.out.println(item.getFavorite());
-                    System.out.println(item.getCurrentAmount());
-                    System.out.println();
-                }
-                */
+
                 
                 
                 manager.saveItemsToDB(conn);
