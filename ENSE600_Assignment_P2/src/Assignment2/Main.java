@@ -48,19 +48,20 @@ public class Main
         // YOU CAN NOT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE, IT MESSES WITH THE DB CONNECTION 
         //
         
-        //dataUtil.dropTable(conn,"Purchases");
-        //dataUtil.dropTable(conn,"ITEMS");
+        // dataUtil.dropTable(conn,"Purchases");
+        // dataUtil.dropTable(conn,"ITEMS");
         
         dataUtil.createTables(conn);
         
-        //dataUtil.insertDefaultPurchases(conn);
-        //dataUtil.insertDefaultItems(conn);
+        // dataUtil.insertDefaultPurchases(conn);
+        // dataUtil.insertDefaultItems(conn);
         // Really fraigle ------
         
         //dataUtil.printItemsFromDB(conn);
         manager.loadItemsFromDB(conn);
         
-        try (Statement stmt = conn.createStatement()) {
+        try (Statement stmt = conn.createStatement()) 
+        {
             stmt.executeUpdate("DELETE FROM Items");
             System.out.println(" Items table cleared.");
         } catch (SQLException e) {}
