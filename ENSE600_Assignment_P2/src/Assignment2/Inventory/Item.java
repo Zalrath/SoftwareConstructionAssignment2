@@ -76,8 +76,8 @@ public class Item {
     public boolean getFavorite() { return fav; }
     public void setFavorite(boolean fav) { this.fav = fav; }
     
-    public boolean getFuture() { return fav; }
-    public void setFuture(boolean fav) { this.fav = fav; }
+    public boolean getFuture() { return future; }
+    public void setFuture(boolean fav) { this.future = fav; }
     
     
 }

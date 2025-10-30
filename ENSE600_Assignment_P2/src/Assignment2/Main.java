@@ -57,7 +57,7 @@ public class Main
         //dataUtil.insertDefaultItems(conn);
         // Really fraigle ------
         
-        
+        dataUtil.printItemsFromDB(conn);
         manager.loadItemsFromDB(conn);
         
         try (Statement stmt = conn.createStatement()) {
@@ -65,8 +65,20 @@ public class Main
             System.out.println(" Items table cleared.");
         } catch (SQLException e) {}
         
-        manager.saveItemsToDB(conn);
         
+        for (Item item : manager.getAllItems()) 
+                {
+                    System.out.println("Item: " + item.getName());
+                    System.out.println("  UUID: " + item.getUuid());
+                    System.out.println("  Last Purchased: " + item.getLastPurchased());
+                    System.out.println("  Estimated Interval: " + item.getEstimatedIntervalDays() + " days");
+                    System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
+                    System.out.println(item.getFuture());
+                    System.out.println(item.getFavorite());
+                    System.out.println(item.getCurrentAmount());
+                    System.out.println();
+                }
+                
 
         
         //-------------------------------
@@ -84,7 +96,6 @@ public class Main
         
         dataUtil.printItemsFromDB(conn);
         dataUtil.printPurchasesFromDB(conn);
-        
         
         
         
@@ -136,18 +147,6 @@ public class Main
             {
                 
                 // to read the hash map before saving
-                for (Item item : manager.getAllItems()) 
-                {
-                    System.out.println("Item: " + item.getName());
-                    System.out.println("  UUID: " + item.getUuid());
-                    System.out.println("  Last Purchased: " + item.getLastPurchased());
-                    System.out.println("  Estimated Interval: " + item.getEstimatedIntervalDays() + " days");
-                    System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
-                    System.out.println(item.getFuture());
-                    System.out.println(item.getFavorite());
-                    System.out.println(item.getCurrentAmount());
-                    System.out.println();
-                }
                 
                 
                 manager.saveItemsToDB(conn);
