@@ -13,30 +13,31 @@ import Assignment2.UI.Template.ToggleableButton;
 import Assignment2.UI.Template.ToggleableButtonGroup;
 import Assignment2.UI.Theme;
 import Assignment2.Inventory.InventoryManager;
+import Assignment2.Inventory.Item;
+import Assignment2.Inventory.PurchaseLog;
+import static Assignment2.UI.Theme.*;  
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.chart.ui.RectangleInsets;
 
-import java.awt.Color;
-
 import javax.swing.*;
 import java.awt.*;
-import java.text.DecimalFormat;
-import java.util.Map;
-import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
+import java.util.*;
+import java.util.List;
 
 public class SpendingPanel extends JPanel
 {
 
     private final InventoryManager manager;
-    private final Theme.Palette palette;
+    private Theme.Palette palette;  
 
-    // chart setup
-    private DefaultPieDataset<String> dataset;
+    // chart state
+    private final DefaultPieDataset<String> dataset = new DefaultPieDataset<>();
     private JFreeChart chart;
     private ChartPanel chartPanel;
 
@@ -52,109 +53,99 @@ public class SpendingPanel extends JPanel
     private void buildUI()
     {
         setLayout(new BorderLayout());
+        
+        // update theme variables before building
+        this.palette = Theme.palette();
+       
+        
         setBackground(palette.tileMediumDark);
         setBorder(BorderFactory.createLineBorder(palette.tileDark, 2));
-
+        
         // header
         JLabel header = new JLabel("spending by category", SwingConstants.CENTER);
-        header.setFont(Theme.TITLE_FONT.deriveFont(28f));
+        header.setFont(Theme.TITLE_FONT.deriveFont(28f)); 
         header.setForeground(palette.textLight);
-        header.setPreferredSize(new Dimension(300, 40));
+        header.setPreferredSize(new Dimension(300, 45));
         header.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, palette.tileDark));
         add(header, BorderLayout.NORTH);
-
-        // main content area (left column + right chart)
+        
+        // main content 
         JPanel mainContent = new JPanel(new BorderLayout());
         mainContent.setBackground(palette.tileMediumDark);
-
-        // ----- button column on the left ----- //
+        
         JPanel buttonColumn = createButtonColumn();
-
-        // ----- pie chart panel on the right ----- //
         chartPanel = buildPieChartPanel();
-
-        // add both to the main content area
+        
         mainContent.add(buttonColumn, BorderLayout.WEST);
         mainContent.add(chartPanel, BorderLayout.CENTER);
-
+        
         add(mainContent, BorderLayout.CENTER);
+        refresh("week");
     }
 
-    // ----- helper methods for ui blocks ----- //
+    // ----- button column builder ----- //
     private JPanel createButtonColumn()
     {
-        JPanel buttonColumn = new JPanel();
-        buttonColumn.setLayout(new BoxLayout(buttonColumn, BoxLayout.Y_AXIS));
-        buttonColumn.setBackground(palette.tileMediumDark);
-        buttonColumn.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, palette.tileDark));
-        buttonColumn.setPreferredSize(new Dimension(120, 0)); // sidebar width
-
-        // filter by header block
-        JPanel filterHeader = new JPanel(new BorderLayout());
-        filterHeader.setBackground(palette.accent);
-        filterHeader.setMaximumSize(new Dimension(Integer.MAX_VALUE, 28));
-        filterHeader.setAlignmentX(Component.CENTER_ALIGNMENT);
-        // no border applied here (removed old bottom border)
-
+        JPanel col = new JPanel();
+        col.setLayout(new BoxLayout(col, BoxLayout.Y_AXIS));
+        col.setBackground(palette.tileMediumDark);
+        col.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, palette.tileDark));
+        col.setPreferredSize(new Dimension(120, 0));
+        
+        // filter header box
+        JPanel header = new JPanel(new BorderLayout());
+        header.setBackground(palette.accent);
+        header.setMaximumSize(new Dimension(Integer.MAX_VALUE, 28));
         JLabel filterLabel = new JLabel("filter by", SwingConstants.CENTER);
         filterLabel.setForeground(palette.textLight);
-        filterLabel.setFont(Theme.TITLE_FONT.deriveFont(24f));
-        filterHeader.add(filterLabel, BorderLayout.CENTER);
-
-        // add header to column
-        buttonColumn.add(filterHeader);
-        buttonColumn.add(Box.createVerticalStrut(10)); // space before buttons
-
-        // create and group buttons
-        ToggleableButton weeklyBtn = new ToggleableButton("week");
-        ToggleableButton monthlyBtn = new ToggleableButton("month");
-        ToggleableButton yearlyBtn = new ToggleableButton("year");
-        ToggleableButton allTimeBtn = new ToggleableButton("all time");
-
+        filterLabel.setFont(Theme.TITLE_FONT.deriveFont(18f));
+        header.add(filterLabel, BorderLayout.CENTER);
+        
+        col.add(header);
+        col.add(Box.createVerticalStrut(10));
+        
+        // buttons
+        ToggleableButton weekly = new ToggleableButton("week");
+        ToggleableButton monthly = new ToggleableButton("month");
+        ToggleableButton yearly = new ToggleableButton("year");
+        ToggleableButton all = new ToggleableButton("all time");
+        
         ToggleableButtonGroup group = new ToggleableButtonGroup();
-        group.addButton(weeklyBtn);
-        group.addButton(monthlyBtn);
-        group.addButton(yearlyBtn);
-        group.addButton(allTimeBtn);
-        weeklyBtn.setSelected(true); // default selection
-
-        // compact sizing and spacing
-        Dimension btnSize = new Dimension(100, 30);
-        ToggleableButton[] buttons = {weeklyBtn, monthlyBtn, yearlyBtn, allTimeBtn};
-
+        group.addButton(weekly);
+        group.addButton(monthly);
+        group.addButton(yearly);
+        group.addButton(all);
+        weekly.setSelected(true);
+        
+        Dimension size = new Dimension(100, 30);
+        ToggleableButton[] buttons = {weekly, monthly, yearly, all};
         for (ToggleableButton btn : buttons)
         {
             btn.setAlignmentX(Component.CENTER_ALIGNMENT);
-            btn.setMaximumSize(btnSize);
-            btn.setPreferredSize(btnSize);
-            buttonColumn.add(btn);
-            buttonColumn.add(Box.createVerticalStrut(8)); // space between buttons
+            btn.setMaximumSize(size);
+            btn.setPreferredSize(size);
+            btn.addActionListener(e ->
+            {
+                // refresh on click
+                refresh(btn.getText().toLowerCase());
+            });
+            col.add(btn);
+            col.add(Box.createVerticalStrut(8));
         }
-
-        return buttonColumn;
+        
+        return col;
     }
-
+    
     // ----- chart builder ----- //
     private ChartPanel buildPieChartPanel()
     {
-        dataset = new DefaultPieDataset<>();
-
-        // placeholder sample data
-        dataset.setValue("groceries", 35);
-        dataset.setValue("entertainment", 15);
-        dataset.setValue("utilities", 20);
-        dataset.setValue("transport", 10);
-        dataset.setValue("misc", 20);
-
-        chart = ChartFactory.createPieChart(
-                null,
-                dataset,
-                false, // no legend
-                true,  // tooltips
-                false  // no urls
-        );
-
+        // initial default data
+        dataset.setValue("no data", 100);
+        
+        chart = ChartFactory.createPieChart(null, dataset, false, true, false);
         PiePlot<String> plot = (PiePlot<String>) chart.getPlot();
+        
+        // style
         plot.setBackgroundPaint(palette.tileDark);
         plot.setOutlineVisible(false);
         plot.setLabelBackgroundPaint(palette.tileMediumDark);
@@ -162,53 +153,166 @@ public class SpendingPanel extends JPanel
         plot.setLabelPaint(palette.textLight);
         plot.setShadowPaint(null);
         plot.setInteriorGap(0.04);
-
-        // labels and theme integration
         plot.setSimpleLabels(false);
+        plot.setLabelLinksVisible(true);
+        plot.setLabelLinkStroke(new BasicStroke(1.2f));
         plot.setLabelLinkPaint(palette.textLight);
-        plot.setLabelOutlinePaint(null);
-        plot.setLabelShadowPaint(null);
-        plot.setLabelGenerator(new StandardPieSectionLabelGenerator(
-                "{0}: {1} ({2})", // label format: name : value (percent)
-                new DecimalFormat("$#,##0.00"), // value format — shows currency with 2 decimals
-                new DecimalFormat("0%") // percentage format
-        ));
-
+        plot.setLabelLinkMargin(0.02);
+        plot.setLabelGap(0.04);
+        plot.setLabelGenerator(new StandardPieSectionLabelGenerator("{0}: {1} ({2})"));
+        
         chart.setBackgroundPaint(palette.tileDark);
         chart.setPadding(new RectangleInsets(5, 5, 5, 5));
-
-        // use theme colors for sections
-        plot.setSectionPaint("groceries", new Color(0x66BB6A));
-        plot.setSectionPaint("entertainment", palette.hazard);
-        plot.setSectionPaint("utilities", palette.accent);
-        plot.setSectionPaint("transport", new Color(0xFFB300));
-        plot.setSectionPaint("misc", palette.tileMedium);
-
-
+        
+//        // color mapping (fallbacks) - these will be overridden by refreshChart
+//        plot.setSectionPaint("groceries", new Color(0x66BB6A));
+//        plot.setSectionPaint("entertainment", palette.hazard);
+//        plot.setSectionPaint("utilities", palette.accent);
+//        plot.setSectionPaint("transport", new Color(0xFFB300));
+//        plot.setSectionPaint("misc", palette.tileMedium);
+        
         ChartPanel panel = new ChartPanel(chart);
         panel.setOpaque(false);
         panel.setMouseWheelEnabled(true);
         panel.setPopupMenu(null);
         panel.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, palette.tileDark));
-
         return panel;
     }
-
-
-    // ----- chart data api ----- //
+    
+    // ----- refresh chart ----- //
     public void refreshChart(Map<String, Double> spendingData)
     {
         dataset.clear();
-        for (var entry : spendingData.entrySet())
+        PiePlot<String> plot = (PiePlot<String>) chart.getPlot();
+        
+        // check trheme colours
+        this.palette = Theme.palette();
+        
+        // use tags to create slices
+        List<String> categories = new ArrayList<>(spendingData.keySet());
+        int count = categories.size();
+        
+        if (spendingData.isEmpty())
         {
-            dataset.setValue(entry.getKey(), entry.getValue());
+            dataset.setValue("no data", 100);
+            // default slice
+            plot.setSectionPaint("no data", palette.tileDark);
         }
+        else
+        {
+            // create colours depending on accent and slices
+            List<Color> generatedColors = generateChartColors(palette.accent, count);
+            
+            int i = 0;
+            for (var entry : spendingData.entrySet())
+            {
+                String category = entry.getKey();
+                dataset.setValue(category, entry.getValue());
+                
+                // apply the colour
+                plot.setSectionPaint(category, generatedColors.get(i % generatedColors.size()));
+                i++;
+            }
+        }
+        
+        // update background 
+        plot.setLabelLinkPaint(palette.textLight);
+        plot.setLabelPaint(palette.textLight);
+        
         chart.fireChartChanged();
+        chartPanel.repaint();
     }
-
-    // ----- external refresh ----- //
+    
+    // ----- main refresh logic ----- //
     public void refresh()
     {
-        // todo: aggregate spend by tags and update pie chart
+        refresh("all time");
+    }
+    
+    public void refresh(String filter)
+    {
+        Map<UUID, List<PurchaseLog>> history = manager.getPurchaseHistory();
+        if (history == null || history.isEmpty())
+        {
+            refreshChart(Collections.emptyMap());
+            return;
+        }
+        
+        Map<String, Double> spendingByTag = new HashMap<>();
+        java.time.LocalDate cutoff = switch (filter)
+        {
+            case "week" -> java.time.LocalDate.now().minusDays(7);
+            case "month" -> java.time.LocalDate.now().minusMonths(1);
+            case "year" -> java.time.LocalDate.now().minusYears(1);
+            default -> null; // all time
+        };
+        
+        for (var entry : history.entrySet())
+        {
+            UUID itemId = entry.getKey();
+            List<PurchaseLog> logs = entry.getValue();
+            if (logs == null || logs.isEmpty()) continue;
+            
+            Item item = manager.getItemByUUID(itemId);
+            if (item == null) continue;
+            
+            ArrayList<String> tags = item.getTags();
+            if (tags == null || tags.isEmpty()) continue;
+            String firstTag = tags.get(0);
+            
+            double totalForItem = 0.0;
+            for (PurchaseLog log : logs)
+            {
+                if (cutoff != null && log.getPurchaseDate().isBefore(cutoff)) continue;
+                totalForItem += log.getPrice() * log.getQuantity();
+            }
+            
+            if (totalForItem > 0)
+                spendingByTag.merge(firstTag, totalForItem, Double::sum);
+        }
+        
+        refreshChart(spendingByTag);
+    }
+    // ----- chart colourer ----- //
+    private List<Color> generateChartColors(Color accent, int count)
+    {
+        List<Color> colors = new ArrayList<>();
+        
+        // rgb to hsb
+        float[] hsb = Color.RGBtoHSB(accent.getRed(), accent.getGreen(), accent.getBlue(), null);
+        float baseHue = hsb[0]; 
+        float baseSat = hsb[1];
+        float baseBright = hsb[2];
+        
+        // range
+        float brightnessStep = 0.6f / count; 
+        
+        for (int i = 0; i < count; i++)
+        {
+            // step bnrightness
+            float brightness = baseBright - (i * brightnessStep);
+            if (brightness < 0.4f)
+            {
+                brightness = 1.0f - brightness; // wrap/shift to use lighter tones too
+            }
+            
+            // slightly drop saturation for darker shades
+            float saturation = baseSat * (1 - (i * 0.1f)); 
+            
+            // clamp values
+            saturation = Math.max(0.3f, Math.min(1.0f, saturation));
+            brightness = Math.max(0.3f, Math.min(1.0f, brightness));
+            
+            // create the new color
+            colors.add(Color.getHSBColor(baseHue, saturation, brightness));
+        }
+        
+        // always start with the original accent color for the largest slice if desired
+        if (!colors.isEmpty())
+        {
+            colors.set(0, accent);
+        }
+        
+        return colors;
     }
 }

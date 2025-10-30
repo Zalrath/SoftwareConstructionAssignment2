@@ -16,6 +16,7 @@ import Assignment2.Database.DatabaseUtil;
 import Assignment2.Inventory.InventoryManager;
 import Assignment2.Inventory.Item;
 import Assignment2.Inventory.SettingsManager;
+import Assignment2.UI.Theme;
 
 import java.awt.Color;
 import java.sql.Connection;
@@ -120,10 +121,10 @@ public class Main
         
         
         // ----- Apply Theme ----- // 
-        Color selected = accentColors[0]; // coral-red
+        Color selected = accentColors[0]; 
         
          // Theme.setMode(Theme.Mode.LIGHT);  // or DARK
-        // Theme.setAccent(selected);        // updates all components
+        Theme.setAccent(selected);        // updates all components
 
         // ----- Launch GUI ----- // 
         SwingUtilities.invokeLater(() -> new HomeScreen(manager).setVisible(true));

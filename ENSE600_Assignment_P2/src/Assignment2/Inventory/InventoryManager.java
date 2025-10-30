@@ -32,8 +32,19 @@ public class InventoryManager {
     
     
     
-
+// im doing it again :( sowwy
     
+    
+    public Map<UUID, List<PurchaseLog>> getPurchaseHistory() 
+    {
+        return purchaseHistory;
+    }
+    
+    public Item getItemByUUID(UUID id) 
+    {
+        return items.get(id);
+    }
+
     
     
     
