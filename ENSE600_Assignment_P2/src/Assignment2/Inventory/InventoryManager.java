@@ -230,7 +230,10 @@ public class InventoryManager {
                 if (tagsStr != null && !tagsStr.isEmpty()) {
                     tags.addAll(Arrays.asList(tagsStr.split("\\|")));
                 }
-
+                
+                boolean favorite = rs.getBoolean("favorite");
+                boolean future = rs.getBoolean("future");
+                
                 Item item = new Item(name);
                 item.setUuid(uuid);
                 item.setLastPurchased(lastPurchased);
@@ -238,7 +241,10 @@ public class InventoryManager {
                 item.setEstimatedIntervalDays(interval);
                 item.setTags(tags);
                 item.updateNextExpectedPurchase();
-
+                item.setFavorite(favorite);  
+                item.setFuture(future); 
+                
+                
                 items.put(uuid, item);
             }
 

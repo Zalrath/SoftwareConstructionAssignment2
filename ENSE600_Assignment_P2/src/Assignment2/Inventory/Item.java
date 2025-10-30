@@ -77,7 +77,7 @@ public class Item {
     public void setFavorite(boolean fav) { this.fav = fav; }
     
     public boolean getFuture() { return future; }
-    public void setFuture(boolean fav) { this.future = fav; }
+    public void setFuture(boolean future) { this.future = future; }
     
     
 }

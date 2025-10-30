@@ -344,13 +344,15 @@ public class InventoryPanel extends BaseScreenPanel
                 int row = e.getFirstRow();
                 if (row >= 0 && row < rowItems.size())
                 {
+                    
                     Boolean favChecked = (Boolean) tableModel.getValueAt(row, 4);
                     Item item = rowItems.get(row);
+                    
                     item.setFavorite(favChecked != null && favChecked);
                 }
             }
         });
-    } // corin fix pls
+    }
     
     // ----- populate table ----- //
     private void populateTable()
@@ -366,13 +368,13 @@ public class InventoryPanel extends BaseScreenPanel
             UUID id = item.getUuid();
             String tags = String.join(", ", item.getTags());
             String date = item.getLastPurchased() != null ? item.getLastPurchased().format(df) : "—";
-            
+            System.out.println(item.getFavorite());
             double latestPrice = manager.getLatestPrice(id);
             tableModel.addRow(new Object[]{
                 item.getName(), tags, date,
                 String.format("$%.2f", latestPrice),
                 item.getFavorite(), item.getCurrentAmount(),
-                "\u2796", "\u2795"
+                "\u2796", "\u2795"  
             });
         }
     }
