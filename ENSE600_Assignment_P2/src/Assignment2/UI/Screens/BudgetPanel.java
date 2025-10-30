@@ -10,58 +10,78 @@ package Assignment2.UI.Screens;
  * @author megan
  */
 
-import Assignment2.UI.AddItemDialog;
-import Assignment2.UI.HomeScreen;
+
 import Assignment2.UI.Template.BaseScreenPanel;
 import Assignment2.UI.Theme;
+import Assignment2.Inventory.InventoryManager;
+import Assignment2.UI.Screens.BudgetQuadrants.BudgetVsActualPanel;
+import Assignment2.UI.Screens.BudgetQuadrants.IncomeExpensePanel;
+import Assignment2.UI.Screens.BudgetQuadrants.SavingsPanel;
+import Assignment2.UI.Screens.BudgetQuadrants.SpendingPanel;
 
 import javax.swing.*;
+
 import java.awt.*;
 
-public class BudgetPanel extends BaseScreenPanel 
-{
-    // ----- Constructor ----- // 
-    public BudgetPanel() 
-    {
-        super("Budget", /*showBack*/ true, /*showAdd*/ true, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
-         buildBaseUI();
+/**
+ * BudgetPanel
+ * Modular dashboard for income, expenses, savings, and spending.
+ * 
+ * Layout:
+ * ┌──────────────────────────┬──────────────────────────┐
+ * │ Income & Expenses        │ Budget vs Actual         │
+ * ├──────────────────────────┼──────────────────────────┤
+ * │ Savings                  │ Spending by Category     │
+ * └──────────────────────────┴──────────────────────────┘
+ */
+public class BudgetPanel extends BaseScreenPanel {
+
+    private final InventoryManager manager;
+
+    // Sub-panels
+    private IncomeExpensePanel incomeExpensePanel;
+    private BudgetVsActualPanel budgetVsActualPanel;
+    private SavingsPanel savingsPanel;
+    private SpendingPanel spendingPanel;
+
+    public BudgetPanel(InventoryManager manager) {
+        super("Budget", true, true, "Add Item", "dashboard");
+        this.manager = manager;
+        buildBaseUI();
     }
-    
-    // ----- Initialise Content ----- // 
+
     @Override
-    protected JComponent createCentre() 
-    {
-        // placeholder for content
-        JTextArea area = new JTextArea("Budget\n\n(Replace with your real UI)");
-        
-        // theme
-        Theme.Palette palette = Theme.palette();
-        
-        area.setFont(Theme.BODY_FONT);
-        area.setForeground(palette.textLight);
-        area.setBackground(palette.tileDark);
-        area.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
-        
-        JScrollPane sp = new JScrollPane(area);
-        sp.setBorder(null);
-        
-        JPanel card = new JPanel(new BorderLayout());
-        card.setOpaque(false);
-        card.add(sp, BorderLayout.CENTER);
-        return card;
+    protected JComponent createCentre() {
+        Theme.Palette p = Theme.palette();
+
+        JPanel grid = new JPanel(new GridLayout(2, 2, 10, 10));
+        grid.setOpaque(true);
+        grid.setBackground(p.tileDark);
+        grid.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        incomeExpensePanel = new IncomeExpensePanel(manager, p);
+        budgetVsActualPanel = new BudgetVsActualPanel(manager, p);
+        savingsPanel = new SavingsPanel(manager, p);
+        spendingPanel = new SpendingPanel(manager, p);
+
+        grid.add(incomeExpensePanel);
+        grid.add(budgetVsActualPanel);
+        grid.add(savingsPanel);
+        grid.add(spendingPanel);
+
+        return grid;
     }
-    
-    // ----- Actions ----- // 
+
     @Override
-    protected void onAdd() 
-    {
-        Window parent = SwingUtilities.getWindowAncestor(this);
-        AddItemDialog.show(parent).ifPresent(data
-                -> {
-            if (parent instanceof HomeScreen hs) 
-            {
-                hs.addNewItem(data); // use homescreen
-            }
-        });
+    protected void onAdd() {
+        // Optional "Add Item" behaviour — could open AddIncomeDialog or AddExpenseDialog
+        JOptionPane.showMessageDialog(this, "Add Budget Item clicked (not yet implemented).");
+    }
+
+    public void refreshDashboard() {
+        incomeExpensePanel.refresh();
+        budgetVsActualPanel.refresh();
+        savingsPanel.refresh();
+        spendingPanel.refresh();
     }
 }
