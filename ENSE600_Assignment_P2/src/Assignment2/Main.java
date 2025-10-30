@@ -49,13 +49,14 @@ public class Main
         // YOU CAN NOT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE, IT MESSES WITH THE DB CONNECTION 
         //
         
-        // dataUtil.dropTable(conn,"Purchases");
-        // dataUtil.dropTable(conn,"ITEMS");
+        dataUtil.dropTable(conn,"Purchases");
+        dataUtil.dropTable(conn,"ITEMS");
         
         dataUtil.createTables(conn);
         
-        // dataUtil.insertDefaultPurchases(conn);
-        // dataUtil.insertDefaultItems(conn);
+        dataUtil.insertDefaultItems(conn);
+        dataUtil.insertDefaultPurchases(conn);
+         
         // Really fraigle ------
         
         dataUtil.printItemsFromDB(conn);
@@ -121,7 +122,7 @@ public class Main
         
         
         // ----- Apply Theme ----- // 
-        Color selected = accentColors[0]; 
+        Color selected = accentColors[7]; 
         
          // Theme.setMode(Theme.Mode.LIGHT);  // or DARK
         Theme.setAccent(selected);        // updates all components

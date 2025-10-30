@@ -285,6 +285,15 @@ public class DatabaseUtil {
         String sql = "INSERT INTO Purchases (itemUUID, price, quantity, purchaseDate) VALUES (?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
 
+            // --- verify table exists ---
+            DatabaseMetaData meta = conn.getMetaData();
+            try (ResultSet rs = meta.getTables(null, null, "PURCHASES", null)) {
+                if (!rs.next()) {
+                    System.err.println("⚠ Purchases table missing before insert.");
+                    return;
+                }
+            }
+
             UNCaddPurchases(ps, "3717698b-ba54-4db1-87c1-8404e1c878a8", 16.99, 3.0, LocalDate.of(2024, 10, 1));
             UNCaddPurchases(ps, "628ed9f6-3cae-4bc3-afc6-e396a90ff09d", 13.99, 2.0, LocalDate.of(2024, 10, 1));
             UNCaddPurchases(ps, "87eee6d3-cb6c-4666-97b0-350ff102f0c4", 6.00, 1.0, LocalDate.of(2024, 10, 1));
@@ -1170,13 +1179,15 @@ public class DatabaseUtil {
             UNCaddPurchases(ps, "4031b990-016c-47f9-8501-b5c83ae860c1", 2.49, 3.0, LocalDate.of(2025, 10, 27));
             UNCaddPurchases(ps, "87eee6d3-cb6c-4666-97b0-350ff102f0c4", 7.00, 2.0, LocalDate.of(2025, 10, 27));
 
-            System.out.println("Default Purchases inserted successfully!");
+            System.out.println("Default purchases inserted successfully!");
         } catch (SQLException e) {
-            System.err.println("️ Error inserting default Purchases: " + e.getMessage());
+            System.err.println("Error inserting default purchases: " + e.getMessage());
+            e.printStackTrace();
         }
-    }    
+    }
 
-    private static void UNCaddPurchases(PreparedStatement ps, String uuid, double price , double quantity ,LocalDate date) throws SQLException {
+    private static void UNCaddPurchases(PreparedStatement ps, String uuid, double price, double quantity, LocalDate date)
+            throws SQLException {
         ps.setString(1, uuid);
         ps.setDouble(2, price);
         ps.setDouble(3, quantity);
