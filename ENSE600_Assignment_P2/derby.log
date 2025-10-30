@@ -1,22 +1,12 @@
 ----------------------------------------------------------------
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-Thu Oct 30 20:37:13 NZDT 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019a-340c-9e63-00000eca61a8 
-on database directory C:\Users\corin\OneDrive\Documents\GitHub\SoftwareConstructionAssignment1\ENSE600_Assignment_P2\InventoryDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@3f99bd52 
-Loaded from file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/lib/derby.jar
-=======
-=======
->>>>>>> Stashed changes
-Thu Oct 30 20:00:13 NZDT 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019a-33ea-bd1f-00001f7083c0 
+Thu Oct 30 22:33:20 NZDT 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019a-3476-edac-00001f708778 
 on database directory E:\Files\github\SoftwareConstructionAssignment1\ENSE600_Assignment_P2\InventoryDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@3f99bd52 
 Loaded from file:/E:/Files/github/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/lib/derby.jar
->>>>>>> Stashed changes
 java.vendor=Oracle Corporation
-java.runtime.version=21.0.7+8-LTS-245
-user.dir=C:\Users\corin\OneDrive\Documents\GitHub\SoftwareConstructionAssignment1\ENSE600_Assignment_P2
-os.name=Windows 11
+java.runtime.version=21.0.8+12-LTS-250
+user.dir=E:\Files\github\SoftwareConstructionAssignment1\ENSE600_Assignment_P2
+os.name=Windows 10
 os.arch=amd64
 os.version=10.0
 derby.system.home=null

@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Assignment2.UI.Screens.BudgetQuadrants;
 
@@ -17,39 +17,49 @@ import javax.swing.*;
 
 import java.awt.*;
 
-/**
- * Bottom-left panel: shows total savings graph.
- */
-public class SavingsPanel extends JPanel {
+public class SavingsPanel extends JPanel
+{
 
     private final InventoryManager manager;
-    private final Theme.Palette p;
+    private final Theme.Palette palette; // renamed 'p' to 'palette'
 
-    public SavingsPanel(InventoryManager manager, Theme.Palette p) {
+    // ----- constructor ----- //
+    public SavingsPanel(InventoryManager manager, Theme.Palette palette)
+    {
         this.manager = manager;
-        this.p = p;
+        this.palette = palette;
         buildUI();
     }
 
-    private void buildUI() {
+    // ----- initialise ui ----- //
+    private void buildUI()
+    {
         setLayout(new BorderLayout());
-        setBackground(p.tileMediumDark);
-        setBorder(BorderFactory.createLineBorder(p.tileDark, 2));
+        setBackground(palette.tileMediumDark);
+        setBorder(BorderFactory.createLineBorder(palette.tileDark, 2));
 
-        JLabel header = new JLabel("Savings", SwingConstants.CENTER);
+        // header
+        JLabel header = new JLabel("savings", SwingConstants.CENTER);
         header.setFont(Theme.TITLE_FONT.deriveFont(20f));
-        header.setForeground(p.textLight);
-        header.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, p.accent));
+        header.setForeground(palette.textLight);
+        header.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, palette.accent));
 
+        // placeholder for graph
         JPanel barPlaceholder = new JPanel();
-        barPlaceholder.setBackground(p.tileDark);
-        barPlaceholder.add(new JLabel("(Savings bar chart placeholder)", SwingConstants.CENTER));
+        barPlaceholder.setBackground(palette.tileDark);
+        
+        // placeholder label
+        JLabel placeholderLabel = new JLabel("(savings bar chart placeholder)", SwingConstants.CENTER);
+        placeholderLabel.setForeground(palette.textLight.darker());
+        barPlaceholder.add(placeholderLabel);
 
         add(header, BorderLayout.NORTH);
         add(barPlaceholder, BorderLayout.CENTER);
     }
 
-    public void refresh() {
-        // TODO: Query purchase history or total saved values from manager
+    // ----- external refresh ----- //
+    public void refresh()
+    {
+        // todo: query purchase history or total saved values from manager
     }
 }

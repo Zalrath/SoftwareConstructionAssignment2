@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
 package Assignment2.UI.Screens;
@@ -23,62 +23,63 @@ import javax.swing.*;
 
 import java.awt.*;
 
-/**
- * BudgetPanel
- * Modular dashboard for income, expenses, savings, and spending.
- * 
- * Layout:
- * ┌──────────────────────────┬──────────────────────────┐
- * │ Income & Expenses        │ Budget vs Actual         │
- * ├──────────────────────────┼──────────────────────────┤
- * │ Savings                  │ Spending by Category     │
- * └──────────────────────────┴──────────────────────────┘
- */
-public class BudgetPanel extends BaseScreenPanel {
+public class BudgetPanel extends BaseScreenPanel
+{
 
     private final InventoryManager manager;
 
-    // Sub-panels
+    // sub-panels
     private IncomeExpensePanel incomeExpensePanel;
     private BudgetVsActualPanel budgetVsActualPanel;
     private SavingsPanel savingsPanel;
     private SpendingPanel spendingPanel;
 
-    public BudgetPanel(InventoryManager manager) {
-        super("Budget", true, true, "Add Item", "dashboard");
+    // ----- constructor ----- //
+    public BudgetPanel(InventoryManager manager)
+    {
+        super("budget", true, true, "add item", "dashboard");
         this.manager = manager;
         buildBaseUI();
     }
 
+    // ----- initialise content ----- //
     @Override
-    protected JComponent createCentre() {
-        Theme.Palette p = Theme.palette();
+    protected JComponent createCentre()
+    {
+        Theme.Palette palette = Theme.palette(); // renamed 'p' to 'palette'
 
+        // 2x2 grid layout for the quadrants
         JPanel grid = new JPanel(new GridLayout(2, 2, 10, 10));
         grid.setOpaque(true);
-        grid.setBackground(p.tileDark);
-        grid.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        grid.setBackground(palette.background);
+        grid.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
-        incomeExpensePanel = new IncomeExpensePanel(manager, p);
-        budgetVsActualPanel = new BudgetVsActualPanel(manager, p);
-        savingsPanel = new SavingsPanel(manager, p);
-        spendingPanel = new SpendingPanel(manager, p);
+        // initialise sub-panels
+        incomeExpensePanel = new IncomeExpensePanel(manager, palette);
+        budgetVsActualPanel = new BudgetVsActualPanel(manager, palette);
+        savingsPanel = new SavingsPanel(manager, palette);
+        spendingPanel = new SpendingPanel(manager, palette);
 
-        grid.add(incomeExpensePanel);
-        grid.add(budgetVsActualPanel);
-        grid.add(savingsPanel);
-        grid.add(spendingPanel);
+        // add panels to grid
+        grid.add(incomeExpensePanel);  // top-left
+        grid.add(budgetVsActualPanel); // top-right
+        grid.add(savingsPanel);        // bottom-left
+        grid.add(spendingPanel);       // bottom-right
 
         return grid;
     }
 
+    // ----- actions ----- //
     @Override
-    protected void onAdd() {
-        // Optional "Add Item" behaviour — could open AddIncomeDialog or AddExpenseDialog
-        JOptionPane.showMessageDialog(this, "Add Budget Item clicked (not yet implemented).");
+    protected void onAdd()
+    {
+        // optional "add item" behaviour
+        JOptionPane.showMessageDialog(this, "add budget item clicked (not yet implemented).");
     }
 
-    public void refreshDashboard() {
+    // ----- external refresh ----- //
+    public void refreshDashboard()
+    {
         incomeExpensePanel.refresh();
         budgetVsActualPanel.refresh();
         savingsPanel.refresh();
