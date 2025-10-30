@@ -49,12 +49,12 @@ public class Main
         //
         
         // dataUtil.dropTable(conn,"Purchases");
-        //dataUtil.dropTable(conn,"ITEMS");
+        // dataUtil.dropTable(conn,"ITEMS");
         
         dataUtil.createTables(conn);
         
-        //dataUtil.insertDefaultPurchases(conn);
-        //dataUtil.insertDefaultItems(conn);
+        // dataUtil.insertDefaultPurchases(conn);
+        // dataUtil.insertDefaultItems(conn);
         // Really fraigle ------
         
         dataUtil.printItemsFromDB(conn);

@@ -23,6 +23,27 @@ import javax.swing.*;
 
 import java.awt.*;
 
+// Items top level tag options
+// - Groceries
+// - Household Essentials
+// - Personal Care
+// - Hobby
+// - Medicine
+
+// to be implemented as bills/expenses
+// Housing
+// Utilities
+// Transport
+// Misc Bills
+
+// Pie chart catagories ^ 
+
+
+
+
+
+
+
 public class BudgetPanel extends BaseScreenPanel
 {
 

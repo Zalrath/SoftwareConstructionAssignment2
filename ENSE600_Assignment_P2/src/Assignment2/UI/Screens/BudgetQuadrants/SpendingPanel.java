@@ -25,7 +25,9 @@ import java.awt.Color;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.DecimalFormat;
 import java.util.Map;
+import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 
 public class SpendingPanel extends JPanel
 {
@@ -166,6 +168,11 @@ public class SpendingPanel extends JPanel
         plot.setLabelLinkPaint(palette.textLight);
         plot.setLabelOutlinePaint(null);
         plot.setLabelShadowPaint(null);
+        plot.setLabelGenerator(new StandardPieSectionLabelGenerator(
+                "{0}: {1} ({2})", // label format: name : value (percent)
+                new DecimalFormat("$#,##0.00"), // value format — shows currency with 2 decimals
+                new DecimalFormat("0%") // percentage format
+        ));
 
         chart.setBackgroundPaint(palette.tileDark);
         chart.setPadding(new RectangleInsets(5, 5, 5, 5));
