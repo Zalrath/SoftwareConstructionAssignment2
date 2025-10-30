@@ -14,6 +14,7 @@ package Assignment2.Inventory;
  * 
  */
 
+import Assignment2.Database.DatabaseUtil;
 import java.sql.*;
 import java.io.*;
 import java.nio.file.*;
@@ -27,6 +28,25 @@ public class InventoryManager {
 
    
 
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
