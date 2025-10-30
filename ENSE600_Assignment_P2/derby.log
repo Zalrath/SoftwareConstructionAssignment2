@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Fri Oct 31 11:24:16 NZDT 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019a-3738-bb5b-00001f6fe2d0 
+Fri Oct 31 12:05:43 NZDT 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019a-375e-ada4-00001f6fa198 
 on database directory E:\Files\github\SoftwareConstructionAssignment1\ENSE600_Assignment_P2\InventoryDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@3f99bd52 
 Loaded from file:/E:/Files/github/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -11,32 +11,3 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
-Fri Oct 31 11:24:16 NZDT 2025 Thread[#1,main,5,main] (XID = 51), (SESSIONID = 1), (DATABASE = InventoryDB), (DRDAID = null), Cleanup action starting
-Fri Oct 31 11:24:16 NZDT 2025 Thread[#1,main,5,main] (XID = 51), (SESSIONID = 1), (DATABASE = InventoryDB), (DRDAID = null), Failed Statement is: DROP TABLE Purchases
-java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
-	at java.base/java.io.StringReader.<init>(StringReader.java:50)
-	at org.apache.derby.impl.services.uuid.BasicUUID.<init>(Unknown Source)
-	at org.apache.derby.impl.services.uuid.BasicUUIDFactory.recreateUUID(Unknown Source)
-	at org.apache.derby.impl.sql.catalog.SYSTABLESRowFactory.buildDescriptorBody(Unknown Source)
-	at org.apache.derby.impl.sql.catalog.SYSTABLESRowFactory.buildDescriptor(Unknown Source)
-	at org.apache.derby.impl.sql.catalog.DataDictionaryImpl.getDescriptorViaIndexMinion(Unknown Source)
-	at org.apache.derby.impl.sql.catalog.DataDictionaryImpl.getDescriptorViaIndex(Unknown Source)
-	at org.apache.derby.impl.sql.catalog.DataDictionaryImpl.getTableDescriptorIndex1Scan(Unknown Source)
-	at org.apache.derby.impl.sql.catalog.DataDictionaryImpl.getUncachedTableDescriptor(Unknown Source)
-	at org.apache.derby.impl.sql.catalog.NameTDCacheable.setIdentity(Unknown Source)
-	at org.apache.derby.impl.services.cache.ConcurrentCache.find(Unknown Source)
-	at org.apache.derby.impl.sql.catalog.DataDictionaryImpl.getTableDescriptor(Unknown Source)
-	at org.apache.derby.impl.sql.compile.QueryTreeNode.getTableDescriptor(Unknown Source)
-	at org.apache.derby.impl.sql.compile.DDLStatementNode.justGetDescriptor(Unknown Source)
-	at org.apache.derby.impl.sql.compile.DDLStatementNode.getTableDescriptor(Unknown Source)
-	at org.apache.derby.impl.sql.compile.DDLStatementNode.getTableDescriptor(Unknown Source)
-	at org.apache.derby.impl.sql.compile.DropTableNode.bindStatement(Unknown Source)
-	at org.apache.derby.impl.sql.GenericStatement.prepMinion(Unknown Source)
-	at org.apache.derby.impl.sql.GenericStatement.prepare(Unknown Source)
-	at org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext.prepareInternalStatement(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedStatement.execute(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedStatement.executeLargeUpdate(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedStatement.executeUpdate(Unknown Source)
-	at Assignment2.Database.DatabaseUtil.dropTable(DatabaseUtil.java:184)
-	at Assignment2.Main.main(Main.java:53)
-Cleanup action completed
