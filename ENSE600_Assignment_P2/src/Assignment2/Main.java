@@ -53,8 +53,8 @@ public class Main
         
         dataUtil.createTables(conn);
         
-        //dataUtil.insertDefaultPurchases(conn);
-        //dataUtil.insertDefaultItems(conn);
+        // dataUtil.insertDefaultPurchases(conn);
+        // dataUtil.insertDefaultItems(conn);
         // Really fraigle ------
         
         //dataUtil.printItemsFromDB(conn);
