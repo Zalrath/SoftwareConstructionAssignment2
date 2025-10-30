@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/Main.java</file>
-            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/Inventory/InventoryManager.java</file>
-            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/AddItemDialog.java</file>
-            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/Template/BaseScreenPanel.java</file>
-            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/HomeScreen.java</file>
-            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/Screens/InventoryPanel.java</file>
             <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/Database/DatabaseUtil.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/Inventory/InventoryManager.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/Main.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/HomeScreen.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/Inventory/Item.java</file>
         </group>
     </open-files>
 </project-private>

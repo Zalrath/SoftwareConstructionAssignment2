@@ -46,7 +46,7 @@ public class Main
 
         
         // YOU CAN NOT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE, IT MESSES WITH THE DB CONNECTION 
-        
+        //
         
         //dataUtil.dropTable(conn,"Purchases");
         //dataUtil.dropTable(conn,"ITEMS");
