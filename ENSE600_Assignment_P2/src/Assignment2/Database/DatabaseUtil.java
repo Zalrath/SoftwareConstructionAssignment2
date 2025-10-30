@@ -84,6 +84,39 @@ public class DatabaseUtil {
                 )
             """);
 
+            /*
+            
+            stmt.executeUpdate("""
+                CREATE TABLE Budget (
+                    
+                    weekly DOUBLE,
+                    monthly DOUBLE,
+                    yearly DOUBLE,
+                    savings DOUBLE,
+                    income DOUBLE,
+                    expenses DOUBLE,
+                    budget DOUBLE,
+                    actual DOUBLE,
+                )
+            
+            """);
+            
+            stmt.executeUpdate("""
+                CREATE TABLE Setting (
+                    CurrencyFormat VARCHAR(255),
+                    Date Format VARCHAR(255),
+                    Accent Colour VARCHAR(255)
+                   
+                    
+                )
+            
+            """);
+            
+            
+            */
+            
+            
+            
             System.out.println("Tables created");
         } catch (SQLException e) {
             if (!"X0Y32".equals(e.getSQLState())) {} // Ignores the "table already exists" error
