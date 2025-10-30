@@ -1,11 +1,7 @@
 *.DS_Store
 /ENSE600_Assignment/target/
-<<<<<<< Updated upstream
 /ENSE600_Assignment_P2/build/
 /ENSE600_Assignment_P2/dist/
-=======
-/ENSE600_Assignment_P2/nbproject/private/
->>>>>>> Stashed changes
 ENSE600_Assignment_P2/nbproject/private/private.xml
 /ENSE600_Assignment_P2/nbproject/private
 ENSE600_Assignment_P2/nbproject/private/private.xml
