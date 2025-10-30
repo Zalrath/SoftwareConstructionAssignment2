@@ -57,7 +57,7 @@ public class Main
         //dataUtil.insertDefaultItems(conn);
         // Really fraigle ------
         
-        dataUtil.printItemsFromDB(conn);
+        //dataUtil.printItemsFromDB(conn);
         manager.loadItemsFromDB(conn);
         
         try (Statement stmt = conn.createStatement()) {
@@ -66,18 +66,7 @@ public class Main
         } catch (SQLException e) {}
         
         
-        for (Item item : manager.getAllItems()) 
-                {
-                    System.out.println("Item: " + item.getName());
-                    System.out.println("  UUID: " + item.getUuid());
-                    System.out.println("  Last Purchased: " + item.getLastPurchased());
-                    System.out.println("  Estimated Interval: " + item.getEstimatedIntervalDays() + " days");
-                    System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
-                    System.out.println(item.getFuture());
-                    System.out.println(item.getFavorite());
-                    System.out.println(item.getCurrentAmount());
-                    System.out.println();
-                }
+        
                 
 
         
@@ -94,8 +83,8 @@ public class Main
         manager.savePurchasesToDB(conn);
         
         
-        dataUtil.printItemsFromDB(conn);
-        dataUtil.printPurchasesFromDB(conn);
+        //dataUtil.printItemsFromDB(conn);
+        //dataUtil.printPurchasesFromDB(conn);
         
         
         
