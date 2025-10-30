@@ -58,7 +58,7 @@ public class IncomeExpensePanel extends JPanel
         header.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, palette.accent));
 
         JTextArea area = new JTextArea();
-        area.setText("static placeholder — link to db or user input here.");
+        area.setText("static placeholder - link to db or user input here.");
         area.setBackground(palette.tileDark);
         area.setForeground(palette.textLight);
         area.setFont(Theme.BODY_FONT.deriveFont(14f));

@@ -33,27 +33,27 @@ public class BudgetVsActualPanel extends JPanel
     // ----- initialise ui ----- //
     private void buildUI()
     {
-        setLayout(new BorderLayout(10, 10));
+        setLayout(new BorderLayout());
         setBackground(palette.tileMediumDark);
         setBorder(BorderFactory.createLineBorder(palette.tileDark, 2));
-        
+
         // header
-        JLabel header = new JLabel("budget vs actual", SwingConstants.CENTER);
+        JLabel header = new JLabel("Budget vs Actual", SwingConstants.CENTER);
         header.setFont(Theme.TITLE_FONT.deriveFont(20f));
         header.setForeground(palette.textLight);
         header.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, palette.accent));
-        
-        // placeholder for future chart
-        JPanel chartPlaceholder = new JPanel();
-        chartPlaceholder.setBackground(palette.tileDark);
+
+        // placeholder for graph
+        JPanel barPlaceholder = new JPanel();
+        barPlaceholder.setBackground(palette.tileDark);
         
         // placeholder label
-        JLabel placeholderLabel = new JLabel("(bar chart placeholder)", SwingConstants.CENTER);
+        JLabel placeholderLabel = new JLabel("(piechart goes here)", SwingConstants.CENTER);
         placeholderLabel.setForeground(palette.textLight.darker());
-        chartPlaceholder.add(placeholderLabel);
-        
+        barPlaceholder.add(placeholderLabel);
+
         add(header, BorderLayout.NORTH);
-        add(chartPlaceholder, BorderLayout.CENTER);
+        add(barPlaceholder, BorderLayout.CENTER);
     }
 
     // ----- external refresh ----- //
