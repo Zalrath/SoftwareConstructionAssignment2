@@ -193,51 +193,24 @@ public class DatabaseUtil {
             UNCaddItem(ps, "880e8400-e29b-41d4-a716-446655440003", "Apples", LocalDate.of(2025, 10, 12), 14.0, 0, "fruit|snack|fresh", false, false);
             UNCaddItem(ps, "990e8400-e29b-41d4-a716-446655440004", "Toilet Paper", LocalDate.of(2025, 9, 30), 30.0, 0, "household|bulk|monthly", false, false);
 
-            UNCaddItem(ps, "bb0e8400-e29b-41d4-a716-446655440006", "Chicken Breast", LocalDate.of(2025, 10, 22), 5.0, 0, "meat|protein|freezer", false, false);
-            UNCaddItem(ps, "aa0e8400-e29b-41d4-a716-446655440005", "Cheese", LocalDate.of(2025, 10, 10), 2.0, 0, "dairy|fridge|snack", false, false);
-            UNCaddItem(ps, "dd0e8400-e29b-41d4-a716-446655440008", "Pasta", LocalDate.of(2025, 9, 25), 4.0, 0, "pantry|dinner|dry", false, false);
-            UNCaddItem(ps, "ee0e8400-e29b-41d4-a716-446655440009", "Tomato Sauce", LocalDate.of(2025, 9, 26), 3.0, 0, "pantry|sauce|dinner", false, false);
-            UNCaddItem(ps, "cc0e8400-e29b-41d4-a716-446655440007", "Rice", LocalDate.of(2025, 8, 30), 10.0, 0, "pantry|grain|staple", false, false);
+            UNCaddItem(ps, "a10e8400-e29b-41d4-a716-446655440005", "Chicken Breast", LocalDate.of(2025, 10, 22), 5.0, 0, "meat|protein|freezer", false, false);
+            UNCaddItem(ps, "a20e8400-e29b-41d4-a716-446655440006", "Cheese", LocalDate.of(2025, 10, 10), 2.0, 0, "dairy|fridge|snack", false, false);
+            UNCaddItem(ps, "a30e8400-e29b-41d4-a716-446655440007", "Pasta", LocalDate.of(2025, 9, 25), 4.0, 0, "pantry|dinner|dry", false, false);
+            UNCaddItem(ps, "a40e8400-e29b-41d4-a716-446655440008", "Tomato Sauce", LocalDate.of(2025, 9, 26), 3.0, 0, "pantry|sauce|dinner", false, false);
+            UNCaddItem(ps, "a50e8400-e29b-41d4-a716-446655440009", "Rice", LocalDate.of(2025, 8, 30), 10.0, 0, "pantry|grain|staple", false, false);
 
-            UNCaddItem(ps, "ff0e8400-e29b-41d4-a716-446655440010", "Coffee", LocalDate.of(2025, 10, 5), 1.0, 0, "beverage|morning|pantry", false, false);
-            UNCaddItem(ps, "a70e8400-e29b-41d4-a716-446655440011", "Toothpaste", LocalDate.of(2025, 9, 20), 2.0, 0, "personal|bathroom|monthly", false, false); //----------------
-            UNCaddItem(ps, "cc2e8400-e29b-41d4-a716-446655440019", "Laundry Detergent", LocalDate.of(2025, 9, 10), 3.0, 0, "household|cleaning|bulk", false, false);
-            UNCaddItem(ps, "a90e8400-e29b-41d4-a716-446655440013", "Shampoo", LocalDate.of(2025, 9, 15), 1.0, 0, "personal|bathroom|monthly", false, false);//
-            UNCaddItem(ps, "dd1e8400-e29b-41d4-a716-446655440014", "Butter", LocalDate.of(2025, 10, 17), 2.0, 0, "dairy|fridge|baking", false, false);
+            UNCaddItem(ps, "a60e8400-e29b-41d4-a716-446655440010", "Coffee", LocalDate.of(2025, 10, 5), 1.0, 0, "beverage|morning|pantry", false, false);
+            UNCaddItem(ps, "a70e8400-e29b-41d4-a716-446655440011", "Toothpaste", LocalDate.of(2025, 9, 20), 2.0, 0, "personal|bathroom|monthly", false, false);
+            UNCaddItem(ps, "a80e8400-e29b-41d4-a716-446655440012", "Laundry Detergent", LocalDate.of(2025, 9, 10), 3.0, 0, "household|cleaning|bulk", false, false);
+            UNCaddItem(ps, "a90e8400-e29b-41d4-a716-446655440013", "Shampoo", LocalDate.of(2025, 9, 15), 1.0, 0, "personal|bathroom|monthly", false, false);
+            UNCaddItem(ps, "b00e8400-e29b-41d4-a716-446655440014", "Butter", LocalDate.of(2025, 10, 17), 2.0, 0, "dairy|fridge|baking", false, false);
 
-            UNCaddItem(ps, "aa2e8400-e29b-41d4-a716-446655440017", "Yogurt", LocalDate.of(2025, 10, 21), 6.0, 0, "dairy|snack|fridge", false, false);
-            UNCaddItem(ps, "b20e8400-e29b-41d4-a716-446655440016", "Carrots", LocalDate.of(2025, 10, 8), 12.0, 0, "vegetable|fresh|snack", false, false); //-------------------
-            UNCaddItem(ps, "ff1e8400-e29b-41d4-a716-446655440016", "Cereal", LocalDate.of(2025, 10, 14), 2.0, 0, "breakfast|pantry|snack", false, false);
-            UNCaddItem(ps, "ee1e8400-e29b-41d4-a716-446655440015", "Juice", LocalDate.of(2025, 10, 19), 4.0, 0, "beverage|fridge|breakfast", false, false);
-            UNCaddItem(ps, "bb2e8400-e29b-41d4-a716-446655440018", "Soap", LocalDate.of(2025, 9, 28), 5.0, 0, "personal|bathroom|cleaning", false, false);
-            
-            
-            UNCaddItem(ps, "aa1e8400-e29b-41d4-a716-446655440011", "Tea", LocalDate.of(2025, 9, 28), 5.0, 0, "beverage|morning|pantry", false, false);
-            UNCaddItem(ps, "bb1e8400-e29b-41d4-a716-446655440012", "Sugar", LocalDate.of(2025, 9, 28), 5.0, 0, "baking|dry|pantry", false, false);
-            UNCaddItem(ps, "cc1e8400-e29b-41d4-a716-446655440013", "Salt", LocalDate.of(2025, 9, 28), 5.0, 0, "seasoning|dry|pantry", false, false);
-            
-            
-            UNCaddItem(ps, "c00e8400-e29b-41d4-a716-446655440020", "Red Paint", LocalDate.of(2025, 11, 5), 12.0, 0, "hobby|painting|art supplies", false, false);
-            UNCaddItem(ps, "c10e8400-e29b-41d4-a716-446655440021", "Blue Paint", LocalDate.of(2025, 11, 5), 14.0, 0, "hobby|painting|art supplies", false, false);
-            UNCaddItem(ps, "c20e8400-e29b-41d4-a716-446655440022", "Yellow Paint", LocalDate.of(2025, 11, 5), 10.0, 0, "hobby|painting|art supplies", false, false);
-            UNCaddItem(ps, "c30e8400-e29b-41d4-a716-446655440023", "Brushes", LocalDate.of(2025, 11, 5), 8.0, 0, "hobby|painting|tools", false, false);
-            UNCaddItem(ps, "c40e8400-e29b-41d4-a716-446655440024", "Paint Thinner", LocalDate.of(2025, 11, 5), 6.0, 0, "hobby|painting|supplies", false, false);
-            UNCaddItem(ps, "c50e8400-e29b-41d4-a716-446655440025", "Canvases", LocalDate.of(2025, 11, 5), 20.0, 0, "hobby|painting|art supplies", false, false);
+            UNCaddItem(ps, "b10e8400-e29b-41d4-a716-446655440015", "Yogurt", LocalDate.of(2025, 10, 21), 6.0, 0, "dairy|snack|fridge", false, false);
+            UNCaddItem(ps, "b20e8400-e29b-41d4-a716-446655440016", "Carrots", LocalDate.of(2025, 10, 8), 12.0, 0, "vegetable|fresh|snack", false, false);
+            UNCaddItem(ps, "b30e8400-e29b-41d4-a716-446655440017", "Cereal", LocalDate.of(2025, 10, 14), 2.0, 0, "breakfast|pantry|snack", false, false);
+            UNCaddItem(ps, "b40e8400-e29b-41d4-a716-446655440018", "Juice", LocalDate.of(2025, 10, 19), 4.0, 0, "beverage|fridge|breakfast", false, false);
+            UNCaddItem(ps, "b50e8400-e29b-41d4-a716-446655440019", "Soap", LocalDate.of(2025, 9, 28), 5.0, 0, "personal|bathroom|cleaning", false, false);
 
-            // Hair Conditioner (Personal Care)
-            UNCaddItem(ps, "d00e8400-e29b-41d4-a716-446655440026", "Hair Conditioner", LocalDate.of(2025, 10, 25), 5.0, 0, "personal care|bathroom|hair care", false, false);
-
-            // Spices (Salt, Pepper, Paprika, Oregano)
-            UNCaddItem(ps, "d10e8400-e29b-41d4-a716-446655440027", "Salt", LocalDate.of(2025, 10, 20), 1.5, 0, "seasoning|dry|pantry", false, false);
-            UNCaddItem(ps, "d20e8400-e29b-41d4-a716-446655440028", "Pepper", LocalDate.of(2025, 10, 20), 2.0, 0, "seasoning|dry|pantry", false, false);
-            UNCaddItem(ps, "d30e8400-e29b-41d4-a716-446655440029", "Paprika", LocalDate.of(2025, 10, 20), 3.0, 0, "seasoning|dry|pantry", false, false);
-            UNCaddItem(ps, "d40e8400-e29b-41d4-a716-446655440030", "Oregano", LocalDate.of(2025, 10, 20), 3.5, 0, "seasoning|dry|pantry", false, false);
-
-            // Vinegar and Hot Sauce
-            UNCaddItem(ps, "d50e8400-e29b-41d4-a716-446655440031", "Vinegar", LocalDate.of(2025, 9, 30), 2.0, 0, "condiments|liquid|pantry", false, false);
-            UNCaddItem(ps, "d60e8400-e29b-41d4-a716-446655440032", "Hot Sauce", LocalDate.of(2025, 9, 30), 4.0, 0, "condiments|liquid|pantry", false, false);
-
-            
             System.out.println("Default items inserted successfully!");
 
         } catch (SQLException e) {
@@ -276,722 +249,642 @@ public class DatabaseUtil {
             UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.0, 1.0, LocalDate.of(2025, 10, 30));
             */
             
-            
-            
-            // Hobby Supplies (Paint, Brushes, Paint Thinner, Canvases)
-    // First purchase for hobby supplies (2025-11-05)
-    UNCaddPurchases(ps, "c00e8400-e29b-41d4-a716-446655440020", 12.0, 3.0, LocalDate.of(2025, 11, 5)); // Red Paint
-    UNCaddPurchases(ps, "c10e8400-e29b-41d4-a716-446655440021", 14.0, 2.0, LocalDate.of(2025, 11, 5)); // Blue Paint
-    UNCaddPurchases(ps, "c20e8400-e29b-41d4-a716-446655440022", 10.0, 1.0, LocalDate.of(2025, 11, 5)); // Yellow Paint
-    UNCaddPurchases(ps, "c30e8400-e29b-41d4-a716-446655440023", 8.0, 2.0, LocalDate.of(2025, 11, 5)); // Brushes
-    UNCaddPurchases(ps, "c40e8400-e29b-41d4-a716-446655440024", 6.0, 1.0, LocalDate.of(2025, 11, 5)); // Paint Thinner
-    UNCaddPurchases(ps, "c50e8400-e29b-41d4-a716-446655440025", 20.0, 5.0, LocalDate.of(2025, 11, 5)); // Canvases
-
-    // Replenishment for hobby supplies after 6 months (2026-05-05)
-    UNCaddPurchases(ps, "c00e8400-e29b-41d4-a716-446655440020", 12.0, 2.0, LocalDate.of(2026, 5, 5)); // Red Paint
-    UNCaddPurchases(ps, "c10e8400-e29b-41d4-a716-446655440021", 14.0, 1.0, LocalDate.of(2026, 5, 5)); // Blue Paint
-    UNCaddPurchases(ps, "c20e8400-e29b-41d4-a716-446655440022", 10.0, 1.0, LocalDate.of(2026, 5, 5)); // Yellow Paint
-    UNCaddPurchases(ps, "c30e8400-e29b-41d4-a716-446655440023", 8.0, 1.0, LocalDate.of(2026, 5, 5)); // Brushes
-    UNCaddPurchases(ps, "c40e8400-e29b-41d4-a716-446655440024", 6.0, 1.0, LocalDate.of(2026, 5, 5)); // Paint Thinner
-    UNCaddPurchases(ps, "c50e8400-e29b-41d4-a716-446655440025", 20.0, 3.0, LocalDate.of(2026, 5, 5)); // Canvases
-
-    // Replenishment for hobby supplies after another 6 months (2026-11-05)
-    UNCaddPurchases(ps, "c00e8400-e29b-41d4-a716-446655440020", 12.0, 3.0, LocalDate.of(2026, 11, 5)); // Red Paint
-    UNCaddPurchases(ps, "c10e8400-e29b-41d4-a716-446655440021", 14.0, 2.0, LocalDate.of(2026, 11, 5)); // Blue Paint
-    UNCaddPurchases(ps, "c20e8400-e29b-41d4-a716-446655440022", 10.0, 2.0, LocalDate.of(2026, 11, 5)); // Yellow Paint
-    UNCaddPurchases(ps, "c30e8400-e29b-41d4-a716-446655440023", 8.0, 2.0, LocalDate.of(2026, 11, 5)); // Brushes
-    UNCaddPurchases(ps, "c40e8400-e29b-41d4-a716-446655440024", 6.0, 1.0, LocalDate.of(2026, 11, 5)); // Paint Thinner
-    UNCaddPurchases(ps, "c50e8400-e29b-41d4-a716-446655440025", 20.0, 5.0, LocalDate.of(2026, 11, 5)); // Canvases
-
-    // Hair Conditioner (Personal Care)
-    UNCaddPurchases(ps, "d00e8400-e29b-41d4-a716-446655440026", 5.0, 1.0, LocalDate.of(2025, 10, 25)); // Hair Conditioner
-    UNCaddPurchases(ps, "d00e8400-e29b-41d4-a716-446655440026", 5.0, 1.0, LocalDate.of(2026, 4, 25)); // Hair Conditioner (Replenishment)
-    UNCaddPurchases(ps, "d00e8400-e29b-41d4-a716-446655440026", 5.0, 1.0, LocalDate.of(2026, 10, 25)); // Hair Conditioner (Replenishment)
-
-    // Spices (Salt, Pepper, Paprika, Oregano)
-
-    UNCaddPurchases(ps, "d20e8400-e29b-41d4-a716-446655440028", 2.0, 1.0, LocalDate.of(2025, 10, 20)); // Pepper
-    UNCaddPurchases(ps, "d30e8400-e29b-41d4-a716-446655440029", 3.0, 1.0, LocalDate.of(2025, 10, 20)); // Paprika
-    UNCaddPurchases(ps, "d40e8400-e29b-41d4-a716-446655440030", 3.5, 1.0, LocalDate.of(2025, 10, 20)); // Oregano
-
-    // Replenishment for spices after 6 months (2026-04-20)
-
-    UNCaddPurchases(ps, "d20e8400-e29b-41d4-a716-446655440028", 2.0, 1.0, LocalDate.of(2026, 4, 20)); // Pepper
-    UNCaddPurchases(ps, "d30e8400-e29b-41d4-a716-446655440029", 3.0, 1.0, LocalDate.of(2026, 4, 20)); // Paprika
-    UNCaddPurchases(ps, "d40e8400-e29b-41d4-a716-446655440030", 3.5, 1.0, LocalDate.of(2026, 4, 20)); // Oregano
-
-    // Vinegar and Hot Sauce
-    UNCaddPurchases(ps, "d50e8400-e29b-41d4-a716-446655440031", 2.0, 1.0, LocalDate.of(2025, 9, 30)); // Vinegar
-    UNCaddPurchases(ps, "d60e8400-e29b-41d4-a716-446655440032", 4.0, 1.0, LocalDate.of(2025, 9, 30)); // Hot Sauce
-
-    // Replenishment for Vinegar and Hot Sauce (2026-03-30)
-    UNCaddPurchases(ps, "d50e8400-e29b-41d4-a716-446655440031", 2.0, 1.0, LocalDate.of(2026, 3, 30)); // Vinegar
-    UNCaddPurchases(ps, "d60e8400-e29b-41d4-a716-446655440032", 4.0, 1.0, LocalDate.of(2026, 3, 30)); // Hot Sauce
-
-    // Final purchase for Vinegar and Hot Sauce (2026-09-30)
-    UNCaddPurchases(ps, "d50e8400-e29b-41d4-a716-446655440031", 2.0, 1.0, LocalDate.of(2026, 9, 30)); // Vinegar
-    UNCaddPurchases(ps, "d60e8400-e29b-41d4-a716-446655440032", 4.0, 1.0, LocalDate.of(2026, 9, 30)); // Hot Sauce
-            
-    UNCaddPurchases(ps, "b20e8400-e29b-41d4-a716-446655440016", 2.0, 12.0, LocalDate.of(2025, 10, 8)); // Carrots
-    UNCaddPurchases(ps, "b20e8400-e29b-41d4-a716-446655440016", 2.0, 12.0, LocalDate.of(2026, 1, 8)); // Carrots
-    UNCaddPurchases(ps, "b20e8400-e29b-41d4-a716-446655440016", 2.0, 12.0, LocalDate.of(2026, 4, 8)); // Carrots
-    UNCaddPurchases(ps, "b20e8400-e29b-41d4-a716-446655440016", 2.0, 12.0, LocalDate.of(2026, 7, 8)); // Carrots
-    UNCaddPurchases(ps, "b20e8400-e29b-41d4-a716-446655440016", 2.0, 12.0, LocalDate.of(2026, 10, 8)); // Carrots
-
-
-    // Toothpaste (Personal Care, Monthly)
-    // Initial purchase in September 2025
-    UNCaddPurchases(ps, "a70e8400-e29b-41d4-a716-446655440011", 3.0, 2.0, LocalDate.of(2025, 9, 20)); // Toothpaste
-    UNCaddPurchases(ps, "a70e8400-e29b-41d4-a716-446655440011", 3.0, 2.0, LocalDate.of(2025, 12, 20)); // Toothpaste
-    UNCaddPurchases(ps, "a70e8400-e29b-41d4-a716-446655440011", 3.0, 2.0, LocalDate.of(2026, 3, 20)); // Toothpaste
-    UNCaddPurchases(ps, "a70e8400-e29b-41d4-a716-446655440011", 3.0, 2.0, LocalDate.of(2026, 6, 20)); // Toothpaste
-    UNCaddPurchases(ps, "a70e8400-e29b-41d4-a716-446655440011", 3.0, 2.0, LocalDate.of(2026, 9, 20)); // Toothpaste        
-            
-            
-            
-            
             // Generated purchase history dataset
 
             // --- Milk ---
-            // Auto-generated clumped purchase history for 20 items
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.50, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.51, 1.0, LocalDate.of(2023, 11, 28));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.52, 1.0, LocalDate.of(2024, 1, 27));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.53, 1.0, LocalDate.of(2024, 3, 27));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.54, 1.0, LocalDate.of(2024, 4, 26));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.55, 1.0, LocalDate.of(2024, 5, 3));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.56, 1.0, LocalDate.of(2024, 5, 6));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.56, 1.0, LocalDate.of(2024, 6, 5));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.58, 1.0, LocalDate.of(2024, 6, 12));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.59, 1.0, LocalDate.of(2024, 7, 12));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.61, 1.0, LocalDate.of(2024, 8, 11));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.61, 1.0, LocalDate.of(2024, 8, 18));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.62, 1.0, LocalDate.of(2024, 8, 25));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.63, 1.0, LocalDate.of(2024, 10, 24));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.64, 1.0, LocalDate.of(2024, 10, 27));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.65, 1.0, LocalDate.of(2024, 10, 30));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.66, 1.0, LocalDate.of(2024, 11, 29));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.67, 1.0, LocalDate.of(2024, 12, 29));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.68, 1.0, LocalDate.of(2025, 2, 27));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.69, 1.0, LocalDate.of(2025, 4, 28));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.69, 1.0, LocalDate.of(2025, 5, 1));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.70, 1.0, LocalDate.of(2025, 5, 31));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.72, 1.0, LocalDate.of(2025, 6, 7));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.73, 1.0, LocalDate.of(2025, 7, 7));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.74, 1.0, LocalDate.of(2025, 9, 5));
+            UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.75, 1.0, LocalDate.of(2025, 10, 5));
 
-            // Generated purchase history dataset
+            // --- Bread ---
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.00, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.01, 1.0, LocalDate.of(2023, 12, 28));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.02, 1.0, LocalDate.of(2024, 1, 4));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.03, 1.0, LocalDate.of(2024, 2, 3));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.04, 1.0, LocalDate.of(2024, 2, 10));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.05, 1.0, LocalDate.of(2024, 2, 13));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.06, 1.0, LocalDate.of(2024, 3, 14));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.06, 1.0, LocalDate.of(2024, 3, 17));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.07, 1.0, LocalDate.of(2024, 3, 20));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.07, 1.0, LocalDate.of(2024, 5, 19));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.08, 1.0, LocalDate.of(2024, 5, 26));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.09, 1.0, LocalDate.of(2024, 5, 29));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.10, 1.0, LocalDate.of(2024, 6, 28));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.11, 1.0, LocalDate.of(2024, 8, 27));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.12, 1.0, LocalDate.of(2024, 9, 26));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.12, 1.0, LocalDate.of(2024, 11, 25));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.13, 1.0, LocalDate.of(2025, 1, 24));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.14, 1.0, LocalDate.of(2025, 2, 23));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.14, 1.0, LocalDate.of(2025, 3, 25));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.15, 1.0, LocalDate.of(2025, 3, 28));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.16, 1.0, LocalDate.of(2025, 3, 31));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.17, 1.0, LocalDate.of(2025, 5, 30));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.17, 1.0, LocalDate.of(2025, 6, 29));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.18, 1.0, LocalDate.of(2025, 7, 6));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.19, 1.0, LocalDate.of(2025, 9, 4));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.19, 1.0, LocalDate.of(2025, 9, 7));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.21, 1.0, LocalDate.of(2025, 9, 10));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.22, 1.0, LocalDate.of(2025, 9, 13));
+            UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.23, 1.0, LocalDate.of(2025, 9, 16));
 
-        // --- Milk ---
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.50, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.51, 1.0, LocalDate.of(2023, 11, 28));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.52, 1.0, LocalDate.of(2024, 1, 27));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.53, 1.0, LocalDate.of(2024, 3, 27));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.54, 1.0, LocalDate.of(2024, 4, 26));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.55, 1.0, LocalDate.of(2024, 5, 3));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.56, 1.0, LocalDate.of(2024, 5, 6));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.56, 1.0, LocalDate.of(2024, 6, 5));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.58, 1.0, LocalDate.of(2024, 6, 12));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.59, 1.0, LocalDate.of(2024, 7, 12));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.61, 1.0, LocalDate.of(2024, 8, 11));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.61, 1.0, LocalDate.of(2024, 8, 18));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.62, 1.0, LocalDate.of(2024, 8, 25));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.63, 1.0, LocalDate.of(2024, 10, 24));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.64, 1.0, LocalDate.of(2024, 10, 27));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.65, 1.0, LocalDate.of(2024, 10, 30));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.66, 1.0, LocalDate.of(2024, 11, 29));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.67, 1.0, LocalDate.of(2024, 12, 29));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.68, 1.0, LocalDate.of(2025, 2, 27));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.69, 1.0, LocalDate.of(2025, 4, 28));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.69, 1.0, LocalDate.of(2025, 5, 1));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.70, 1.0, LocalDate.of(2025, 5, 31));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.72, 1.0, LocalDate.of(2025, 6, 7));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.73, 1.0, LocalDate.of(2025, 7, 7));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.74, 1.0, LocalDate.of(2025, 9, 5));
-        UNCaddPurchases(ps, "550e8400-e29b-41d4-a716-446655440000", 4.75, 1.0, LocalDate.of(2025, 10, 5));
+            // --- Eggs ---
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.50, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.52, 1.0, LocalDate.of(2023, 12, 28));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.53, 1.0, LocalDate.of(2024, 1, 27));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.56, 1.0, LocalDate.of(2024, 3, 27));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.58, 1.0, LocalDate.of(2024, 4, 3));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.60, 1.0, LocalDate.of(2024, 4, 6));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.61, 1.0, LocalDate.of(2024, 5, 6));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.63, 1.0, LocalDate.of(2024, 7, 5));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.65, 1.0, LocalDate.of(2024, 7, 12));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.67, 1.0, LocalDate.of(2024, 7, 19));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.70, 1.0, LocalDate.of(2024, 7, 26));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.73, 1.0, LocalDate.of(2024, 8, 2));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.76, 1.0, LocalDate.of(2024, 10, 1));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.77, 1.0, LocalDate.of(2024, 10, 31));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.80, 1.0, LocalDate.of(2024, 11, 7));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.82, 1.0, LocalDate.of(2024, 12, 7));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.83, 1.0, LocalDate.of(2025, 2, 5));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.87, 1.0, LocalDate.of(2025, 3, 7));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.90, 1.0, LocalDate.of(2025, 3, 10));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.92, 1.0, LocalDate.of(2025, 5, 9));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.93, 1.0, LocalDate.of(2025, 6, 8));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.95, 1.0, LocalDate.of(2025, 8, 7));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.96, 1.0, LocalDate.of(2025, 8, 14));
+            UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.99, 1.0, LocalDate.of(2025, 9, 13));
 
-        // --- Bread ---
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.00, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.01, 1.0, LocalDate.of(2023, 12, 28));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.02, 1.0, LocalDate.of(2024, 1, 4));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.03, 1.0, LocalDate.of(2024, 2, 3));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.04, 1.0, LocalDate.of(2024, 2, 10));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.05, 1.0, LocalDate.of(2024, 2, 13));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.06, 1.0, LocalDate.of(2024, 3, 14));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.06, 1.0, LocalDate.of(2024, 3, 17));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.07, 1.0, LocalDate.of(2024, 3, 20));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.07, 1.0, LocalDate.of(2024, 5, 19));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.08, 1.0, LocalDate.of(2024, 5, 26));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.09, 1.0, LocalDate.of(2024, 5, 29));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.10, 1.0, LocalDate.of(2024, 6, 28));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.11, 1.0, LocalDate.of(2024, 8, 27));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.12, 1.0, LocalDate.of(2024, 9, 26));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.12, 1.0, LocalDate.of(2024, 11, 25));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.13, 1.0, LocalDate.of(2025, 1, 24));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.14, 1.0, LocalDate.of(2025, 2, 23));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.14, 1.0, LocalDate.of(2025, 3, 25));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.15, 1.0, LocalDate.of(2025, 3, 28));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.16, 1.0, LocalDate.of(2025, 3, 31));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.17, 1.0, LocalDate.of(2025, 5, 30));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.17, 1.0, LocalDate.of(2025, 6, 29));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.18, 1.0, LocalDate.of(2025, 7, 6));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.19, 1.0, LocalDate.of(2025, 9, 4));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.19, 1.0, LocalDate.of(2025, 9, 7));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.21, 1.0, LocalDate.of(2025, 9, 10));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.22, 1.0, LocalDate.of(2025, 9, 13));
-        UNCaddPurchases(ps, "660e8400-e29b-41d4-a716-446655440001", 3.23, 1.0, LocalDate.of(2025, 9, 16));
+            // --- Apples ---
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.00, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.01, 1.0, LocalDate.of(2023, 12, 28));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.02, 1.0, LocalDate.of(2024, 1, 4));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.03, 1.0, LocalDate.of(2024, 1, 11));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.04, 1.0, LocalDate.of(2024, 1, 14));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.04, 1.0, LocalDate.of(2024, 3, 14));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.06, 1.0, LocalDate.of(2024, 3, 21));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.07, 1.0, LocalDate.of(2024, 4, 20));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.08, 1.0, LocalDate.of(2024, 4, 23));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.08, 1.0, LocalDate.of(2024, 6, 22));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.08, 1.0, LocalDate.of(2024, 8, 21));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.09, 1.0, LocalDate.of(2024, 8, 24));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.11, 1.0, LocalDate.of(2024, 9, 23));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.11, 1.0, LocalDate.of(2024, 11, 22));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.13, 1.0, LocalDate.of(2024, 11, 29));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.14, 1.0, LocalDate.of(2024, 12, 6));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.16, 1.0, LocalDate.of(2024, 12, 13));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.16, 1.0, LocalDate.of(2024, 12, 16));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.17, 1.0, LocalDate.of(2024, 12, 23));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.18, 1.0, LocalDate.of(2025, 2, 21));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.19, 1.0, LocalDate.of(2025, 3, 23));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.20, 1.0, LocalDate.of(2025, 4, 22));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.22, 1.0, LocalDate.of(2025, 5, 22));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.24, 1.0, LocalDate.of(2025, 5, 29));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.25, 1.0, LocalDate.of(2025, 7, 28));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.26, 1.0, LocalDate.of(2025, 8, 4));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.27, 1.0, LocalDate.of(2025, 8, 7));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.28, 1.0, LocalDate.of(2025, 8, 14));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.29, 1.0, LocalDate.of(2025, 8, 17));
+            UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.31, 1.0, LocalDate.of(2025, 9, 16));
 
-        // --- Eggs ---
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.50, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.52, 1.0, LocalDate.of(2023, 12, 28));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.53, 1.0, LocalDate.of(2024, 1, 27));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.56, 1.0, LocalDate.of(2024, 3, 27));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.58, 1.0, LocalDate.of(2024, 4, 3));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.60, 1.0, LocalDate.of(2024, 4, 6));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.61, 1.0, LocalDate.of(2024, 5, 6));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.63, 1.0, LocalDate.of(2024, 7, 5));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.65, 1.0, LocalDate.of(2024, 7, 12));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.67, 1.0, LocalDate.of(2024, 7, 19));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.70, 1.0, LocalDate.of(2024, 7, 26));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.73, 1.0, LocalDate.of(2024, 8, 2));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.76, 1.0, LocalDate.of(2024, 10, 1));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.77, 1.0, LocalDate.of(2024, 10, 31));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.80, 1.0, LocalDate.of(2024, 11, 7));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.82, 1.0, LocalDate.of(2024, 12, 7));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.83, 1.0, LocalDate.of(2025, 2, 5));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.87, 1.0, LocalDate.of(2025, 3, 7));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.90, 1.0, LocalDate.of(2025, 3, 10));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.92, 1.0, LocalDate.of(2025, 5, 9));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.93, 1.0, LocalDate.of(2025, 6, 8));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.95, 1.0, LocalDate.of(2025, 8, 7));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.96, 1.0, LocalDate.of(2025, 8, 14));
-        UNCaddPurchases(ps, "770e8400-e29b-41d4-a716-446655440002", 7.99, 1.0, LocalDate.of(2025, 9, 13));
+            // --- Toilet Paper ---
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.00, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.07, 1.0, LocalDate.of(2023, 11, 1));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.13, 1.0, LocalDate.of(2023, 12, 1));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.21, 1.0, LocalDate.of(2023, 12, 4));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.30, 1.0, LocalDate.of(2024, 1, 3));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.32, 1.0, LocalDate.of(2024, 2, 2));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.38, 1.0, LocalDate.of(2024, 2, 9));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.42, 1.0, LocalDate.of(2024, 4, 9));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.47, 1.0, LocalDate.of(2024, 4, 16));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.50, 1.0, LocalDate.of(2024, 4, 19));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.55, 1.0, LocalDate.of(2024, 4, 26));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.63, 1.0, LocalDate.of(2024, 4, 29));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.65, 1.0, LocalDate.of(2024, 6, 28));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.70, 1.0, LocalDate.of(2024, 7, 1));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.75, 1.0, LocalDate.of(2024, 7, 4));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.83, 1.0, LocalDate.of(2024, 7, 7));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.89, 1.0, LocalDate.of(2024, 9, 5));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.97, 1.0, LocalDate.of(2024, 11, 4));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.01, 1.0, LocalDate.of(2024, 11, 11));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.08, 1.0, LocalDate.of(2024, 11, 14));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.13, 1.0, LocalDate.of(2024, 12, 14));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.20, 1.0, LocalDate.of(2025, 2, 12));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.24, 1.0, LocalDate.of(2025, 2, 15));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.29, 1.0, LocalDate.of(2025, 4, 16));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.35, 1.0, LocalDate.of(2025, 5, 16));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.43, 1.0, LocalDate.of(2025, 5, 19));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.47, 1.0, LocalDate.of(2025, 5, 22));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.56, 1.0, LocalDate.of(2025, 5, 25));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.63, 1.0, LocalDate.of(2025, 5, 28));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.69, 1.0, LocalDate.of(2025, 7, 27));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.71, 1.0, LocalDate.of(2025, 7, 30));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.74, 1.0, LocalDate.of(2025, 8, 29));
+            UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.79, 1.0, LocalDate.of(2025, 10, 28));
 
-        // --- Apples ---
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.00, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.01, 1.0, LocalDate.of(2023, 12, 28));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.02, 1.0, LocalDate.of(2024, 1, 4));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.03, 1.0, LocalDate.of(2024, 1, 11));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.04, 1.0, LocalDate.of(2024, 1, 14));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.04, 1.0, LocalDate.of(2024, 3, 14));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.06, 1.0, LocalDate.of(2024, 3, 21));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.07, 1.0, LocalDate.of(2024, 4, 20));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.08, 1.0, LocalDate.of(2024, 4, 23));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.08, 1.0, LocalDate.of(2024, 6, 22));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.08, 1.0, LocalDate.of(2024, 8, 21));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.09, 1.0, LocalDate.of(2024, 8, 24));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.11, 1.0, LocalDate.of(2024, 9, 23));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.11, 1.0, LocalDate.of(2024, 11, 22));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.13, 1.0, LocalDate.of(2024, 11, 29));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.14, 1.0, LocalDate.of(2024, 12, 6));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.16, 1.0, LocalDate.of(2024, 12, 13));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.16, 1.0, LocalDate.of(2024, 12, 16));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.17, 1.0, LocalDate.of(2024, 12, 23));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.18, 1.0, LocalDate.of(2025, 2, 21));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.19, 1.0, LocalDate.of(2025, 3, 23));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.20, 1.0, LocalDate.of(2025, 4, 22));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.22, 1.0, LocalDate.of(2025, 5, 22));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.24, 1.0, LocalDate.of(2025, 5, 29));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.25, 1.0, LocalDate.of(2025, 7, 28));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.26, 1.0, LocalDate.of(2025, 8, 4));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.27, 1.0, LocalDate.of(2025, 8, 7));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.28, 1.0, LocalDate.of(2025, 8, 14));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.29, 1.0, LocalDate.of(2025, 8, 17));
-        UNCaddPurchases(ps, "880e8400-e29b-41d4-a716-446655440003", 4.31, 1.0, LocalDate.of(2025, 9, 16));
+            // --- Cheese ---
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.00, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.01, 1.0, LocalDate.of(2023, 12, 28));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.02, 1.0, LocalDate.of(2024, 1, 27));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.05, 1.0, LocalDate.of(2024, 1, 30));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.08, 1.0, LocalDate.of(2024, 2, 2));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.10, 1.0, LocalDate.of(2024, 4, 2));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.13, 1.0, LocalDate.of(2024, 4, 5));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.16, 1.0, LocalDate.of(2024, 4, 12));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.17, 1.0, LocalDate.of(2024, 6, 11));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.19, 1.0, LocalDate.of(2024, 8, 10));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.20, 1.0, LocalDate.of(2024, 10, 9));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.21, 1.0, LocalDate.of(2024, 11, 8));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.22, 1.0, LocalDate.of(2024, 11, 15));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.25, 1.0, LocalDate.of(2024, 12, 15));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.28, 1.0, LocalDate.of(2025, 1, 14));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.29, 1.0, LocalDate.of(2025, 1, 17));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.31, 1.0, LocalDate.of(2025, 2, 16));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.34, 1.0, LocalDate.of(2025, 2, 19));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.36, 1.0, LocalDate.of(2025, 3, 21));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.38, 1.0, LocalDate.of(2025, 4, 20));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.39, 1.0, LocalDate.of(2025, 5, 20));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.41, 1.0, LocalDate.of(2025, 7, 19));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.44, 1.0, LocalDate.of(2025, 8, 18));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.47, 1.0, LocalDate.of(2025, 8, 21));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.50, 1.0, LocalDate.of(2025, 8, 24));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.51, 1.0, LocalDate.of(2025, 8, 27));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.53, 1.0, LocalDate.of(2025, 8, 30));
+            UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.55, 1.0, LocalDate.of(2025, 9, 2));
 
-        // --- Toilet Paper ---
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.00, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.07, 1.0, LocalDate.of(2023, 11, 1));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.13, 1.0, LocalDate.of(2023, 12, 1));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.21, 1.0, LocalDate.of(2023, 12, 4));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.30, 1.0, LocalDate.of(2024, 1, 3));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.32, 1.0, LocalDate.of(2024, 2, 2));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.38, 1.0, LocalDate.of(2024, 2, 9));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.42, 1.0, LocalDate.of(2024, 4, 9));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.47, 1.0, LocalDate.of(2024, 4, 16));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.50, 1.0, LocalDate.of(2024, 4, 19));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.55, 1.0, LocalDate.of(2024, 4, 26));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.63, 1.0, LocalDate.of(2024, 4, 29));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.65, 1.0, LocalDate.of(2024, 6, 28));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.70, 1.0, LocalDate.of(2024, 7, 1));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.75, 1.0, LocalDate.of(2024, 7, 4));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.83, 1.0, LocalDate.of(2024, 7, 7));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.89, 1.0, LocalDate.of(2024, 9, 5));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 22.97, 1.0, LocalDate.of(2024, 11, 4));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.01, 1.0, LocalDate.of(2024, 11, 11));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.08, 1.0, LocalDate.of(2024, 11, 14));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.13, 1.0, LocalDate.of(2024, 12, 14));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.20, 1.0, LocalDate.of(2025, 2, 12));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.24, 1.0, LocalDate.of(2025, 2, 15));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.29, 1.0, LocalDate.of(2025, 4, 16));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.35, 1.0, LocalDate.of(2025, 5, 16));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.43, 1.0, LocalDate.of(2025, 5, 19));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.47, 1.0, LocalDate.of(2025, 5, 22));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.56, 1.0, LocalDate.of(2025, 5, 25));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.63, 1.0, LocalDate.of(2025, 5, 28));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.69, 1.0, LocalDate.of(2025, 7, 27));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.71, 1.0, LocalDate.of(2025, 7, 30));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.74, 1.0, LocalDate.of(2025, 8, 29));
-        UNCaddPurchases(ps, "990e8400-e29b-41d4-a716-446655440004", 23.79, 1.0, LocalDate.of(2025, 10, 28));
+            // --- Chicken ---
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.00, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.01, 1.0, LocalDate.of(2023, 12, 28));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.05, 1.0, LocalDate.of(2024, 2, 26));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.08, 1.0, LocalDate.of(2024, 3, 4));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.12, 1.0, LocalDate.of(2024, 3, 11));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.14, 1.0, LocalDate.of(2024, 3, 14));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.16, 1.0, LocalDate.of(2024, 3, 17));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.19, 1.0, LocalDate.of(2024, 3, 24));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.22, 1.0, LocalDate.of(2024, 4, 23));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.26, 1.0, LocalDate.of(2024, 4, 30));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.30, 1.0, LocalDate.of(2024, 5, 30));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.33, 1.0, LocalDate.of(2024, 6, 2));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.34, 1.0, LocalDate.of(2024, 6, 5));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.36, 1.0, LocalDate.of(2024, 7, 5));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.37, 1.0, LocalDate.of(2024, 8, 4));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.41, 1.0, LocalDate.of(2024, 8, 7));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.46, 1.0, LocalDate.of(2024, 10, 6));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.49, 1.0, LocalDate.of(2024, 11, 5));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.51, 1.0, LocalDate.of(2024, 11, 12));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.55, 1.0, LocalDate.of(2024, 12, 12));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.58, 1.0, LocalDate.of(2025, 1, 11));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.62, 1.0, LocalDate.of(2025, 1, 18));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.66, 1.0, LocalDate.of(2025, 3, 19));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.69, 1.0, LocalDate.of(2025, 5, 18));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.72, 1.0, LocalDate.of(2025, 7, 17));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.74, 1.0, LocalDate.of(2025, 8, 16));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.78, 1.0, LocalDate.of(2025, 8, 19));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.81, 1.0, LocalDate.of(2025, 9, 18));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.85, 1.0, LocalDate.of(2025, 9, 21));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.89, 1.0, LocalDate.of(2025, 9, 24));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.91, 1.0, LocalDate.of(2025, 9, 27));
+            UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.94, 1.0, LocalDate.of(2025, 10, 27));
 
-        // --- Cheese ---
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.00, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.01, 1.0, LocalDate.of(2023, 12, 28));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.02, 1.0, LocalDate.of(2024, 1, 27));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.05, 1.0, LocalDate.of(2024, 1, 30));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.08, 1.0, LocalDate.of(2024, 2, 2));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.10, 1.0, LocalDate.of(2024, 4, 2));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.13, 1.0, LocalDate.of(2024, 4, 5));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.16, 1.0, LocalDate.of(2024, 4, 12));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.17, 1.0, LocalDate.of(2024, 6, 11));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.19, 1.0, LocalDate.of(2024, 8, 10));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.20, 1.0, LocalDate.of(2024, 10, 9));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.21, 1.0, LocalDate.of(2024, 11, 8));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.22, 1.0, LocalDate.of(2024, 11, 15));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.25, 1.0, LocalDate.of(2024, 12, 15));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.28, 1.0, LocalDate.of(2025, 1, 14));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.29, 1.0, LocalDate.of(2025, 1, 17));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.31, 1.0, LocalDate.of(2025, 2, 16));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.34, 1.0, LocalDate.of(2025, 2, 19));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.36, 1.0, LocalDate.of(2025, 3, 21));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.38, 1.0, LocalDate.of(2025, 4, 20));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.39, 1.0, LocalDate.of(2025, 5, 20));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.41, 1.0, LocalDate.of(2025, 7, 19));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.44, 1.0, LocalDate.of(2025, 8, 18));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.47, 1.0, LocalDate.of(2025, 8, 21));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.50, 1.0, LocalDate.of(2025, 8, 24));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.51, 1.0, LocalDate.of(2025, 8, 27));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.53, 1.0, LocalDate.of(2025, 8, 30));
-        UNCaddPurchases(ps, "aa0e8400-e29b-41d4-a716-446655440005", 8.55, 1.0, LocalDate.of(2025, 9, 2));
+            // --- Rice ---
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.00, 2.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.03, 2.0, LocalDate.of(2023, 12, 28));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.08, 2.0, LocalDate.of(2023, 12, 31));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.11, 2.0, LocalDate.of(2024, 1, 3));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.13, 2.0, LocalDate.of(2024, 3, 3));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.16, 2.0, LocalDate.of(2024, 4, 2));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.21, 2.0, LocalDate.of(2024, 4, 5));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.28, 2.0, LocalDate.of(2024, 5, 5));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.33, 2.0, LocalDate.of(2024, 5, 12));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.36, 2.0, LocalDate.of(2024, 5, 15));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.41, 2.0, LocalDate.of(2024, 5, 22));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.48, 2.0, LocalDate.of(2024, 5, 29));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.52, 2.0, LocalDate.of(2024, 7, 28));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.57, 2.0, LocalDate.of(2024, 8, 4));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.60, 2.0, LocalDate.of(2024, 10, 3));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.66, 2.0, LocalDate.of(2024, 10, 10));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.73, 2.0, LocalDate.of(2024, 10, 17));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.77, 2.0, LocalDate.of(2024, 10, 20));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.81, 2.0, LocalDate.of(2024, 11, 19));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.88, 2.0, LocalDate.of(2024, 11, 26));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.92, 2.0, LocalDate.of(2024, 12, 3));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.98, 2.0, LocalDate.of(2025, 1, 2));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.02, 2.0, LocalDate.of(2025, 3, 3));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.06, 2.0, LocalDate.of(2025, 5, 2));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.09, 2.0, LocalDate.of(2025, 7, 1));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.15, 2.0, LocalDate.of(2025, 7, 4));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.19, 2.0, LocalDate.of(2025, 8, 3));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.21, 2.0, LocalDate.of(2025, 8, 6));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.26, 2.0, LocalDate.of(2025, 9, 5));
+            UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.31, 2.0, LocalDate.of(2025, 10, 5));
 
-        // --- Chicken ---
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.00, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.01, 1.0, LocalDate.of(2023, 12, 28));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.05, 1.0, LocalDate.of(2024, 2, 26));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.08, 1.0, LocalDate.of(2024, 3, 4));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.12, 1.0, LocalDate.of(2024, 3, 11));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.14, 1.0, LocalDate.of(2024, 3, 14));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.16, 1.0, LocalDate.of(2024, 3, 17));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.19, 1.0, LocalDate.of(2024, 3, 24));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.22, 1.0, LocalDate.of(2024, 4, 23));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.26, 1.0, LocalDate.of(2024, 4, 30));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.30, 1.0, LocalDate.of(2024, 5, 30));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.33, 1.0, LocalDate.of(2024, 6, 2));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.34, 1.0, LocalDate.of(2024, 6, 5));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.36, 1.0, LocalDate.of(2024, 7, 5));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.37, 1.0, LocalDate.of(2024, 8, 4));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.41, 1.0, LocalDate.of(2024, 8, 7));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.46, 1.0, LocalDate.of(2024, 10, 6));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.49, 1.0, LocalDate.of(2024, 11, 5));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.51, 1.0, LocalDate.of(2024, 11, 12));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.55, 1.0, LocalDate.of(2024, 12, 12));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.58, 1.0, LocalDate.of(2025, 1, 11));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.62, 1.0, LocalDate.of(2025, 1, 18));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.66, 1.0, LocalDate.of(2025, 3, 19));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.69, 1.0, LocalDate.of(2025, 5, 18));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.72, 1.0, LocalDate.of(2025, 7, 17));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.74, 1.0, LocalDate.of(2025, 8, 16));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.78, 1.0, LocalDate.of(2025, 8, 19));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.81, 1.0, LocalDate.of(2025, 9, 18));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.85, 1.0, LocalDate.of(2025, 9, 21));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.89, 1.0, LocalDate.of(2025, 9, 24));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.91, 1.0, LocalDate.of(2025, 9, 27));
-        UNCaddPurchases(ps, "bb0e8400-e29b-41d4-a716-446655440006", 12.94, 1.0, LocalDate.of(2025, 10, 27));
+            // --- Pasta ---
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.00, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.02, 1.0, LocalDate.of(2023, 12, 28));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.05, 1.0, LocalDate.of(2024, 1, 27));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.07, 1.0, LocalDate.of(2024, 3, 27));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.08, 1.0, LocalDate.of(2024, 4, 26));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.11, 1.0, LocalDate.of(2024, 5, 26));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.13, 1.0, LocalDate.of(2024, 6, 25));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.15, 1.0, LocalDate.of(2024, 7, 25));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.17, 1.0, LocalDate.of(2024, 7, 28));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.18, 1.0, LocalDate.of(2024, 8, 4));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.19, 1.0, LocalDate.of(2024, 8, 11));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.20, 1.0, LocalDate.of(2024, 9, 10));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.22, 1.0, LocalDate.of(2024, 10, 10));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.23, 1.0, LocalDate.of(2024, 11, 9));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.24, 1.0, LocalDate.of(2024, 11, 12));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.25, 1.0, LocalDate.of(2024, 11, 19));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.26, 1.0, LocalDate.of(2024, 11, 26));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.28, 1.0, LocalDate.of(2024, 12, 26));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.29, 1.0, LocalDate.of(2024, 12, 29));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.31, 1.0, LocalDate.of(2025, 1, 28));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.33, 1.0, LocalDate.of(2025, 2, 4));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.35, 1.0, LocalDate.of(2025, 2, 7));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.36, 1.0, LocalDate.of(2025, 4, 8));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.37, 1.0, LocalDate.of(2025, 6, 7));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.38, 1.0, LocalDate.of(2025, 8, 6));
+            UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.40, 1.0, LocalDate.of(2025, 9, 5));
 
-        // --- Rice ---
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.00, 2.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.03, 2.0, LocalDate.of(2023, 12, 28));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.08, 2.0, LocalDate.of(2023, 12, 31));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.11, 2.0, LocalDate.of(2024, 1, 3));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.13, 2.0, LocalDate.of(2024, 3, 3));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.16, 2.0, LocalDate.of(2024, 4, 2));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.21, 2.0, LocalDate.of(2024, 4, 5));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.28, 2.0, LocalDate.of(2024, 5, 5));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.33, 2.0, LocalDate.of(2024, 5, 12));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.36, 2.0, LocalDate.of(2024, 5, 15));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.41, 2.0, LocalDate.of(2024, 5, 22));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.48, 2.0, LocalDate.of(2024, 5, 29));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.52, 2.0, LocalDate.of(2024, 7, 28));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.57, 2.0, LocalDate.of(2024, 8, 4));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.60, 2.0, LocalDate.of(2024, 10, 3));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.66, 2.0, LocalDate.of(2024, 10, 10));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.73, 2.0, LocalDate.of(2024, 10, 17));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.77, 2.0, LocalDate.of(2024, 10, 20));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.81, 2.0, LocalDate.of(2024, 11, 19));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.88, 2.0, LocalDate.of(2024, 11, 26));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.92, 2.0, LocalDate.of(2024, 12, 3));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 18.98, 2.0, LocalDate.of(2025, 1, 2));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.02, 2.0, LocalDate.of(2025, 3, 3));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.06, 2.0, LocalDate.of(2025, 5, 2));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.09, 2.0, LocalDate.of(2025, 7, 1));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.15, 2.0, LocalDate.of(2025, 7, 4));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.19, 2.0, LocalDate.of(2025, 8, 3));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.21, 2.0, LocalDate.of(2025, 8, 6));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.26, 2.0, LocalDate.of(2025, 9, 5));
-        UNCaddPurchases(ps, "cc0e8400-e29b-41d4-a716-446655440007", 19.31, 2.0, LocalDate.of(2025, 10, 5));
+            // --- Tomatoes ---
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.00, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.01, 1.0, LocalDate.of(2023, 11, 1));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.02, 1.0, LocalDate.of(2023, 11, 8));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.03, 1.0, LocalDate.of(2023, 11, 11));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.05, 1.0, LocalDate.of(2023, 12, 11));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.06, 1.0, LocalDate.of(2024, 1, 10));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.07, 1.0, LocalDate.of(2024, 2, 9));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.08, 1.0, LocalDate.of(2024, 4, 9));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.09, 1.0, LocalDate.of(2024, 5, 9));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.10, 1.0, LocalDate.of(2024, 6, 8));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.11, 1.0, LocalDate.of(2024, 6, 11));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.12, 1.0, LocalDate.of(2024, 8, 10));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.13, 1.0, LocalDate.of(2024, 10, 9));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.14, 1.0, LocalDate.of(2024, 10, 12));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.16, 1.0, LocalDate.of(2024, 12, 11));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.17, 1.0, LocalDate.of(2024, 12, 18));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.18, 1.0, LocalDate.of(2025, 1, 17));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.20, 1.0, LocalDate.of(2025, 1, 24));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.21, 1.0, LocalDate.of(2025, 1, 27));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.22, 1.0, LocalDate.of(2025, 3, 28));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.23, 1.0, LocalDate.of(2025, 3, 31));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.24, 1.0, LocalDate.of(2025, 5, 30));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.26, 1.0, LocalDate.of(2025, 6, 6));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.28, 1.0, LocalDate.of(2025, 6, 13));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.29, 1.0, LocalDate.of(2025, 8, 12));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.31, 1.0, LocalDate.of(2025, 8, 19));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.32, 1.0, LocalDate.of(2025, 10, 18));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.34, 1.0, LocalDate.of(2025, 10, 21));
+            UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.35, 1.0, LocalDate.of(2025, 10, 28));
 
-        // --- Pasta ---
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.00, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.02, 1.0, LocalDate.of(2023, 12, 28));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.05, 1.0, LocalDate.of(2024, 1, 27));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.07, 1.0, LocalDate.of(2024, 3, 27));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.08, 1.0, LocalDate.of(2024, 4, 26));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.11, 1.0, LocalDate.of(2024, 5, 26));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.13, 1.0, LocalDate.of(2024, 6, 25));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.15, 1.0, LocalDate.of(2024, 7, 25));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.17, 1.0, LocalDate.of(2024, 7, 28));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.18, 1.0, LocalDate.of(2024, 8, 4));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.19, 1.0, LocalDate.of(2024, 8, 11));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.20, 1.0, LocalDate.of(2024, 9, 10));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.22, 1.0, LocalDate.of(2024, 10, 10));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.23, 1.0, LocalDate.of(2024, 11, 9));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.24, 1.0, LocalDate.of(2024, 11, 12));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.25, 1.0, LocalDate.of(2024, 11, 19));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.26, 1.0, LocalDate.of(2024, 11, 26));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.28, 1.0, LocalDate.of(2024, 12, 26));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.29, 1.0, LocalDate.of(2024, 12, 29));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.31, 1.0, LocalDate.of(2025, 1, 28));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.33, 1.0, LocalDate.of(2025, 2, 4));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.35, 1.0, LocalDate.of(2025, 2, 7));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.36, 1.0, LocalDate.of(2025, 4, 8));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.37, 1.0, LocalDate.of(2025, 6, 7));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.38, 1.0, LocalDate.of(2025, 8, 6));
-        UNCaddPurchases(ps, "dd0e8400-e29b-41d4-a716-446655440008", 6.40, 1.0, LocalDate.of(2025, 9, 5));
+            // --- Coffee ---
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.00, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.04, 1.0, LocalDate.of(2023, 11, 5));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.10, 1.0, LocalDate.of(2023, 11, 8));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.15, 1.0, LocalDate.of(2024, 1, 7));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.21, 1.0, LocalDate.of(2024, 1, 10));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.27, 1.0, LocalDate.of(2024, 3, 10));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.32, 1.0, LocalDate.of(2024, 3, 17));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.36, 1.0, LocalDate.of(2024, 4, 16));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.42, 1.0, LocalDate.of(2024, 4, 23));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.47, 1.0, LocalDate.of(2024, 4, 30));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.52, 1.0, LocalDate.of(2024, 6, 29));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.55, 1.0, LocalDate.of(2024, 7, 2));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.59, 1.0, LocalDate.of(2024, 7, 5));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.63, 1.0, LocalDate.of(2024, 7, 12));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.67, 1.0, LocalDate.of(2024, 7, 15));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.72, 1.0, LocalDate.of(2024, 8, 14));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.76, 1.0, LocalDate.of(2024, 10, 13));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.83, 1.0, LocalDate.of(2024, 10, 20));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.87, 1.0, LocalDate.of(2024, 10, 23));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.93, 1.0, LocalDate.of(2024, 12, 22));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.97, 1.0, LocalDate.of(2025, 2, 20));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.99, 1.0, LocalDate.of(2025, 4, 21));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.05, 1.0, LocalDate.of(2025, 4, 28));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.12, 1.0, LocalDate.of(2025, 5, 28));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.17, 1.0, LocalDate.of(2025, 5, 31));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.19, 1.0, LocalDate.of(2025, 6, 30));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.25, 1.0, LocalDate.of(2025, 7, 3));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.31, 1.0, LocalDate.of(2025, 7, 10));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.33, 1.0, LocalDate.of(2025, 7, 17));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.37, 1.0, LocalDate.of(2025, 9, 15));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.39, 1.0, LocalDate.of(2025, 9, 18));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.44, 1.0, LocalDate.of(2025, 10, 18));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.48, 1.0, LocalDate.of(2025, 10, 21));
+            UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.54, 1.0, LocalDate.of(2025, 10, 28));
 
-        // --- Tomatoes ---
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.00, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.01, 1.0, LocalDate.of(2023, 11, 1));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.02, 1.0, LocalDate.of(2023, 11, 8));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.03, 1.0, LocalDate.of(2023, 11, 11));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.05, 1.0, LocalDate.of(2023, 12, 11));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.06, 1.0, LocalDate.of(2024, 1, 10));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.07, 1.0, LocalDate.of(2024, 2, 9));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.08, 1.0, LocalDate.of(2024, 4, 9));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.09, 1.0, LocalDate.of(2024, 5, 9));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.10, 1.0, LocalDate.of(2024, 6, 8));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.11, 1.0, LocalDate.of(2024, 6, 11));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.12, 1.0, LocalDate.of(2024, 8, 10));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.13, 1.0, LocalDate.of(2024, 10, 9));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.14, 1.0, LocalDate.of(2024, 10, 12));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.16, 1.0, LocalDate.of(2024, 12, 11));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.17, 1.0, LocalDate.of(2024, 12, 18));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.18, 1.0, LocalDate.of(2025, 1, 17));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.20, 1.0, LocalDate.of(2025, 1, 24));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.21, 1.0, LocalDate.of(2025, 1, 27));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.22, 1.0, LocalDate.of(2025, 3, 28));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.23, 1.0, LocalDate.of(2025, 3, 31));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.24, 1.0, LocalDate.of(2025, 5, 30));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.26, 1.0, LocalDate.of(2025, 6, 6));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.28, 1.0, LocalDate.of(2025, 6, 13));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.29, 1.0, LocalDate.of(2025, 8, 12));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.31, 1.0, LocalDate.of(2025, 8, 19));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.32, 1.0, LocalDate.of(2025, 10, 18));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.34, 1.0, LocalDate.of(2025, 10, 21));
-        UNCaddPurchases(ps, "ee0e8400-e29b-41d4-a716-446655440009", 5.35, 1.0, LocalDate.of(2025, 10, 28));
+            // --- Tea ---
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.00, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.02, 1.0, LocalDate.of(2023, 12, 28));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.03, 1.0, LocalDate.of(2024, 1, 27));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.05, 1.0, LocalDate.of(2024, 3, 27));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.08, 1.0, LocalDate.of(2024, 5, 26));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.09, 1.0, LocalDate.of(2024, 7, 25));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.09, 1.0, LocalDate.of(2024, 8, 24));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.11, 1.0, LocalDate.of(2024, 8, 27));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.12, 1.0, LocalDate.of(2024, 9, 3));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.13, 1.0, LocalDate.of(2024, 11, 2));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.15, 1.0, LocalDate.of(2025, 1, 1));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.17, 1.0, LocalDate.of(2025, 1, 4));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.18, 1.0, LocalDate.of(2025, 2, 3));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.20, 1.0, LocalDate.of(2025, 2, 6));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.21, 1.0, LocalDate.of(2025, 3, 8));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.23, 1.0, LocalDate.of(2025, 3, 15));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.25, 1.0, LocalDate.of(2025, 4, 14));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.28, 1.0, LocalDate.of(2025, 4, 17));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.30, 1.0, LocalDate.of(2025, 4, 20));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.31, 1.0, LocalDate.of(2025, 6, 19));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.33, 1.0, LocalDate.of(2025, 6, 22));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.34, 1.0, LocalDate.of(2025, 8, 21));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.35, 1.0, LocalDate.of(2025, 8, 28));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.36, 1.0, LocalDate.of(2025, 9, 27));
+            UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.39, 1.0, LocalDate.of(2025, 10, 4));
 
-        // --- Coffee ---
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.00, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.04, 1.0, LocalDate.of(2023, 11, 5));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.10, 1.0, LocalDate.of(2023, 11, 8));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.15, 1.0, LocalDate.of(2024, 1, 7));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.21, 1.0, LocalDate.of(2024, 1, 10));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.27, 1.0, LocalDate.of(2024, 3, 10));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.32, 1.0, LocalDate.of(2024, 3, 17));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.36, 1.0, LocalDate.of(2024, 4, 16));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.42, 1.0, LocalDate.of(2024, 4, 23));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.47, 1.0, LocalDate.of(2024, 4, 30));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.52, 1.0, LocalDate.of(2024, 6, 29));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.55, 1.0, LocalDate.of(2024, 7, 2));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.59, 1.0, LocalDate.of(2024, 7, 5));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.63, 1.0, LocalDate.of(2024, 7, 12));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.67, 1.0, LocalDate.of(2024, 7, 15));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.72, 1.0, LocalDate.of(2024, 8, 14));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.76, 1.0, LocalDate.of(2024, 10, 13));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.83, 1.0, LocalDate.of(2024, 10, 20));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.87, 1.0, LocalDate.of(2024, 10, 23));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.93, 1.0, LocalDate.of(2024, 12, 22));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.97, 1.0, LocalDate.of(2025, 2, 20));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 15.99, 1.0, LocalDate.of(2025, 4, 21));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.05, 1.0, LocalDate.of(2025, 4, 28));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.12, 1.0, LocalDate.of(2025, 5, 28));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.17, 1.0, LocalDate.of(2025, 5, 31));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.19, 1.0, LocalDate.of(2025, 6, 30));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.25, 1.0, LocalDate.of(2025, 7, 3));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.31, 1.0, LocalDate.of(2025, 7, 10));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.33, 1.0, LocalDate.of(2025, 7, 17));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.37, 1.0, LocalDate.of(2025, 9, 15));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.39, 1.0, LocalDate.of(2025, 9, 18));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.44, 1.0, LocalDate.of(2025, 10, 18));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.48, 1.0, LocalDate.of(2025, 10, 21));
-        UNCaddPurchases(ps, "ff0e8400-e29b-41d4-a716-446655440010", 16.54, 1.0, LocalDate.of(2025, 10, 28));
+            // --- Sugar ---
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.50, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.51, 1.0, LocalDate.of(2023, 11, 1));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.52, 1.0, LocalDate.of(2023, 11, 8));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.53, 1.0, LocalDate.of(2023, 11, 15));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.53, 1.0, LocalDate.of(2024, 1, 14));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.54, 1.0, LocalDate.of(2024, 1, 21));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.56, 1.0, LocalDate.of(2024, 1, 24));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.56, 1.0, LocalDate.of(2024, 2, 23));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.58, 1.0, LocalDate.of(2024, 2, 26));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.59, 1.0, LocalDate.of(2024, 3, 4));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.60, 1.0, LocalDate.of(2024, 3, 11));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.61, 1.0, LocalDate.of(2024, 3, 18));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.62, 1.0, LocalDate.of(2024, 3, 25));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.63, 1.0, LocalDate.of(2024, 4, 24));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.65, 1.0, LocalDate.of(2024, 5, 1));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.65, 1.0, LocalDate.of(2024, 6, 30));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.66, 1.0, LocalDate.of(2024, 7, 3));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.67, 1.0, LocalDate.of(2024, 9, 1));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.68, 1.0, LocalDate.of(2024, 9, 8));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.68, 1.0, LocalDate.of(2024, 10, 8));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.69, 1.0, LocalDate.of(2024, 10, 15));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.69, 1.0, LocalDate.of(2024, 10, 18));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.70, 1.0, LocalDate.of(2024, 12, 17));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.71, 1.0, LocalDate.of(2024, 12, 20));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.72, 1.0, LocalDate.of(2024, 12, 27));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.74, 1.0, LocalDate.of(2025, 1, 26));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.75, 1.0, LocalDate.of(2025, 2, 2));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.76, 1.0, LocalDate.of(2025, 2, 9));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.77, 1.0, LocalDate.of(2025, 2, 12));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.78, 1.0, LocalDate.of(2025, 3, 14));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.79, 1.0, LocalDate.of(2025, 3, 17));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.79, 1.0, LocalDate.of(2025, 4, 16));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.81, 1.0, LocalDate.of(2025, 6, 15));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.82, 1.0, LocalDate.of(2025, 8, 14));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.83, 1.0, LocalDate.of(2025, 9, 13));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.84, 1.0, LocalDate.of(2025, 9, 16));
+            UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.85, 1.0, LocalDate.of(2025, 10, 16));
 
-        // --- Tea ---
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.00, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.02, 1.0, LocalDate.of(2023, 12, 28));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.03, 1.0, LocalDate.of(2024, 1, 27));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.05, 1.0, LocalDate.of(2024, 3, 27));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.08, 1.0, LocalDate.of(2024, 5, 26));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.09, 1.0, LocalDate.of(2024, 7, 25));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.09, 1.0, LocalDate.of(2024, 8, 24));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.11, 1.0, LocalDate.of(2024, 8, 27));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.12, 1.0, LocalDate.of(2024, 9, 3));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.13, 1.0, LocalDate.of(2024, 11, 2));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.15, 1.0, LocalDate.of(2025, 1, 1));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.17, 1.0, LocalDate.of(2025, 1, 4));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.18, 1.0, LocalDate.of(2025, 2, 3));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.20, 1.0, LocalDate.of(2025, 2, 6));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.21, 1.0, LocalDate.of(2025, 3, 8));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.23, 1.0, LocalDate.of(2025, 3, 15));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.25, 1.0, LocalDate.of(2025, 4, 14));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.28, 1.0, LocalDate.of(2025, 4, 17));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.30, 1.0, LocalDate.of(2025, 4, 20));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.31, 1.0, LocalDate.of(2025, 6, 19));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.33, 1.0, LocalDate.of(2025, 6, 22));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.34, 1.0, LocalDate.of(2025, 8, 21));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.35, 1.0, LocalDate.of(2025, 8, 28));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.36, 1.0, LocalDate.of(2025, 9, 27));
-        UNCaddPurchases(ps, "aa1e8400-e29b-41d4-a716-446655440011", 7.39, 1.0, LocalDate.of(2025, 10, 4));
+            // --- Salt ---
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.50, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.51, 1.0, LocalDate.of(2023, 11, 1));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.51, 1.0, LocalDate.of(2023, 11, 8));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.52, 1.0, LocalDate.of(2023, 12, 8));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.52, 1.0, LocalDate.of(2023, 12, 15));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.53, 1.0, LocalDate.of(2024, 2, 13));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.53, 1.0, LocalDate.of(2024, 3, 14));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.54, 1.0, LocalDate.of(2024, 5, 13));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.54, 1.0, LocalDate.of(2024, 5, 16));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.55, 1.0, LocalDate.of(2024, 6, 15));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.55, 1.0, LocalDate.of(2024, 7, 15));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.56, 1.0, LocalDate.of(2024, 9, 13));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.57, 1.0, LocalDate.of(2024, 9, 16));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.57, 1.0, LocalDate.of(2024, 11, 15));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.58, 1.0, LocalDate.of(2025, 1, 14));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.59, 1.0, LocalDate.of(2025, 3, 15));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.60, 1.0, LocalDate.of(2025, 4, 14));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.60, 1.0, LocalDate.of(2025, 4, 17));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.61, 1.0, LocalDate.of(2025, 4, 20));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.62, 1.0, LocalDate.of(2025, 6, 19));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.62, 1.0, LocalDate.of(2025, 8, 18));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.63, 1.0, LocalDate.of(2025, 9, 17));
+            UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.64, 1.0, LocalDate.of(2025, 9, 20));
 
-        // --- Sugar ---
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.50, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.51, 1.0, LocalDate.of(2023, 11, 1));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.52, 1.0, LocalDate.of(2023, 11, 8));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.53, 1.0, LocalDate.of(2023, 11, 15));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.53, 1.0, LocalDate.of(2024, 1, 14));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.54, 1.0, LocalDate.of(2024, 1, 21));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.56, 1.0, LocalDate.of(2024, 1, 24));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.56, 1.0, LocalDate.of(2024, 2, 23));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.58, 1.0, LocalDate.of(2024, 2, 26));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.59, 1.0, LocalDate.of(2024, 3, 4));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.60, 1.0, LocalDate.of(2024, 3, 11));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.61, 1.0, LocalDate.of(2024, 3, 18));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.62, 1.0, LocalDate.of(2024, 3, 25));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.63, 1.0, LocalDate.of(2024, 4, 24));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.65, 1.0, LocalDate.of(2024, 5, 1));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.65, 1.0, LocalDate.of(2024, 6, 30));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.66, 1.0, LocalDate.of(2024, 7, 3));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.67, 1.0, LocalDate.of(2024, 9, 1));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.68, 1.0, LocalDate.of(2024, 9, 8));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.68, 1.0, LocalDate.of(2024, 10, 8));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.69, 1.0, LocalDate.of(2024, 10, 15));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.69, 1.0, LocalDate.of(2024, 10, 18));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.70, 1.0, LocalDate.of(2024, 12, 17));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.71, 1.0, LocalDate.of(2024, 12, 20));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.72, 1.0, LocalDate.of(2024, 12, 27));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.74, 1.0, LocalDate.of(2025, 1, 26));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.75, 1.0, LocalDate.of(2025, 2, 2));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.76, 1.0, LocalDate.of(2025, 2, 9));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.77, 1.0, LocalDate.of(2025, 2, 12));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.78, 1.0, LocalDate.of(2025, 3, 14));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.79, 1.0, LocalDate.of(2025, 3, 17));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.79, 1.0, LocalDate.of(2025, 4, 16));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.81, 1.0, LocalDate.of(2025, 6, 15));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.82, 1.0, LocalDate.of(2025, 8, 14));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.83, 1.0, LocalDate.of(2025, 9, 13));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.84, 1.0, LocalDate.of(2025, 9, 16));
-        UNCaddPurchases(ps, "bb1e8400-e29b-41d4-a716-446655440012", 3.85, 1.0, LocalDate.of(2025, 10, 16));
+            // --- Butter ---
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.50, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.51, 1.0, LocalDate.of(2023, 11, 1));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.53, 1.0, LocalDate.of(2023, 12, 31));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.55, 1.0, LocalDate.of(2024, 2, 29));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.57, 1.0, LocalDate.of(2024, 3, 7));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.60, 1.0, LocalDate.of(2024, 3, 14));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.62, 1.0, LocalDate.of(2024, 3, 17));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.64, 1.0, LocalDate.of(2024, 3, 20));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.66, 1.0, LocalDate.of(2024, 3, 27));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.67, 1.0, LocalDate.of(2024, 4, 3));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.68, 1.0, LocalDate.of(2024, 6, 2));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.70, 1.0, LocalDate.of(2024, 7, 2));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.71, 1.0, LocalDate.of(2024, 7, 9));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.73, 1.0, LocalDate.of(2024, 9, 7));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.75, 1.0, LocalDate.of(2024, 9, 14));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.76, 1.0, LocalDate.of(2024, 9, 17));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.79, 1.0, LocalDate.of(2024, 9, 20));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.80, 1.0, LocalDate.of(2024, 10, 20));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.81, 1.0, LocalDate.of(2024, 10, 27));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.83, 1.0, LocalDate.of(2024, 11, 3));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.85, 1.0, LocalDate.of(2024, 12, 3));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.87, 1.0, LocalDate.of(2024, 12, 6));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.89, 1.0, LocalDate.of(2025, 1, 5));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.91, 1.0, LocalDate.of(2025, 2, 4));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.94, 1.0, LocalDate.of(2025, 2, 11));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.95, 1.0, LocalDate.of(2025, 4, 12));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.96, 1.0, LocalDate.of(2025, 4, 15));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.98, 1.0, LocalDate.of(2025, 5, 15));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.99, 1.0, LocalDate.of(2025, 6, 14));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.01, 1.0, LocalDate.of(2025, 6, 17));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.03, 1.0, LocalDate.of(2025, 6, 20));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.05, 1.0, LocalDate.of(2025, 6, 23));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.08, 1.0, LocalDate.of(2025, 6, 30));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.10, 1.0, LocalDate.of(2025, 7, 7));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.11, 1.0, LocalDate.of(2025, 8, 6));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.14, 1.0, LocalDate.of(2025, 8, 9));
+            UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.15, 1.0, LocalDate.of(2025, 9, 8));
 
-        // --- Salt ---
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.50, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.51, 1.0, LocalDate.of(2023, 11, 1));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.51, 1.0, LocalDate.of(2023, 11, 8));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.52, 1.0, LocalDate.of(2023, 12, 8));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.52, 1.0, LocalDate.of(2023, 12, 15));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.53, 1.0, LocalDate.of(2024, 2, 13));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.53, 1.0, LocalDate.of(2024, 3, 14));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.54, 1.0, LocalDate.of(2024, 5, 13));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.54, 1.0, LocalDate.of(2024, 5, 16));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.55, 1.0, LocalDate.of(2024, 6, 15));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.55, 1.0, LocalDate.of(2024, 7, 15));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.56, 1.0, LocalDate.of(2024, 9, 13));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.57, 1.0, LocalDate.of(2024, 9, 16));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.57, 1.0, LocalDate.of(2024, 11, 15));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.58, 1.0, LocalDate.of(2025, 1, 14));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.59, 1.0, LocalDate.of(2025, 3, 15));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.60, 1.0, LocalDate.of(2025, 4, 14));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.60, 1.0, LocalDate.of(2025, 4, 17));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.61, 1.0, LocalDate.of(2025, 4, 20));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.62, 1.0, LocalDate.of(2025, 6, 19));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.62, 1.0, LocalDate.of(2025, 8, 18));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.63, 1.0, LocalDate.of(2025, 9, 17));
-        UNCaddPurchases(ps, "cc1e8400-e29b-41d4-a716-446655440013", 2.64, 1.0, LocalDate.of(2025, 9, 20));
+            // --- Orange Juice ---
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.00, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.01, 1.0, LocalDate.of(2023, 12, 28));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.03, 1.0, LocalDate.of(2024, 1, 27));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.04, 1.0, LocalDate.of(2024, 1, 30));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.06, 1.0, LocalDate.of(2024, 2, 6));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.07, 1.0, LocalDate.of(2024, 4, 6));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.09, 1.0, LocalDate.of(2024, 4, 9));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.10, 1.0, LocalDate.of(2024, 6, 8));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.12, 1.0, LocalDate.of(2024, 8, 7));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.14, 1.0, LocalDate.of(2024, 8, 10));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.15, 1.0, LocalDate.of(2024, 8, 13));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.17, 1.0, LocalDate.of(2024, 9, 12));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.19, 1.0, LocalDate.of(2024, 11, 11));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.20, 1.0, LocalDate.of(2024, 12, 11));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.21, 1.0, LocalDate.of(2024, 12, 14));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.22, 1.0, LocalDate.of(2024, 12, 17));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.24, 1.0, LocalDate.of(2025, 1, 16));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.25, 1.0, LocalDate.of(2025, 1, 19));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.27, 1.0, LocalDate.of(2025, 3, 20));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.28, 1.0, LocalDate.of(2025, 3, 27));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.30, 1.0, LocalDate.of(2025, 3, 30));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.31, 1.0, LocalDate.of(2025, 4, 6));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.33, 1.0, LocalDate.of(2025, 4, 9));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.35, 1.0, LocalDate.of(2025, 5, 9));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.37, 1.0, LocalDate.of(2025, 5, 16));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.38, 1.0, LocalDate.of(2025, 5, 23));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.39, 1.0, LocalDate.of(2025, 7, 22));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.40, 1.0, LocalDate.of(2025, 9, 20));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.42, 1.0, LocalDate.of(2025, 9, 23));
+            UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.44, 1.0, LocalDate.of(2025, 10, 23));
 
-        // --- Butter ---
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.50, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.51, 1.0, LocalDate.of(2023, 11, 1));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.53, 1.0, LocalDate.of(2023, 12, 31));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.55, 1.0, LocalDate.of(2024, 2, 29));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.57, 1.0, LocalDate.of(2024, 3, 7));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.60, 1.0, LocalDate.of(2024, 3, 14));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.62, 1.0, LocalDate.of(2024, 3, 17));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.64, 1.0, LocalDate.of(2024, 3, 20));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.66, 1.0, LocalDate.of(2024, 3, 27));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.67, 1.0, LocalDate.of(2024, 4, 3));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.68, 1.0, LocalDate.of(2024, 6, 2));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.70, 1.0, LocalDate.of(2024, 7, 2));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.71, 1.0, LocalDate.of(2024, 7, 9));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.73, 1.0, LocalDate.of(2024, 9, 7));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.75, 1.0, LocalDate.of(2024, 9, 14));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.76, 1.0, LocalDate.of(2024, 9, 17));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.79, 1.0, LocalDate.of(2024, 9, 20));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.80, 1.0, LocalDate.of(2024, 10, 20));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.81, 1.0, LocalDate.of(2024, 10, 27));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.83, 1.0, LocalDate.of(2024, 11, 3));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.85, 1.0, LocalDate.of(2024, 12, 3));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.87, 1.0, LocalDate.of(2024, 12, 6));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.89, 1.0, LocalDate.of(2025, 1, 5));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.91, 1.0, LocalDate.of(2025, 2, 4));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.94, 1.0, LocalDate.of(2025, 2, 11));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.95, 1.0, LocalDate.of(2025, 4, 12));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.96, 1.0, LocalDate.of(2025, 4, 15));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.98, 1.0, LocalDate.of(2025, 5, 15));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 6.99, 1.0, LocalDate.of(2025, 6, 14));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.01, 1.0, LocalDate.of(2025, 6, 17));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.03, 1.0, LocalDate.of(2025, 6, 20));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.05, 1.0, LocalDate.of(2025, 6, 23));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.08, 1.0, LocalDate.of(2025, 6, 30));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.10, 1.0, LocalDate.of(2025, 7, 7));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.11, 1.0, LocalDate.of(2025, 8, 6));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.14, 1.0, LocalDate.of(2025, 8, 9));
-        UNCaddPurchases(ps, "dd1e8400-e29b-41d4-a716-446655440014", 7.15, 1.0, LocalDate.of(2025, 9, 8));
+            // --- Cereal ---
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.00, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.01, 1.0, LocalDate.of(2023, 11, 28));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.02, 1.0, LocalDate.of(2023, 12, 28));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.04, 1.0, LocalDate.of(2023, 12, 31));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.06, 1.0, LocalDate.of(2024, 2, 29));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.08, 1.0, LocalDate.of(2024, 3, 7));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.10, 1.0, LocalDate.of(2024, 3, 10));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.12, 1.0, LocalDate.of(2024, 3, 17));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.14, 1.0, LocalDate.of(2024, 4, 16));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.15, 1.0, LocalDate.of(2024, 5, 16));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.16, 1.0, LocalDate.of(2024, 7, 15));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.18, 1.0, LocalDate.of(2024, 8, 14));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.20, 1.0, LocalDate.of(2024, 9, 13));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.21, 1.0, LocalDate.of(2024, 11, 12));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.24, 1.0, LocalDate.of(2024, 11, 15));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.26, 1.0, LocalDate.of(2024, 11, 22));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.27, 1.0, LocalDate.of(2025, 1, 21));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.31, 1.0, LocalDate.of(2025, 1, 28));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.33, 1.0, LocalDate.of(2025, 2, 27));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.35, 1.0, LocalDate.of(2025, 4, 28));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.36, 1.0, LocalDate.of(2025, 5, 5));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.39, 1.0, LocalDate.of(2025, 5, 12));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.42, 1.0, LocalDate.of(2025, 5, 15));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.44, 1.0, LocalDate.of(2025, 5, 22));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.47, 1.0, LocalDate.of(2025, 5, 29));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.48, 1.0, LocalDate.of(2025, 7, 28));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.51, 1.0, LocalDate.of(2025, 7, 31));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.54, 1.0, LocalDate.of(2025, 9, 29));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.57, 1.0, LocalDate.of(2025, 10, 2));
+            UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.58, 1.0, LocalDate.of(2025, 10, 9));
 
-        // --- Orange Juice ---
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.00, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.01, 1.0, LocalDate.of(2023, 12, 28));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.03, 1.0, LocalDate.of(2024, 1, 27));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.04, 1.0, LocalDate.of(2024, 1, 30));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.06, 1.0, LocalDate.of(2024, 2, 6));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.07, 1.0, LocalDate.of(2024, 4, 6));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.09, 1.0, LocalDate.of(2024, 4, 9));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.10, 1.0, LocalDate.of(2024, 6, 8));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.12, 1.0, LocalDate.of(2024, 8, 7));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.14, 1.0, LocalDate.of(2024, 8, 10));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.15, 1.0, LocalDate.of(2024, 8, 13));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.17, 1.0, LocalDate.of(2024, 9, 12));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.19, 1.0, LocalDate.of(2024, 11, 11));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.20, 1.0, LocalDate.of(2024, 12, 11));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.21, 1.0, LocalDate.of(2024, 12, 14));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.22, 1.0, LocalDate.of(2024, 12, 17));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.24, 1.0, LocalDate.of(2025, 1, 16));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.25, 1.0, LocalDate.of(2025, 1, 19));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.27, 1.0, LocalDate.of(2025, 3, 20));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.28, 1.0, LocalDate.of(2025, 3, 27));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.30, 1.0, LocalDate.of(2025, 3, 30));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.31, 1.0, LocalDate.of(2025, 4, 6));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.33, 1.0, LocalDate.of(2025, 4, 9));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.35, 1.0, LocalDate.of(2025, 5, 9));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.37, 1.0, LocalDate.of(2025, 5, 16));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.38, 1.0, LocalDate.of(2025, 5, 23));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.39, 1.0, LocalDate.of(2025, 7, 22));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.40, 1.0, LocalDate.of(2025, 9, 20));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.42, 1.0, LocalDate.of(2025, 9, 23));
-        UNCaddPurchases(ps, "ee1e8400-e29b-41d4-a716-446655440015", 5.44, 1.0, LocalDate.of(2025, 10, 23));
+            // --- Yogurt ---
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.50, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.52, 1.0, LocalDate.of(2023, 11, 1));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.53, 1.0, LocalDate.of(2023, 11, 8));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.54, 1.0, LocalDate.of(2023, 12, 8));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.54, 1.0, LocalDate.of(2024, 1, 7));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.56, 1.0, LocalDate.of(2024, 1, 10));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.56, 1.0, LocalDate.of(2024, 2, 9));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.57, 1.0, LocalDate.of(2024, 4, 9));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.59, 1.0, LocalDate.of(2024, 4, 12));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.59, 1.0, LocalDate.of(2024, 6, 11));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.60, 1.0, LocalDate.of(2024, 6, 14));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.62, 1.0, LocalDate.of(2024, 6, 17));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.63, 1.0, LocalDate.of(2024, 8, 16));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.63, 1.0, LocalDate.of(2024, 10, 15));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.64, 1.0, LocalDate.of(2024, 10, 18));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.65, 1.0, LocalDate.of(2024, 10, 25));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.65, 1.0, LocalDate.of(2024, 11, 24));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.67, 1.0, LocalDate.of(2024, 12, 24));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.68, 1.0, LocalDate.of(2024, 12, 31));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.69, 1.0, LocalDate.of(2025, 1, 30));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.71, 1.0, LocalDate.of(2025, 2, 6));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.72, 1.0, LocalDate.of(2025, 4, 7));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.74, 1.0, LocalDate.of(2025, 5, 7));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.75, 1.0, LocalDate.of(2025, 5, 14));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.76, 1.0, LocalDate.of(2025, 6, 13));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.77, 1.0, LocalDate.of(2025, 7, 13));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.78, 1.0, LocalDate.of(2025, 8, 12));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.79, 1.0, LocalDate.of(2025, 10, 11));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.81, 1.0, LocalDate.of(2025, 10, 14));
+            UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.82, 1.0, LocalDate.of(2025, 10, 21));
 
-        // --- Cereal ---
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.00, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.01, 1.0, LocalDate.of(2023, 11, 28));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.02, 1.0, LocalDate.of(2023, 12, 28));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.04, 1.0, LocalDate.of(2023, 12, 31));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.06, 1.0, LocalDate.of(2024, 2, 29));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.08, 1.0, LocalDate.of(2024, 3, 7));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.10, 1.0, LocalDate.of(2024, 3, 10));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.12, 1.0, LocalDate.of(2024, 3, 17));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.14, 1.0, LocalDate.of(2024, 4, 16));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.15, 1.0, LocalDate.of(2024, 5, 16));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.16, 1.0, LocalDate.of(2024, 7, 15));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.18, 1.0, LocalDate.of(2024, 8, 14));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.20, 1.0, LocalDate.of(2024, 9, 13));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.21, 1.0, LocalDate.of(2024, 11, 12));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.24, 1.0, LocalDate.of(2024, 11, 15));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.26, 1.0, LocalDate.of(2024, 11, 22));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.27, 1.0, LocalDate.of(2025, 1, 21));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.31, 1.0, LocalDate.of(2025, 1, 28));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.33, 1.0, LocalDate.of(2025, 2, 27));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.35, 1.0, LocalDate.of(2025, 4, 28));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.36, 1.0, LocalDate.of(2025, 5, 5));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.39, 1.0, LocalDate.of(2025, 5, 12));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.42, 1.0, LocalDate.of(2025, 5, 15));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.44, 1.0, LocalDate.of(2025, 5, 22));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.47, 1.0, LocalDate.of(2025, 5, 29));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.48, 1.0, LocalDate.of(2025, 7, 28));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.51, 1.0, LocalDate.of(2025, 7, 31));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.54, 1.0, LocalDate.of(2025, 9, 29));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.57, 1.0, LocalDate.of(2025, 10, 2));
-        UNCaddPurchases(ps, "ff1e8400-e29b-41d4-a716-446655440016", 8.58, 1.0, LocalDate.of(2025, 10, 9));
+            // --- Soap ---
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.50, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.51, 1.0, LocalDate.of(2023, 11, 1));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.52, 1.0, LocalDate.of(2023, 11, 8));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.53, 1.0, LocalDate.of(2023, 11, 11));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.54, 1.0, LocalDate.of(2024, 1, 10));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.55, 1.0, LocalDate.of(2024, 3, 10));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.55, 1.0, LocalDate.of(2024, 4, 9));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.56, 1.0, LocalDate.of(2024, 5, 9));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.57, 1.0, LocalDate.of(2024, 5, 12));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.58, 1.0, LocalDate.of(2024, 7, 11));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.58, 1.0, LocalDate.of(2024, 8, 10));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.59, 1.0, LocalDate.of(2024, 8, 17));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.60, 1.0, LocalDate.of(2024, 10, 16));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.61, 1.0, LocalDate.of(2024, 12, 15));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.61, 1.0, LocalDate.of(2025, 1, 14));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.62, 1.0, LocalDate.of(2025, 2, 13));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.63, 1.0, LocalDate.of(2025, 2, 20));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.64, 1.0, LocalDate.of(2025, 4, 21));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.65, 1.0, LocalDate.of(2025, 4, 28));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.66, 1.0, LocalDate.of(2025, 6, 27));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.67, 1.0, LocalDate.of(2025, 6, 30));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.67, 1.0, LocalDate.of(2025, 7, 3));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.69, 1.0, LocalDate.of(2025, 7, 10));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.69, 1.0, LocalDate.of(2025, 8, 9));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.70, 1.0, LocalDate.of(2025, 8, 12));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.71, 1.0, LocalDate.of(2025, 9, 11));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.72, 1.0, LocalDate.of(2025, 10, 11));
+            UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.73, 1.0, LocalDate.of(2025, 10, 14));
 
-        // --- Yogurt ---
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.50, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.52, 1.0, LocalDate.of(2023, 11, 1));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.53, 1.0, LocalDate.of(2023, 11, 8));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.54, 1.0, LocalDate.of(2023, 12, 8));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.54, 1.0, LocalDate.of(2024, 1, 7));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.56, 1.0, LocalDate.of(2024, 1, 10));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.56, 1.0, LocalDate.of(2024, 2, 9));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.57, 1.0, LocalDate.of(2024, 4, 9));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.59, 1.0, LocalDate.of(2024, 4, 12));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.59, 1.0, LocalDate.of(2024, 6, 11));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.60, 1.0, LocalDate.of(2024, 6, 14));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.62, 1.0, LocalDate.of(2024, 6, 17));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.63, 1.0, LocalDate.of(2024, 8, 16));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.63, 1.0, LocalDate.of(2024, 10, 15));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.64, 1.0, LocalDate.of(2024, 10, 18));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.65, 1.0, LocalDate.of(2024, 10, 25));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.65, 1.0, LocalDate.of(2024, 11, 24));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.67, 1.0, LocalDate.of(2024, 12, 24));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.68, 1.0, LocalDate.of(2024, 12, 31));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.69, 1.0, LocalDate.of(2025, 1, 30));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.71, 1.0, LocalDate.of(2025, 2, 6));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.72, 1.0, LocalDate.of(2025, 4, 7));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.74, 1.0, LocalDate.of(2025, 5, 7));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.75, 1.0, LocalDate.of(2025, 5, 14));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.76, 1.0, LocalDate.of(2025, 6, 13));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.77, 1.0, LocalDate.of(2025, 7, 13));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.78, 1.0, LocalDate.of(2025, 8, 12));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.79, 1.0, LocalDate.of(2025, 10, 11));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.81, 1.0, LocalDate.of(2025, 10, 14));
-        UNCaddPurchases(ps, "aa2e8400-e29b-41d4-a716-446655440017", 4.82, 1.0, LocalDate.of(2025, 10, 21));
-
-        // --- Soap ---
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.50, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.51, 1.0, LocalDate.of(2023, 11, 1));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.52, 1.0, LocalDate.of(2023, 11, 8));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.53, 1.0, LocalDate.of(2023, 11, 11));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.54, 1.0, LocalDate.of(2024, 1, 10));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.55, 1.0, LocalDate.of(2024, 3, 10));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.55, 1.0, LocalDate.of(2024, 4, 9));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.56, 1.0, LocalDate.of(2024, 5, 9));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.57, 1.0, LocalDate.of(2024, 5, 12));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.58, 1.0, LocalDate.of(2024, 7, 11));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.58, 1.0, LocalDate.of(2024, 8, 10));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.59, 1.0, LocalDate.of(2024, 8, 17));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.60, 1.0, LocalDate.of(2024, 10, 16));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.61, 1.0, LocalDate.of(2024, 12, 15));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.61, 1.0, LocalDate.of(2025, 1, 14));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.62, 1.0, LocalDate.of(2025, 2, 13));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.63, 1.0, LocalDate.of(2025, 2, 20));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.64, 1.0, LocalDate.of(2025, 4, 21));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.65, 1.0, LocalDate.of(2025, 4, 28));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.66, 1.0, LocalDate.of(2025, 6, 27));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.67, 1.0, LocalDate.of(2025, 6, 30));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.67, 1.0, LocalDate.of(2025, 7, 3));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.69, 1.0, LocalDate.of(2025, 7, 10));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.69, 1.0, LocalDate.of(2025, 8, 9));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.70, 1.0, LocalDate.of(2025, 8, 12));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.71, 1.0, LocalDate.of(2025, 9, 11));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.72, 1.0, LocalDate.of(2025, 10, 11));
-        UNCaddPurchases(ps, "bb2e8400-e29b-41d4-a716-446655440018", 3.73, 1.0, LocalDate.of(2025, 10, 14));
-
-        // --- Laundry Detergent ---
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.00, 1.0, LocalDate.of(2023, 10, 29));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.03, 1.0, LocalDate.of(2023, 11, 1));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.05, 1.0, LocalDate.of(2023, 12, 1));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.10, 1.0, LocalDate.of(2023, 12, 8));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.13, 1.0, LocalDate.of(2023, 12, 15));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.18, 1.0, LocalDate.of(2024, 1, 14));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.22, 1.0, LocalDate.of(2024, 3, 14));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.26, 1.0, LocalDate.of(2024, 3, 21));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.31, 1.0, LocalDate.of(2024, 3, 28));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.33, 1.0, LocalDate.of(2024, 4, 4));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.38, 1.0, LocalDate.of(2024, 6, 3));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.43, 1.0, LocalDate.of(2024, 7, 3));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.45, 1.0, LocalDate.of(2024, 8, 2));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.49, 1.0, LocalDate.of(2024, 9, 1));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.53, 1.0, LocalDate.of(2024, 9, 8));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.56, 1.0, LocalDate.of(2024, 11, 7));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.59, 1.0, LocalDate.of(2024, 12, 7));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.62, 1.0, LocalDate.of(2024, 12, 14));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.63, 1.0, LocalDate.of(2024, 12, 21));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.68, 1.0, LocalDate.of(2025, 1, 20));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.73, 1.0, LocalDate.of(2025, 3, 21));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.75, 1.0, LocalDate.of(2025, 3, 24));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.79, 1.0, LocalDate.of(2025, 3, 27));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.83, 1.0, LocalDate.of(2025, 4, 3));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.88, 1.0, LocalDate.of(2025, 6, 2));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.92, 1.0, LocalDate.of(2025, 6, 9));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.94, 1.0, LocalDate.of(2025, 6, 16));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.98, 1.0, LocalDate.of(2025, 6, 23));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 15.02, 1.0, LocalDate.of(2025, 6, 26));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 15.08, 1.0, LocalDate.of(2025, 7, 3));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 15.13, 1.0, LocalDate.of(2025, 7, 6));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 15.15, 1.0, LocalDate.of(2025, 7, 13));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 15.21, 1.0, LocalDate.of(2025, 8, 12));
-        UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 15.25, 1.0, LocalDate.of(2025, 10, 11));
-
+            // --- Laundry Detergent ---
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.00, 1.0, LocalDate.of(2023, 10, 29));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.03, 1.0, LocalDate.of(2023, 11, 1));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.05, 1.0, LocalDate.of(2023, 12, 1));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.10, 1.0, LocalDate.of(2023, 12, 8));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.13, 1.0, LocalDate.of(2023, 12, 15));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.18, 1.0, LocalDate.of(2024, 1, 14));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.22, 1.0, LocalDate.of(2024, 3, 14));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.26, 1.0, LocalDate.of(2024, 3, 21));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.31, 1.0, LocalDate.of(2024, 3, 28));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.33, 1.0, LocalDate.of(2024, 4, 4));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.38, 1.0, LocalDate.of(2024, 6, 3));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.43, 1.0, LocalDate.of(2024, 7, 3));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.45, 1.0, LocalDate.of(2024, 8, 2));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.49, 1.0, LocalDate.of(2024, 9, 1));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.53, 1.0, LocalDate.of(2024, 9, 8));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.56, 1.0, LocalDate.of(2024, 11, 7));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.59, 1.0, LocalDate.of(2024, 12, 7));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.62, 1.0, LocalDate.of(2024, 12, 14));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.63, 1.0, LocalDate.of(2024, 12, 21));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.68, 1.0, LocalDate.of(2025, 1, 20));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.73, 1.0, LocalDate.of(2025, 3, 21));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.75, 1.0, LocalDate.of(2025, 3, 24));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.79, 1.0, LocalDate.of(2025, 3, 27));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.83, 1.0, LocalDate.of(2025, 4, 3));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.88, 1.0, LocalDate.of(2025, 6, 2));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.92, 1.0, LocalDate.of(2025, 6, 9));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.94, 1.0, LocalDate.of(2025, 6, 16));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 14.98, 1.0, LocalDate.of(2025, 6, 23));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 15.02, 1.0, LocalDate.of(2025, 6, 26));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 15.08, 1.0, LocalDate.of(2025, 7, 3));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 15.13, 1.0, LocalDate.of(2025, 7, 6));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 15.15, 1.0, LocalDate.of(2025, 7, 13));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 15.21, 1.0, LocalDate.of(2025, 8, 12));
+            UNCaddPurchases(ps, "cc2e8400-e29b-41d4-a716-446655440019", 15.25, 1.0, LocalDate.of(2025, 10, 11));
 
             
             System.out.println("Default Purchases inserted successfully!");

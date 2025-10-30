@@ -1,15 +1,8 @@
 ----------------------------------------------------------------
-<<<<<<< Updated upstream
 Thu Oct 30 16:25:29 NZDT 2025:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019a-3326-2716-00001f7081e0 
 on database directory E:\Files\github\SoftwareConstructionAssignment1\ENSE600_Assignment_P2\InventoryDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@3f99bd52 
 Loaded from file:/E:/Files/github/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/lib/derby.jar
-=======
-Thu Oct 30 16:29:01 NZDT 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019a-3329-628d-00000ec2afa0 
-on database directory C:\Users\corin\OneDrive\Documents\GitHub\SoftwareConstructionAssignment1\ENSE600_Assignment_P2\InventoryDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@3f99bd52 
-Loaded from file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/lib/derby.jar
->>>>>>> Stashed changes
 java.vendor=Oracle Corporation
 java.runtime.version=21.0.8+12-LTS-250
 user.dir=E:\Files\github\SoftwareConstructionAssignment1\ENSE600_Assignment_P2
