@@ -1,13 +1,18 @@
 ----------------------------------------------------------------
-Fri Oct 31 14:51:34 NZDT 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019a-37f6-8443-00000eca7178 
-on database directory C:\Users\corin\OneDrive\Documents\GitHub\SoftwareConstructionAssignment1\ENSE600_Assignment_P2\InventoryDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@3f99bd52 
-Loaded from file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/lib/derby.jar
+Fri Oct 31 14:55:59 NZDT 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019a-37fa-9093-00001f6ea9a0 
+on database directory E:\Files\github\SoftwareConstructionAssignment1\ENSE600_Assignment_P2\InventoryDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@3f99bd52 
+Loaded from file:/E:/Files/github/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=21.0.7+8-LTS-245
-user.dir=C:\Users\corin\OneDrive\Documents\GitHub\SoftwareConstructionAssignment1\ENSE600_Assignment_P2
-os.name=Windows 11
+java.runtime.version=21.0.8+12-LTS-250
+user.dir=E:\Files\github\SoftwareConstructionAssignment1\ENSE600_Assignment_P2
+os.name=Windows 10
 os.arch=amd64
 os.version=10.0
 derby.system.home=null
+------------  Begin Error Message -------------
+
+System may be in a inconsistent state, missing file E:\Files\github\SoftwareConstructionAssignment1\ENSE600_Assignment_P2\InventoryDB\log\log9.dat
+------------  End Error Message -------------
+
 Database Class Loader started - derby.database.classpath=''
