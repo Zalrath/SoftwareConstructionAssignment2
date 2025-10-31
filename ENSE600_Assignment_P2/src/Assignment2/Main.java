@@ -44,21 +44,21 @@ public class Main
         
         DatabaseUtil dataUtil = new DatabaseUtil();
         InventoryManager manager = new InventoryManager();
-        SettingsManager settingsmanager = new SettingsManager();
+        SettingsManager settings = new SettingsManager();
 
         
         // YOU CAN NOT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE, IT MESSES WITH THE DB CONNECTION 
         //
 //        
-//       dataUtil.dropTable(conn,"Purchases");
-//       dataUtil.dropTable(conn,"ITEMS");
-//     dataUtil.dropTable(conn,"settings");
+     //  dataUtil.dropTable(conn,"Purchases");
+     //  dataUtil.dropTable(conn,"ITEMS");
+     //  dataUtil.dropTable(conn,"settings");
         
         dataUtil.createTables(conn);
         
-//       dataUtil.insertDefaultPurchases(conn);
-//      dataUtil.insertDefaultItems(conn);
-//      dataUtil.insertDefaultSettings(conn);  
+   //    dataUtil.insertDefaultPurchases(conn);
+    //  dataUtil.insertDefaultItems(conn);
+     // dataUtil.insertDefaultSettings(conn);  
       
         //dataUtil.printTableColumns(conn);
         // Really fraigle ------
@@ -139,7 +139,7 @@ public class Main
         
         
         SettingsManager.loadFromDatabase();
-        System.out.println(SettingsManager.getAccentColor());
+        System.out.println(SettingsManager.getDateFormatDB());
         
         Color dbselected = SettingsManager.getAccentColor();
         
@@ -151,7 +151,7 @@ public class Main
         Theme.setAccent(dbselected);        // updates all components
         
         // ----- Launch GUI ----- // 
-        SwingUtilities.invokeLater(() -> new HomeScreen(manager).setVisible(true));
+        SwingUtilities.invokeLater(() -> new HomeScreen(manager,settings).setVisible(true));
 
         /////////////////////////////////////////////////////////////////////////////////
         // testing // 

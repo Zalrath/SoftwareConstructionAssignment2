@@ -38,7 +38,7 @@ public class SettingsManager {
     
     
     
-    
+    private static String currencyFormat = "$";
     private static String dateFormat = "dd MMM yyyy";
     private static String accentColor = "#48375D";
     
@@ -66,7 +66,8 @@ public class SettingsManager {
          ResultSet rs = stmt.executeQuery("SELECT * FROM settings")) {
 
         if (rs.next()) {
-            accentColor = rs.getString("accent_colour"); // correct name
+            currencyFormat = rs.getString("currency_format");
+            accentColor = rs.getString("accent_colour"); 
             dateFormat = rs.getString("date_format");
             System.out.println("Settings loaded successfully");
         }
@@ -75,8 +76,12 @@ public class SettingsManager {
     }
     }
     
+    public static String getCurrencyFormat(){
+        return currencyFormat;
+    }
     
     public static String getDateFormatDB() {
+
         return dateFormat;
     }
 
@@ -97,6 +102,17 @@ public class SettingsManager {
         }
     }
 
+    public static void saveCurrencyFormat(String format) {
+        try (Connection conn = getConnection();
+             PreparedStatement ps = conn.prepareStatement("UPDATE settings SET currency_format = ?")) {
+            ps.setString(1, format);
+            ps.executeUpdate();
+            currencyFormat = format;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
 
     public static void saveAccentColor(Color c) {
         String hex = String.format("#%02X%02X%02X", c.getRed(), c.getGreen(), c.getBlue());

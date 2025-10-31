@@ -130,12 +130,13 @@ public class SettingsPanel extends BaseScreenPanel
         // Add Buttons
 
         // Add large spacer (used to be in BorderLayout.CENTER)
-        themePanel.add(Box.createVerticalStrut(60));
+        themePanel.add(Box.createVerticalStrut(20));
 
         // ----- ACCENT COLOUR SECTION ----- // 
         JLabel lblAccent = new JLabel("Accent Colour");
         lblAccent.setFont(Theme.TITLE_FONT);
         lblAccent.setForeground(Theme.palette().textLight);
+        lblAccent.setAlignmentX(Component.LEFT_ALIGNMENT);
         
         
          JPanel colorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 8));
@@ -179,80 +180,169 @@ public class SettingsPanel extends BaseScreenPanel
         accentPanel.add(colorPanel);
         
         
-        /*
-        JPanel accentPanel = new JPanel(new BorderLayout());
-        accentPanel.setOpaque(false);
-        accentPanel.add(lblAccent, BorderLayout.NORTH);
-        accentPanel.add(Box.createVerticalStrut(80), BorderLayout.CENTER); // space for colour buttons later
-        */
+
+        // ----- DISPLAY + ACCOUNT SECTIONS (BOTTOM AREA) ----- // 
+
         
-        
-        
-        // ----- Currency and Date Section ----- //
-        
-        
-        /*
-        String[] formats = {
+        String[] dateFormats = {
             "dd MMM yyyy",
             "yyyy-MM-dd",
             "dd/MM/yyyy",
-            "MMM dd, yyyy",
-            "EEEE, dd MMM yyyy"
+            "MMM dd, yyyy"  
         };
-
-        JLabel dateLabel = new JLabel("Date Format:");
-        dateLabel.setForeground(Theme.palette().textLight);
-        JComboBox<String> formatBox = new JComboBox<>(formats);
-        formatBox.setSelectedItem(SettingsManager.getDateFormatDB());
         
-        formatBox.addActionListener(e -> {
-            String selected = (String) formatBox.getSelectedItem();
-            SettingsManager.saveDateFormat(selected);
-            
-            System.out.println(SettingsManager.getDateFormatDB());
-            
-            JOptionPane.showMessageDialog(this, 
-                "Date format saved. Restart app to apply.",
-                "Settings Saved", JOptionPane.INFORMATION_MESSAGE);
-        });
-        
-        */
+        String[] currencyFormats = {"$", "€", "£", "¥"};
         
         
-        
-        
-        // ----- DISPLAY + ACCOUNT SECTIONS (BOTTOM AREA) ----- // 
         JPanel bottomPanel = new JPanel();
         bottomPanel.setLayout(new BoxLayout(bottomPanel, BoxLayout.Y_AXIS));
         bottomPanel.setOpaque(false);
 
-        // Display
+        
+        // Display Section
         JLabel lblDisplay = new JLabel("Display");
         lblDisplay.setFont(Theme.TITLE_FONT);
         lblDisplay.setForeground(Theme.palette().textLight);
+        lblDisplay.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JLabel lblCurrency = new JLabel("Currency Format");
-        lblCurrency.setFont(Theme.TITLE_FONT.deriveFont(16f));
-        lblCurrency.setForeground(Theme.palette().textDark);
-
-        JLabel lblDate = new JLabel("Date Format");
-        lblDate.setFont(Theme.TITLE_FONT.deriveFont(16f));
-        lblDate.setForeground(Theme.palette().textDark);
-
+        
         bottomPanel.add(lblDisplay);
         bottomPanel.add(Box.createVerticalStrut(10));
-        bottomPanel.add(lblCurrency);
-        bottomPanel.add(Box.createVerticalStrut(40)); // leave room for dropdowns
-        bottomPanel.add(lblDate);
-        bottomPanel.add(Box.createVerticalStrut(60));
 
-        // Account
+        
+        
+        // Currency Format
+        JLabel lblCurrency = new JLabel("Currency Format");
+        lblCurrency.setFont(Theme.TITLE_FONT.deriveFont(16f));
+        lblCurrency.setForeground(Theme.palette().textLight);
+        lblCurrency.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        
+        
+        JComboBox<String> currencyFormatBox = new JComboBox<>(currencyFormats);
+        currencyFormatBox.setMaximumSize(new Dimension(200, 30));
+        currencyFormatBox.setPreferredSize(new Dimension(200, 30));
+        currencyFormatBox.setAlignmentX(Component.LEFT_ALIGNMENT);
+        currencyFormatBox.setSelectedIndex(0);
+        currencyFormatBox.addActionListener(e -> {
+            String selected = (String) currencyFormatBox.getSelectedItem();
+            SettingsManager.saveCurrencyFormat(selected);
+            System.out.println("Currency format saved: " + selected);
+        });
+
+        
+        
+        bottomPanel.add(lblCurrency);
+        bottomPanel.add(Box.createVerticalStrut(5)); // small spacing between label and dropdown
+        bottomPanel.add(currencyFormatBox);
+        bottomPanel.add(Box.createVerticalStrut(20)); // spacing before next section
+
+        
+
+        
+        // Date Format
+        JLabel lblDate = new JLabel("Date Format");
+        lblDate.setFont(Theme.TITLE_FONT.deriveFont(16f));
+        lblDate.setForeground(Theme.palette().textLight);
+        lblDate.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JComboBox<String> dateFormatBox = new JComboBox<>(dateFormats);
+        dateFormatBox.setMaximumSize(new Dimension(200, 30));
+        dateFormatBox.setPreferredSize(new Dimension(200, 30));
+        dateFormatBox.setAlignmentX(Component.LEFT_ALIGNMENT);
+        dateFormatBox.setSelectedItem(SettingsManager.getDateFormatDB());
+        dateFormatBox.addActionListener(e -> {
+            String selected = (String) dateFormatBox.getSelectedItem();
+            SettingsManager.saveDateFormat(selected);
+            System.out.println("Date format saved: " + SettingsManager.getDateFormatDB());
+        });
+
+        bottomPanel.add(lblDate);
+        bottomPanel.add(Box.createVerticalStrut(5)); // small spacing between label and dropdown
+        bottomPanel.add(dateFormatBox);
+        bottomPanel.add(Box.createVerticalStrut(20)); // space before next section
+
+        
+        
+        Color accent = SettingsManager.getAccentColor();
+
+        // addes accent color to combo boxes
+        currencyFormatBox.setBackground(accent);
+        currencyFormatBox.setForeground(Color.WHITE); // text color
+        currencyFormatBox.setOpaque(true);
+
+        dateFormatBox.setBackground(accent);
+        dateFormatBox.setForeground(Color.WHITE);
+        dateFormatBox.setOpaque(true);
+
+        //addes accent color for selection
+        currencyFormatBox.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                if (isSelected) {
+                    setBackground(accent);
+                    setForeground(Color.WHITE);
+                } else {
+                    setBackground(Color.WHITE);
+                    setForeground(Color.BLACK);
+                }
+                return this;
+            }
+        });
+
+        dateFormatBox.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                if (isSelected) {
+                    setBackground(accent);
+                    setForeground(Color.WHITE);
+                } else {
+                    setBackground(Color.WHITE);
+                    setForeground(Color.BLACK);
+                }
+                return this;
+            }
+        });
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                   
+        // Account Section
         JLabel lblAccount = new JLabel("Account");
         lblAccount.setFont(Theme.TITLE_FONT);
         lblAccount.setForeground(Theme.palette().textLight);
+        lblAccount.setAlignmentX(Component.LEFT_ALIGNMENT);
 
+        JButton btnLogout = new JButton("Sign out");
+
+        btnLogout.setPreferredSize(new Dimension(300, 60));
+        btnLogout.setFocusPainted(false);
+        btnLogout.setContentAreaFilled(true);
+        btnLogout.setOpaque(true);
+       
+        btnLogout.setBackground(accent);
+        btnLogout.setForeground(Color.WHITE);
+        btnLogout.setFont(Theme.TITLE_FONT);
+       
+        btnLogout.addActionListener(e -> {
+            System.out.println("LOGOUT");
+        });
+        
+        
+        
         bottomPanel.add(lblAccount);
-        bottomPanel.add(Box.createVerticalStrut(60)); // room for buttons later
+        bottomPanel.add(btnLogout);
+        bottomPanel.add(Box.createVerticalStrut(60)); // space for future buttons
 
         // ----- Layout ----- // 
         content.add(themePanel, BorderLayout.NORTH);
@@ -268,15 +358,7 @@ public class SettingsPanel extends BaseScreenPanel
     
     
     
-    
-    
-    // ----- Just keeping here for the moment
-    
-    /*
-    
 
-    
-    */
     
     
     

@@ -18,6 +18,7 @@ import Assignment2.Account.*;
 import Assignment2.Database.DatabaseUtil;
 import Assignment2.Inventory.InventoryManager;
 import Assignment2.Inventory.Item;
+import Assignment2.Inventory.SettingsManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,7 +38,7 @@ public class HomeScreen extends JFrame
     private final AccountCreator accountCreator = new PlaceholderCreator();
     
     private final InventoryManager manager;
-
+    private final SettingsManager settings;
     
     // layout + screen map
     private final CardLayout cards = new CardLayout();
@@ -46,9 +47,10 @@ public class HomeScreen extends JFrame
   
     
     // ----- Constructor ----- // 
-    public HomeScreen(InventoryManager manager)
+    public HomeScreen(InventoryManager manager, SettingsManager settings)
     {
         this.manager = manager;
+        this.settings = settings;
         setTitle("Welcome");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(520, 320);
@@ -64,6 +66,9 @@ public class HomeScreen extends JFrame
     
     public InventoryManager getInventoryManager() 
     { return manager; }
+    
+    public SettingsManager getSettingManager() 
+    { return settings; }
     
     // ----- Screen Registration ----- // 
     private void registerScreen(String name, JPanel panel) 
@@ -130,7 +135,7 @@ public class HomeScreen extends JFrame
     {
         
         registerScreen("dashboard", new DashboardPanel(this, currentUser, appName));
-        registerScreen("inventory", new InventoryPanel(manager));
+        registerScreen("inventory", new InventoryPanel(manager,settings));
         registerScreen("budget",    new BudgetPanel(manager));
         registerScreen("shopping",  new ShoppingListPanel());
         registerScreen("settings",  new SettingsPanel());

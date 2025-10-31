@@ -86,6 +86,7 @@ public class DatabaseUtil {
           
             stmt.executeUpdate("""
                 CREATE TABLE settings (
+                    currency_format VARCHAR(20),
                     date_format VARCHAR(20) ,
                     accent_colour VARCHAR(20) 
                    
@@ -232,8 +233,8 @@ public class DatabaseUtil {
             ResultSet rsCheck = stmt.executeQuery("SELECT COUNT(*) FROM settings");
             if (rsCheck.next() && rsCheck.getInt(1) == 0) {
                 stmt.executeUpdate("""
-                    INSERT INTO settings (date_format, accent_colour) 
-                    VALUES ('dd MMM yyyy', '#48375D')
+                    INSERT INTO settings (currency_format,date_format, accent_colour) 
+                    VALUES ('$','dd MMM yyyy', '#48375D')
                 """);
         }
     }

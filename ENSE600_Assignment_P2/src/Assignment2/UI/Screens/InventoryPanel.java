@@ -14,6 +14,7 @@ import Assignment2.UI.Template.BaseScreenPanel;
 import Assignment2.UI.Theme;
 import Assignment2.Inventory.InventoryManager;
 import Assignment2.Inventory.Item;
+import Assignment2.Inventory.SettingsManager;
 import Assignment2.UI.AddItemDialog;
 import Assignment2.UI.HomeScreen;
 
@@ -35,6 +36,7 @@ public class InventoryPanel extends BaseScreenPanel
     private DefaultTableModel tableModel;
     private JTable table;
     private final InventoryManager manager;
+    private final SettingsManager settings;
     
     // using a list instead of a map for row items
     private final List<Item> rowItems = new ArrayList<>();
@@ -53,10 +55,11 @@ public class InventoryPanel extends BaseScreenPanel
     private final JLabel totalPriceLabel = new JLabel();
 
     // ----- Constructor ----- //
-    public InventoryPanel(InventoryManager manager)
+    public InventoryPanel(InventoryManager manager, SettingsManager settings)
     {
         super("Inventory", /*showBack*/ true, /*showAdd*/ true, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
         this.manager = manager;
+        this.settings = settings;
         buildBaseUI();
     }
 
@@ -364,8 +367,9 @@ public class InventoryPanel extends BaseScreenPanel
         tableModel.setRowCount(0);
         rowItems.clear();
         
-        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd MMM yyyy");
-        
+        DateTimeFormatter df = DateTimeFormatter.ofPattern(SettingsManager.getDateFormatDB()); 
+        //DateTimeFormatter df = DateTimeFormatter.ofPattern("dd MMM yyyy");
+      
         for (Item item : manager.getAllItems())
         {
             rowItems.add(item);
@@ -376,7 +380,7 @@ public class InventoryPanel extends BaseScreenPanel
             double latestPrice = manager.getLatestPrice(id);
             tableModel.addRow(new Object[]{
                 item.getName(), tags, date,
-                String.format("$%.2f", latestPrice),
+                String.format(SettingsManager.getCurrencyFormat() +"%.2f", latestPrice),
                 item.getFavorite(), item.getCurrentAmount(),
                 "\u2796", "\u2795"  
             });
