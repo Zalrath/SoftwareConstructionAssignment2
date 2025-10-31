@@ -58,7 +58,7 @@ public class BudgetPanel extends BaseScreenPanel
     // ----- constructor ----- //
     public BudgetPanel(InventoryManager manager)
     {
-        super("budget", true, true, "add item", "dashboard");
+        super("Budget", true, true, "add item", "dashboard");
         this.manager = manager;
         buildBaseUI();
     }
