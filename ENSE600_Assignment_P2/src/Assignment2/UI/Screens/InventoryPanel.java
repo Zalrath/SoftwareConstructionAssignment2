@@ -41,7 +41,11 @@ public class InventoryPanel extends BaseScreenPanel
 
     // updater for totals
     private Runnable updateTotalsRunnable;
+    
+    
     private final Theme.Palette palette = Theme.palette();
+    
+    
     
     // totals labels
     private final JLabel totalCountLabel = new JLabel();
@@ -368,7 +372,7 @@ public class InventoryPanel extends BaseScreenPanel
             UUID id = item.getUuid();
             String tags = String.join(", ", item.getTags());
             String date = item.getLastPurchased() != null ? item.getLastPurchased().format(df) : "—";
-            System.out.println(item.getFavorite());
+            
             double latestPrice = manager.getLatestPrice(id);
             tableModel.addRow(new Object[]{
                 item.getName(), tags, date,

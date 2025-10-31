@@ -24,7 +24,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.SwingUtilities;
 
-
+import java.sql.*;
 
 public class Main 
 {
@@ -50,16 +50,37 @@ public class Main
         // YOU CAN NOT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE, IT MESSES WITH THE DB CONNECTION 
         //
         
-        dataUtil.dropTable(conn,"Purchases");
-        dataUtil.dropTable(conn,"ITEMS");
+       // dataUtil.dropTable(conn,"Purchases");
+       // dataUtil.dropTable(conn,"ITEMS");
+     //   dataUtil.dropTable(conn,"settings");
         
         dataUtil.createTables(conn);
         
-        dataUtil.insertDefaultPurchases(conn);
-        dataUtil.insertDefaultItems(conn);
+      //  dataUtil.insertDefaultPurchases(conn);
+      //  dataUtil.insertDefaultItems(conn);
+        
+        //dataUtil.printTableColumns(conn);
         // Really fraigle ------
         
-        dataUtil.printItemsFromDB(conn);
+        //dataUtil.printItemsFromDB(conn);
+        
+        
+        /*
+        try (Statement stmt = conn.createStatement()) {
+            ResultSet rsCheck = stmt.executeQuery("SELECT COUNT(*) FROM settings");
+            if (rsCheck.next() && rsCheck.getInt(1) == 0) {
+                stmt.executeUpdate("""
+                    INSERT INTO settings (date_format, accent_colour) 
+                    VALUES ('dd MMM yyyy', '#48375D')
+                """);
+        }
+}       
+        */
+        
+        
+        
+        
+        
         manager.loadItemsFromDB(conn);
         
         try (Statement stmt = conn.createStatement()) 
@@ -122,11 +143,21 @@ public class Main
         
         
         // ----- Apply Theme ----- // 
-        Color selected = accentColors[7];
+       
         
         
         
-        Theme.setAccent(selected);        // updates all components
+        SettingsManager.loadFromDatabase();
+        System.out.println(SettingsManager.getAccentColor());
+        
+        Color dbselected = SettingsManager.getAccentColor();
+        
+        
+        Color selected = accentColors[8];
+        
+        
+        
+        Theme.setAccent(dbselected);        // updates all components
         
         // ----- Launch GUI ----- // 
         SwingUtilities.invokeLater(() -> new HomeScreen(manager).setVisible(true));

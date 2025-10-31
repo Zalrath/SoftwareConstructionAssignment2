@@ -149,6 +149,8 @@ public final class Theme
         }
     }
     
+   
+    
     private static void refreshAllChildren(Component c)
     {
         Palette current = palette();
@@ -164,6 +166,55 @@ public final class Theme
             }
         }
     }
+    
+  /*
+    private static void refreshAllChildren(Component c)
+    {
+        Palette current = palette();
+
+        if (c instanceof AbstractButton btn)
+        {
+            // Preserve special buttons that already have custom colours
+            if (btn.getBackground().equals(accentColour) || btn.getBackground().equals(current.accent)) {
+                btn.setBackground(current.accent);
+            }
+            btn.setForeground(current.textLight);
+        }
+        else if (c instanceof JLabel lbl)
+        {
+            lbl.setForeground(current.textLight);
+        }
+        else if (c instanceof JPanel panel)
+        {
+            // Only recolour panels that use standard theme greys
+            if (panel.isOpaque())
+            {
+                Color bg = panel.getBackground();
+                if (bg.equals(Color.decode("#222222")) || 
+                    bg.equals(Color.decode("#2D2D2F")) || 
+                    bg.equals(Color.decode("#3B3D40")) || 
+                    bg.equals(Color.decode("#646469")))
+                {
+                    panel.setBackground(current.tileDark);
+                }
+            }
+
+            for (Component child : panel.getComponents())
+            {
+                refreshAllChildren(child);
+            }
+        }
+        else if (c instanceof Container cont)
+        {
+            for (Component child : cont.getComponents())
+            {
+                refreshAllChildren(child);
+            }
+        }
+    }
+    
+    */
+    
     
     public static Color darker(Color c, float amount)
     {

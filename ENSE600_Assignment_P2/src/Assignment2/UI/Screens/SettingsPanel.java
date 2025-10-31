@@ -10,6 +10,7 @@ package Assignment2.UI.Screens;
  * @author megan
  */
 
+import Assignment2.Inventory.SettingsManager;
 import Assignment2.UI.Template.AccentHeaderBar;
 import Assignment2.UI.Template.BaseScreenPanel;
 import Assignment2.UI.Theme;
@@ -137,43 +138,45 @@ public class SettingsPanel extends BaseScreenPanel
         lblAccent.setForeground(Theme.palette().textLight);
         
         
-            JPanel colorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 8));
-    colorPanel.setOpaque(false);
+         JPanel colorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 8));
+        colorPanel.setOpaque(false);
 
 
-    
-        Color[] accentColors = 
-        {
-            Color.decode("#104A63"), // Deep Teal Blue
-            Color.decode("#253D27"), // Dark Forest Green
-            Color.decode("#3C4072"), // Indigo Blue / Slate Purple
-            Color.decode("#3D8479"), // Muted Aqua Green
-            Color.decode("#477D51"), // Medium Leaf Green
-            Color.decode("#48375D"), // Dark Violet Gray
-            Color.decode("#716994"), // Dusty Lavender
-            Color.decode("#8E3E3E"), // Brick Red
-            Color.decode("#8E4D6C"), // Mauve Rose
-            Color.decode("#AE5E41") // Burnt Copper / Terracotta
-        };
-    
-    
-    for (Color c : accentColors) {
-        JButton colorButton = new JButton();
-        colorButton.setPreferredSize(new Dimension(30, 30));
-        colorButton.setBackground(c);
-        colorButton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
-        colorButton.addActionListener(e -> {
-            Theme.setAccent(c); 
-            System.out.println("Accent set to: " + c);
-        });
-        colorPanel.add(colorButton);
-    }
 
-    JPanel accentPanel = new JPanel();
-    accentPanel.setLayout(new BoxLayout(accentPanel, BoxLayout.Y_AXIS));
-    accentPanel.setOpaque(false);
-    accentPanel.add(lblAccent);
-    accentPanel.add(colorPanel);
+            Color[] accentColors = 
+            {
+                Color.decode("#104A63"), // Deep Teal Blue
+                Color.decode("#253D27"), // Dark Forest Green
+                Color.decode("#3C4072"), // Indigo Blue / Slate Purple
+                Color.decode("#3D8479"), // Muted Aqua Green
+                Color.decode("#477D51"), // Medium Leaf Green
+                Color.decode("#48375D"), // Dark Violet Gray
+                Color.decode("#716994"), // Dusty Lavender
+                Color.decode("#8E3E3E"), // Brick Red
+                Color.decode("#8E4D6C"), // Mauve Rose
+                Color.decode("#AE5E41") // Burnt Copper / Terracotta
+            };
+
+
+        for (Color c : accentColors) {
+            JButton colorButton = new JButton();
+            colorButton.setPreferredSize(new Dimension(30, 30));
+            colorButton.setBackground(c);
+            colorButton.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
+            colorButton.addActionListener(e -> {
+                //Theme.setAccent(c); 
+                SettingsManager.saveAccentColor(c);
+                System.out.println(SettingsManager.getAccentColor());
+                System.out.println("Accent set to: " + c);
+            });
+            colorPanel.add(colorButton);
+        }
+
+        JPanel accentPanel = new JPanel();
+        accentPanel.setLayout(new BoxLayout(accentPanel, BoxLayout.Y_AXIS));
+        accentPanel.setOpaque(false);
+        accentPanel.add(lblAccent);
+        accentPanel.add(colorPanel);
         
         
         /*
@@ -183,6 +186,37 @@ public class SettingsPanel extends BaseScreenPanel
         accentPanel.add(Box.createVerticalStrut(80), BorderLayout.CENTER); // space for colour buttons later
         */
         
+        
+        
+        // ----- Currency and Date Section ----- //
+        
+        
+        /*
+        String[] formats = {
+            "dd MMM yyyy",
+            "yyyy-MM-dd",
+            "dd/MM/yyyy",
+            "MMM dd, yyyy",
+            "EEEE, dd MMM yyyy"
+        };
+
+        JLabel dateLabel = new JLabel("Date Format:");
+        dateLabel.setForeground(Theme.palette().textLight);
+        JComboBox<String> formatBox = new JComboBox<>(formats);
+        formatBox.setSelectedItem(SettingsManager.getDateFormatDB());
+        
+        formatBox.addActionListener(e -> {
+            String selected = (String) formatBox.getSelectedItem();
+            SettingsManager.saveDateFormat(selected);
+            
+            System.out.println(SettingsManager.getDateFormatDB());
+            
+            JOptionPane.showMessageDialog(this, 
+                "Date format saved. Restart app to apply.",
+                "Settings Saved", JOptionPane.INFORMATION_MESSAGE);
+        });
+        
+        */
         
         
         
@@ -229,6 +263,22 @@ public class SettingsPanel extends BaseScreenPanel
     }
     
     // ----- Helpers ------ //
+    
+    
+    
+    
+    
+    
+    
+    // ----- Just keeping here for the moment
+    
+    /*
+    
+
+    
+    */
+    
+    
     
     
     

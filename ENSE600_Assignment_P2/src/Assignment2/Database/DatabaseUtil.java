@@ -83,7 +83,18 @@ public class DatabaseUtil {
                     purchaseDate DATE
                 )
             """);
-
+          
+            stmt.executeUpdate("""
+                CREATE TABLE settings (
+                    date_format VARCHAR(20) ,
+                    accent_colour VARCHAR(20) 
+                   
+                    
+                )
+            
+            """);
+            
+           
             /*
             
             stmt.executeUpdate("""
@@ -101,11 +112,11 @@ public class DatabaseUtil {
             
             """);
             
-            stmt.executeUpdate("""
-                CREATE TABLE Setting (
-                    CurrencyFormat VARCHAR(255),
-                    Date Format VARCHAR(255),
-                    Accent Colour VARCHAR(255)
+ stmt.executeUpdate("""
+                CREATE TABLE settings (
+                    currency_Format VARCHAR(20),
+                    date_format VARCHAR(20) ,
+                    accent_colour VARCHAR(20) 
                    
                     
                 )
