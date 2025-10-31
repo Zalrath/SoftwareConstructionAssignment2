@@ -20,7 +20,6 @@ public class BudgetVsActualPanel extends JPanel
 {
     private final InventoryManager manager;
     
-    // progress bar panels are now the fields, replacing jprogressbar and jlabel fields
     private ThemedProgressBar weeklyPanel;
     private ThemedProgressBar monthlyPanel;
     private ThemedProgressBar yearlylPanel;
@@ -39,7 +38,7 @@ public class BudgetVsActualPanel extends JPanel
     {
         super.updateUI();
         
-        // when the theme changes, rebuild the entire ui to ensure all colours are fresh
+        
         SwingUtilities.invokeLater(this::buildUI);
     }
     
@@ -55,7 +54,7 @@ public class BudgetVsActualPanel extends JPanel
         setBorder(BorderFactory.createLineBorder(currentPalette.tileDark, 2));
         
         // header
-        JLabel header = new JLabel("expenses vs income", SwingConstants.CENTER);
+        JLabel header = new JLabel("budget vs inventory spending", SwingConstants.CENTER);
         header.setFont(Theme.TITLE_FONT.deriveFont(28f));
         header.setForeground(currentPalette.textLight);
         header.setPreferredSize(new Dimension(300, 45));
@@ -73,6 +72,13 @@ public class BudgetVsActualPanel extends JPanel
         mainPanel.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, currentPalette.tileDark));
 
         // ----- initialize themedprogressbarpanel instances -----
+        
+        // take input of the last years worth of weekly shopping budget and calculate
+        // 1. weekly -> the this weeks set budget
+        // 2. monthly -> months worth (1-31st)
+        // 3. yearly -> add all the months
+        // 4. all time -> add all budgets 
+        
         
         weeklyPanel = new ThemedProgressBar("Weekly", 65);
         weeklyPanel.setMaxDollarValue(150.00);

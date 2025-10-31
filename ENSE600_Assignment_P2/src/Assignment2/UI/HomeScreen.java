@@ -137,7 +137,7 @@ public class HomeScreen extends JFrame
         registerScreen("dashboard", new DashboardPanel(this, currentUser, appName));
         registerScreen("inventory", new InventoryPanel(manager,settings));
         registerScreen("budget",    new BudgetPanel(manager));
-        registerScreen("shopping",  new ShoppingListPanel());
+        registerScreen("shopping",  new ShoppingListPanel(manager));
         registerScreen("settings",  new SettingsPanel(manager,settings));
     }
     
