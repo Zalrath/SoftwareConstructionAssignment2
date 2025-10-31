@@ -27,6 +27,7 @@ import org.jfree.chart.ui.RectangleInsets;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.List;
 
@@ -76,7 +77,7 @@ public class SpendingPanel extends JPanel
         JPanel buttonColumn = createButtonColumn();
         chartPanel = buildPieChartPanel();
         
-        mainContent.add(buttonColumn, BorderLayout.WEST);
+        mainContent.add(buttonColumn, BorderLayout.EAST);
         mainContent.add(chartPanel, BorderLayout.CENTER);
         
         add(mainContent, BorderLayout.CENTER);
@@ -159,17 +160,16 @@ public class SpendingPanel extends JPanel
         plot.setLabelLinkPaint(palette.textLight);
         plot.setLabelLinkMargin(0.02);
         plot.setLabelGap(0.04);
-        plot.setLabelGenerator(new StandardPieSectionLabelGenerator("{0}: {1} ({2})"));
+        plot.setLabelGenerator(new StandardPieSectionLabelGenerator(
+                "{0}: ${1} ({2})",
+                new DecimalFormat("#,##0.00"), 
+                new DecimalFormat("0.00%")
+        ));
         
         chart.setBackgroundPaint(palette.tileDark);
         chart.setPadding(new RectangleInsets(5, 5, 5, 5));
         
-//        // color mapping (fallbacks) - these will be overridden by refreshChart
-//        plot.setSectionPaint("groceries", new Color(0x66BB6A));
-//        plot.setSectionPaint("entertainment", palette.hazard);
-//        plot.setSectionPaint("utilities", palette.accent);
-//        plot.setSectionPaint("transport", new Color(0xFFB300));
-//        plot.setSectionPaint("misc", palette.tileMedium);
+
         
         ChartPanel panel = new ChartPanel(chart);
         panel.setOpaque(false);
@@ -293,10 +293,10 @@ public class SpendingPanel extends JPanel
             float brightness = baseBright - (i * brightnessStep);
             if (brightness < 0.4f)
             {
-                brightness = 1.0f - brightness; // wrap/shift to use lighter tones too
+                brightness = 1.0f - brightness; // use lighter colours
             }
             
-            // slightly drop saturation for darker shades
+            // slightly drop saturation for darker colours
             float saturation = baseSat * (1 - (i * 0.1f)); 
             
             // clamp values
@@ -307,7 +307,7 @@ public class SpendingPanel extends JPanel
             colors.add(Color.getHSBColor(baseHue, saturation, brightness));
         }
         
-        // always start with the original accent color for the largest slice if desired
+        // always start with the original accent color for the largest slice
         if (!colors.isEmpty())
         {
             colors.set(0, accent);
