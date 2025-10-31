@@ -10,7 +10,11 @@ package Assignment2.UI.Screens;
  * @author megan
  */
 
+import Assignment2.Account.LoginDialog;
+import Assignment2.Account.PlaceholderAuthenticator;
+import Assignment2.Inventory.InventoryManager;
 import Assignment2.Inventory.SettingsManager;
+import Assignment2.UI.HomeScreen;
 import Assignment2.UI.Template.AccentHeaderBar;
 import Assignment2.UI.Template.BaseScreenPanel;
 import Assignment2.UI.Theme;
@@ -23,12 +27,16 @@ import javax.swing.border.Border;
 public class SettingsPanel extends BaseScreenPanel 
 {
 
+    private final InventoryManager manager;
+    private final SettingsManager settings;
     
     // ----- Constructor ----- // 
-    public SettingsPanel() 
+    public SettingsPanel(InventoryManager manager, SettingsManager settings) 
     {
         super("Settings", /*showBack*/ true, /*showAdd*/ false, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
-         buildBaseUI();
+         this.manager = manager;
+         this.settings = settings; 
+        buildBaseUI();
     }
     
     // ----- Initialise Content ----- // 
@@ -324,7 +332,40 @@ public class SettingsPanel extends BaseScreenPanel
        
         btnLogout.addActionListener(e -> {
             System.out.println("LOGOUT");
+            
+
+            int confirm = JOptionPane.showConfirmDialog(
+                null,
+                "Are you sure you want to sign out?",
+                "Confirm Logout",
+                JOptionPane.YES_NO_OPTION
+            );
+
+            if (confirm == JOptionPane.YES_OPTION) {
+                JFrame homeFrame = (JFrame) SwingUtilities.getWindowAncestor(btnLogout);
+                homeFrame.dispose();
+                
+                SettingsManager.loadFromDatabase();
+                System.out.println(SettingsManager.getDateFormatDB());
+
+                Color dbselected = SettingsManager.getAccentColor();
+
+
+                Theme.setAccent(dbselected);  
+                
+                
+                SwingUtilities.invokeLater(() -> {
+                    PlaceholderAuthenticator authenticator = new PlaceholderAuthenticator();
+                    LoginDialog login = new LoginDialog(null, true, authenticator);
+                    login.setVisible(true);
+
+                    if (login.isAuthenticated()) {
+                        new HomeScreen(manager, settings).setVisible(true);
+                    }
+                });
+            }
         });
+     
         
         
         

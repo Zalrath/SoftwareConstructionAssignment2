@@ -56,9 +56,9 @@ public class Main
         
         dataUtil.createTables(conn);
         
-   //    dataUtil.insertDefaultPurchases(conn);
-    //  dataUtil.insertDefaultItems(conn);
-     // dataUtil.insertDefaultSettings(conn);  
+     //  dataUtil.insertDefaultPurchases(conn);
+     //  dataUtil.insertDefaultItems(conn);
+     //  dataUtil.insertDefaultSettings(conn);  
       
         //dataUtil.printTableColumns(conn);
         // Really fraigle ------
@@ -143,11 +143,7 @@ public class Main
         
         Color dbselected = SettingsManager.getAccentColor();
         
-        
-        Color selected = accentColors[8];
-        
-        
-        
+
         Theme.setAccent(dbselected);        // updates all components
         
         // ----- Launch GUI ----- // 
