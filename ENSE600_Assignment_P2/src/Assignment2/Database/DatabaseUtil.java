@@ -225,6 +225,21 @@ public class DatabaseUtil {
         } catch (SQLException e) { }
     }
     
+    
+    public void insertDefaultSettings(Connection conn) throws SQLException{
+    
+        try (Statement stmt = conn.createStatement()) {
+            ResultSet rsCheck = stmt.executeQuery("SELECT COUNT(*) FROM settings");
+            if (rsCheck.next() && rsCheck.getInt(1) == 0) {
+                stmt.executeUpdate("""
+                    INSERT INTO settings (date_format, accent_colour) 
+                    VALUES ('dd MMM yyyy', '#48375D')
+                """);
+        }
+    }
+    }
+        
+    
     public void insertDefaultItems(Connection conn) {
         String sql = "INSERT INTO Items (uuid, name, last_Purchased, current_Amount , interval_Days, tags, favorite, future) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {

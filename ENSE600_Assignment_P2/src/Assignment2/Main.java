@@ -65,17 +65,7 @@ public class Main
         //dataUtil.printItemsFromDB(conn);
         
         
-        /*
-        try (Statement stmt = conn.createStatement()) {
-            ResultSet rsCheck = stmt.executeQuery("SELECT COUNT(*) FROM settings");
-            if (rsCheck.next() && rsCheck.getInt(1) == 0) {
-                stmt.executeUpdate("""
-                    INSERT INTO settings (date_format, accent_colour) 
-                    VALUES ('dd MMM yyyy', '#48375D')
-                """);
-        }
-}       
-        */
+        //dataUtil.insertDefaultSettings(conn);
         
         
         
