@@ -102,7 +102,7 @@ public class BudgetVsActualPanel extends JPanel
         
         JPanel buttonColumn = createRightPanel(currentPalette);
         
-        mainContent.add(buttonColumn, BorderLayout.EAST);
+        // mainContent.add(buttonColumn, BorderLayout.EAST);
         mainContent.add(mainPanel, BorderLayout.CENTER);
         
         add(mainContent, BorderLayout.CENTER);
