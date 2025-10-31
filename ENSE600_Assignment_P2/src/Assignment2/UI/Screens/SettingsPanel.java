@@ -112,25 +112,7 @@ public class SettingsPanel extends BaseScreenPanel
         content.setBackground(Theme.palette().tileMedium);
         content.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        // ----- THEME SECTION ----- // 
-        JLabel lblTheme = new JLabel("Theme");
-        lblTheme.setFont(Theme.TITLE_FONT);
-        lblTheme.setForeground(Theme.palette().textLight);
-        lblTheme.setAlignmentX(Component.LEFT_ALIGNMENT);
-
-        // FIX: Change themePanel from BorderLayout to BoxLayout for vertical stacking
-        JPanel themePanel = new JPanel();
-        themePanel.setLayout(new BoxLayout(themePanel, BoxLayout.Y_AXIS));
-        themePanel.setOpaque(false);
-
-        // Add Title
-        themePanel.add(lblTheme);
-        themePanel.add(Box.createVerticalStrut(8));
-
-        // Add Buttons
-
-        // Add large spacer (used to be in BorderLayout.CENTER)
-        themePanel.add(Box.createVerticalStrut(20));
+       
 
         // ----- ACCENT COLOUR SECTION ----- // 
         JLabel lblAccent = new JLabel("Accent Colour");
@@ -139,7 +121,7 @@ public class SettingsPanel extends BaseScreenPanel
         lblAccent.setAlignmentX(Component.LEFT_ALIGNMENT);
         
         
-         JPanel colorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 8));
+        JPanel colorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 8));
         colorPanel.setOpaque(false);
 
 
@@ -176,9 +158,15 @@ public class SettingsPanel extends BaseScreenPanel
         JPanel accentPanel = new JPanel();
         accentPanel.setLayout(new BoxLayout(accentPanel, BoxLayout.Y_AXIS));
         accentPanel.setOpaque(false);
-        accentPanel.add(lblAccent);
-        accentPanel.add(colorPanel);
         
+        
+        lblAccent.setAlignmentX(Component.LEFT_ALIGNMENT);
+        colorPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        accentPanel.add(lblAccent);
+        accentPanel.add(Box.createVerticalStrut(8));
+        accentPanel.add(colorPanel);
+        accentPanel.add(Box.createVerticalGlue());
         
 
         // ----- DISPLAY + ACCOUNT SECTIONS (BOTTOM AREA) ----- // 
@@ -345,8 +333,7 @@ public class SettingsPanel extends BaseScreenPanel
         bottomPanel.add(Box.createVerticalStrut(60)); // space for future buttons
 
         // ----- Layout ----- // 
-        content.add(themePanel, BorderLayout.NORTH);
-        content.add(accentPanel, BorderLayout.CENTER);
+        content.add(accentPanel, BorderLayout.NORTH);
         content.add(bottomPanel, BorderLayout.SOUTH);
 
         return content;

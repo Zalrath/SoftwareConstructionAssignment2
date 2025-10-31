@@ -400,7 +400,7 @@ public class InventoryPanel extends BaseScreenPanel
         int headerHeight = table.getTableHeader().getPreferredSize().height;
         filterHeader.setPreferredSize(new Dimension(0, headerHeight));
         
-        JLabel filterTitle = new JLabel("FILTERS", SwingConstants.CENTER);
+        JLabel filterTitle = new JLabel("Filters", SwingConstants.CENTER);
         filterTitle.setFont(Theme.TITLE_FONT.deriveFont(24f));
         filterTitle.setForeground(palette.textLight);
         filterHeader.add(filterTitle, BorderLayout.CENTER);
