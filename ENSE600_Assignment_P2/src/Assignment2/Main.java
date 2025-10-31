@@ -50,15 +50,15 @@ public class Main
         // YOU CAN NOT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE, IT MESSES WITH THE DB CONNECTION 
         //
 //        
-     //  dataUtil.dropTable(conn,"Purchases");
-     //  dataUtil.dropTable(conn,"ITEMS");
-     //  dataUtil.dropTable(conn,"settings");
+       dataUtil.dropTable(conn,"Purchases");
+      dataUtil.dropTable(conn,"ITEMS");
+       dataUtil.dropTable(conn,"settings");
         
         dataUtil.createTables(conn);
         
-     //  dataUtil.insertDefaultPurchases(conn);
-     //  dataUtil.insertDefaultItems(conn);
-     //  dataUtil.insertDefaultSettings(conn);  
+       dataUtil.insertDefaultPurchases(conn);
+       dataUtil.insertDefaultItems(conn);
+       dataUtil.insertDefaultSettings(conn);  
       
         //dataUtil.printTableColumns(conn);
         // Really fraigle ------

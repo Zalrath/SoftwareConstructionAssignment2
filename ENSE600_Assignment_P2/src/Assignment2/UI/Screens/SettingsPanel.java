@@ -347,14 +347,14 @@ public class SettingsPanel extends BaseScreenPanel
                 
                 SettingsManager.loadFromDatabase();
                 System.out.println(SettingsManager.getDateFormatDB());
-
                 Color dbselected = SettingsManager.getAccentColor();
-
-
                 Theme.setAccent(dbselected);  
                 
                 
                 SwingUtilities.invokeLater(() -> {
+                    
+                    new HomeScreen(manager, settings).setVisible(true);
+                    /*
                     PlaceholderAuthenticator authenticator = new PlaceholderAuthenticator();
                     LoginDialog login = new LoginDialog(null, true, authenticator);
                     login.setVisible(true);
@@ -362,6 +362,7 @@ public class SettingsPanel extends BaseScreenPanel
                     if (login.isAuthenticated()) {
                         new HomeScreen(manager, settings).setVisible(true);
                     }
+*/
                 });
             }
         });
