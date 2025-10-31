@@ -77,7 +77,7 @@ public class SpendingPanel extends JPanel
         JPanel buttonColumn = createButtonColumn();
         chartPanel = buildPieChartPanel();
         
-        mainContent.add(buttonColumn, BorderLayout.WEST);
+        mainContent.add(buttonColumn, BorderLayout.EAST);
         mainContent.add(chartPanel, BorderLayout.CENTER);
         
         add(mainContent, BorderLayout.CENTER);

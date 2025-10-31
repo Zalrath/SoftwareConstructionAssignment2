@@ -13,14 +13,12 @@ import Assignment2.UI.Theme;
 import Assignment2.Inventory.InventoryManager;
 
 import javax.swing.*;
-
 import java.awt.*;
 
 public class BudgetVsActualPanel extends JPanel
 {
-
     private final InventoryManager manager;
-    private final Theme.Palette palette; // renamed 'p' to 'palette' for clarity
+    private final Theme.Palette palette;
     
     // ----- constructor ----- //
     public BudgetVsActualPanel(InventoryManager manager, Theme.Palette palette)
@@ -31,91 +29,66 @@ public class BudgetVsActualPanel extends JPanel
     }
     
     // ----- initialise ui ----- //
-    private void buildUI() 
+    private void buildUI()
     {
         setLayout(new BorderLayout());
-
+        
+        
         setBackground(palette.tileMediumDark);
         setBorder(BorderFactory.createLineBorder(palette.tileDark, 2));
-
+        
         // header
         JLabel header = new JLabel("budget vs actual", SwingConstants.CENTER);
-        header.setFont(Theme.TITLE_FONT.deriveFont(28f));
+        header.setFont(Theme.TITLE_FONT.deriveFont(28f)); 
         header.setForeground(palette.textLight);
         header.setPreferredSize(new Dimension(300, 45));
         header.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, palette.tileDark));
         add(header, BorderLayout.NORTH);
         
-        // container
-        JPanel contentPanel = new JPanel(new BorderLayout(10, 0)); // 10px gap between panels
-        contentPanel.setOpaque(false);
-        add(contentPanel, BorderLayout.CENTER);
-
+        // main content 
+        JPanel mainContent = new JPanel(new BorderLayout());
+        mainContent.setBackground(palette.tileMediumDark);
         
         // middle panel
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(palette.tileDark);
         mainPanel.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, palette.tileDark));
-
         
-        // right panel
+        JPanel buttonColumn = createRightPanel();
+        
+        mainContent.add(buttonColumn, BorderLayout.EAST);
+        mainContent.add(mainPanel, BorderLayout.CENTER);
+        
+        add(mainContent, BorderLayout.CENTER);    
+    }
+    
+    // ----- button column builder ----- //
+    private JPanel createRightPanel()
+    {
         JPanel rightPanel = new JPanel();
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
         rightPanel.setBackground(palette.tileMediumDark);
         rightPanel.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, palette.tileDark));
         rightPanel.setPreferredSize(new Dimension(120, 0));
-
-        JPanel rightHeader = new JPanel(new BorderLayout());
-        rightHeader.setBackground(palette.accent);
-        rightHeader.setMaximumSize(new Dimension(Integer.MAX_VALUE, 28));
         
-        JLabel summaryLabel = new JLabel("summary", SwingConstants.CENTER);
-        summaryLabel.setForeground(palette.textLight);
-        summaryLabel.setFont(Theme.TITLE_FONT.deriveFont(18f));
-        rightHeader.add(summaryLabel, BorderLayout.CENTER);
+        // summary header box
+        JPanel header = new JPanel(new BorderLayout());
+        header.setBackground(palette.accent);
+        header.setMaximumSize(new Dimension(Integer.MAX_VALUE, 28));
+        JLabel filterLabel = new JLabel("summary", SwingConstants.CENTER);
+        filterLabel.setForeground(palette.textLight);
+        filterLabel.setFont(Theme.TITLE_FONT.deriveFont(18f));
+        header.add(filterLabel, BorderLayout.CENTER);
         
+        rightPanel.add(header);
+        rightPanel.add(Box.createVerticalStrut(10));
         
-      
-        
-        rightPanel.add(rightHeader);
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-        // placeholder for graph
-        JPanel barPlaceholder = new JPanel();
-        barPlaceholder.setBackground(palette.tileDark);
-        
-        // placeholder label
-        JLabel placeholderLabel = new JLabel("(piechart goes here)", SwingConstants.CENTER);
-        placeholderLabel.setForeground(palette.textLight.darker());
-        barPlaceholder.add(placeholderLabel);
-
-        contentPanel.add(mainPanel, BorderLayout.CENTER);
-        contentPanel.add(rightPanel, BorderLayout.EAST);
+        return rightPanel;
     }
-
-    // ----- external refresh ----- //
+    
+    // ----- main refresh logic ----- //
     public void refresh()
     {
-        // todo: recompute chart data from inventorymanager
+        
     }
 }
