@@ -148,7 +148,7 @@ public class IncomeExpensePanel extends JPanel
                 double amount = Double.parseDouble(salaryField.getText());
                 String frequency = (String) frequencyBox.getSelectedItem();
                 
-                budget.saveTransaction("income", "Salary", "income", amount, frequency);
+    //            budget.saveTransaction("income", "Salary", "income", amount, frequency);
                 
                 populateTableData();
                 refreshTotals();
@@ -263,7 +263,7 @@ public class IncomeExpensePanel extends JPanel
             String tag = (String) tagBox.getSelectedItem();
             double amount = Double.parseDouble(amountField.getText());
             
-            budget.saveTransaction("expense", title, tag, amount, "one-time");
+ //           budget.saveTransaction("expense", title, tag, amount, "one-time");
             
             populateTableData();
             refreshTotals();

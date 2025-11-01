@@ -6,17 +6,6 @@ package Assignment2.UI.Screens;
 
 /**
  *
- * @author corin
- */
-/*
- * click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-
-
-/**
- *
  * @author megan
  */
 
@@ -104,7 +93,6 @@ public class ShoppingListPanel extends BaseScreenPanel
         
         // buttons
         ToggleableButton exportTxt = new ToggleableButton("Export as TXT");
-        ToggleableButton exportPdf = new ToggleableButton("Export as PDF");
 
         // non toggleable
         exportTxt.addActionListener(e -> 
@@ -113,19 +101,11 @@ public class ShoppingListPanel extends BaseScreenPanel
             exportTxt.setSelected(false);
             exportTxt.repaint();
         });
-        exportPdf.addActionListener(e -> 
-        {
-            exportToPdf();
-            exportPdf.setSelected(false);
-            exportPdf.repaint();
-        });
-        
+
         // size
         exportTxt.setFont(Theme.TITLE_FONT.deriveFont(16f));
-        exportPdf.setFont(Theme.TITLE_FONT.deriveFont(16f));
         
         buttonPanel.add(exportTxt);
-        buttonPanel.add(exportPdf);
         
         bottomSection.add(buttonPanel, BorderLayout.CENTER);
         bottomSection.setPreferredSize(new Dimension(0, 80));
@@ -294,7 +274,9 @@ public class ShoppingListPanel extends BaseScreenPanel
     public void refresh() { populatePurchasedItems(); }
     
     //----- export handlers ----- // 
-    private void exportToTxt() { /* corin */ }
-    private void exportToPdf() { /* corin */ }
-    // also i dont know if you want to make the list like persist between sessions (convenient for demo but im not doing it )
+    private void exportToTxt() 
+    {
+        String content = shoppingListArea.getText();
+        Assignment2.Utils.SimpleTextWriter.saveTextWithDialog(this, content);
+    }
 }

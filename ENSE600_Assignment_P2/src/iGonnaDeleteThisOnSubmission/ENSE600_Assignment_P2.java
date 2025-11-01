@@ -62,7 +62,7 @@ public class ENSE600_Assignment_P2 {
 
 -> ZIP file of project
     -> .git folder should be in the zip
-    -> db folder/files also should be included
+    -> db folder/files also should be included^
 
 */
 
