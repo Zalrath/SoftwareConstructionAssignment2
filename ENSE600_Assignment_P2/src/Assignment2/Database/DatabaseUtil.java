@@ -96,7 +96,7 @@ public class DatabaseUtil {
             """);
             
            
-            /*
+            
             
             stmt.executeUpdate("""
                 CREATE TABLE Budget (
@@ -115,7 +115,7 @@ public class DatabaseUtil {
             """);
             
             
-            */
+            
             
             
             
