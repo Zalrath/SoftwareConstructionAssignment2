@@ -58,13 +58,17 @@ public class Main
          dataUtil.dropTable(conn,"Purchases");
          dataUtil.dropTable(conn,"ITEMS");
          dataUtil.dropTable(conn,"settings");
-        
+         dataUtil.dropTable(conn,"Transactions");
+         dataUtil.dropTable(conn, "budget");
+         
         dataUtil.createTables(conn);
         
          dataUtil.insertDefaultPurchases(conn);
          dataUtil.insertDefaultItems(conn);
          dataUtil.insertDefaultSettings(conn);  
-      
+         dataUtil.insertDefaultSettings(conn);
+         dataUtil.insertDefaultBudget(conn);
+         
         //dataUtil.printTableColumns(conn);
         // Really fraigle ------
         
@@ -72,9 +76,8 @@ public class Main
         
         
         
-        
-        
-        
+        budget.loadBudgetsFromDB();
+      
         
         
         manager.loadItemsFromDB(conn);

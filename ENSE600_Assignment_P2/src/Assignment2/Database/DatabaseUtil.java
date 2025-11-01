@@ -95,16 +95,28 @@ public class DatabaseUtil {
             
             """);
             
-           
+            stmt.executeUpdate("""
+            CREATE TABLE Transactions (
+                    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+                    type VARCHAR(10),            
+                    title VARCHAR(100),
+                    tag VARCHAR(50),
+                    amount DOUBLE,
+                    frequency VARCHAR(20),
+                    date DATE
+                )
+                     
+            
+            """);
+       
             
             
             stmt.executeUpdate("""
                 CREATE TABLE Budget (
-                    
-                    weekly budget DOUBLE,
-                    monthly budget DOUBLE,
-                    yearly budget DOUBLE,
-                    all time budget DOUBLE,
+                    weekly_budget DOUBLE,
+                    monthly_budget DOUBLE,
+                    yearly_budget DOUBLE,
+                    all_time_budget DOUBLE,
                     savings DOUBLE,
                     income DOUBLE,
                     expenses DOUBLE,
@@ -226,10 +238,81 @@ public class DatabaseUtil {
                     INSERT INTO settings (currency_format,date_format, accent_colour) 
                     VALUES ('$','dd MMM yyyy', '#48375D')
                 """);
+                System.out.println("Default Settings inserted successfully!");
         }
     }
     }
-        
+
+        public void insertDefaultBudget(Connection conn) throws SQLException {
+            String checkSQL = "SELECT COUNT(*) FROM Budget";
+            String insertSQL = """
+                INSERT INTO Budget (
+                    weekly_budget, monthly_budget, yearly_budget, all_time_budget,
+                    savings, income, expenses, budget, actual
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """;
+
+            try (Statement stmt = conn.createStatement();
+                 ResultSet rs = stmt.executeQuery(checkSQL)) {
+
+                rs.next();
+                int count = rs.getInt(1);
+
+                if (count == 0) {
+                    try (PreparedStatement ps = conn.prepareStatement(insertSQL)) {
+                        ps.setDouble(1, 300);       // weekly_budget
+                        ps.setDouble(2, 1200);      // monthly_budget
+                        ps.setDouble(3, 14500);     // yearly_budget
+                        ps.setDouble(4, 100000);    // all_time_budget
+                        ps.setDouble(5, 100000);    // savings
+                        ps.setDouble(6, 100000);    // income
+                        ps.setDouble(7, 100000);    // expenses
+                        ps.setDouble(8, 100000);    // budget
+                        ps.setDouble(9, 100000);    // actual
+                        ps.executeUpdate();
+                        System.out.println("Default Budget inserted successfully!");
+                    }
+                }
+               
+            }
+        }
+
+        public void insertDefaultTransactions(Connection conn) {
+        String sql = "INSERT INTO Transactions (type, title, tag, amount, frequency, date) VALUES (?, ?, ?, ?, ?, ?)";
+
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            UNCaddTransaction(ps, "expense", "milk purchase", "dairy", 4.50, "weekly", LocalDate.of(2025, 10, 29));
+            UNCaddTransaction(ps, "expense", "internet bill", "utilities", -85.00, "monthly", LocalDate.of(2025, 10, 20));
+            UNCaddTransaction(ps, "expense", "groceries", "pantry", 60.00, "weekly", LocalDate.of(2025, 10, 15));
+            UNCaddTransaction(ps, "expense", "fuel", "transport", 50.00, "fortnightly", LocalDate.of(2025, 10, 10));
+            UNCaddTransaction(ps, "expense", "gym", "health", 30.00, "monthly", LocalDate.of(2025, 10, 1));
+
+            System.out.println("Default transactions inserted successfully!");
+
+        } catch (SQLException e) {
+            System.err.println("️ Error inserting default transactions: " + e.getMessage());
+        }
+    }
+
+    private static void UNCaddTransaction(
+            PreparedStatement ps,
+            String type,
+            String title,
+            String tag,
+            double amount,
+            String frequency,
+            LocalDate date
+    ) throws SQLException {
+        ps.setString(1, type);
+        ps.setString(2, title);
+        ps.setString(3, tag);
+        ps.setDouble(4, amount);
+        ps.setString(5, frequency);
+        ps.setDate(6, java.sql.Date.valueOf(date));
+        ps.executeUpdate();
+    }
+    
     
     public void insertDefaultItems(Connection conn) {
         String sql = "INSERT INTO Items (uuid, name, last_Purchased, current_Amount , interval_Days, tags, favorite, future) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";

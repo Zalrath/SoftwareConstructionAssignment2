@@ -12,6 +12,7 @@ package Assignment2.UI.Screens.BudgetQuadrants;
  * @author megan
  */
 
+import Assignment2.Database.BudgetManager;
 import Assignment2.UI.Theme;
 import Assignment2.Inventory.InventoryManager;
 import Assignment2.UI.Template.ThemedProgressBar;
@@ -24,6 +25,7 @@ import java.time.LocalDate;
 public class BudgetVsActualPanel extends JPanel 
 {
     private final InventoryManager manager;
+    private final BudgetManager budget;
     
     private ThemedProgressBar weeklyPanel;
     private ThemedProgressBar monthlyPanel;
@@ -38,9 +40,10 @@ public class BudgetVsActualPanel extends JPanel
     
     
     // ----- constructor ----- //
-    public BudgetVsActualPanel(InventoryManager manager, Theme.Palette palette) 
+    public BudgetVsActualPanel(InventoryManager manager, Theme.Palette palette, BudgetManager budget) 
     {
         this.manager = manager;
+        this.budget = budget;
         buildUI();
     }
     
@@ -93,17 +96,17 @@ public class BudgetVsActualPanel extends JPanel
         
         
         weeklyPanel = new ThemedProgressBar("Weekly", 65);
-        weeklyPanel.setMaxDollarValue(150.00);
+        weeklyPanel.setMaxDollarValue(budget.getWeeklyBudget());
 
         monthlyPanel = new ThemedProgressBar("Monthly", 110);
-        monthlyPanel.setMaxDollarValue(600.00);
+        monthlyPanel.setMaxDollarValue(budget.getMonthlyBudget());
 
         yearlylPanel = new ThemedProgressBar("Yearly", 80);
         // this will be set to the total income over the specific period later, rn thats not implemented
-        yearlylPanel.setMaxDollarValue(7500.00); 
+        yearlylPanel.setMaxDollarValue(budget.getYearlyBudget()); 
 
         alltimePanel = new ThemedProgressBar("All Time", 45);
-        alltimePanel.setMaxDollarValue(10000.00);
+        alltimePanel.setMaxDollarValue(budget.getAllTimeBudget());
 
 
         // add panels to the main layout
@@ -153,10 +156,12 @@ public class BudgetVsActualPanel extends JPanel
         rightPanel.add(Box.createVerticalStrut(10));
         
         
-        weeklyBudgetField = createLabeledField(rightPanel, "Weekly:", "300");
-        monthlyBudgetField = createLabeledField(rightPanel, "Monthly:", "1200");
-        yearlyBudgetField = createLabeledField(rightPanel, "Yearly:", "14400");
-        allTimeBudgetField = createLabeledField(rightPanel, "All Time:", "100000");
+        
+        
+        weeklyBudgetField = createLabeledField(rightPanel, "Weekly:", String.valueOf(budget.getWeeklyBudget()));
+        monthlyBudgetField = createLabeledField(rightPanel, "Monthly:", String.valueOf(budget.getMonthlyBudget()));
+        yearlyBudgetField = createLabeledField(rightPanel, "Yearly:", String.valueOf(budget.getYearlyBudget()));
+        allTimeBudgetField = createLabeledField(rightPanel, "All Time:", String.valueOf(budget.getAllTimeBudget()));
 
          
         
@@ -256,14 +261,21 @@ public class BudgetVsActualPanel extends JPanel
             double monthlyBudget = Double.parseDouble(monthlyBudgetField.getText());
             double yearlyBudget = Double.parseDouble(yearlyBudgetField.getText());
             double allTimeBudget = Double.parseDouble(allTimeBudgetField.getText());
-
+            
+            
+            budget.setMonthlyBudget(monthlyBudget);
+            budget.setYearlyBudget(yearlyBudget);
+            budget.setWeeklyBudget(weeklyBudget);
+            budget.setAllTimeBudget(allTimeBudget);
+            
             weeklyPanel.setMaxDollarValue(weeklyBudget);
             monthlyPanel.setMaxDollarValue(monthlyBudget);
             yearlylPanel.setMaxDollarValue(yearlyBudget);
             alltimePanel.setMaxDollarValue(allTimeBudget);
                 
             
-            
+            budget.saveBudgetsToDB();
+           
             refresh();
             
             

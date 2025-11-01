@@ -10,6 +10,8 @@ package Assignment2.UI.Screens.BudgetQuadrants;
  * @author megan
  */
 
+import Assignment2.Database.BudgetManager;
+import Assignment2.Database.DatabaseUtil;
 import Assignment2.UI.Theme;
 import Assignment2.Inventory.InventoryManager;
 
@@ -29,13 +31,15 @@ public class IncomeExpensePanel extends JPanel
     
     // ----- fields ----- //
     private final InventoryManager manager;
+    private final BudgetManager budget;
     private JTable table;
     private DefaultTableModel tableModel;
     
     // ----- constructor ----- //
-    public IncomeExpensePanel(InventoryManager manager, Theme.Palette palette)
+    public IncomeExpensePanel(InventoryManager manager, Theme.Palette palette, BudgetManager budget)
     {
         this.manager = manager;
+        this.budget = budget;
         buildUI();
     }
     
@@ -138,6 +142,23 @@ public class IncomeExpensePanel extends JPanel
         frequencyBox.setPreferredSize(new Dimension(FIELD_WIDTH, FIELD_HEIGHT));
         
         JButton saveSalaryButton = createAccentButton("Save", palette);
+        saveSalaryButton.addActionListener(e -> {
+        
+        try {
+                double amount = Double.parseDouble(salaryField.getText());
+                String frequency = (String) frequencyBox.getSelectedItem();
+                
+                budget.saveTransaction("income", "Salary", "income", amount, frequency);
+                
+                populateTableData();
+                refreshTotals();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid income amount.");
+            }
+        
+        
+        
+        });
         
         salaryRow.add(salaryFieldContainer);
         salaryRow.add(Box.createHorizontalStrut(10)); // small gap
@@ -194,6 +215,9 @@ public class IncomeExpensePanel extends JPanel
         panel.add(budgetRow);
         
         return panel;
+        
+        
+        
     }
     
     // ----- expenses ----- //
@@ -233,6 +257,26 @@ public class IncomeExpensePanel extends JPanel
         JPanel amountContainer = createAmountFieldContainer(amountField, palette);
         
         JButton confirmBillButton = createAccentButton("Confirm", palette);
+        confirmBillButton.addActionListener(e -> {
+            try {
+            String title = billTitleField.getText();
+            String tag = (String) tagBox.getSelectedItem();
+            double amount = Double.parseDouble(amountField.getText());
+            
+            budget.saveTransaction("expense", title, tag, amount, "one-time");
+            
+            populateTableData();
+            refreshTotals();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid expense amount.");
+        }
+        
+        
+        });
+        
+        
+        
+        
         
         addBillRow.add(billTitleField);
         addBillRow.add(Box.createHorizontalStrut(10)); // small gap
@@ -444,6 +488,15 @@ public class IncomeExpensePanel extends JPanel
     
     private void populateTableData()
     {
+        /*
+        tableModel.setRowCount(0);
+        List<Object[]> transactions = budget.getTransactions();
+        for (Object[] row : transactions) {
+            tableModel.addRow(row);
+        }
+        */
+        
+        
         List<Object[]> transactions = new ArrayList<>();
         transactions.add(new Object[]{"milk purchase", "dairy", "2025-10-29", "$4.50", "weekly"});
         transactions.add(new Object[]{"internet bill", "utilities", "2025-10-20", "-$85.00", "monthly"});
@@ -454,6 +507,8 @@ public class IncomeExpensePanel extends JPanel
         tableModel.setRowCount(0);
         for (Object[] row : transactions)
             tableModel.addRow(row);
+         
+
     }
     
     private void customizeScrollPane(JScrollPane scrollPane)
@@ -506,6 +561,25 @@ public class IncomeExpensePanel extends JPanel
             }
         });
     }
+    
+    
+    
+    private void refreshTotals() {
+        double income = budget.getTotalByType("income");
+        double expense = budget.getTotalByType("expense");
+        
+    }
+   
+    
+    
+
+    
+    
+    
+    
+    
+ 
+    
     
     public void refresh()
     {

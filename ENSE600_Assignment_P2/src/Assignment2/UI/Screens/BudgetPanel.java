@@ -79,8 +79,8 @@ public class BudgetPanel extends BaseScreenPanel
         grid.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
         // initialise sub-panels
-        incomeExpensePanel = new IncomeExpensePanel(manager, palette);
-        budgetVsActualPanel = new BudgetVsActualPanel(manager, palette);
+        incomeExpensePanel = new IncomeExpensePanel(manager, palette,budget);
+        budgetVsActualPanel = new BudgetVsActualPanel(manager, palette ,budget);
         savingsPanel = new SavingsPanel(manager, palette);
         spendingPanel = new SpendingPanel(manager, palette);
 

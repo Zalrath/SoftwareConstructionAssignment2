@@ -4,7 +4,11 @@
  */
 package Assignment2.Database;
 
+import Assignment2.Database.DatabaseUtil;
+import Assignment2.Inventory.Transaction;
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.*;
 
 
 
@@ -25,7 +29,7 @@ public class BudgetManager {
     private double weeklyBudget;
     private double monthlyBudget;
     private double yearlyBudget;
-    private double allTimeBudget;
+    private double allTimeBudget; // just so we have default values
     private double savings;
     private double income;
     private double expenses;
@@ -35,22 +39,22 @@ public class BudgetManager {
     // ------------------------------------
     // Save Budgets to DB
     // ------------------------------------
-    public void saveBudgetsToDB(Connection conn) {
+    public void saveBudgetsToDB() {
         String sql = """
-            INSERT INTO Budget (
-                weekly_budget,
-                monthly_budget,
-                yearly_budget,
-                all_time_budget,
-                savings,
-                income,
-                expenses,
-                budget,
-                actual
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            UPDATE Budget SET 
+                weekly_budget = ?,
+                monthly_budget = ?,
+                yearly_budget = ?,
+                all_time_budget = ?,
+                savings = ?,
+                income = ?,
+                expenses = ?,
+                budget = ?,
+                actual = ?
+             
         """;
 
-        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (PreparedStatement ps = DatabaseUtil.getConnection().prepareStatement(sql)) {
             ps.setDouble(1, weeklyBudget);
             ps.setDouble(2, monthlyBudget);
             ps.setDouble(3, yearlyBudget);
@@ -72,10 +76,10 @@ public class BudgetManager {
     // ------------------------------------
     // Load Budgets from DB
     // ------------------------------------
-    public void loadBudgetsFromDB(Connection conn) {
+    public void loadBudgetsFromDB() {
         String sql = "SELECT * FROM Budget";
 
-        try (Statement stmt = conn.createStatement();
+        try (Statement stmt = DatabaseUtil.getConnection().createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
             if (rs.next()) {
@@ -103,7 +107,7 @@ public class BudgetManager {
     }
 
     // ------------------------------------
-    // Accessors
+    // GETS AND SETS
     // ------------------------------------
     public double getWeeklyBudget() { return weeklyBudget; }
     public void setWeeklyBudget(double v) { weeklyBudget = v; }
@@ -131,7 +135,170 @@ public class BudgetManager {
 
     public double getActual() { return actual; }
     public void setActual(double v) { actual = v; }
+
+    
+    
+    
+    
+
+        
+        
+      //  @Override
+      //  public String toString() {
+      //      return String.format("[%s] %s - $%.2f (%s)", type, title, amount, date);
+       // }
+    
+
+    private final HashMap<UUID, Transaction> transactions = new HashMap<>();
+
+    // Load all transactions from DB into HashMap
+    public void loadTransactions() {
+        String sql = "SELECT * FROM Transactions";
+
+        try (Statement stmt = DatabaseUtil.getConnection().createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            transactions.clear(); // clear in-memory cache before reloading
+
+            while (rs.next()) {
+                UUID id = UUID.fromString(rs.getString("id"));
+                String type = rs.getString("type");
+                String title = rs.getString("title");
+                String tag = rs.getString("tag");
+                double amount = rs.getDouble("amount");
+                String frequency = rs.getString("frequency");
+                String date = rs.getDate("date").toString();
+
+                Transaction t = new Transaction(id, type, title, tag, amount, frequency, date);
+                transactions.put(id, t);
+            }
+            System.out.println("Transactions loaded: " + transactions.size());
+
+        } catch (SQLException e) {
+            System.err.println("Error loading transactions: " + e.getMessage());
+        }
+    }
+    
+
+    // Save a single transaction to the DB and map
+    public void addTransaction( Transaction t) {
+        String sql = """
+            INSERT INTO Transactions (id, type, title, tag, amount, frequency, date)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """;
+
+        try (PreparedStatement ps = DatabaseUtil.getConnection().prepareStatement(sql)) {
+            ps.setString(1, t.getId().toString());
+            ps.setString(2, t.getType());
+            ps.setString(3, t.getTitle());
+            ps.setString(4, t.getTag());
+            ps.setDouble(5, t.getAmount());
+            ps.setString(6, t.getFrequency());
+            ps.setDate(7, java.sql.Date.valueOf(t.getDate()));
+
+            ps.executeUpdate();
+            transactions.put(t.getId(), t);
+
+            System.out.println("Transaction added: " + t.getTitle());
+
+        } catch (SQLException e) {
+            System.err.println("Error adding transaction: " + e.getMessage());
+        }
+    }
+
+    // Update existing transaction
+    public void updateTransaction(Transaction t) {
+        String sql = """
+            UPDATE Transactions 
+            SET type = ?, title = ?, tag = ?, amount = ?, frequency = ?, date = ?
+            WHERE id = ?
+        """;
+
+        try (PreparedStatement ps = DatabaseUtil.getConnection().prepareStatement(sql)) {
+            ps.setString(1, t.getType());
+            ps.setString(2, t.getTitle());
+            ps.setString(3, t.getTag());
+            ps.setDouble(4, t.getAmount());
+            ps.setString(5, t.getFrequency());
+            ps.setDate(6, java.sql.Date.valueOf(t.getDate()));
+            ps.setString(7, t.getId().toString());
+
+            int rows = ps.executeUpdate();
+
+            if (rows > 0) {
+                transactions.put(t.getId(), t);
+                System.out.println("Transaction updated: " + t.getTitle());
+            } else {
+                System.out.println("No transaction found for update: " + t.getId());
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error updating transaction: " + e.getMessage());
+        }
+    }
+
+    // Delete a transaction
+    public void deleteTransaction(UUID id) {
+        String sql = "DELETE FROM Transactions WHERE id = ?";
+
+        try (PreparedStatement ps = DatabaseUtil.getConnection().prepareStatement(sql)) {
+            ps.setString(1, id.toString());
+            int rows = ps.executeUpdate();
+
+            if (rows > 0) {
+                transactions.remove(id);
+                System.out.println("Transaction deleted: " + id);
+            } else {
+                System.out.println("No transaction found with ID: " + id);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error deleting transaction: " + e.getMessage());
+        }
+    }
+
+    // Clear all transactions (DB + HashMap)
+    public void clearAllTransactions(Connection conn) {
+        String sql = "DELETE FROM Transactions";
+
+        try (Statement stmt = conn.createStatement()) {
+            int count = stmt.executeUpdate(sql);
+            transactions.clear();
+            System.out.println("All transactions cleared (" + count + " deleted).");
+
+        } catch (SQLException e) {
+            System.err.println("Error clearing transactions: " + e.getMessage());
+        }
+    }
+
+    // Getter for in-memory map
+    public HashMap<UUID, Transaction> getTransactions() {
+        return transactions;
+    }
+    
+    public double getTotalByType(String type) {
+        String sql = "SELECT SUM(amount) FROM Transactions WHERE type = ?";
+        try (PreparedStatement ps = DatabaseUtil.getConnection().prepareStatement(sql)) {
+            ps.setString(1, type);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return rs.getDouble(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0.0;
+    }
 }
+
+    
+
+
+
+
+
+
+
+
+
         // i need this for the panels
           /*
         LocalDate now = LocalDate.now();
