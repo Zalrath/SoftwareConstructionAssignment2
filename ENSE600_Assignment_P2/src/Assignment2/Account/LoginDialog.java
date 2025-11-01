@@ -9,7 +9,7 @@ package Assignment2.Account;
  * @author megan
  */
 
-import Assignment2.Account.LoginAuthenticator;
+
 import Assignment2.UI.Template.BaseThemedDialog;
 import Assignment2.UI.Theme;
 
@@ -22,7 +22,7 @@ import java.awt.event.ActionEvent;
 public class LoginDialog extends BaseThemedDialog 
 {
     // ----- Login Authentication ----- // 
-    private final LoginAuthenticator authenticator;
+    private final UserAuthenticator authenticator;
     private boolean authenticated = false;
     
     // ----- UI ----- // 
@@ -36,7 +36,7 @@ public class LoginDialog extends BaseThemedDialog
      * @param authenticator - dependency for login verification
      */
     
-    public LoginDialog(Frame owner, boolean modal, LoginAuthenticator authenticator) 
+    public LoginDialog(Frame owner, boolean modal, UserAuthenticator authenticator) 
     {
         super(owner, "Login", modal ? ModalityType.APPLICATION_MODAL : ModalityType.MODELESS);
         
@@ -112,7 +112,7 @@ public class LoginDialog extends BaseThemedDialog
         String p = new String(txtPass.getPassword()); 
 
         // authenticate
-        if (authenticator.verify(u, p)) 
+        if (authenticator.authenticate(u, p)) 
         {
             authenticated = true;
             dispose();

@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 public class NewAccountDialog extends BaseThemedDialog 
 {
     // ----- Creation Authentication ----- // 
-    private final AccountCreator creator;
+    private final UserAuthenticator authenticator;
     private boolean created = false;
     
     // ----- UI ----- // 
@@ -34,11 +34,11 @@ public class NewAccountDialog extends BaseThemedDialog
      * @param creator - checks existence & creation
      */
     
-    public NewAccountDialog(Frame owner, boolean modal, AccountCreator creator) 
+    public NewAccountDialog(Frame owner, boolean modal, UserAuthenticator authenticator) 
     {
         super(owner, "Create Account",  modal ? ModalityType.APPLICATION_MODAL : ModalityType.MODELESS);
         
-        this.creator = creator;
+        this.authenticator = authenticator;
         
         setSize(420, 240);
         setLocationRelativeTo(owner);
@@ -135,12 +135,7 @@ public class NewAccountDialog extends BaseThemedDialog
         }
 
         // validate existing
-        if (creator.exists(u)) { 
-            msg.setText("Username already exists."); 
-            return; 
-        }
-        
-        if (creator.create(u, p1))
+        if (authenticator.createAccount(u, p1))
         {
             created = true;
             dispose();

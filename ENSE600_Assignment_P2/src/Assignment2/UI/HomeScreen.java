@@ -34,8 +34,7 @@ public class HomeScreen extends JFrame
     private String currentUser = "Guest";
     
     // dependencies
-    private final PlaceholderAuthenticator authenticator = new PlaceholderAuthenticator();
-    private final AccountCreator accountCreator = new PlaceholderCreator();
+    
     
     private final InventoryManager manager;
     private final SettingsManager settings;
@@ -44,13 +43,16 @@ public class HomeScreen extends JFrame
     private final CardLayout cards = new CardLayout();
     private final JPanel root = new JPanel(cards);
     private final Map<String, JPanel> screenMap = new HashMap<>();
+    private final UserAuthenticator auth;
   
     
     // ----- Constructor ----- // 
-    public HomeScreen(InventoryManager manager, SettingsManager settings)
+    public HomeScreen(InventoryManager manager, SettingsManager settings, UserAuthenticator auth)
     {
+        
         this.manager = manager;
         this.settings = settings;
+        this.auth = auth;  
         setTitle("Welcome");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(520, 320);
@@ -139,13 +141,13 @@ public class HomeScreen extends JFrame
         registerScreen("inventory", new InventoryPanel(manager,settings));
         registerScreen("budget",    new BudgetPanel(manager));
         registerScreen("shopping",  new ShoppingListPanel(manager));
-        registerScreen("settings",  new SettingsPanel(manager,settings));
+        registerScreen("settings",  new SettingsPanel(manager,settings,auth));
     }
     
     // ----- Actions ----- // 
     private void onLoginClicked(ActionEvent e) 
     {
-        LoginDialog dlg = new LoginDialog(this, true, authenticator);
+        LoginDialog dlg = new LoginDialog(this, true, auth);
         dlg.setVisible(true);
         
         if (dlg.isAuthenticated()) 
@@ -157,7 +159,7 @@ public class HomeScreen extends JFrame
     
     private void onNewAccountClicked(ActionEvent e) 
     {
-        NewAccountDialog dlg = new NewAccountDialog(this, true, accountCreator);
+        NewAccountDialog dlg = new NewAccountDialog(this, true, auth);
         dlg.setVisible(true);
         
         if (dlg.isCreated()) 

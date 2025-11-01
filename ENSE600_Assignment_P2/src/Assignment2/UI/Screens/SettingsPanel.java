@@ -11,7 +11,7 @@ package Assignment2.UI.Screens;
  */
 
 import Assignment2.Account.LoginDialog;
-import Assignment2.Account.PlaceholderAuthenticator;
+import Assignment2.Account.UserAuthenticator;
 import Assignment2.Inventory.InventoryManager;
 import Assignment2.Inventory.SettingsManager;
 import Assignment2.UI.HomeScreen;
@@ -26,16 +26,17 @@ import javax.swing.border.Border;
 
 public class SettingsPanel extends BaseScreenPanel 
 {
-
+    private final UserAuthenticator auth;
     private final InventoryManager manager;
     private final SettingsManager settings;
     
     // ----- Constructor ----- // 
-    public SettingsPanel(InventoryManager manager, SettingsManager settings) 
+    public SettingsPanel(InventoryManager manager, SettingsManager settings, UserAuthenticator auth) 
     {
         super("Settings", /*showBack*/ true, /*showAdd*/ false, /*addLabel*/ "Add Item", /*backTarget*/ "dashboard");
-         this.manager = manager;
-         this.settings = settings; 
+        this.auth = auth; 
+        this.manager = manager;
+        this.settings = settings; 
         buildBaseUI();
     }
     
@@ -353,7 +354,7 @@ public class SettingsPanel extends BaseScreenPanel
                 
                 SwingUtilities.invokeLater(() -> {
                     
-                    new HomeScreen(manager, settings).setVisible(true);
+                    new HomeScreen(manager, settings, auth).setVisible(true);
                    
                     // shouldn't be needed
                     /*

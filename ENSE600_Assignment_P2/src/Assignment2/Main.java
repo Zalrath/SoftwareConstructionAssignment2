@@ -9,6 +9,7 @@ package Assignment2;
  * @author megan
  */
 
+import Assignment2.Account.UserAuthenticator;
 import Assignment2.UI.HomeScreen;
 
 import Assignment2.Database.DatabaseUtil;
@@ -146,7 +147,9 @@ public class Main
         Theme.setAccent(dbselected);        // updates all components
         
         // ----- Launch GUI ----- // 
-        SwingUtilities.invokeLater(() -> new HomeScreen(manager,settings).setVisible(true));
+        UserAuthenticator auth = new UserAuthenticator(conn);
+        SwingUtilities.invokeLater(() -> new HomeScreen(manager, settings, auth).setVisible(true));
+
 
         /////////////////////////////////////////////////////////////////////////////////
         // testing // 

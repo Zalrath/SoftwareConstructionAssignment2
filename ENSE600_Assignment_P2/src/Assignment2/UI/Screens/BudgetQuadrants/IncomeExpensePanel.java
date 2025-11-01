@@ -1,4 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Assignment2.UI.Screens.BudgetQuadrants;
+
+/**
+ *
+ * @author megan
+ */
 
 import Assignment2.UI.Theme;
 import Assignment2.Inventory.InventoryManager;
