@@ -11,6 +11,7 @@ package Assignment2.UI.Screens;
  */
 
 
+import Assignment2.Database.BudgetManager;
 import Assignment2.UI.Template.BaseScreenPanel;
 import Assignment2.UI.Theme;
 import Assignment2.Inventory.InventoryManager;
@@ -48,7 +49,8 @@ public class BudgetPanel extends BaseScreenPanel
 {
 
     private final InventoryManager manager;
-
+    private final BudgetManager budget;
+    
     // sub-panels
     private IncomeExpensePanel incomeExpensePanel;
     private BudgetVsActualPanel budgetVsActualPanel;
@@ -56,10 +58,11 @@ public class BudgetPanel extends BaseScreenPanel
     private SpendingPanel spendingPanel;
 
     // ----- constructor ----- //
-    public BudgetPanel(InventoryManager manager)
+    public BudgetPanel(InventoryManager manager, BudgetManager budget)
     {
         super("Budget", true, true, "add item", "dashboard");
         this.manager = manager;
+        this.budget = budget;
         buildBaseUI();
     }
 

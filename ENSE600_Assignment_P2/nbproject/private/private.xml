@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>src/Assignment2/UI/Screens/BudgetQuadrants/IncomeExpensePanel.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>0</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Files/github/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/HomeScreen.java</file>
-            <file>file:/E:/Files/github/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/Main.java</file>
-            <file>file:/E:/Files/github/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/Screens/BudgetQuadrants/SavingsPanel.java</file>
-            <file>file:/E:/Files/github/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/iGonnaDeleteThisOnSubmission/ENSE600_Assignment_P2.java</file>
-            <file>file:/E:/Files/github/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/Screens/BudgetQuadrants/IncomeExpensePanel.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/Main.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/Inventory/InventoryManager.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/AddItemDialog.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/Template/BaseScreenPanel.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/HomeScreen.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/UI/Screens/InventoryPanel.java</file>
+            <file>file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/src/Assignment2/Database/DatabaseUtil.java</file>
         </group>
     </open-files>
 </project-private>

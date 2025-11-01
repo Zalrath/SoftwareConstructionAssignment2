@@ -15,6 +15,7 @@ import Assignment2.UI.Template.ThemedProgressBar;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalDate;
 
 public class BudgetVsActualPanel extends JPanel 
 {
@@ -24,6 +25,13 @@ public class BudgetVsActualPanel extends JPanel
     private ThemedProgressBar monthlyPanel;
     private ThemedProgressBar yearlylPanel;
     private ThemedProgressBar alltimePanel;
+    
+    private JTextField weeklyBudgetField;
+    private JTextField monthlyBudgetField;
+    private JTextField yearlyBudgetField;
+    private JTextField allTimeBudgetField;
+    
+    
     
     // ----- constructor ----- //
     public BudgetVsActualPanel(InventoryManager manager, Theme.Palette palette) 
@@ -108,7 +116,7 @@ public class BudgetVsActualPanel extends JPanel
         
         JPanel buttonColumn = createRightPanel(currentPalette);
         
-        // mainContent.add(buttonColumn, BorderLayout.EAST);
+        mainContent.add(buttonColumn, BorderLayout.EAST);
         mainContent.add(mainPanel, BorderLayout.CENTER);
         
         add(mainContent, BorderLayout.CENTER);
@@ -140,16 +148,126 @@ public class BudgetVsActualPanel extends JPanel
         rightPanel.add(header);
         rightPanel.add(Box.createVerticalStrut(10));
         
+        
+        weeklyBudgetField = createLabeledField(rightPanel, "Weekly:", "300");
+        monthlyBudgetField = createLabeledField(rightPanel, "Monthly:", "1200");
+        yearlyBudgetField = createLabeledField(rightPanel, "Yearly:", "14400");
+        allTimeBudgetField = createLabeledField(rightPanel, "All Time:", "100000");
+
+         
+        
+        allTimeBudgetField.setBackground(currentPalette.accent);
+        allTimeBudgetField.setForeground(Color.WHITE);
+
+        yearlyBudgetField.setBackground(currentPalette.accent);
+        yearlyBudgetField.setForeground(Color.WHITE);
+        
+        monthlyBudgetField.setBackground(currentPalette.accent);
+        monthlyBudgetField.setForeground(Color.WHITE);
+        
+        weeklyBudgetField.setBackground(currentPalette.accent);
+        weeklyBudgetField.setForeground(Color.WHITE);
+                
+        // apply button
+        JButton applyButton = new JButton("Apply");
+        applyButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        applyButton.addActionListener(e -> applyBudgets());
+      
+        applyButton.setPreferredSize(new Dimension(Integer.MAX_VALUE, 28));
+        applyButton.setFocusPainted(false);
+        applyButton.setContentAreaFilled(true);
+        applyButton.setOpaque(true);       
+        applyButton.setBackground(currentPalette.accent);
+        applyButton.setForeground(Color.WHITE);
+        applyButton.setFont(Theme.TITLE_FONT.deriveFont(18f));
+        
+        
+        rightPanel.add(Box.createVerticalStrut(10));
+        rightPanel.add(applyButton);
+        
+        
+        
+        
         return rightPanel;
+    }
+    
+    private JTextField createLabeledField(JPanel parent, String label, String defaultValue) {
+        JLabel jLabel = new JLabel(label);
+        jLabel.setForeground(Color.WHITE);
+        jLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        parent.add(jLabel);
+
+        JTextField field = new JTextField(defaultValue);
+        field.setMaximumSize(new Dimension(140, 25));
+        field.setAlignmentX(Component.CENTER_ALIGNMENT);
+        parent.add(field);
+        parent.add(Box.createVerticalStrut(5));
+        return field;
     }
     
     // ----- main refresh logic ----- //
     public void refresh() 
     {
-        weeklyPanel.updateValue(95.4);
-        monthlyPanel.updateValue(90.8);
-        yearlylPanel.updateValue(80.0);
-        alltimePanel.updateValue(45.0);
+
+
+        // Spending
+        double weeklySpending = manager.getTotalSpendingForPeriod("week");
+        double monthlySpending = manager.getTotalSpendingForPeriod("month");
+        double yearlySpending = manager.getTotalSpendingForPeriod("year");
+        double allTimeSpending = manager.getTotalSpendingForPeriod("all");
+
+
+        // Budgets  
+        double weeklyBudget = Double.parseDouble(weeklyBudgetField.getText());
+        double monthlyBudget = Double.parseDouble(monthlyBudgetField.getText());
+        double yearlyBudget = Double.parseDouble(yearlyBudgetField.getText());
+        double allTimeBudget = Double.parseDouble(allTimeBudgetField.getText());
+
+    
+
+        
+        
+        // Update progress bars
+        weeklyPanel.setMaxDollarValue(weeklyBudget);
+
+        weeklyPanel.updateValue((weeklySpending / weeklyBudget) * 100);
+
+        monthlyPanel.setMaxDollarValue(monthlyBudget);
+
+        monthlyPanel.updateValue((monthlySpending / monthlyBudget) * 100);
+
+        yearlylPanel.setMaxDollarValue(yearlyBudget);
+
+        yearlylPanel.updateValue((yearlySpending / yearlyBudget) * 100);
+
+        alltimePanel.setMaxDollarValue(allTimeBudget);
+
+        alltimePanel.updateValue((allTimeSpending / allTimeBudget) * 100);
 
     }
+
+    private void applyBudgets() {
+        try {
+            double weeklyBudget = Double.parseDouble(weeklyBudgetField.getText());
+            double monthlyBudget = Double.parseDouble(monthlyBudgetField.getText());
+            double yearlyBudget = Double.parseDouble(yearlyBudgetField.getText());
+            double allTimeBudget = Double.parseDouble(allTimeBudgetField.getText());
+
+            weeklyPanel.setMaxDollarValue(weeklyBudget);
+            monthlyPanel.setMaxDollarValue(monthlyBudget);
+            yearlylPanel.setMaxDollarValue(yearlyBudget);
+            alltimePanel.setMaxDollarValue(allTimeBudget);
+                
+            
+            
+            refresh();
+            
+            
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please enter valid numbers for all budgets.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+
+
 }

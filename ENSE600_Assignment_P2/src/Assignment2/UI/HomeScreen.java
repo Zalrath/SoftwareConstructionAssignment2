@@ -15,6 +15,7 @@ import Assignment2.UI.Screens.SettingsPanel;
 import Assignment2.UI.Screens.ShoppingListPanel;
 import Assignment2.UI.Screens.BudgetPanel;
 import Assignment2.Account.*;
+import Assignment2.Database.BudgetManager;
 import Assignment2.Database.DatabaseUtil;
 import Assignment2.Inventory.InventoryManager;
 import Assignment2.Inventory.Item;
@@ -38,6 +39,7 @@ public class HomeScreen extends JFrame
     
     private final InventoryManager manager;
     private final SettingsManager settings;
+    private final BudgetManager budget;
     
     // layout + screen map
     private final CardLayout cards = new CardLayout();
@@ -47,12 +49,16 @@ public class HomeScreen extends JFrame
   
     
     // ----- Constructor ----- // 
-    public HomeScreen(InventoryManager manager, SettingsManager settings, UserAuthenticator auth)
+
+    public HomeScreen(InventoryManager manager, SettingsManager settings, UserAuthenticator auth, BudgetManager budget)
+
     {
         
         this.manager = manager;
         this.settings = settings;
         this.auth = auth;  
+        this.budget = budget;
+
         setTitle("Welcome");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(520, 320);
@@ -139,12 +145,13 @@ public class HomeScreen extends JFrame
         
         registerScreen("dashboard", new DashboardPanel(this, currentUser, appName));
         registerScreen("inventory", new InventoryPanel(manager,settings));
-        registerScreen("budget",    new BudgetPanel(manager));
+        registerScreen("budget",    new BudgetPanel(manager, budget));
         registerScreen("shopping",  new ShoppingListPanel(manager));
-        registerScreen("settings",  new SettingsPanel(manager,settings,auth));
+        registerScreen("settings",  new SettingsPanel(manager,settings,auth,budget));
+
     }
-    
     // ----- Actions ----- // 
+    
     private void onLoginClicked(ActionEvent e) 
     {
         LoginDialog dlg = new LoginDialog(this, true, auth);

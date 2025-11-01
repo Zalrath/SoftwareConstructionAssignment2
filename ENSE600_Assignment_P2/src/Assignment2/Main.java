@@ -9,7 +9,11 @@ package Assignment2;
  * @author megan
  */
 
+
 import Assignment2.Account.UserAuthenticator;
+
+import Assignment2.Database.BudgetManager;
+
 import Assignment2.UI.HomeScreen;
 
 import Assignment2.Database.DatabaseUtil;
@@ -46,6 +50,7 @@ public class Main
         DatabaseUtil dataUtil = new DatabaseUtil();
         InventoryManager manager = new InventoryManager();
         SettingsManager settings = new SettingsManager();
+        BudgetManager budget = new BudgetManager();
 
         
         // YOU CAN NOT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE, IT MESSES WITH THE DB CONNECTION 
@@ -147,8 +152,9 @@ public class Main
         Theme.setAccent(dbselected);        // updates all components
         
         // ----- Launch GUI ----- // 
+
         UserAuthenticator auth = new UserAuthenticator(conn);
-        SwingUtilities.invokeLater(() -> new HomeScreen(manager, settings, auth).setVisible(true));
+        SwingUtilities.invokeLater(() -> new HomeScreen(manager, settings, auth ,budget).setVisible(true));
 
 
         /////////////////////////////////////////////////////////////////////////////////

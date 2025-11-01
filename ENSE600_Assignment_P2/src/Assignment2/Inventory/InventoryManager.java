@@ -143,41 +143,45 @@ public class InventoryManager {
     
     
     public Map<String, Double> getSpendingByTag(String filter) { // changed the one in the spendingPanel so it can be used for the Vs Panel
-    Map<String, Double> spendingByTag = new HashMap<>();
-    LocalDate cutoff = switch (filter.toLowerCase()) {
-        case "week" -> LocalDate.now().minusDays(7);
-        case "month" -> LocalDate.now().minusMonths(1);
-        case "year" -> LocalDate.now().minusYears(1);
-        default -> null; // all time
-    };
+        Map<String, Double> spendingByTag = new HashMap<>();
+        LocalDate cutoff = switch (filter.toLowerCase()) {
+            case "week" -> LocalDate.now().minusDays(7);
+            case "month" -> LocalDate.now().minusMonths(1);
+            case "year" -> LocalDate.now().minusYears(1);
+            default -> null; // all time
+        };
 
-    for (var entry : purchaseHistory.entrySet()) {
-        UUID itemId = entry.getKey();
-        List<PurchaseLog> logs = entry.getValue();
-        if (logs == null || logs.isEmpty()) continue;
+        for (var entry : purchaseHistory.entrySet()) {
+            UUID itemId = entry.getKey();
+            List<PurchaseLog> logs = entry.getValue();
+            if (logs == null || logs.isEmpty()) continue;
 
-        Item item = items.get(itemId);
-        if (item == null) continue;
+            Item item = items.get(itemId);
+            if (item == null) continue;
 
-        ArrayList<String> tags = item.getTags();
-        if (tags == null || tags.isEmpty()) continue;
+            ArrayList<String> tags = item.getTags();
+            if (tags == null || tags.isEmpty()) continue;
 
-        // Use first tag (or could loop through all if you want)
-        String firstTag = tags.get(0);
-        double totalForItem = 0.0;
+            // Use first tag (or could loop through all if you want)
+            String firstTag = tags.get(0);
+            double totalForItem = 0.0;
 
-        for (PurchaseLog log : logs) {
-            if (cutoff != null && log.getPurchaseDate().isBefore(cutoff)) continue;
-            totalForItem += log.getPrice() * log.getQuantity();
+            for (PurchaseLog log : logs) {
+                if (cutoff != null && log.getPurchaseDate().isBefore(cutoff)) continue;
+                totalForItem += log.getPrice() * log.getQuantity();
+            }
+
+            if (totalForItem > 0)
+                spendingByTag.merge(firstTag, totalForItem, Double::sum);
         }
 
-        if (totalForItem > 0)
-            spendingByTag.merge(firstTag, totalForItem, Double::sum);
+        return spendingByTag;
     }
-
-    return spendingByTag;
-}
     
+    public double getTotalSpendingForPeriod(String filter) {
+        Map<String, Double> spendingMap = getSpendingByTag(filter);
+        return spendingMap.values().stream().mapToDouble(Double::doubleValue).sum();
+    }
     
     // Data base functions 
     /////////////////////////////////////////////////////////////////////////////////////
