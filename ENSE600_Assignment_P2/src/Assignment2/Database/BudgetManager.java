@@ -161,7 +161,7 @@ public class BudgetManager {
             transactions.clear(); // clear in-memory cache before reloading
 
             while (rs.next()) {
-                UUID id = UUID.fromString(rs.getString("id"));
+                UUID id = UUID.fromString(rs.getString("uuid"));
                 String type = rs.getString("type");
                 String title = rs.getString("title");
                 String tag = rs.getString("tag");
@@ -183,7 +183,7 @@ public class BudgetManager {
     // Save a single transaction to the DB and map
     public void addTransaction( Transaction t) {
         String sql = """
-            INSERT INTO Transactions (id, type, title, tag, amount, frequency, date)
+            INSERT INTO Transactions (uuid, type, title, tag, amount, frequency, date)
             VALUES (?, ?, ?, ?, ?, ?, ?)
         """;
 

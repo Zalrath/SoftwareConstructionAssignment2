@@ -14,6 +14,7 @@ import Assignment2.Database.BudgetManager;
 import Assignment2.Database.DatabaseUtil;
 import Assignment2.UI.Theme;
 import Assignment2.Inventory.InventoryManager;
+import Assignment2.Inventory.Transaction;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +22,7 @@ import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class IncomeExpensePanel extends JPanel
 {
@@ -148,17 +150,31 @@ public class IncomeExpensePanel extends JPanel
                 double amount = Double.parseDouble(salaryField.getText());
                 String frequency = (String) frequencyBox.getSelectedItem();
                 
-    //            budget.saveTransaction("income", "Salary", "income", amount, frequency);
+
+                Transaction t = new Transaction(
+                    UUID.randomUUID(),
+                    "income",
+                    "Salary",
+                    "income",
+                    amount,
+                    frequency,
+                    java.time.LocalDate.now().toString()
+                );
+
+                budget.addTransaction(t);
+                
+                
+
                 
                 populateTableData();
                 refreshTotals();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Please enter a valid income amount.");
             }
-        
-        
+       
         
         });
+        
         
         salaryRow.add(salaryFieldContainer);
         salaryRow.add(Box.createHorizontalStrut(10)); // small gap
@@ -182,6 +198,33 @@ public class IncomeExpensePanel extends JPanel
        
         
         JButton addButton = createAccentButton("Add", palette);
+        addButton.addActionListener(e -> {
+        try {
+                double amount = Double.parseDouble(oneTimeAmountField.getText());
+                String title = oneTimeDescField.getText();
+                
+                Transaction t = new Transaction(
+                UUID.randomUUID(),
+                "income",
+                title,
+                "income",
+                amount,
+                "one-time",
+                java.time.LocalDate.now().toString()
+                );
+                budget.addTransaction(t);
+                
+                
+                
+                populateTableData();
+                refreshTotals();
+            } catch (NumberFormatException ex) {
+                
+            }
+
+        });
+        
+        
         
         oneTimeRow.add(oneTimeFieldContainer);
         oneTimeRow.add(Box.createHorizontalStrut(10)); // small gap
@@ -263,7 +306,20 @@ public class IncomeExpensePanel extends JPanel
             String tag = (String) tagBox.getSelectedItem();
             double amount = Double.parseDouble(amountField.getText());
             
- //           budget.saveTransaction("expense", title, tag, amount, "one-time");
+
+            Transaction t = new Transaction(
+            UUID.randomUUID(),
+            "expense",
+            title,
+            tag,
+            amount,
+            "one-time",
+            java.time.LocalDate.now().toString()
+        );
+
+        budget.addTransaction(t);
+            
+
             
             populateTableData();
             refreshTotals();
@@ -340,9 +396,40 @@ public class IncomeExpensePanel extends JPanel
         // fields
         JTextField oneTimeTitleField = createPlaceholderTextField("Title", palette);
         
-        JPanel oneTimeAmountContainer = createAmountFieldContainer(new JTextField(), palette);
+        JTextField oneTimeamountField = new JTextField();
+        JPanel oneTimeAmountContainer = createAmountFieldContainer(oneTimeamountField, palette);
+        
+        
+        //
+        //
         
         JButton addExpenseButton = createAccentButton("Add", palette);
+                addExpenseButton.addActionListener(e -> {
+        try {
+                double amount = Double.parseDouble(oneTimeamountField.getText());
+                String title = oneTimeTitleField.getText();
+                
+                Transaction t = new Transaction(
+                UUID.randomUUID(),
+                "income",
+                title,
+                "income",
+                amount,
+                "one-time",
+                java.time.LocalDate.now().toString()
+                );
+                budget.addTransaction(t);
+                
+                
+                
+                populateTableData();
+                refreshTotals();
+            } catch (NumberFormatException ex) {
+                
+            }
+
+        });
+        
         
         oneTimeRow.add(oneTimeTitleField);
         oneTimeRow.add(Box.createHorizontalStrut(10)); // small gap
@@ -488,15 +575,20 @@ public class IncomeExpensePanel extends JPanel
     
     private void populateTableData()
     {
-        /*
+        
         tableModel.setRowCount(0);
-        List<Object[]> transactions = budget.getTransactions();
-        for (Object[] row : transactions) {
-            tableModel.addRow(row);
-        }
-        */
+        for (Transaction t :  budget.getTransactions().values()) {
+        Object[] row = {
+            t.getTitle(),
+            t.getTag(),
+            t.getDate(),
+            String.format("$%.2f", t.getAmount()),
+            t.getFrequency()
+        };
+        tableModel.addRow(row);
+}
         
-        
+        /*
         List<Object[]> transactions = new ArrayList<>();
         transactions.add(new Object[]{"milk purchase", "dairy", "2025-10-29", "$4.50", "weekly"});
         transactions.add(new Object[]{"internet bill", "utilities", "2025-10-20", "-$85.00", "monthly"});
@@ -507,7 +599,7 @@ public class IncomeExpensePanel extends JPanel
         tableModel.setRowCount(0);
         for (Object[] row : transactions)
             tableModel.addRow(row);
-         
+        */
 
     }
     

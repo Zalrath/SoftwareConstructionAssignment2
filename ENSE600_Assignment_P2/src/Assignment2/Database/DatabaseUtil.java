@@ -12,6 +12,7 @@ package Assignment2.Database;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.*;
 
 public class DatabaseUtil {
      private static Connection connectionInstance;
@@ -97,7 +98,7 @@ public class DatabaseUtil {
             
             stmt.executeUpdate("""
             CREATE TABLE Transactions (
-                    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+                    uuid VARCHAR(36) PRIMARY KEY,
                     type VARCHAR(10),            
                     title VARCHAR(100),
                     tag VARCHAR(50),
@@ -278,16 +279,16 @@ public class DatabaseUtil {
         }
 
         public void insertDefaultTransactions(Connection conn) {
-        String sql = "INSERT INTO Transactions (type, title, tag, amount, frequency, date) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Transactions (uuid,type, title, tag, amount, frequency, date) VALUES (?,?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            UNCaddTransaction(ps, "expense", "milk purchase", "dairy", 4.50, "weekly", LocalDate.of(2025, 10, 29));
-            UNCaddTransaction(ps, "expense", "internet bill", "utilities", -85.00, "monthly", LocalDate.of(2025, 10, 20));
-            UNCaddTransaction(ps, "expense", "groceries", "pantry", 60.00, "weekly", LocalDate.of(2025, 10, 15));
-            UNCaddTransaction(ps, "expense", "fuel", "transport", 50.00, "fortnightly", LocalDate.of(2025, 10, 10));
-            UNCaddTransaction(ps, "expense", "gym", "health", 30.00, "monthly", LocalDate.of(2025, 10, 1));
-
+            UNCaddTransaction(ps, UUID.randomUUID(), "expense", "milk purchase", "dairy", 4.50, "weekly", LocalDate.of(2025, 10, 29));
+            UNCaddTransaction(ps, UUID.randomUUID(),"expense", "internet bill", "utilities", 85.00, "monthly", LocalDate.of(2025, 10, 20));
+            UNCaddTransaction(ps, UUID.randomUUID(),"expense", "groceries", "pantry", 60.00, "weekly", LocalDate.of(2025, 10, 15));
+            UNCaddTransaction(ps, UUID.randomUUID(),"expense", "fuel", "transport", 50.00, "fortnightly", LocalDate.of(2025, 10, 10));
+            UNCaddTransaction(ps, UUID.randomUUID(),"expense", "gym", "health", 30.00, "monthly", LocalDate.of(2025, 10, 1));
+            UNCaddTransaction(ps, UUID.randomUUID(),"expense", "water bill", "utilities", 30.00, "monthly", LocalDate.of(2025, 10, 1));
             System.out.println("Default transactions inserted successfully!");
 
         } catch (SQLException e) {
@@ -297,6 +298,7 @@ public class DatabaseUtil {
 
     private static void UNCaddTransaction(
             PreparedStatement ps,
+             UUID uuid,
             String type,
             String title,
             String tag,
@@ -304,12 +306,13 @@ public class DatabaseUtil {
             String frequency,
             LocalDate date
     ) throws SQLException {
-        ps.setString(1, type);
-        ps.setString(2, title);
-        ps.setString(3, tag);
-        ps.setDouble(4, amount);
-        ps.setString(5, frequency);
-        ps.setDate(6, java.sql.Date.valueOf(date));
+        ps.setString(1, uuid.toString());
+        ps.setString(2, type);
+        ps.setString(3, title);
+        ps.setString(4, tag);
+        ps.setDouble(5, amount);
+        ps.setString(6, frequency);
+        ps.setDate(7, java.sql.Date.valueOf(date));
         ps.executeUpdate();
     }
     
