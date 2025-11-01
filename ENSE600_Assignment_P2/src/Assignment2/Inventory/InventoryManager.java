@@ -46,35 +46,7 @@ public class InventoryManager {
     }
 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
-    public InventoryManager(Settings settings) {
-        this.settings = settings;
-    }
-    
-    int width = settings.getScreenWidth();
-    int height = settings.getScreenHeight();
-    
-    
-    
-    */
-    
-    
+
     
     public void addItem(Item item) {
         items.put(item.getUuid(), item);
@@ -160,7 +132,52 @@ public class InventoryManager {
         }
         return logs.stream().mapToDouble(l -> l.getPrice() * l.getQuantity()).sum();
     }
-  
+    
+    
+
+        */
+    
+    
+    
+    
+    
+    
+    public Map<String, Double> getSpendingByTag(String filter) { // changed the one in the spendingPanel so it can be used for the Vs Panel
+    Map<String, Double> spendingByTag = new HashMap<>();
+    LocalDate cutoff = switch (filter.toLowerCase()) {
+        case "week" -> LocalDate.now().minusDays(7);
+        case "month" -> LocalDate.now().minusMonths(1);
+        case "year" -> LocalDate.now().minusYears(1);
+        default -> null; // all time
+    };
+
+    for (var entry : purchaseHistory.entrySet()) {
+        UUID itemId = entry.getKey();
+        List<PurchaseLog> logs = entry.getValue();
+        if (logs == null || logs.isEmpty()) continue;
+
+        Item item = items.get(itemId);
+        if (item == null) continue;
+
+        ArrayList<String> tags = item.getTags();
+        if (tags == null || tags.isEmpty()) continue;
+
+        // Use first tag (or could loop through all if you want)
+        String firstTag = tags.get(0);
+        double totalForItem = 0.0;
+
+        for (PurchaseLog log : logs) {
+            if (cutoff != null && log.getPurchaseDate().isBefore(cutoff)) continue;
+            totalForItem += log.getPrice() * log.getQuantity();
+        }
+
+        if (totalForItem > 0)
+            spendingByTag.merge(firstTag, totalForItem, Double::sum);
+    }
+
+    return spendingByTag;
+}
+    
     
     // Data base functions 
     /////////////////////////////////////////////////////////////////////////////////////

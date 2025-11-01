@@ -101,25 +101,15 @@ public class DatabaseUtil {
             stmt.executeUpdate("""
                 CREATE TABLE Budget (
                     
-                    weekly DOUBLE,
-                    monthly DOUBLE,
-                    yearly DOUBLE,
+                    weekly budget DOUBLE,
+                    monthly budget DOUBLE,
+                    yearly budget DOUBLE,
+                    all time budget DOUBLE,
                     savings DOUBLE,
                     income DOUBLE,
                     expenses DOUBLE,
                     budget DOUBLE,
-                    actual DOUBLE,
-                )
-            
-            """);
-            
- stmt.executeUpdate("""
-                CREATE TABLE settings (
-                    currency_Format VARCHAR(20),
-                    date_format VARCHAR(20) ,
-                    accent_colour VARCHAR(20) 
-                   
-                    
+                    actual DOUBLE
                 )
             
             """);

@@ -354,6 +354,8 @@ public class SettingsPanel extends BaseScreenPanel
                 SwingUtilities.invokeLater(() -> {
                     
                     new HomeScreen(manager, settings).setVisible(true);
+                   
+                    // shouldn't be needed
                     /*
                     PlaceholderAuthenticator authenticator = new PlaceholderAuthenticator();
                     LoginDialog login = new LoginDialog(null, true, authenticator);
@@ -362,7 +364,7 @@ public class SettingsPanel extends BaseScreenPanel
                     if (login.isAuthenticated()) {
                         new HomeScreen(manager, settings).setVisible(true);
                     }
-*/
+                    */
                 });
             }
         });
