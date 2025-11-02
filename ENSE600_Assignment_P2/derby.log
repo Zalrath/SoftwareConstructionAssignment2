@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Mon Nov 03 11:40:55 NZDT 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-019a-46bb-0f86-00000ec96f70 
+on database directory C:\Users\corin\OneDrive\Documents\GitHub\SoftwareConstructionAssignment1\ENSE600_Assignment_P2\InventoryDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@3f99bd52 
+Loaded from file:/C:/Users/corin/OneDrive/Documents/GitHub/SoftwareConstructionAssignment1/ENSE600_Assignment_P2/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=21.0.7+8-LTS-245
+user.dir=C:\Users\corin\OneDrive\Documents\GitHub\SoftwareConstructionAssignment1\ENSE600_Assignment_P2
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
