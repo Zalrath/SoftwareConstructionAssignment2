@@ -62,8 +62,9 @@ public class HomeScreen extends JFrame
         setTitle("Welcome");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(520, 320);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setMinimumSize(new Dimension(1440, 960));
+        // setExtendedState(JFrame.MAXIMIZED_BOTH);
+        // setMinimumSize(new Dimension(1920, 1080));
+        setMinimumSize(new Dimension(1440, 900));
         setLocationRelativeTo(null);
         
         setContentPane(root);

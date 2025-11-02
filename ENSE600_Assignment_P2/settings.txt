@@ -1,3 +1,0 @@
-# Application Settings
-screenWidth=80
-dateFormat=yyyy-MM-dd

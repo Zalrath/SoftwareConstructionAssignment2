@@ -4,14 +4,12 @@
  */
 package Assignment2.UI.Screens.BudgetQuadrants;
 
-
 /**
  *
  * @author megan
  */
 
 import Assignment2.Database.BudgetManager;
-import Assignment2.Database.DatabaseUtil;
 import Assignment2.UI.Theme;
 import Assignment2.Inventory.InventoryManager;
 import Assignment2.Inventory.Transaction;
@@ -20,23 +18,23 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.UUID;
 
 public class IncomeExpensePanel extends JPanel
 {
     // ----- ui constant values ----- //
-    private static final int FIELD_WIDTH = 120;
-    private static final int FIELD_HEIGHT = 40;
-    private static final int BUTTON_WIDTH = 70; 
-    
+    private static final int MIN_FIELD_WIDTH = 100;
+    private static final int MIN_FIELD_HEIGHT = 32;
+    private static final int MIN_BUTTON_WIDTH = 55;
+    private static final int LABEL_ROW_GAP = 6;
+    private static final int SECTION_GAP = 12;
+
     // ----- fields ----- //
     private final InventoryManager manager;
     private final BudgetManager budget;
     private JTable table;
     private DefaultTableModel tableModel;
-    
+
     // ----- constructor ----- //
     public IncomeExpensePanel(InventoryManager manager, Theme.Palette palette, BudgetManager budget)
     {
@@ -57,438 +55,390 @@ public class IncomeExpensePanel extends JPanel
     private void buildUI()
     {
         removeAll();
-        Theme.Palette currentPalette = Theme.palette();
+        Theme.Palette p = Theme.palette();
         
         // --- layout --- //
-        setLayout(new BorderLayout());
-        setBackground(currentPalette.tileDark);
-        setBorder(BorderFactory.createLineBorder(currentPalette.tileDark, 4));
+        setLayout(new BorderLayout(6, 6));
+        setBackground(p.tileDark);
+        setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
         
         // ----- header ----- //
-        JPanel headerContainer = createDualHeaderBar(currentPalette, "current income", "current expenses");
+        JPanel headerContainer = createDualHeaderBar(p, "current income", "current expenses");
         add(headerContainer, BorderLayout.NORTH);
         
         // ----- income & expense sections ----- //
-        JPanel contentContainer = new JPanel(new GridLayout(1, 2, 10, 0));
+        JPanel contentContainer = new JPanel(new GridLayout(1, 2, 8, 0));
         contentContainer.setOpaque(false);
+        contentContainer.add(createIncomeSection(p));
+        contentContainer.add(createExpenseSection(p));
         
-        JPanel income = createIncomeSection(currentPalette);
-        JPanel expenses = createExpenseSection(currentPalette);
+        JPanel centerPanel = new JPanel(new BorderLayout());
+        centerPanel.setOpaque(false);
+        centerPanel.add(contentContainer, BorderLayout.NORTH);
+        centerPanel.add(createSummaryTable(p), BorderLayout.CENTER);
         
-        contentContainer.add(income);
-        contentContainer.add(expenses);
-        add(contentContainer, BorderLayout.CENTER);
-        
-        // ----- transaction log ----- //
-        JPanel tableContainer = createSummaryTable(currentPalette);
-        add(tableContainer, BorderLayout.SOUTH);
+        add(centerPanel, BorderLayout.CENTER);
         
         revalidate();
         repaint();
     }
-    
+
     // ----- header bar ----- //
-    private JPanel createDualHeaderBar(Theme.Palette currentPalette, String title1, String title2)
+    private JPanel createDualHeaderBar(Theme.Palette p, String title1, String title2)
     {
-        JPanel container = new JPanel(new GridLayout(1, 2));
-        container.setBackground(currentPalette.tileDark);
+        JPanel container = new JPanel(new GridLayout(1, 2, 8, 0));
+        container.setBackground(p.tileDark);
         container.setPreferredSize(new Dimension(0, 45));
-        
-        JLabel header1 = createHeaderLabel(title1, currentPalette);
-        container.add(header1);
-        
-        JLabel header2 = createHeaderLabel(title2, currentPalette);
-        container.add(header2);
-        
+        container.add(createHeaderLabel(title1, p));
+        container.add(createHeaderLabel(title2, p));
         return container;
     }
-
+    
     // head helper
-    private JLabel createHeaderLabel(String title, Theme.Palette palette) 
+    private JLabel createHeaderLabel(String title, Theme.Palette p)
     {
-        JLabel header = new JLabel(title, SwingConstants.CENTER);
-        header.setFont(Theme.TITLE_FONT.deriveFont(28f));
-        header.setForeground(palette.textLight);
-        header.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, palette.tileDark));
-        header.setBackground(palette.tileMediumDark);
-        header.setOpaque(true);
-        return header;
+        JLabel lbl = new JLabel(title, SwingConstants.CENTER);
+        lbl.setFont(Theme.TITLE_FONT.deriveFont(26f));
+        lbl.setForeground(p.textLight);
+        lbl.setBackground(p.tileMediumDark);
+        lbl.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, p.tileDark));
+        lbl.setOpaque(true);
+        return lbl;
     }
     
-    // ----- income section with aligned fields and placeholder text ----- //
-    private JPanel createIncomeSection(Theme.Palette palette)
+    // ----- layout helpers ----- //
+    private JPanel newTopPinnedColumn(Color bg, Insets padding)
     {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setBackground(palette.tileDark);
+        JPanel col = new JPanel();
+        col.setLayout(new BoxLayout(col, BoxLayout.Y_AXIS));
+        col.setOpaque(true);
+        col.setBackground(bg);
+        col.setBorder(BorderFactory.createEmptyBorder(padding.top, padding.left, padding.bottom, padding.right));
+        return col;
+    }
+    
+    private <T extends JComponent> T leftAlign(T c)
+    {
+        c.setAlignmentX(Component.LEFT_ALIGNMENT);
+        return c;
+    }
+    
+    private JPanel createRow(Component... components)
+    {
+        JPanel row = new JPanel(new GridBagLayout());
+        row.setOpaque(false);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(2, 3, 2, 3);
+        gbc.gridy = 0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         
-        // padding
-        panel.setBorder(BorderFactory.createEmptyBorder(4, 20, 4, 4));
+        for (int i = 0; i < components.length; i++)
+        {
+            gbc.gridx = i;
+            gbc.weightx = (components[i] instanceof JButton) ? 0 : 1.0;
+            row.add(components[i], gbc);
+        }
         
-        // ----- salary ----- // 
-        JLabel salaryLabel = createSectionLabel("Salary", palette, 4);
+        Dimension pref = row.getPreferredSize();
+        row.setMaximumSize(new Dimension(Integer.MAX_VALUE, pref.height));
+        row.setAlignmentX(Component.LEFT_ALIGNMENT);
+        return row;
+    }
+    
+    private void setFieldSizing(JComponent comp)
+    {
+        comp.setMinimumSize(new Dimension(MIN_FIELD_WIDTH, MIN_FIELD_HEIGHT));
+        comp.setPreferredSize(new Dimension(140, MIN_FIELD_HEIGHT));
+        comp.setMaximumSize(new Dimension(280, MIN_FIELD_HEIGHT));
+    }
+    
+    // ----- income ----- //
+    private JPanel createIncomeSection(Theme.Palette p)
+    {
+        JPanel panel = newTopPinnedColumn(p.tileDark, new Insets(6, 10, 6, 4));
         
-        // layout
-        JPanel salaryRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 4));
-        salaryRow.setOpaque(false);
-        salaryRow.setAlignmentX(Component.LEFT_ALIGNMENT);
-        
+        // ----- salary ----- //
+        JLabel salaryLabel = leftAlign(createSectionLabel("Salary", p));
         JTextField salaryField = new JTextField();
-        JPanel salaryFieldContainer = createAmountFieldContainer(salaryField, palette);
+        setFieldSizing(salaryField);
+        JPanel salaryFieldContainer = createAmountFieldContainer(salaryField, p);
         
         JComboBox<String> frequencyBox = new JComboBox<>(new String[]{"Weekly", "Fortnightly", "Monthly", "Yearly"});
-        frequencyBox.setBackground(palette.tileMediumDark);
-        frequencyBox.setForeground(palette.textLight);
-        frequencyBox.setFont(Theme.BODY_FONT.deriveFont(13f));
-        frequencyBox.setFocusable(false);
-        frequencyBox.setPreferredSize(new Dimension(FIELD_WIDTH, FIELD_HEIGHT));
+        styleDropdown(frequencyBox, p);
         
-        JButton saveSalaryButton = createAccentButton("Save", palette);
-        saveSalaryButton.addActionListener(e -> {
-        
-        try {
+        JButton saveSalaryButton = createAccentButton("Save", p);
+        saveSalaryButton.addActionListener(e -> 
+        {
+            try {
                 double amount = Double.parseDouble(salaryField.getText());
                 String frequency = (String) frequencyBox.getSelectedItem();
                 
-
                 Transaction t = new Transaction(
-                    UUID.randomUUID(),
-                    "income",
-                    "Salary",
-                    "income",
-                    amount,
-                    frequency,
-                    java.time.LocalDate.now().toString()
+                        UUID.randomUUID(),
+                        "income",
+                        "Salary",
+                        "income",
+                        amount,
+                        frequency,
+                        java.time.LocalDate.now().toString()
                 );
-
+                
                 budget.addTransaction(t);
-                
-                
-
-                
                 populateTableData();
-                refreshTotals();
-            } catch (NumberFormatException ex) {
+            } catch (NumberFormatException ex) 
+            {
                 JOptionPane.showMessageDialog(this, "Please enter a valid income amount.");
             }
-       
-        
         });
         
+        panel.add(salaryLabel);
+        panel.add(Box.createVerticalStrut(LABEL_ROW_GAP));
+        panel.add(leftAlign(createRow(salaryFieldContainer, frequencyBox, saveSalaryButton)));
         
-        salaryRow.add(salaryFieldContainer);
-        salaryRow.add(Box.createHorizontalStrut(10)); // small gap
-        salaryRow.add(frequencyBox);
-        salaryRow.add(Box.createHorizontalStrut(10)); // small gap
-        salaryRow.add(saveSalaryButton);
-        
-        // ----- one time payment ----- // 
-        JLabel oneTimeLabel = createSectionLabel("One-Time Payment", palette, 8);
-        
-        // layout
-        JPanel oneTimeRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 4));
-        oneTimeRow.setOpaque(false);
-        oneTimeRow.setAlignmentX(Component.LEFT_ALIGNMENT);
-        
+        // ----- one time payment ----- //
+        JLabel oneTimeLabel = leftAlign(createSectionLabel("One-Time Payment", p));
         JTextField oneTimeAmountField = new JTextField();
-        JPanel oneTimeFieldContainer = createAmountFieldContainer(oneTimeAmountField, palette);
+        setFieldSizing(oneTimeAmountField);
+        JPanel oneTimeFieldContainer = createAmountFieldContainer(oneTimeAmountField, p);
+        JTextField oneTimeDescField = createPlaceholderTextField("Title", p);
+        setFieldSizing(oneTimeDescField);
         
-        // placeholder
-        JTextField oneTimeDescField = createPlaceholderTextField("Title", palette);
-       
-        
-        JButton addButton = createAccentButton("Add", palette);
-        addButton.addActionListener(e -> {
-        try {
+        JButton addButton = createAccentButton("Add", p);
+        addButton.addActionListener(e -> 
+        {
+            try {
                 double amount = Double.parseDouble(oneTimeAmountField.getText());
                 String title = oneTimeDescField.getText();
-                
+
                 Transaction t = new Transaction(
-                UUID.randomUUID(),
-                "income",
-                title,
-                "income",
-                amount,
-                "one-time",
-                java.time.LocalDate.now().toString()
+                        UUID.randomUUID(),
+                        "income",
+                        title,
+                        "income",
+                        amount,
+                        "one-time",
+                        java.time.LocalDate.now().toString()
                 );
                 budget.addTransaction(t);
-                
-                
-                
                 populateTableData();
-                refreshTotals();
-            } catch (NumberFormatException ex) {
-                
-            }
-
+            } 
+            catch (NumberFormatException ignored) {}
         });
         
-        
-        
-        oneTimeRow.add(oneTimeFieldContainer);
-        oneTimeRow.add(Box.createHorizontalStrut(10)); // small gap
-        oneTimeRow.add(oneTimeDescField);
-        oneTimeRow.add(Box.createHorizontalStrut(10)); // small gap
-        oneTimeRow.add(addButton);
-        
-        // ------ monthly budget ------ // 
-        JLabel budgetLabel = createSectionLabel("Set This Month's Budget", palette, 8);
-        
-        // layout
-        JPanel budgetRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 4));
-        budgetRow.setOpaque(false);
-        budgetRow.setAlignmentX(Component.LEFT_ALIGNMENT);
-       
-        JTextField budgetField = new JTextField();
-        JPanel budgetFieldContainer = createAmountFieldContainer(budgetField, palette);
-        
-        JButton saveBudgetButton = createAccentButton("Save", palette);
-        
-        budgetRow.add(budgetFieldContainer);
-        budgetRow.add(Box.createHorizontalStrut(10)); // small gap
-        budgetRow.add(saveBudgetButton);
-        
-        // add to layout
-        panel.add(salaryLabel);
-        panel.add(salaryRow);
+        panel.add(Box.createVerticalStrut(SECTION_GAP));
         panel.add(oneTimeLabel);
-        panel.add(oneTimeRow);
+        panel.add(Box.createVerticalStrut(LABEL_ROW_GAP));
+        panel.add(leftAlign(createRow(oneTimeFieldContainer, oneTimeDescField, addButton)));
+        
+        // ------ monthly budget ------ //
+        JLabel budgetLabel = leftAlign(createSectionLabel("Set This Month's Budget", p));
+        JTextField budgetField = new JTextField();
+        setFieldSizing(budgetField);
+        JPanel budgetFieldContainer = createAmountFieldContainer(budgetField, p);
+        JButton saveBudgetButton = createAccentButton("Save", p);
+        
+        panel.add(Box.createVerticalStrut(SECTION_GAP));
         panel.add(budgetLabel);
-        panel.add(budgetRow);
+        panel.add(Box.createVerticalStrut(LABEL_ROW_GAP));
+        panel.add(leftAlign(createRow(budgetFieldContainer, saveBudgetButton)));
         
+        panel.add(Box.createVerticalGlue());
         return panel;
-        
-        
-        
     }
     
     // ----- expenses ----- //
-    private JPanel createExpenseSection(Theme.Palette palette) 
+    private JPanel createExpenseSection(Theme.Palette p)
     {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-        panel.setBackground(palette.tileDark);
+        JPanel panel = newTopPinnedColumn(p.tileDark, new Insets(6, 4, 6, 10));
         
-        // padding
-        panel.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 20));
+        // ----- add new bill ----- //
+        JLabel addBillLabel = leftAlign(createSectionLabel("Add a New Bill", p));
+        JTextField amountField = new JTextField();
+        setFieldSizing(amountField);
+        JPanel amountContainer = createAmountFieldContainer(amountField, p);
+        JTextField billTitleField = createPlaceholderTextField("Title", p);
+        setFieldSizing(billTitleField);
         
-        // ----- add new bill ----- // 
-        JLabel addBillLabel = createSectionLabel("Add a New Bill", palette, 4);
-        
-        // layout
-        JPanel addBillRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 4));
-        addBillRow.setOpaque(false);
-        addBillRow.setAlignmentX(Component.LEFT_ALIGNMENT);
-        
-        // trans title
-        JTextField billTitleField = createPlaceholderTextField("Transaction Title", palette);
-        
-        // tag dropdown
         JComboBox<String> tagBox = new JComboBox<>(new String[]
         {
             "Utilities", "Transport", "Shopping", "Housing", "Entertainment", "Take Out", "Other"
         });
-        tagBox.setBackground(palette.tileMediumDark);
-        tagBox.setForeground(palette.textLight);
-        tagBox.setFont(Theme.BODY_FONT.deriveFont(13f));
-        tagBox.setFocusable(false);
-        tagBox.setPreferredSize(new Dimension(FIELD_WIDTH, FIELD_HEIGHT));
-        
-        // $ amount
-        JTextField amountField = new JTextField();
-        JPanel amountContainer = createAmountFieldContainer(amountField, palette);
-        
-        JButton confirmBillButton = createAccentButton("Confirm", palette);
-        confirmBillButton.addActionListener(e -> {
-            try {
-            String title = billTitleField.getText();
-            String tag = (String) tagBox.getSelectedItem();
-            double amount = Double.parseDouble(amountField.getText());
-            
-
-            Transaction t = new Transaction(
-            UUID.randomUUID(),
-            "expense",
-            title,
-            tag,
-            amount,
-            "one-time",
-            java.time.LocalDate.now().toString()
-        );
-
-        budget.addTransaction(t);
-            
-
-            
-            populateTableData();
-            refreshTotals();
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid expense amount.");
-        }
-        
-        
-        });
-        
-        
-        
-        
-        
-        addBillRow.add(billTitleField);
-        addBillRow.add(Box.createHorizontalStrut(10)); // small gap
-        addBillRow.add(tagBox);
-        addBillRow.add(Box.createHorizontalStrut(10)); // small gap
-        addBillRow.add(amountContainer);
-        addBillRow.add(Box.createHorizontalStrut(10));// small gap
-        addBillRow.add(confirmBillButton);
-        
-        // ----- edit existing bill ------ // 
-        JLabel editBillLabel = createSectionLabel("Edit Existing Bills", palette, 10);
-        
-        // layout
-        JPanel editBillRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 4));
-        editBillRow.setOpaque(false);
-        editBillRow.setAlignmentX(Component.LEFT_ALIGNMENT);
-        
-        JComboBox<String> existingBillBox = new JComboBox<>(new String[]
-        {
-            "Internet", "Electricity", "Gym", "Fuel", "Netflix"
-        });
-        existingBillBox.setBackground(palette.tileMediumDark);
-        existingBillBox.setForeground(palette.textLight);
-        existingBillBox.setFont(Theme.BODY_FONT.deriveFont(13f));
-        existingBillBox.setPreferredSize(new Dimension(FIELD_WIDTH, FIELD_HEIGHT));
-        
-        JTextField editAmountField = new JTextField();
-        JPanel editAmountContainer = createAmountFieldContainer(editAmountField, palette);
+        styleDropdown(tagBox, p);
         
         JComboBox<String> frequencyBox = new JComboBox<>(new String[]
         {
-            "Weekly", "Fortnightly", "Monthly", "Yearly"
+                "Weekly", "Fortnightly", "Monthly", "Yearly", "One-Time"
         });
-        frequencyBox.setBackground(palette.tileMediumDark);
-        frequencyBox.setForeground(palette.textLight);
-        frequencyBox.setFont(Theme.BODY_FONT.deriveFont(13f));
-        frequencyBox.setFocusable(false);
-        frequencyBox.setPreferredSize(new Dimension(FIELD_WIDTH, FIELD_HEIGHT));
+        styleDropdown(frequencyBox, p);
         
-        JButton confirmEditButton = createAccentButton("Confirm", palette);
-        JButton deleteBillButton = createAccentButton("Delete", palette);
+        JButton confirmBillButton = createAccentButton("Confirm", p);
+        confirmBillButton.addActionListener(e -> {
+            try 
+            {
+                String title = billTitleField.getText();
+                String tag = (String) tagBox.getSelectedItem();
+                String frequency = (String) frequencyBox.getSelectedItem();
+                double amount = Double.parseDouble(amountField.getText());
+                
+                Transaction t = new Transaction(
+                        UUID.randomUUID(),
+                        "expense",
+                        title,
+                        tag,
+                        amount,
+                        frequency,
+                        java.time.LocalDate.now().toString()
+                );
+                
+                budget.addTransaction(t);
+                populateTableData();
+            } catch (NumberFormatException ex) 
+            {
+                JOptionPane.showMessageDialog(this, "Please enter a valid expense amount.");
+            }
+        });
         
-        editBillRow.add(existingBillBox);
-        editBillRow.add(Box.createHorizontalStrut(10)); // small gap
-        editBillRow.add(editAmountContainer);
-        editBillRow.add(Box.createHorizontalStrut(10)); // small gap
-        editBillRow.add(frequencyBox);
-        editBillRow.add(Box.createHorizontalStrut(10)); // small gap
-        editBillRow.add(confirmEditButton);
-        editBillRow.add(Box.createHorizontalStrut(10)); // small gap
-        editBillRow.add(deleteBillButton);
+        panel.add(addBillLabel);
+        panel.add(Box.createVerticalStrut(LABEL_ROW_GAP));
+        panel.add(leftAlign(createRow(amountContainer, billTitleField, tagBox, frequencyBox, confirmBillButton)));
         
-        // ----- one time expense ----- // 
-        JLabel oneTimeLabel = createSectionLabel("One-Time Expense", palette, 10);
+        // ----- edit existing bill ------ //
+        JLabel editBillLabel = leftAlign(createSectionLabel("Edit Existing Bills", p));
+        JComboBox<String> existingBillBox = new JComboBox<>(new String[]
+        {
+                "Internet", "Electricity", "Gym", "Fuel", "Netflix"
+        });
+        styleDropdown(existingBillBox, p);
         
-        // layout
-        JPanel oneTimeRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 4));
-        oneTimeRow.setOpaque(false);
-        oneTimeRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JTextField editAmountField = new JTextField();
+        setFieldSizing(editAmountField);
+        JPanel editAmountContainer = createAmountFieldContainer(editAmountField, p);
         
-        // fields
-        JTextField oneTimeTitleField = createPlaceholderTextField("Title", palette);
+        JComboBox<String> frequencyBox2 = new JComboBox<>(new String[]
+        {
+                "Weekly", "Fortnightly", "Monthly", "Yearly"
+        });
+        styleDropdown(frequencyBox2, p);
         
+        JButton confirmEditButton = createAccentButton("Confirm", p);
+        JButton deleteBillButton = createAccentButton("Delete", p);
+        
+        confirmEditButton.addActionListener(e -> 
+        {
+            try 
+            {
+                double amount = Double.parseDouble(editAmountField.getText());
+                String title = (String) existingBillBox.getSelectedItem();
+                String frequency = (String) frequencyBox2.getSelectedItem();
+                budget.addTransaction(new Transaction(UUID.randomUUID(), "expense", title, "edited", amount, frequency, java.time.LocalDate.now().toString()));
+                populateTableData();
+            }
+            catch (NumberFormatException ex) 
+            {
+                JOptionPane.showMessageDialog(this, "Enter a valid amount to update the bill.");
+            }
+        });
+        
+        deleteBillButton.addActionListener(e -> 
+        {
+            String title = (String) existingBillBox.getSelectedItem();
+            budget.getTransactions().values().removeIf(t -> t.getTitle().equalsIgnoreCase(title));
+            populateTableData();
+        });
+        
+        panel.add(Box.createVerticalStrut(SECTION_GAP));
+        panel.add(editBillLabel);
+        panel.add(Box.createVerticalStrut(LABEL_ROW_GAP));
+        panel.add(leftAlign(createRow(editAmountContainer, existingBillBox, frequencyBox2, confirmEditButton, deleteBillButton)));
+        
+        // ----- one time expense ----- //
+        JLabel oneTimeLabel = leftAlign(createSectionLabel("One-Time Expense", p));
+        JTextField oneTimeTitleField = createPlaceholderTextField("Title", p);
+        setFieldSizing(oneTimeTitleField);
         JTextField oneTimeamountField = new JTextField();
-        JPanel oneTimeAmountContainer = createAmountFieldContainer(oneTimeamountField, palette);
+        setFieldSizing(oneTimeamountField);
+        JPanel oneTimeAmountContainer = createAmountFieldContainer(oneTimeamountField, p);
+        JButton addExpenseButton = createAccentButton("Add", p);
         
-        
-        //
-        //
-        
-        JButton addExpenseButton = createAccentButton("Add", palette);
-                addExpenseButton.addActionListener(e -> {
-        try {
+        addExpenseButton.addActionListener(e -> 
+        {
+            try 
+            {
                 double amount = Double.parseDouble(oneTimeamountField.getText());
                 String title = oneTimeTitleField.getText();
                 
                 Transaction t = new Transaction(
-                UUID.randomUUID(),
-                "income",
-                title,
-                "income",
-                amount,
-                "one-time",
-                java.time.LocalDate.now().toString()
+                        UUID.randomUUID(),
+                        "expense",
+                        title,
+                        "misc",
+                        amount,
+                        "one-time",
+                        java.time.LocalDate.now().toString()
                 );
                 budget.addTransaction(t);
-                
-                
-                
                 populateTableData();
-                refreshTotals();
-            } catch (NumberFormatException ex) {
-                
             }
-
+            catch (NumberFormatException ignored) {}
         });
         
-        
-        oneTimeRow.add(oneTimeTitleField);
-        oneTimeRow.add(Box.createHorizontalStrut(10)); // small gap
-        oneTimeRow.add(oneTimeAmountContainer);
-        oneTimeRow.add(Box.createHorizontalStrut(10)); // small gap
-        oneTimeRow.add(addExpenseButton);
-        
-        // add panels
-        panel.add(addBillLabel);
-        panel.add(addBillRow);
-        panel.add(editBillLabel);
-        panel.add(editBillRow);
+        panel.add(Box.createVerticalStrut(SECTION_GAP));
         panel.add(oneTimeLabel);
-        panel.add(oneTimeRow);
+        panel.add(Box.createVerticalStrut(LABEL_ROW_GAP));
+        panel.add(leftAlign(createRow(oneTimeAmountContainer, oneTimeTitleField, addExpenseButton)));
         
+        panel.add(Box.createVerticalGlue());
         return panel;
     }
     
     // ----- helpers ----- //
-    // labels
-    private JLabel createSectionLabel(String text, Theme.Palette palette, int topBorder) 
+    private JLabel createSectionLabel(String text, Theme.Palette p)
     {
-        JLabel label = new JLabel(text);
-        label.setFont(Theme.TITLE_FONT.deriveFont(18f));
-        label.setForeground(palette.textLight);
-        label.setBorder(BorderFactory.createEmptyBorder(topBorder, 0, 0, 0));
+        JLabel label = new JLabel(text, SwingConstants.LEFT);
+        label.setFont(Theme.TITLE_FONT.deriveFont(17f));
+        label.setForeground(p.textLight);
         label.setAlignmentX(Component.LEFT_ALIGNMENT);
         return label;
     }
     
-    // button
-    private JButton createAccentButton(String text, Theme.Palette palette) 
+    private void styleDropdown(JComboBox<String> box, Theme.Palette p)
+    {
+        box.setBackground(p.tileMediumDark);
+        box.setForeground(p.textLight);
+        box.setFont(Theme.BODY_FONT.deriveFont(13f));
+        box.setFocusable(false);
+        setFieldSizing(box);
+    }
+    
+    private JButton createAccentButton(String text, Theme.Palette p)
     {
         JButton button = new JButton(text);
         button.setFont(Theme.TITLE_FONT.deriveFont(13f));
-        button.setBackground(palette.accent);
-        button.setForeground(palette.textLight);
+        button.setBackground(p.accent);
+        button.setForeground(p.textLight);
         button.setFocusPainted(false);
-        button.setBorder(BorderFactory.createLineBorder(palette.tileDark, 2, true));
+        button.setBorder(BorderFactory.createLineBorder(p.tileDark, 1, true));
         button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        button.setPreferredSize(new Dimension(BUTTON_WIDTH, FIELD_HEIGHT));
+        button.setMinimumSize(new Dimension(MIN_BUTTON_WIDTH, MIN_FIELD_HEIGHT));
+        button.setPreferredSize(new Dimension(70, MIN_FIELD_HEIGHT));
+        button.setMaximumSize(new Dimension(110, MIN_FIELD_HEIGHT));
         return button;
     }
     
-    // dollar buck field
-    private JPanel createAmountFieldContainer(JTextField textField, Theme.Palette palette) 
+    private JPanel createAmountFieldContainer(JTextField textField, Theme.Palette p)
     {
         JPanel container = new JPanel(new BorderLayout());
-        container.setBackground(palette.tileMediumDark);
-        container.setBorder(BorderFactory.createLineBorder(palette.tileMediumDark, 2, true));
-        container.setPreferredSize(new Dimension(FIELD_WIDTH, FIELD_HEIGHT));
+        container.setBackground(p.tileMediumDark);
+        container.setBorder(BorderFactory.createLineBorder(p.tileMediumDark, 1, true));
+        container.setMinimumSize(new Dimension(MIN_FIELD_WIDTH, MIN_FIELD_HEIGHT));
         
-        JLabel dollarLabel = new JLabel("$");
-        dollarLabel.setFont(Theme.TITLE_FONT.deriveFont(15f));
-        dollarLabel.setForeground(palette.textLight);
-        dollarLabel.setBorder(BorderFactory.createEmptyBorder(0, 6, 0, 4));
+        JLabel dollarLabel = new JLabel("$", SwingConstants.LEFT);
+        dollarLabel.setFont(Theme.TITLE_FONT.deriveFont(14f));
+        dollarLabel.setForeground(p.textLight);
+        dollarLabel.setBorder(BorderFactory.createEmptyBorder(0, 4, 0, 2));
         
-        textField.setBackground(palette.tileDark);
-        textField.setForeground(palette.textLight);
+        textField.setBackground(p.tileDark);
+        textField.setForeground(p.textLight);
         textField.setFont(Theme.BODY_FONT.deriveFont(14f));
         textField.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
         
@@ -497,32 +447,32 @@ public class IncomeExpensePanel extends JPanel
         return container;
     }
     
-    // text block with greyed text
-    private JTextField createPlaceholderTextField(String placeholder, Theme.Palette palette) 
+    private JTextField createPlaceholderTextField(String placeholder, Theme.Palette p)
     {
         JTextField textField = new JTextField(placeholder);
-        textField.setBackground(palette.tileMediumDark);
+        textField.setBackground(p.tileMediumDark);
         textField.setForeground(Color.GRAY);
         textField.setFont(Theme.BODY_FONT.deriveFont(14f));
-        textField.setBorder(BorderFactory.createLineBorder(palette.tileMediumDark, 2, true));
-        textField.setPreferredSize(new Dimension(FIELD_WIDTH, FIELD_HEIGHT));
+        textField.setBorder(BorderFactory.createLineBorder(p.tileMediumDark, 1, true));
+        textField.setHorizontalAlignment(SwingConstants.LEFT);
         
-        textField.addFocusListener(new java.awt.event.FocusAdapter() 
+        textField.addFocusListener(new java.awt.event.FocusAdapter()
         {
             @Override
-            public void focusGained(java.awt.event.FocusEvent e) 
+            public void focusGained(java.awt.event.FocusEvent e)
             {
-                if (textField.getText().equals(placeholder)) 
+                if (textField.getText().equals(placeholder))
                 {
                     textField.setText("");
-                    textField.setForeground(palette.textLight);
+                    textField.setForeground(p.textLight);
                 }
             }
             
             @Override
-            public void focusLost(java.awt.event.FocusEvent e) 
+            public void focusLost(java.awt.event.FocusEvent e)
             {
-                if (textField.getText().isEmpty()) {
+                if (textField.getText().isEmpty())
+                {
                     textField.setText(placeholder);
                     textField.setForeground(Color.GRAY);
                 }
@@ -532,147 +482,61 @@ public class IncomeExpensePanel extends JPanel
     }
     
     // ----- summary table builder ----- //
-    private JPanel createSummaryTable(Theme.Palette palette)
+    private JPanel createSummaryTable(Theme.Palette p)
     {
         JPanel panel = new JPanel(new BorderLayout());
-        panel.setBackground(palette.tileMediumDark);
-        panel.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, palette.tileDark));
+        panel.setBackground(p.tileMediumDark);
+        panel.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, p.tileDark));
         
-        JLabel title = new JLabel("transaction history", SwingConstants.CENTER);
-        title.setFont(Theme.TITLE_FONT.deriveFont(20f));
-        title.setForeground(palette.textLight);
-        title.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
+        JLabel title = new JLabel("transaction history", SwingConstants.LEFT);
+        title.setFont(Theme.TITLE_FONT.deriveFont(18f));
+        title.setForeground(p.textLight);
+        title.setBorder(BorderFactory.createEmptyBorder(2, 8, 2, 2));
         panel.add(title, BorderLayout.NORTH);
         
         String[] columns = {"transaction", "tag", "date", "amount", "occurrence"};
         tableModel = new DefaultTableModel(columns, 0);
         table = new JTable(tableModel);
-        
-        table.setFont(Theme.BODY_FONT.deriveFont(14f));
-        table.setForeground(palette.textLight);
-        table.setBackground(palette.tileDark);
-        table.setGridColor(palette.tileMediumDark);
+        table.setFont(Theme.BODY_FONT.deriveFont(13f));
+        table.setForeground(p.textLight);
+        table.setBackground(p.tileDark);
+        table.setGridColor(p.tileMediumDark);
         table.setRowHeight(22);
         table.setFillsViewportHeight(true);
         
         JTableHeader header = table.getTableHeader();
-        header.setBackground(palette.accent);
-        header.setForeground(palette.textLight);
-        header.setFont(Theme.TITLE_FONT.deriveFont(16f));
+        header.setBackground(p.accent);
+        header.setForeground(p.textLight);
+        header.setFont(Theme.TITLE_FONT.deriveFont(15f));
         
         JScrollPane scrollPane = new JScrollPane(table);
-        customizeScrollPane(scrollPane);
-        
-        scrollPane.setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, palette.tileDark));
-        scrollPane.getViewport().setBackground(palette.tileDark);
-        scrollPane.setPreferredSize(new Dimension(0, 140));
-        
+        scrollPane.getViewport().setBackground(p.tileDark);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         panel.add(scrollPane, BorderLayout.CENTER);
         
         populateTableData();
         return panel;
     }
     
+    // ----- table data population ----- //
     private void populateTableData()
     {
-        
         tableModel.setRowCount(0);
-        for (Transaction t :  budget.getTransactions().values()) {
-        Object[] row = {
-            t.getTitle(),
-            t.getTag(),
-            t.getDate(),
-            String.format("$%.2f", t.getAmount()),
-            t.getFrequency()
-        };
-        tableModel.addRow(row);
-}
-        
-        /*
-        List<Object[]> transactions = new ArrayList<>();
-        transactions.add(new Object[]{"milk purchase", "dairy", "2025-10-29", "$4.50", "weekly"});
-        transactions.add(new Object[]{"internet bill", "utilities", "2025-10-20", "-$85.00", "monthly"});
-        transactions.add(new Object[]{"groceries", "pantry", "2025-10-15", "$60.00", "weekly"});
-        transactions.add(new Object[]{"fuel", "transport", "2025-10-10", "$50.00", "fortnightly"});
-        transactions.add(new Object[]{"gym", "health", "2025-10-01", "$30.00", "monthly"});
-        
-        tableModel.setRowCount(0);
-        for (Object[] row : transactions)
-            tableModel.addRow(row);
-        */
-
-    }
-    
-    private void customizeScrollPane(JScrollPane scrollPane)
-    {
-        customizeScrollBar(scrollPane.getVerticalScrollBar(), true);
-        customizeScrollBar(scrollPane.getHorizontalScrollBar(), false);
-        
-        JPanel corner1 = new JPanel();
-        corner1.setBackground(Theme.palette().tileDark);
-        scrollPane.setCorner(JScrollPane.LOWER_RIGHT_CORNER, corner1);
-        
-        JPanel corner2 = new JPanel();
-        corner2.setBackground(Theme.palette().tileDark);
-        scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER, corner2);
-    }
-    
-    private void customizeScrollBar(JScrollBar scrollBar, boolean vertical)
-    {
-        Theme.Palette palette = Theme.palette();
-        scrollBar.setUI(new javax.swing.plaf.basic.BasicScrollBarUI()
+        for (Transaction t : budget.getTransactions().values())
         {
-            @Override
-            protected void configureScrollBarColors()
-            {
-                this.thumbColor = palette.accent;
-                this.trackColor = palette.tileMediumDark;
-            }
-            
-            @Override
-            protected JButton createDecreaseButton(int orientation)
-            {
-                return createStopperButton(vertical);
-            }
-            
-            @Override
-            protected JButton createIncreaseButton(int orientation)
-            {
-                return createStopperButton(vertical);
-            }
-            
-            private JButton createStopperButton(boolean vertical)
-            {
-                JButton b = new JButton();
-                b.setBackground(palette.tileLight);
-                b.setBorder(null);
-                b.setFocusable(false);
-                b.setRolloverEnabled(false);
-                b.setPreferredSize(vertical ? new Dimension(0, 10) : new Dimension(10, 0));
-                return b;
-            }
-        });
+            Object[] row = {
+                    t.getTitle(),
+                    t.getTag(),
+                    t.getDate(),
+                    String.format("$%.2f", t.getAmount()),
+                    t.getFrequency()
+            };
+            tableModel.addRow(row);
+        }
     }
     
-    
-    
-    private void refreshTotals() {
-        double income = budget.getTotalByType("income");
-        double expense = budget.getTotalByType("expense");
-        
-    }
-   
-    
-    
-
-    
-    
-    
-    
-    
- 
-    
-    
+    // ----- public refresh method ----- //
     public void refresh()
     {
         populateTableData();

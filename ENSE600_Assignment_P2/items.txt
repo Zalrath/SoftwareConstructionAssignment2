@@ -1,8 +1,0 @@
-UUID,  Name,  Last Purchased,  Estimated Interval Days,  Tags
-e4f8b741-0ca4-4a08-b49b-6561a3a674ba,Milk 2L,2025-07-25,0,Breakfast
-28003a1e-4dd7-4ea3-84ff-540917ea5000,Bacon,2025-08-27,0,Breakfast|Meat
-ea1553a7-0251-4238-9a66-64285561e492,Rice,2025-08-31,0,Carb
-d9792df3-9621-4314-8afd-1cfc4384c523,Milk 2L,2025-07-25,0,Breakfast
-45dbf58f-548d-4dfd-8e98-40b712e9e37b,Steak,2025-08-31,0,Meat
-3580bba4-4cca-4712-9446-5ae7e3c8aeeb,Eggs,2025-08-27,0,Breakfast|Baking
-fb20436b-f97f-4307-9dce-f72f6a5220ef,Frosting,2025-08-30,0,cake
