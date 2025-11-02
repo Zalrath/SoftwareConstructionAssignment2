@@ -24,7 +24,6 @@ import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.List;

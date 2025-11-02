@@ -42,9 +42,6 @@ import java.awt.*;
 
 
 
-
-
-
 public class BudgetPanel extends BaseScreenPanel
 {
 

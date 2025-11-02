@@ -53,29 +53,22 @@ public class Main
         BudgetManager budget = new BudgetManager();
 
         
-        // YOU CAN NOT HAVE MULTIPLE INSTANCES OF THE MAIN RUNNING AT ONCE, IT MESSES WITH THE DB CONNECTION 
+        
           
-//         dataUtil.dropTable(conn,"Purchases");
-//         dataUtil.dropTable(conn,"ITEMS");
-//         dataUtil.dropTable(conn,"settings");
-//         dataUtil.dropTable(conn,"Transactions");
-//         dataUtil.dropTable(conn, "budget");
+         dataUtil.dropTable(conn,"Purchases");
+         dataUtil.dropTable(conn,"ITEMS");
+         dataUtil.dropTable(conn,"settings");
+         dataUtil.dropTable(conn,"Transactions");
+         dataUtil.dropTable(conn, "budget");
          
-        dataUtil.createTables(conn);
+         dataUtil.createTables(conn);
         
-//         dataUtil.insertDefaultPurchases(conn);
-//         dataUtil.insertDefaultItems(conn);
-//         dataUtil.insertDefaultSettings(conn);  
-//         dataUtil.insertDefaultTransactions(conn);
-//         dataUtil.insertDefaultBudget(conn);
-         
-        //dataUtil.printTableColumns(conn);
-        // Really fraigle ------
-        
-        //dataUtil.printItemsFromDB(conn);
-        
-        
-        
+         dataUtil.insertDefaultPurchases(conn);
+         dataUtil.insertDefaultItems(conn);
+         dataUtil.insertDefaultSettings(conn);  
+         dataUtil.insertDefaultTransactions(conn);
+         dataUtil.insertDefaultBudget(conn);
+                            
         budget.loadBudgetsFromDB();
         budget.loadTransactions();
         
@@ -89,10 +82,6 @@ public class Main
         } catch (SQLException e) {}
         
         
-        
-                
-
-        
         //-------------------------------
         
         
@@ -105,50 +94,13 @@ public class Main
         
         manager.savePurchasesToDB(conn);
         
-        
-        //dataUtil.printItemsFromDB(conn);
-        //dataUtil.printPurchasesFromDB(conn);
-        
-        
-        
-         // closing the connection
-//         try {
-//            conn.close();
-//            System.out.println("Connection closed");
-//        } catch (SQLException e) {}
-        
         ////////////////////////////////////
-        
-        
-        
-        
-        // this all needs to move out of here ngl and into the settings tab but i just havent done it yet
-        
-        
-        // Theme accent colours -> we should probably pick some different ones 
-        Color[] accentColors = 
-        {
-            Color.decode("#104A63"), // Deep Teal Blue
-            Color.decode("#253D27"), // Dark Forest Green
-            Color.decode("#3C4072"), // Indigo Blue / Slate Purple
-            Color.decode("#3D8479"), // Muted Aqua Green
-            Color.decode("#477D51"), // Medium Leaf Green
-            Color.decode("#48375D"), // Dark Violet Gray
-            Color.decode("#716994"), // Dusty Lavender
-            Color.decode("#8E3E3E"), // Brick Red
-            Color.decode("#8E4D6C"), // Mauve Rose
-            Color.decode("#AE5E41") // Burnt Copper / Terracotta
-        };
-        
+
         
         // ----- Apply Theme ----- // 
-       
-        
-        
-        
+
         SettingsManager.loadFromDatabase();
-        System.out.println(SettingsManager.getDateFormatDB());
-        
+
         Color dbselected = SettingsManager.getAccentColor();
         
 
@@ -170,12 +122,8 @@ public class Main
                 
 
                 
-                
                 manager.saveItemsToDB(conn);
-                
-                
-                
-                //manager.savePurchasesToDB(conn);
+
                 conn.close();
                 System.out.println("db disconnected");
                 

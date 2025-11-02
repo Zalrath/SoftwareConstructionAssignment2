@@ -10,10 +10,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-/**
- * Basic integration test for the UserAuthenticator class.
- * Uses an in-memory Derby database via DatabaseUtil.
- */
+
+
+
+
 public class UserAuthenticatorTest {
 
     private static Connection conn;
@@ -58,18 +58,14 @@ public class UserAuthenticatorTest {
         }
     }
 
-    /**
-     * Test account creation success
-     */
+
     @Test
     public void testCreateAccount_Success() {
         boolean result = userAuth.createAccount("testuser", "password123");
         assertTrue("Account should be created successfully", result);
     }
 
-    /**
-     * Test duplicate account creation failure
-     */
+
     @Test
     public void testCreateAccount_Duplicate() {
         userAuth.createAccount("duplicateUser", "pass1");
@@ -77,9 +73,7 @@ public class UserAuthenticatorTest {
         assertFalse("Duplicate username should not be allowed", result);
     }
 
-    /**
-     * Test successful authentication
-     */
+
     @Test
     public void testAuthenticate_Success() {
         userAuth.createAccount("authUser", "secret");
@@ -87,9 +81,7 @@ public class UserAuthenticatorTest {
         assertTrue("User should authenticate successfully", result);
     }
 
-    /**
-     *  Test authentication fails with wrong password
-     */
+ 
     @Test
     public void testAuthenticate_WrongPassword() {
         userAuth.createAccount("wrongPassUser", "goodpass");
@@ -97,9 +89,7 @@ public class UserAuthenticatorTest {
         assertFalse("Authentication should fail with wrong password", result);
     }
 
-    /**
-     * Test authentication fails for non-existent user
-     */
+   
     @Test
     public void testAuthenticate_UserNotFound() {
         boolean result = userAuth.authenticate("ghostUser", "1234");

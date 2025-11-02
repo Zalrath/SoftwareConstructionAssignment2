@@ -8,16 +8,13 @@ package Assignment2.Inventory;
  *
  * @author corin
  * 
- * Need to add 
-
+ * 
  * 
  * 
  */
 
-import Assignment2.Database.DatabaseUtil;
+
 import java.sql.*;
-import java.io.*;
-import java.nio.file.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
@@ -28,13 +25,6 @@ public class InventoryManager {
 
    
 
-    
-    
-    
-    
-// im doing it again :( sowwy
-    
-    
     public Map<UUID, List<PurchaseLog>> getPurchaseHistory() 
     {
         return purchaseHistory;
@@ -46,8 +36,7 @@ public class InventoryManager {
     }
 
     
-
-    
+ 
     public void addItem(Item item) {
         items.put(item.getUuid(), item);
     }
@@ -94,11 +83,7 @@ public class InventoryManager {
         return items.values();
     } 
 
-    
-    
-    
-    // ------- I AM SORRY I ADDED THIS IDK IF YOU HAVE SOMETHING BETTER --------- // 
-    public Set<String> extractAllTags() 
+       public Set<String> extractAllTags() 
     {
         Set<String> uniqueTags = new HashSet<>();
         for (Item item : getAllItems()) 
@@ -132,16 +117,7 @@ public class InventoryManager {
         }
         return logs.stream().mapToDouble(l -> l.getPrice() * l.getQuantity()).sum();
     }
-    
-    
 
-        
-    
-    
-    
-    
-    
-    
     public Map<String, Double> getSpendingByTag(String filter) { // changed the one in the spendingPanel so it can be used for the Vs Panel
         Map<String, Double> spendingByTag = new HashMap<>();
         LocalDate cutoff = switch (filter.toLowerCase()) {
@@ -184,12 +160,8 @@ public class InventoryManager {
     }
     
     // Data base functions 
-    /////////////////////////////////////////////////////////////////////////////////////
 
-    
-    
-    
-    
+
     
     // Save Items to DB
     public void saveItemsToDB(Connection conn) {
@@ -284,10 +256,6 @@ public class InventoryManager {
         } catch (SQLException e) {}
     }
 
-    
-    
-    
-    
     // Load Purchases from DB
     public void loadPurchasesFromDB(Connection conn) {
         purchaseHistory.clear();
@@ -311,57 +279,4 @@ public class InventoryManager {
     }
         
 }
-    /*
-        
-
-
-        
-
-
-
-        old main code - corins graveyard of code
-
-         // Item bread = new Item("Bread")   
-        // Item milk = new Item("Milk 2L"); 
-        // milk.addTag("breakfast");
-        // bread.addTag("breakfast");
-        // me messing around a bit
-        
-        //manager.addItem(milk);
-        //manager.addItem(bread);
-        
-        //manager.logPurchase(milk.getUuid(),4.0,1, LocalDate.of(2025, 7, 25));
-        
-        
-         //manager.logPurchase(bread.getUuid(),5.0,2, LocalDate.now());
-
-        
-        for (Item item : manager.getAllItems()) 
-        {
-            System.out.println("Item: " + item.getName());
-            System.out.println("  UUID: " + item.getUuid());
-            System.out.println("  Last Purchased: " + item.getLastPurchased());
-            System.out.println("  Estimated Interval: " + item.getEstimatedIntervalDays() + " days");
-            System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
-            System.out.println(item);
-            System.out.println();
-            System.out.println();
-        }
-        
-        for (Item item : manager.getAllItems()) 
-                {
-                    System.out.println("Item: " + item.getName());
-                    System.out.println("  UUID: " + item.getUuid());
-                    System.out.println("  Last Purchased: " + item.getLastPurchased());
-                    System.out.println("  Estimated Interval: " + item.getEstimatedIntervalDays() + " days");
-                    System.out.println("  Next Expected Purchase: " + item.getNextExpectedPurchase());
-                    System.out.println(item.getFuture());
-                    System.out.println(item.getFavorite());
-                    System.out.println(item.getCurrentAmount());
-                    System.out.println();
-                }
-
-        
     
-  
-    */

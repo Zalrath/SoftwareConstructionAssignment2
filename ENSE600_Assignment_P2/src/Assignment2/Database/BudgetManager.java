@@ -4,14 +4,10 @@
  */
 package Assignment2.Database;
 
-import Assignment2.Database.DatabaseUtil;
+
 import Assignment2.Inventory.Transaction;
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.*;
-
-
-
 
 
 
@@ -29,7 +25,7 @@ public class BudgetManager {
     private double weeklyBudget;
     private double monthlyBudget;
     private double yearlyBudget;
-    private double allTimeBudget; // just so we have default values
+   private double allTimeBudget;
     private double savings;
     private double income;
     private double expenses;
@@ -135,18 +131,6 @@ public class BudgetManager {
 
     public double getActual() { return actual; }
     public void setActual(double v) { actual = v; }
-
-    
-    
-    
-    
-
-        
-        
-      //  @Override
-      //  public String toString() {
-      //      return String.format("[%s] %s - $%.2f (%s)", type, title, amount, date);
-       // }
     
 
     private final HashMap<UUID, Transaction> transactions = new HashMap<>();
@@ -271,7 +255,7 @@ public class BudgetManager {
         }
     }
 
-    // Getter for in-memory map
+   
     public HashMap<UUID, Transaction> getTransactions() {
         return transactions;
     }
@@ -289,59 +273,4 @@ public class BudgetManager {
     }
 }
 
-    
-
-
-
-
-
-
-
-
-
-        // i need this for the panels
-          /*
-        LocalDate now = LocalDate.now();
-
-        // Example time ranges
-        LocalDate startOfWeek = now.with(DayOfWeek.MONDAY);
-
-        LocalDate startOfMonth = now.withDayOfMonth(1);
-
-        LocalDate beginningOfTime = LocalDate.of(2000, 1, 1);
-
-
-        // Spending
-        double weeklySpending = manager.getTotalSpendingForPeriod(startOfWeek, now);
-
-        double monthlySpending = manager.getTotalSpendingForPeriod(startOfMonth, now);
-
-        double yearlySpending = manager.getTotalSpendingForPeriod(startOfYear, now);
-
-        double allTimeSpending = manager.getTotalSpendingForPeriod(beginningOfTime, now);
-
-
-        // Budgets (you can later pull these from settings or a BudgetManager)
-        double weeklyBudget = ;
-        double monthlyBudget = 600.0;
-        double yearlyBudget = 7500.0;
-        double allTimeBudget = 10000.0;
-
-        // Update progress bars
-        weeklyPanel.setMaxDollarValue(weeklyBudget);
-
-        weeklyPanel.updateValue((weeklySpending / weeklyBudget) * 100);
-
-        monthlyPanel.setMaxDollarValue(monthlyBudget);
-
-        monthlyPanel.updateValue((monthlySpending / monthlyBudget) * 100);
-
-        yearlylPanel.setMaxDollarValue(yearlyBudget);
-
-        yearlylPanel.updateValue((yearlySpending / yearlyBudget) * 100);
-
-        alltimePanel.setMaxDollarValue(allTimeBudget);
-
-        alltimePanel.updateValue((allTimeSpending / allTimeBudget) * 100);
-    */
-        
+ 

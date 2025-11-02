@@ -11,6 +11,7 @@ import java.util.UUID;
  *
  * @author corin
  */
+
 public class Transaction {
     private UUID id;
     private String type;

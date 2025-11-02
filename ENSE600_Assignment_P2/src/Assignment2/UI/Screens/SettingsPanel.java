@@ -10,24 +10,19 @@ package Assignment2.UI.Screens;
  * @author megan
  */
 
-import Assignment2.Account.LoginDialog;
+
 
 import Assignment2.Account.UserAuthenticator;
-
-
 import Assignment2.Database.BudgetManager;
-
 import Assignment2.Inventory.InventoryManager;
 import Assignment2.Inventory.SettingsManager;
 import Assignment2.UI.HomeScreen;
-import Assignment2.UI.Template.AccentHeaderBar;
 import Assignment2.UI.Template.BaseScreenPanel;
 import Assignment2.UI.Theme;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import javax.swing.border.Border;
+
 
 public class SettingsPanel extends BaseScreenPanel 
 {

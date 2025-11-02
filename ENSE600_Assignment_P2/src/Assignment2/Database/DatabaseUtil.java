@@ -127,11 +127,7 @@ public class DatabaseUtil {
             
             """);
             
-            
-            
-            
-            
-            
+
             System.out.println("Tables created");
         } catch (SQLException e) {
             if (!"X0Y32".equals(e.getSQLState())) {} // Ignores the "table already exists" error
@@ -282,7 +278,9 @@ public class DatabaseUtil {
         String sql = "INSERT INTO Transactions (uuid,type, title, tag, amount, frequency, date) VALUES (?,?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
-
+            
+            // --------------------- GEN AI --------------------- //
+            
             UNCaddTransaction(ps, UUID.randomUUID(), "expense", "milk purchase", "dairy", 4.50, "weekly", LocalDate.of(2025, 10, 29));
             UNCaddTransaction(ps, UUID.randomUUID(),"expense", "internet bill", "utilities", 85.00, "monthly", LocalDate.of(2025, 10, 20));
             UNCaddTransaction(ps, UUID.randomUUID(),"expense", "groceries", "pantry", 60.00, "weekly", LocalDate.of(2025, 10, 15));
@@ -317,10 +315,15 @@ public class DatabaseUtil {
     }
     
     
+    
+    
     public void insertDefaultItems(Connection conn) {
         String sql = "INSERT INTO Items (uuid, name, last_Purchased, current_Amount , interval_Days, tags, favorite, future) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
-
+            
+            // --------------------- GEN AI --------------------- //
+            
+            
             UNCaddItem(ps, "bc41cce8-c598-449a-9051-563591c2b1c1", "Milk", LocalDate.of(2025, 2, 23), 4.0, 0, "Groceries|dairy|fridge|staple|breakfast", false, false);
             UNCaddItem(ps, "6d00f111-d395-431d-984b-1b25f150f64e", "Bread", LocalDate.of(2025, 8, 4), 1.0, 0, "Groceries|bakery|breakfast|staple|pantry", false, false);
             UNCaddItem(ps, "87eee6d3-cb6c-4666-97b0-350ff102f0c4", "Eggs", LocalDate.of(2025, 8, 31), 8.0, 0, "Groceries|protein|fridge|breakfast|baking", false, false);
@@ -387,7 +390,9 @@ public class DatabaseUtil {
     public void insertDefaultPurchases(Connection conn) {
         String sql = "INSERT INTO Purchases (itemUUID, price, quantity, purchaseDate) VALUES (?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
-
+            
+            // --------------------- GEN AI --------------------- //
+            
             UNCaddPurchases(ps, "3717698b-ba54-4db1-87c1-8404e1c878a8", 16.99, 3.0, LocalDate.of(2024, 10, 1));
             UNCaddPurchases(ps, "628ed9f6-3cae-4bc3-afc6-e396a90ff09d", 13.99, 2.0, LocalDate.of(2024, 10, 1));
             UNCaddPurchases(ps, "87eee6d3-cb6c-4666-97b0-350ff102f0c4", 6.00, 1.0, LocalDate.of(2024, 10, 1));

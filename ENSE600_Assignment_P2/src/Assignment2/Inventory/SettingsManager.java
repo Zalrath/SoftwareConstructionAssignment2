@@ -21,7 +21,7 @@ package Assignment2.Inventory;
  * A Settings class that manages application configuration.
  * 
  * Stores screen printing size, date format, and other options.
- * Supports loading from and saving to a text file.
+ * Supports loading from and saving to a DataBase.
  * 
  */
 import static Assignment2.Database.DatabaseUtil.getConnection;
@@ -41,24 +41,7 @@ public class SettingsManager {
     private static String currencyFormat = "$";
     private static String dateFormat = "dd MMM yyyy";
     private static String accentColor = "#48375D";
-    
-    /*
-    public static void loadFromDatabase() {
-        try (Connection conn = getConnection();
-             PreparedStatement ps = conn.prepareStatement("SELECT * FROM settings");
-             ResultSet rs = ps.executeQuery()) {
 
-            if (rs.next()) {
-
-                accentColor = rs.getString("accent_colour");
-                dateFormat = rs.getString("date_format");
-                System.out.println("success");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-    */
 
     public static void loadFromDatabase() {
     try (Connection conn = getConnection();
@@ -125,7 +108,29 @@ public class SettingsManager {
             e.printStackTrace();
         }
     }
+
     
+    
+     private Map<String, String> settings = new HashMap<>();
+    
+    // Getters and Setters
+    
+    public String getSetting(String key) {
+        return settings.get(key);
+    }
+
+    public void setSetting(String key, String value) {
+        settings.put(key, value);
+    }
+
+    public boolean containsKey(String key) {
+        return settings.containsKey(key);
+    }
+
+    public Map<String, String> getAllSettings() {
+        return Collections.unmodifiableMap(settings);
+    }
+
     
     
     
@@ -135,20 +140,8 @@ public class SettingsManager {
     
     
     //////////////////////////// OLD Stuff//////////////////////////////////////////////
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    private Map<String, String> settings = new HashMap<>();
-    
-    
-    
-    
+
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Load from text file
     public void loadSettings(String path) throws IOException {
@@ -179,24 +172,6 @@ public class SettingsManager {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-
-    // Getters and Setters
-    
-    public String getSetting(String key) {
-        return settings.get(key);
-    }
-
-    public void setSetting(String key, String value) {
-        settings.put(key, value);
-    }
-
-    public boolean containsKey(String key) {
-        return settings.containsKey(key);
-    }
-
-    public Map<String, String> getAllSettings() {
-        return Collections.unmodifiableMap(settings);
-    }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     /// @return /
@@ -239,26 +214,6 @@ public class SettingsManager {
         settings.putIfAbsent("dateFormat", "yyyy-MM-dd");
        
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*
-    
-    
-    
-    
-    
-    
-    */
-    
-    
-    
-    
+
     
 }
