@@ -38,6 +38,7 @@ public class DatabaseUtilTest {
     }
 
     @Test
+    
    public void testConnectToDatabase() throws Exception {
        System.out.println("connectToDatabase");
        Connection result = DatabaseUtil.connectToDatabase();
