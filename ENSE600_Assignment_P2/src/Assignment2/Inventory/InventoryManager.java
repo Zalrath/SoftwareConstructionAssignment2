@@ -64,7 +64,7 @@ public class InventoryManager {
         }
     }
 
-    private int calculateAvgInterval(UUID itemId) {
+    public int calculateAvgInterval(UUID itemId) {
         List<PurchaseLog> logs = purchaseHistory.get(itemId);
         if (logs == null || logs.size() < 2) return 0;
 
